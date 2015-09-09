@@ -34,11 +34,11 @@
 		4AD21AE61BA0250100B4BDDC /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = SupportFiles/main.m; sourceTree = SOURCE_ROOT; };
 		4AD21AF01BA025DD00B4BDDC /* WWHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWHomePageViewController.h; sourceTree = SOURCE_ROOT; };
 		4AD21AF11BA025DD00B4BDDC /* WWHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWHomePageViewController.m; sourceTree = SOURCE_ROOT; };
-		4AD21AF91BA027E900B4BDDC /* WWUrlConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WWUrlConfig.h; sourceTree = SOURCE_ROOT; };
 		4AD21AFA1BA028B700B4BDDC /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		4AD21AFB1BA028B700B4BDDC /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = SOURCE_ROOT; };
 		4AD21AFF1BA029E500B4BDDC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		4AD21B011BA02A9200B4BDDC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
+		4AD21B031BA02DC500B4BDDC /* WWUrlConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WWUrlConfig.h; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,7 +125,7 @@
 			children = (
 				4AD21AFA1BA028B700B4BDDC /* AppDelegate.h */,
 				4AD21AFB1BA028B700B4BDDC /* AppDelegate.mm */,
-				4AD21AF91BA027E900B4BDDC /* WWUrlConfig.h */,
+				4AD21B031BA02DC500B4BDDC /* WWUrlConfig.h */,
 			);
 			name = ApplicationConfig;
 			sourceTree = "<group>";

@@ -9,4 +9,7 @@
 #ifndef WWSampleProject_WWUrlConfig_h
 #define WWSampleProject_WWUrlConfig_h
 
+//host
+#define URL_MAIN_HOST @"http://www.xxx.com"
+
 #endif

@@ -39,7 +39,6 @@
     [self.tabBarController setSelectedIndex:0];
 
     
-    
     //导航条创建
     self.navtionViewControl = [[UINavigationController alloc]initWithRootViewController:self.tabBarController];
     //隐藏系统导航条

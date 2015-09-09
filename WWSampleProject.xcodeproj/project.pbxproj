@@ -12,8 +12,10 @@
 		4AD21AEA1BA0250100B4BDDC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21AE61BA0250100B4BDDC /* main.m */; };
 		4AD21AF21BA025DD00B4BDDC /* WWHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21AF11BA025DD00B4BDDC /* WWHomePageViewController.m */; };
 		4AD21AFC1BA028B700B4BDDC /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21AFB1BA028B700B4BDDC /* AppDelegate.mm */; };
-		4AD21B001BA029E500B4BDDC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AD21AFF1BA029E500B4BDDC /* Default-568h@2x.png */; };
 		4AD21B021BA02A9200B4BDDC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AD21B011BA02A9200B4BDDC /* Info.plist */; };
+		4AD21B071BA02FB600B4BDDC /* WWUtilityClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21B061BA02FB600B4BDDC /* WWUtilityClass.m */; };
+		4AD21B0A1BA032B700B4BDDC /* InterfaceClassFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21B091BA032B700B4BDDC /* InterfaceClassFile.m */; };
+		4AD21B0D1BA033DB00B4BDDC /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21B0C1BA033DB00B4BDDC /* UINavigationBar+Awesome.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,9 +38,15 @@
 		4AD21AF11BA025DD00B4BDDC /* WWHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWHomePageViewController.m; sourceTree = SOURCE_ROOT; };
 		4AD21AFA1BA028B700B4BDDC /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = SOURCE_ROOT; };
 		4AD21AFB1BA028B700B4BDDC /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = SOURCE_ROOT; };
-		4AD21AFF1BA029E500B4BDDC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		4AD21B011BA02A9200B4BDDC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 		4AD21B031BA02DC500B4BDDC /* WWUrlConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WWUrlConfig.h; sourceTree = SOURCE_ROOT; };
+		4AD21B041BA02EB400B4BDDC /* WWProject.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWProject.pch; sourceTree = SOURCE_ROOT; };
+		4AD21B051BA02FB600B4BDDC /* WWUtilityClass.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWUtilityClass.h; sourceTree = SOURCE_ROOT; };
+		4AD21B061BA02FB600B4BDDC /* WWUtilityClass.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWUtilityClass.m; sourceTree = SOURCE_ROOT; };
+		4AD21B081BA032B700B4BDDC /* InterfaceClassFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = InterfaceClassFile.h; sourceTree = SOURCE_ROOT; };
+		4AD21B091BA032B700B4BDDC /* InterfaceClassFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterfaceClassFile.m; sourceTree = SOURCE_ROOT; };
+		4AD21B0B1BA033DA00B4BDDC /* UINavigationBar+Awesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Awesome.h"; sourceTree = SOURCE_ROOT; };
+		4AD21B0C1BA033DB00B4BDDC /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Awesome.m"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,7 +70,6 @@
 		4AD21AAC1BA01A3C00B4BDDC = {
 			isa = PBXGroup;
 			children = (
-				4AD21AFF1BA029E500B4BDDC /* Default-568h@2x.png */,
 				4AD21AB71BA01A3C00B4BDDC /* WWSampleProject */,
 				4AD21AB61BA01A3C00B4BDDC /* Products */,
 			);
@@ -94,6 +101,7 @@
 				4AD21AE11BA0250100B4BDDC /* Base.lproj */,
 				4AD21AE41BA0250100B4BDDC /* Images.xcassets */,
 				4AD21AE61BA0250100B4BDDC /* main.m */,
+				4AD21B041BA02EB400B4BDDC /* WWProject.pch */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -126,6 +134,8 @@
 				4AD21AFA1BA028B700B4BDDC /* AppDelegate.h */,
 				4AD21AFB1BA028B700B4BDDC /* AppDelegate.mm */,
 				4AD21B031BA02DC500B4BDDC /* WWUrlConfig.h */,
+				4AD21B051BA02FB600B4BDDC /* WWUtilityClass.h */,
+				4AD21B061BA02FB600B4BDDC /* WWUtilityClass.m */,
 			);
 			name = ApplicationConfig;
 			sourceTree = "<group>";
@@ -183,6 +193,8 @@
 		4AD21AF31BA025EA00B4BDDC /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				4AD21B0B1BA033DA00B4BDDC /* UINavigationBar+Awesome.h */,
+				4AD21B0C1BA033DB00B4BDDC /* UINavigationBar+Awesome.m */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -197,6 +209,8 @@
 		4AD21AF51BA0271100B4BDDC /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
+				4AD21B081BA032B700B4BDDC /* InterfaceClassFile.h */,
+				4AD21B091BA032B700B4BDDC /* InterfaceClassFile.m */,
 			);
 			name = NetWork;
 			sourceTree = "<group>";
@@ -303,7 +317,6 @@
 			files = (
 				4AD21B021BA02A9200B4BDDC /* Info.plist in Resources */,
 				4AD21AE71BA0250100B4BDDC /* LaunchScreen.xib in Resources */,
-				4AD21B001BA029E500B4BDDC /* Default-568h@2x.png in Resources */,
 				4AD21AE81BA0250100B4BDDC /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -322,9 +335,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AD21B0A1BA032B700B4BDDC /* InterfaceClassFile.m in Sources */,
+				4AD21B0D1BA033DB00B4BDDC /* UINavigationBar+Awesome.m in Sources */,
 				4AD21AF21BA025DD00B4BDDC /* WWHomePageViewController.m in Sources */,
 				4AD21AEA1BA0250100B4BDDC /* main.m in Sources */,
 				4AD21AFC1BA028B700B4BDDC /* AppDelegate.mm in Sources */,
+				4AD21B071BA02FB600B4BDDC /* WWUtilityClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -443,6 +459,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = WWProject.pch;
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -454,6 +471,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PREFIX_HEADER = WWProject.pch;
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

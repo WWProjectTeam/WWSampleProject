@@ -16,6 +16,9 @@
 		4AD21B071BA02FB600B4BDDC /* WWUtilityClass.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21B061BA02FB600B4BDDC /* WWUtilityClass.m */; };
 		4AD21B0A1BA032B700B4BDDC /* InterfaceClassFile.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21B091BA032B700B4BDDC /* InterfaceClassFile.m */; };
 		4AD21B0D1BA033DB00B4BDDC /* UINavigationBar+Awesome.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21B0C1BA033DB00B4BDDC /* UINavigationBar+Awesome.m */; };
+		4AD21B101BA0355000B4BDDC /* WWBaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21B0F1BA0355000B4BDDC /* WWBaseNavigationViewController.m */; };
+		4AD21B131BA0358400B4BDDC /* WWBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21B121BA0358400B4BDDC /* WWBaseViewController.m */; };
+		4AD21B1C1BA0396000B4BDDC /* UIViewController+AOP.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21B1B1BA0396000B4BDDC /* UIViewController+AOP.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +50,12 @@
 		4AD21B091BA032B700B4BDDC /* InterfaceClassFile.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = InterfaceClassFile.m; sourceTree = SOURCE_ROOT; };
 		4AD21B0B1BA033DA00B4BDDC /* UINavigationBar+Awesome.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UINavigationBar+Awesome.h"; sourceTree = SOURCE_ROOT; };
 		4AD21B0C1BA033DB00B4BDDC /* UINavigationBar+Awesome.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UINavigationBar+Awesome.m"; sourceTree = SOURCE_ROOT; };
+		4AD21B0E1BA0355000B4BDDC /* WWBaseNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWBaseNavigationViewController.h; sourceTree = SOURCE_ROOT; };
+		4AD21B0F1BA0355000B4BDDC /* WWBaseNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWBaseNavigationViewController.m; sourceTree = SOURCE_ROOT; };
+		4AD21B111BA0358400B4BDDC /* WWBaseViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWBaseViewController.h; sourceTree = SOURCE_ROOT; };
+		4AD21B121BA0358400B4BDDC /* WWBaseViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWBaseViewController.m; sourceTree = SOURCE_ROOT; };
+		4AD21B1A1BA0396000B4BDDC /* UIViewController+AOP.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+AOP.h"; sourceTree = SOURCE_ROOT; };
+		4AD21B1B1BA0396000B4BDDC /* UIViewController+AOP.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+AOP.m"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,7 +125,7 @@
 		4AD21ADF1BA01C9400B4BDDC /* SourceCode */ = {
 			isa = PBXGroup;
 			children = (
-				4AD21AE01BA01CA900B4BDDC /* ApplicationConfig */,
+				4AD21AE01BA01CA900B4BDDC /* Application */,
 				4AD21AF81BA0272D00B4BDDC /* Categories */,
 				4AD21AF71BA0272500B4BDDC /* Utils */,
 				4AD21AF61BA0271D00B4BDDC /* Database */,
@@ -128,16 +137,13 @@
 			name = SourceCode;
 			sourceTree = "<group>";
 		};
-		4AD21AE01BA01CA900B4BDDC /* ApplicationConfig */ = {
+		4AD21AE01BA01CA900B4BDDC /* Application */ = {
 			isa = PBXGroup;
 			children = (
 				4AD21AFA1BA028B700B4BDDC /* AppDelegate.h */,
 				4AD21AFB1BA028B700B4BDDC /* AppDelegate.mm */,
-				4AD21B031BA02DC500B4BDDC /* WWUrlConfig.h */,
-				4AD21B051BA02FB600B4BDDC /* WWUtilityClass.h */,
-				4AD21B061BA02FB600B4BDDC /* WWUtilityClass.m */,
 			);
-			name = ApplicationConfig;
+			name = Application;
 			sourceTree = "<group>";
 		};
 		4AD21AE11BA0250100B4BDDC /* Base.lproj */ = {
@@ -195,6 +201,10 @@
 			children = (
 				4AD21B0B1BA033DA00B4BDDC /* UINavigationBar+Awesome.h */,
 				4AD21B0C1BA033DB00B4BDDC /* UINavigationBar+Awesome.m */,
+				4AD21B0E1BA0355000B4BDDC /* WWBaseNavigationViewController.h */,
+				4AD21B0F1BA0355000B4BDDC /* WWBaseNavigationViewController.m */,
+				4AD21B111BA0358400B4BDDC /* WWBaseViewController.h */,
+				4AD21B121BA0358400B4BDDC /* WWBaseViewController.m */,
 			);
 			name = Base;
 			sourceTree = "<group>";
@@ -225,6 +235,9 @@
 		4AD21AF71BA0272500B4BDDC /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				4AD21B031BA02DC500B4BDDC /* WWUrlConfig.h */,
+				4AD21B051BA02FB600B4BDDC /* WWUtilityClass.h */,
+				4AD21B061BA02FB600B4BDDC /* WWUtilityClass.m */,
 			);
 			name = Utils;
 			sourceTree = "<group>";
@@ -232,6 +245,8 @@
 		4AD21AF81BA0272D00B4BDDC /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				4AD21B1A1BA0396000B4BDDC /* UIViewController+AOP.h */,
+				4AD21B1B1BA0396000B4BDDC /* UIViewController+AOP.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -336,10 +351,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				4AD21B0A1BA032B700B4BDDC /* InterfaceClassFile.m in Sources */,
+				4AD21B131BA0358400B4BDDC /* WWBaseViewController.m in Sources */,
 				4AD21B0D1BA033DB00B4BDDC /* UINavigationBar+Awesome.m in Sources */,
 				4AD21AF21BA025DD00B4BDDC /* WWHomePageViewController.m in Sources */,
+				4AD21B101BA0355000B4BDDC /* WWBaseNavigationViewController.m in Sources */,
 				4AD21AEA1BA0250100B4BDDC /* main.m in Sources */,
 				4AD21AFC1BA028B700B4BDDC /* AppDelegate.mm in Sources */,
+				4AD21B1C1BA0396000B4BDDC /* UIViewController+AOP.m in Sources */,
 				4AD21B071BA02FB600B4BDDC /* WWUtilityClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -18,7 +18,8 @@
 #import "WWUrlConfig.h"
 #import "WWUtilityClass.h"
 
-
-
+//base
+#import "WWBaseViewController.h"
+#import "WWBaseNavigationViewController.h"
 
 #endif

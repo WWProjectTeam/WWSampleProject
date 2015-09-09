@@ -1,5 +1,5 @@
 //
-//  WWHomePageViewController.h
+//  UIViewController+AOP.h
 //  WWSampleProject
 //
 //  Created by ww on 15/9/9.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WWHomePageViewController : WWBaseViewController
+@interface UIViewController (AOP)
 
 @end

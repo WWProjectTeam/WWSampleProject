@@ -41,6 +41,8 @@
 
 //常用颜色定义
 
+//工程主调颜色
+#define WW_BASE_COLOR [UIColor colorWithRed:181.0f/255.0f green:34.0f/255.0f blue:0.0f/255.0f alpha:1.0f]
 
 //字体宏-带适配系数
 #define font_size(size) [UIFont systemFontOfSize:size*kPercenX]

@@ -13,5 +13,8 @@
 @property (strong, nonatomic) UIWindow *window;
 
 
+//控制器创建
+@property (strong, nonatomic) UINavigationController * navtionViewControl;
+@property (strong, nonatomic) UITabBarController     * tabBarController;
 @end
 

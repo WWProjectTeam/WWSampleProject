@@ -8,15 +8,45 @@
 
 #import "AppDelegate.h"
 
+//FunctionalModule
+#import "WWHomePageViewController.h"
+
 @interface AppDelegate ()
 
 @end
 
 @implementation AppDelegate
+@synthesize navtionViewControl = _navtionViewControl;
+@synthesize tabBarController   = _tabBarController;
 
+
+@synthesize window = _window;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    self.window.backgroundColor = [UIColor whiteColor];
+    
+    
+    //标签页控制器初始化
+    WWHomePageViewController * homePageVC = [[WWHomePageViewController alloc]init];
+
+    //视图数组
+    NSArray* controllerArray = [[NSArray alloc]initWithObjects:homePageVC,nil];
+    
+    //标签页控制器初始化
+    self.tabBarController = [[UITabBarController alloc]init];
+    [self.tabBarController setViewControllers:controllerArray];
+    [self.tabBarController setSelectedIndex:0];
+
+    
+    
+    //导航条创建
+    self.navtionViewControl = [[UINavigationController alloc]initWithRootViewController:self.tabBarController];
+    //隐藏系统导航条
+    [self.navtionViewControl setNavigationBarHidden:YES];
+    [self.window setRootViewController:self.navtionViewControl];
+    [self.window makeKeyAndVisible];
+
     return YES;
 }
 

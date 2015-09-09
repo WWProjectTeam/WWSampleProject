@@ -9,5 +9,4 @@
 #ifndef WWSampleProject_WWUrlConfig_h
 #define WWSampleProject_WWUrlConfig_h
 
-
 #endif

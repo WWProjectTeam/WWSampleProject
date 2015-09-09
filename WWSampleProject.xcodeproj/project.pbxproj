@@ -7,13 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4AD21ABE1BA01A3C00B4BDDC /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21ABD1BA01A3C00B4BDDC /* AppDelegate.m */; };
-		4AD21AD51BA01A3C00B4BDDC /* WWSampleProjectTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21AD41BA01A3C00B4BDDC /* WWSampleProjectTests.m */; };
 		4AD21AE71BA0250100B4BDDC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AD21AE21BA0250100B4BDDC /* LaunchScreen.xib */; };
 		4AD21AE81BA0250100B4BDDC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AD21AE41BA0250100B4BDDC /* Images.xcassets */; };
-		4AD21AE91BA0250100B4BDDC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AD21AE51BA0250100B4BDDC /* Info.plist */; };
 		4AD21AEA1BA0250100B4BDDC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21AE61BA0250100B4BDDC /* main.m */; };
 		4AD21AF21BA025DD00B4BDDC /* WWHomePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21AF11BA025DD00B4BDDC /* WWHomePageViewController.m */; };
+		4AD21AFC1BA028B700B4BDDC /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21AFB1BA028B700B4BDDC /* AppDelegate.mm */; };
+		4AD21B001BA029E500B4BDDC /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AD21AFF1BA029E500B4BDDC /* Default-568h@2x.png */; };
+		4AD21B021BA02A9200B4BDDC /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 4AD21B011BA02A9200B4BDDC /* Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -28,18 +28,17 @@
 
 /* Begin PBXFileReference section */
 		4AD21AB51BA01A3C00B4BDDC /* WWSampleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWSampleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		4AD21ABC1BA01A3C00B4BDDC /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		4AD21ABD1BA01A3C00B4BDDC /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		4AD21ACE1BA01A3C00B4BDDC /* WWSampleProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWSampleProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		4AD21AD31BA01A3C00B4BDDC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4AD21AD41BA01A3C00B4BDDC /* WWSampleProjectTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WWSampleProjectTests.m; sourceTree = "<group>"; };
 		4AD21AE31BA0250100B4BDDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
 		4AD21AE41BA0250100B4BDDC /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = SupportFiles/Images.xcassets; sourceTree = SOURCE_ROOT; };
-		4AD21AE51BA0250100B4BDDC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = SupportFiles/Info.plist; sourceTree = SOURCE_ROOT; };
 		4AD21AE61BA0250100B4BDDC /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = SupportFiles/main.m; sourceTree = SOURCE_ROOT; };
 		4AD21AF01BA025DD00B4BDDC /* WWHomePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWHomePageViewController.h; sourceTree = SOURCE_ROOT; };
 		4AD21AF11BA025DD00B4BDDC /* WWHomePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWHomePageViewController.m; sourceTree = SOURCE_ROOT; };
 		4AD21AF91BA027E900B4BDDC /* WWUrlConfig.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WWUrlConfig.h; sourceTree = SOURCE_ROOT; };
+		4AD21AFA1BA028B700B4BDDC /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = SOURCE_ROOT; };
+		4AD21AFB1BA028B700B4BDDC /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = SOURCE_ROOT; };
+		4AD21AFF1BA029E500B4BDDC /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		4AD21B011BA02A9200B4BDDC /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,8 +62,8 @@
 		4AD21AAC1BA01A3C00B4BDDC = {
 			isa = PBXGroup;
 			children = (
+				4AD21AFF1BA029E500B4BDDC /* Default-568h@2x.png */,
 				4AD21AB71BA01A3C00B4BDDC /* WWSampleProject */,
-				4AD21AD11BA01A3C00B4BDDC /* WWSampleProjectTests */,
 				4AD21AB61BA01A3C00B4BDDC /* Products */,
 			);
 			sourceTree = "<group>";
@@ -91,27 +90,10 @@
 		4AD21AB81BA01A3C00B4BDDC /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				4AD21B011BA02A9200B4BDDC /* Info.plist */,
 				4AD21AE11BA0250100B4BDDC /* Base.lproj */,
 				4AD21AE41BA0250100B4BDDC /* Images.xcassets */,
-				4AD21AE51BA0250100B4BDDC /* Info.plist */,
 				4AD21AE61BA0250100B4BDDC /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
-		4AD21AD11BA01A3C00B4BDDC /* WWSampleProjectTests */ = {
-			isa = PBXGroup;
-			children = (
-				4AD21AD41BA01A3C00B4BDDC /* WWSampleProjectTests.m */,
-				4AD21AD21BA01A3C00B4BDDC /* Supporting Files */,
-			);
-			path = WWSampleProjectTests;
-			sourceTree = "<group>";
-		};
-		4AD21AD21BA01A3C00B4BDDC /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				4AD21AD31BA01A3C00B4BDDC /* Info.plist */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -141,8 +123,8 @@
 		4AD21AE01BA01CA900B4BDDC /* ApplicationConfig */ = {
 			isa = PBXGroup;
 			children = (
-				4AD21ABC1BA01A3C00B4BDDC /* AppDelegate.h */,
-				4AD21ABD1BA01A3C00B4BDDC /* AppDelegate.m */,
+				4AD21AFA1BA028B700B4BDDC /* AppDelegate.h */,
+				4AD21AFB1BA028B700B4BDDC /* AppDelegate.mm */,
 				4AD21AF91BA027E900B4BDDC /* WWUrlConfig.h */,
 			);
 			name = ApplicationConfig;
@@ -292,7 +274,6 @@
 					};
 					4AD21ACD1BA01A3C00B4BDDC = {
 						CreatedOnToolsVersion = 6.4;
-						TestTargetID = 4AD21AB41BA01A3C00B4BDDC;
 					};
 				};
 			};
@@ -320,9 +301,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4AD21B021BA02A9200B4BDDC /* Info.plist in Resources */,
 				4AD21AE71BA0250100B4BDDC /* LaunchScreen.xib in Resources */,
+				4AD21B001BA029E500B4BDDC /* Default-568h@2x.png in Resources */,
 				4AD21AE81BA0250100B4BDDC /* Images.xcassets in Resources */,
-				4AD21AE91BA0250100B4BDDC /* Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -342,7 +324,7 @@
 			files = (
 				4AD21AF21BA025DD00B4BDDC /* WWHomePageViewController.m in Sources */,
 				4AD21AEA1BA0250100B4BDDC /* main.m in Sources */,
-				4AD21ABE1BA01A3C00B4BDDC /* AppDelegate.m in Sources */,
+				4AD21AFC1BA028B700B4BDDC /* AppDelegate.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,7 +332,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4AD21AD51BA01A3C00B4BDDC /* WWSampleProjectTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -412,7 +393,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -450,7 +431,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -462,7 +443,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = WWSampleProject/Info.plist;
+				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -473,7 +454,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				INFOPLIST_FILE = WWSampleProject/Info.plist;
+				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -483,7 +464,6 @@
 		4AD21ADC1BA01A3C00B4BDDC /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -492,25 +472,22 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = WWSampleProjectTests/Info.plist;
+				INFOPLIST_FILE = "";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WWSampleProject.app/WWSampleProject";
 			};
 			name = Debug;
 		};
 		4AD21ADD1BA01A3C00B4BDDC /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = WWSampleProjectTests/Info.plist;
+				INFOPLIST_FILE = "";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/WWSampleProject.app/WWSampleProject";
 			};
 			name = Release;
 		};

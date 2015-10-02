@@ -7,8 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+//环信
+#import "EaseMob.h"
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate>
+//微信
+#import "WXApi.h"
+@interface AppDelegate : UIResponder <UIApplicationDelegate,WXApiDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

@@ -8,6 +8,8 @@
 
 #import "UIViewController+AOP.h"
 #import <objc/runtime.h>
+
+#import "MobClick.h"
 @implementation UIViewController (AOP)
 
 + (void)load
@@ -20,6 +22,21 @@
         swizzleMethod(class, @selector(viewDidAppear:), @selector(aop_viewDidAppear:));
         swizzleMethod(class, @selector(viewWillAppear:), @selector(aop_viewWillAppear:));
         swizzleMethod(class, @selector(viewWillDisappear:), @selector(aop_viewWillDisappear:));
+        
+        
+        //三方类初始化
+        //友盟----渠道名称自己修改
+         [MobClick startWithAppkey:@"55fb7f61e0f55a1b9e003532" reportPolicy:BATCH channelId:@"App Store"];
+        
+        //友盟SDK为了兼容Xcode3的工程，默认取的是Build号，如果需要取Xcode4及以上版本的Version，可以使用下面的方法；
+        NSString *version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+        [MobClick setAppVersion:version];
+        
+        //设置后台模式
+        [MobClick setBackgroundTaskEnabled:YES];
+
+        
+
     });
 }
 
@@ -43,11 +60,22 @@ void swizzleMethod(Class class, SEL originalSelector,SEL swizzledSelector)
 
 -(void)aop_viewWillAppear:(BOOL)animated {
     [self aop_viewWillAppear:animated];
+
+    //友盟-页面统计
+#ifndef DEBUG
+    [MobClick beginLogPageView:NSStringFromClass([self class])];
+#endif
     
 
 }
 -(void)aop_viewWillDisappear:(BOOL)animated {
     [self aop_viewWillDisappear:animated];
+    
+    //友盟-页面统计
+#ifndef DEBUG
+    [MobClick endLogPageView:NSStringFromClass([self class])];
+#endif
+    
 
 }
 

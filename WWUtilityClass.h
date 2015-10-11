@@ -49,7 +49,7 @@
 #define font_bold_size(size) [UIFont boldSystemFontOfSize:size*kPercenX]
 
 //常用字体设置
-
+#define font_navtionTitle font_bold_size(16)
 //请求状态码
 #define WWAppSuccessCode @"000"
 #define WWAppNoData      @"001"

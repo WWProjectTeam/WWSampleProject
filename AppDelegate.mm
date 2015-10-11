@@ -52,7 +52,7 @@
     //导航条创建
     self.navtionViewControl = [[UINavigationController alloc]initWithRootViewController:self.tabBarController];
     //隐藏系统导航条
-    //[self.navtionViewControl setNavigationBarHidden:YES];
+    [self.navtionViewControl setNavigationBarHidden:YES];
     [self.window setRootViewController:self.navtionViewControl];
     [self.window makeKeyAndVisible];
     

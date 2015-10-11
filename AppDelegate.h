@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 //环信
-#import "EaseMob.h"
+//#import "EaseMob.h"
 
 //微信
 #import "WXApi.h"

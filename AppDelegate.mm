@@ -57,44 +57,46 @@
     [self.window makeKeyAndVisible];
     
     
-    //环信注册//因为要用到launchOptions，所以没法放到aop中
-    //registerSDKWithAppKey:注册的appKey，详细见下面注释。
-    //apnsCertName:推送证书名(不需要加后缀)，详细见下面注释。
-    [[EaseMob sharedInstance] registerSDKWithAppKey:@"yiyouv#yiyv" apnsCertName:@"istore_dev"];
-    [[EaseMob sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
-
+//    //环信注册//因为要用到launchOptions，所以没法放到aop中
+//    //registerSDKWithAppKey:注册的appKey，详细见下面注释。
+//    //apnsCertName:推送证书名(不需要加后缀)，详细见下面注释。
+//    [[EaseMob sharedInstance] registerSDKWithAppKey:@"yiyouv#yiyv" apnsCertName:@"istore_dev"];
+//    [[EaseMob sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
+//
+//    
+//    
+//#pragma mark - 环信用户注册测试
+//    [[EaseMob sharedInstance].chatManager asyncRegisterNewAccount:@"8001" password:@"111111" withCompletion:^(NSString *username, NSString *password, EMError *error) {
+//        if (!error) {
+//            WWLog(@"注册成功");
+//        }
+//    } onQueue:nil];
+//    
+//#pragma mark - 环信用户登录测试
+//    [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:@"8001" password:@"111111" completion:^(NSDictionary *loginInfo, EMError *error) {
+//        if (!error && loginInfo) {
+//            WWLog(@"登陆成功");
+//        }
+//    } onQueue:nil];
+//    
+//#pragma mark - 环信用户自动登录设置
+//    [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:@"8001" password:@"111111" completion:^(NSDictionary *loginInfo, EMError *error) {
+//        if (!error) {
+//            // 设置自动登录
+//            [[EaseMob sharedInstance].chatManager setIsAutoLoginEnabled:YES];
+//        }
+//    } onQueue:nil];
+//    
+//#pragma mark - 环信用户推出登录测试
+//    //logoffWithUnbindDeviceToken：是否解除device token的绑定，在被动退出时传NO，在主动退出时传YES.
+//    [[EaseMob sharedInstance].chatManager asyncLogoffWithUnbindDeviceToken:YES completion:^(NSDictionary *info, EMError *error) {
+//        if (!error && info) {
+//            WWLog(@"退出成功");
+//        }
+//    } onQueue:nil];
     
     
-#pragma mark - 环信用户注册测试
-    [[EaseMob sharedInstance].chatManager asyncRegisterNewAccount:@"8001" password:@"111111" withCompletion:^(NSString *username, NSString *password, EMError *error) {
-        if (!error) {
-            WWLog(@"注册成功");
-        }
-    } onQueue:nil];
-    
-#pragma mark - 环信用户登录测试
-    [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:@"8001" password:@"111111" completion:^(NSDictionary *loginInfo, EMError *error) {
-        if (!error && loginInfo) {
-            WWLog(@"登陆成功");
-        }
-    } onQueue:nil];
-    
-#pragma mark - 环信用户自动登录设置
-    [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:@"8001" password:@"111111" completion:^(NSDictionary *loginInfo, EMError *error) {
-        if (!error) {
-            // 设置自动登录
-            [[EaseMob sharedInstance].chatManager setIsAutoLoginEnabled:YES];
-        }
-    } onQueue:nil];
-    
-#pragma mark - 环信用户推出登录测试
-    //logoffWithUnbindDeviceToken：是否解除device token的绑定，在被动退出时传NO，在主动退出时传YES.
-    [[EaseMob sharedInstance].chatManager asyncLogoffWithUnbindDeviceToken:YES completion:^(NSDictionary *info, EMError *error) {
-        if (!error && info) {
-            WWLog(@"退出成功");
-        }
-    } onQueue:nil];
-    
+#pragma mark - wxAPIkey
     //微信
     [WXApi registerApp:@"appkey"];
     
@@ -154,19 +156,19 @@
 // App进入后台
 - (void)applicationDidEnterBackground:(UIApplication *)application
 {
-    [[EaseMob sharedInstance] applicationDidEnterBackground:application];
+ //   [[EaseMob sharedInstance] applicationDidEnterBackground:application];
 }
 
 // App将要从后台返回
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    [[EaseMob sharedInstance] applicationWillEnterForeground:application];
+//    [[EaseMob sharedInstance] applicationWillEnterForeground:application];
 }
 
 // 申请处理时间
 - (void)applicationWillTerminate:(UIApplication *)application
 {
-    [[EaseMob sharedInstance] applicationWillTerminate:application];
+  //  [[EaseMob sharedInstance] applicationWillTerminate:application];
 }
 
 

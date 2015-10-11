@@ -4,4 +4,8 @@ pod "AFNetworking", "~> 2.0"
 
 pod 'UMengAnalytics'
 
-pod 'EaseMobSDKFull', :git => 'https://github.com/easemob/sdk-ios-cocoapods-integration.git'
+
+platform :ios, '6.1'
+pod 'SDWebImage', '~>3.7'
+
+pod 'SVProgressHUD'

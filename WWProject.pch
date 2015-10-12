@@ -29,4 +29,8 @@
 //NetWork
 #import "AFNetworking.h"
 
+#import "JSONKit.h"
+#import "HTTPClient.h"
+#import "FMFunctions.h"             ///系统方法
+
 #endif

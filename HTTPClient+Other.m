@@ -24,7 +24,21 @@
                parameters:param
                completion:completionBlock];
     
+    
 }
 
+//HP-getUserUnReadMsg
+- (AFHTTPRequestOperation *)UserUnreadMsgNumWithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
+    
+    NSDictionary * dicParam = @{@"userId":g_UserId};
+    
+    return [self getPath:KUnreadMsgNumURL parameters:dicParam completion:completionBlock];
+}
+
+//HP-getProductType
+- (AFHTTPRequestOperation *)ProductTypeWithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
+    
+    return [self getPath:KProductType parameters:nil completion:completionBlock];
+}
 
 @end

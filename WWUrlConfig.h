@@ -10,6 +10,6 @@
 #define WWSampleProject_WWUrlConfig_h
 
 //host
-#define URL_MAIN_HOST @"http://www.xxx.com"
+#define URL_MAIN_HOST @"http://apitest.aishou.com:8080/"
 
 #endif

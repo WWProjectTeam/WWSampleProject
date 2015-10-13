@@ -20,7 +20,7 @@
 ////////////////////
 
 
-
+NSString * g_UserId;
 @interface AppDelegate ()
 
 @end

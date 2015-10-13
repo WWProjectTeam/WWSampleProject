@@ -8,12 +8,15 @@
 
 #import "HomePageView.h"
 
-@implementation HomePageView
+@implementation HomePageView{
+    UITableView * tableProductType;
+}
 
 @synthesize bannDelegate = _bannDelegate;
 @synthesize arrBannerData = _arrBannerData;
 @synthesize homePageScrollView = _homePageScrollView;
-
+@synthesize arrProductType = _arrProductType;
+@synthesize delegate = _delegate;
 /**
  *  主页初始化
  *
@@ -25,8 +28,6 @@
     
     if (self)
     {
-        
-
         
         self.homePageScrollView = [[UIScrollView alloc]init];
         [self.homePageScrollView setFrame:CGRectMake(0, 0, MainView_Width, CGRectGetHeight(self.frame))];
@@ -40,7 +41,18 @@
         //背景滑动视图范围创建--后续需要修改为活动布局
         [self.homePageScrollView setContentSize:CGSizeMake(MainView_Width, MainView_Height-IOS7_Y-92)];
         
-            }
+        
+        tableProductType = [[UITableView alloc]init];
+        [tableProductType setFrame:CGRectMake(0,0, MainView_Width, MainView_Height-IOS7_Y-44)];
+        [tableProductType setBackgroundColor:RGBCOLOR(235, 235, 235)];
+        [tableProductType setDelegate:self];
+        [tableProductType setDataSource:self];
+        [self addSubview:tableProductType];
+        
+        [tableProductType setHidden:YES];
+        
+        
+    }
     return self;
 }
 
@@ -104,5 +116,44 @@
 }
 
 
+#pragma mark - tableView Delegate
+- (NSInteger)tableView:(nonnull UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.arrProductType.count;
+}
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    static NSString *ID = @"cell";
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:ID];
+    }
+    [cell setBackgroundColor:RGBCOLOR(235, 235, 235)];
+    NSDictionary * dict = self.arrProductType[indexPath.row];
+    cell.textLabel.text = dict[@"name"];
+    [cell.textLabel setTextAlignment:NSTextAlignmentCenter];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSDictionary * dict = self.arrProductType[indexPath.row];
+    [self.delegate setProductType:dict];
+    
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return iphone_size_scale(50);
+}
+
+-(void)showProductType{
+    [tableProductType reloadData];
+    [tableProductType setHidden:NO];
+    
+}
+
+-(void)dismissProductType{
+    [tableProductType setHidden:YES];
+}
 @end

@@ -12,6 +12,10 @@
 
 //微信
 #import "WXApi.h"
+
+
+extern NSString * g_UserId;
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate,WXApiDelegate>
 
 @property (strong, nonatomic) UIWindow *window;

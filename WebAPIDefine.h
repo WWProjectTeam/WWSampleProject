@@ -53,6 +53,10 @@
 #define KDataKeyGroupId         @"gid"
 
 
+//pathAppend
+#define URLAppend(a,b)      [NSString stringWithFormat:@"%@%@",a,b]
+
+
 /**
  
  *
@@ -65,5 +69,10 @@
 
 #define KClothesListURL             @"yiyouv/clothes/search"
 
+//getUserUnreadMsg
+#define KUnreadMsgNumURL            @"yiyouv/message/userNews"
+
+//getProductType
+#define KProductType                @"yiyouv/clothes/types"
 
 #endif

@@ -64,7 +64,7 @@
 //颜色转换为图片
 + (UIImage *)imageWithColor:(UIColor *)color;
 
-//计算文字高度
+//计算文字宽高度
 + (CGSize)boundingRectWithSize:(CGSize)size withText:(NSString *)text withFont:(UIFont *)font;
 
 //md5加密

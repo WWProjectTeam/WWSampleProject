@@ -4,11 +4,6 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
-		<key>AFNetworking.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>MJRefresh.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,17 +27,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>0A3044FE83F4D264E319AEC7BA1D6D81</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>226BADBB340A6789F20AB87CA6BDE8FE</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>2602F3D0DAC534568B6AD7EEA0DD1959</key>
+		<key>4B47B32630308D394788291ECCBA461D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -52,7 +37,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>F26C98E751A304B274EAF870BC5A306E</key>
+		<key>9F0ADC930810CD4629D44AC7B409B204</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>C8799F4E693025CA2405960F2CB9DEA5</key>
 		<dict>
 			<key>primary</key>
 			<true/>

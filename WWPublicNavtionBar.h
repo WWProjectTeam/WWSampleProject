@@ -27,7 +27,8 @@
 //必选方法
 @required
 -(void)rightBtnSelect;
--(void)typeSelect;
+-(void)openProductType;
+-(void)closeProductType;
 @end
 
 
@@ -52,4 +53,6 @@
 
 //首页设置标题
 -(void)HomePageSetTitle:(NSString *)strTitle;
+
+
 @end

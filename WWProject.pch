@@ -33,4 +33,9 @@
 #import "HTTPClient.h"
 #import "FMFunctions.h"             ///系统方法
 
+
+#import "AppDelegate.h"
+
+//MJ
+#import "MJRefresh.h"
 #endif

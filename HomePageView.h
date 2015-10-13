@@ -12,7 +12,11 @@
 #import "CycleScrollView.h"
 
 
+@protocol WWHomePageDelegte <NSObject>
 
+@required
+-(void)setProductType:(NSDictionary *)dict;
+@end
 
 //home page banner action
 @protocol mainViewBannerActionDelegate <NSObject>
@@ -23,13 +27,13 @@
 
 
 
-@interface HomePageView : UIView<UIScrollViewDelegate>{
+@interface HomePageView : UIView<UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>{
 
 
 }
 
 @property (nonatomic,assign) id<mainViewBannerActionDelegate>bannDelegate;
-
+@property (nonatomic,assign) id<WWHomePageDelegte>delegate;
 
 @property (strong) UIScrollView * homePageScrollView;
 /**
@@ -59,5 +63,23 @@
  **/
 -(void)reloadDataForBanner;
 
+
+
+//分类数据
+@property(strong) NSMutableArray * arrProductType;
+
+/**
+ *
+ *  分类列表展示
+ *
+ **/
+-(void)showProductType;
+
+/**
+ *
+ *  分类列表消失
+ *
+ **/
+-(void)dismissProductType;
 
 @end

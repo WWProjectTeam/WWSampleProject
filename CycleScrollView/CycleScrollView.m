@@ -143,6 +143,11 @@
       //  WWLog(@"previous，当前页:%ld",(long)self.currentPageIndex);
         [self configContentViews];
     }
+    
+    if (self.ScrollActionBlock) {
+        self.ScrollActionBlock(self.currentPageIndex);
+    }
+
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView

@@ -7,9 +7,12 @@
 //
 
 #import "HomePageView.h"
-
+#import "WWPageControl.h"
 @implementation HomePageView{
     UITableView * tableProductType;
+    CycleScrollView * scrollBanner;
+    WWPageControl * pageControl;
+    
 }
 
 @synthesize bannDelegate = _bannDelegate;
@@ -51,21 +54,25 @@
         
         [tableProductType setHidden:YES];
         
+        //轮播图创建
+        scrollBanner = [[CycleScrollView alloc] initWithFrame:CGRectMake(0, 0, iphone_size_scale(320), iphone_size_scale(200)) animationDuration:4];
+        scrollBanner.backgroundColor = [[UIColor purpleColor] colorWithAlphaComponent:0.1];
+        [self.homePageScrollView addSubview:scrollBanner];
         
+        //定义pageControl
+        pageControl = [[WWPageControl alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(scrollBanner.frame)-14, 320, 6)];
+        [pageControl setBackgroundColor:[UIColor clearColor]];
+        [pageControl setImagePageStateHighlighted:[UIImage imageNamed:@"click-on--point"]];
+        [pageControl setImagePageStateNormal:[UIImage imageNamed:@"-default-point"]];
+        [pageControl setHidesForSinglePage:YES];
+        [scrollBanner addSubview:pageControl];
+
+
     }
     return self;
 }
 
 
-
-//scrollView滚动时委托方法
-- (void)scrollViewDidScroll:(UIScrollView *)sender
-{
-    UIPageControl * pageControl = (UIPageControl *)[self viewWithTag:200001];
-    CGFloat pageWidth = pageControl.frame.size.width;
-    int page = floor((sender.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
-    pageControl.currentPage = page;
-}
 
 
 #pragma mark - view刷新
@@ -84,36 +91,39 @@
         
         NSDictionary * dicTemp = self.arrBannerData[i];
         
-        NSDictionary * dicImageTemp = dicTemp[@"img"];
-        
-        NSString * strImageUrl = [NSString stringWithFormat:@"%@%@%@",dicImageTemp[@"domain"],dicImageTemp[@"path"],dicImageTemp[@"fileName"]];
-        
+        NSString * strImageUrl = dicTemp[@"img"];
         UIImageView * imageTemp = [[UIImageView alloc]init];
         
         
         [imageTemp sd_setImageWithURL:[NSURL URLWithString:strImageUrl] placeholderImage:[UIImage imageNamed:@"bg_grzx@3x"]];
         
-        [imageTemp setFrame:CGRectMake(0,0, 320, 115)];
+        [imageTemp setFrame:CGRectMake(0,0, iphone_size_scale(320), iphone_size_scale(200))];
         
         [viewsArray addObject:imageTemp];
     }
     
-    //轮播图创建
-    CycleScrollView * scroll = [[CycleScrollView alloc] initWithFrame:CGRectMake(0, 0, iphone_size_scale(320), iphone_size_scale(130)) animationDuration:4];
-    scroll.backgroundColor = [[UIColor purpleColor] colorWithAlphaComponent:0.1];
+    pageControl.numberOfPages = self.arrBannerData.count;
+    
+    __weak CycleScrollView * scroll = scrollBanner;
     
     scroll.fetchContentViewAtIndex = ^UIView *(NSInteger pageIndex){
         return viewsArray[pageIndex];
     };
     scroll.totalPagesCount = ^NSInteger(void){
-        return self.arrBannerData.count;
+        return  self.arrBannerData.count;
     };
     scroll.TapActionBlock = ^(NSInteger pageIndex){
         NSDictionary * dicTemp = self.arrBannerData[pageIndex];
         [self.bannDelegate mainViewBannerSelectWithUrl:dicTemp[@"url"]];
     };
-    [self.homePageScrollView addSubview:scroll];
-}
+    scroll.ScrollActionBlock = ^(NSInteger pageIndex){
+        pageControl.currentPage = pageIndex;
+
+    };
+    
+    
+    
+   }
 
 
 #pragma mark - tableView Delegate

@@ -34,4 +34,8 @@
  **/
 @property (nonatomic , copy) void (^TapActionBlock)(NSInteger pageIndex);
 
+
+////滚动
+@property (nonatomic , copy) void (^ScrollActionBlock)(NSInteger pageIndex);
+
 @end

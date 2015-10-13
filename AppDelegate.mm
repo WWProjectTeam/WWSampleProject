@@ -13,6 +13,9 @@
 // 我的
 #import "WWMyPageViewController.h"
 
+#import "WWClotheSpressViewController.h"
+
+
 //APP端签名相关头文件
 #import "payRequsestHandler.h"
 
@@ -41,15 +44,44 @@ NSString * g_UserId;
     
     //标签页控制器初始化
     WWHomePageViewController * homePageVC = [[WWHomePageViewController alloc]init];
-    WWMyPageViewController *myPageVC = [[WWMyPageViewController alloc]init];
+    homePageVC.tabBarItem.title = @"全部";
+    
+    WWMyPageViewController * myPageVC = [[WWMyPageViewController alloc]init];
+    myPageVC.tabBarItem.title = @"我的";
+    
+    WWClotheSpressViewController * clotheVC = [[WWClotheSpressViewController alloc]init];
+    clotheVC.tabBarItem.title = @"衣柜";
 
     //视图数组
-    NSArray* controllerArray = [[NSArray alloc]initWithObjects:homePageVC,myPageVC,nil];
+    NSArray* controllerArray = [[NSArray alloc]initWithObjects:homePageVC,clotheVC,myPageVC,nil];
     
     //标签页控制器初始化
     self.tabBarController = [[UITabBarController alloc]init];
     [self.tabBarController setViewControllers:controllerArray];
     [self.tabBarController setSelectedIndex:0];
+    
+    
+    //设置标签页控制器图片
+    UITabBar *tabBar = self.tabBarController.tabBar;
+    UITabBarItem *tabBarItem1 = [tabBar.items objectAtIndex:0];
+    UITabBarItem *tabBarItem2 = [tabBar.items objectAtIndex:1];
+    UITabBarItem *tabBarItem3 = [tabBar.items objectAtIndex:2];
+    
+    
+    
+    //设置高亮颜色
+    [[UITabBar appearance] setTintColor:RGBCOLOR(224, 161, 28)];
+    
+    //设置点击图片和默认图片
+    [tabBarItem1 setFinishedSelectedImage:[UIImage imageNamed:@"全部选中"] withFinishedUnselectedImage:[UIImage imageNamed:@"全部默认"]];
+    [tabBarItem2 setFinishedSelectedImage:[UIImage imageNamed:@"衣柜选中"] withFinishedUnselectedImage:[UIImage imageNamed:@"衣柜默认"]];
+    [tabBarItem3 setFinishedSelectedImage:[UIImage imageNamed:@"我的选中"] withFinishedUnselectedImage:[UIImage imageNamed:@"我的默认"]];
+    
+    //设置文字高亮色
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:RGBCOLOR(224, 161, 28), UITextAttributeTextColor,nil] forState:UIControlStateSelected];
+    //设置文字普通色
+    [[UITabBarItem appearance] setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:RGBCOLOR(167, 167, 167), UITextAttributeTextColor,nil] forState:UIControlStateNormal];
+
     
     //导航条创建
     self.navtionViewControl = [[UINavigationController alloc]initWithRootViewController:self.tabBarController];
@@ -58,44 +90,6 @@ NSString * g_UserId;
     [self.window setRootViewController:self.navtionViewControl];
     [self.window makeKeyAndVisible];
     
-    
-//    //环信注册//因为要用到launchOptions，所以没法放到aop中
-//    //registerSDKWithAppKey:注册的appKey，详细见下面注释。
-//    //apnsCertName:推送证书名(不需要加后缀)，详细见下面注释。
-//    [[EaseMob sharedInstance] registerSDKWithAppKey:@"yiyouv#yiyv" apnsCertName:@"istore_dev"];
-//    [[EaseMob sharedInstance] application:application didFinishLaunchingWithOptions:launchOptions];
-//
-//    
-//    
-//#pragma mark - 环信用户注册测试
-//    [[EaseMob sharedInstance].chatManager asyncRegisterNewAccount:@"8001" password:@"111111" withCompletion:^(NSString *username, NSString *password, EMError *error) {
-//        if (!error) {
-//            WWLog(@"注册成功");
-//        }
-//    } onQueue:nil];
-//    
-//#pragma mark - 环信用户登录测试
-//    [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:@"8001" password:@"111111" completion:^(NSDictionary *loginInfo, EMError *error) {
-//        if (!error && loginInfo) {
-//            WWLog(@"登陆成功");
-//        }
-//    } onQueue:nil];
-//    
-//#pragma mark - 环信用户自动登录设置
-//    [[EaseMob sharedInstance].chatManager asyncLoginWithUsername:@"8001" password:@"111111" completion:^(NSDictionary *loginInfo, EMError *error) {
-//        if (!error) {
-//            // 设置自动登录
-//            [[EaseMob sharedInstance].chatManager setIsAutoLoginEnabled:YES];
-//        }
-//    } onQueue:nil];
-//    
-//#pragma mark - 环信用户推出登录测试
-//    //logoffWithUnbindDeviceToken：是否解除device token的绑定，在被动退出时传NO，在主动退出时传YES.
-//    [[EaseMob sharedInstance].chatManager asyncLogoffWithUnbindDeviceToken:YES completion:^(NSDictionary *info, EMError *error) {
-//        if (!error && info) {
-//            WWLog(@"退出成功");
-//        }
-//    } onQueue:nil];
     
     
 #pragma mark - wxAPIkey

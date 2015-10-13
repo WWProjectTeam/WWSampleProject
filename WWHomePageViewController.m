@@ -57,6 +57,14 @@
     scrollViewTemp.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
     [[HTTPClient sharedHTTPClient]postClothesListType:[strProductId intValue] index:0 WithCompletion:^(WebAPIResponse *operation) {
         
+        
+        NSDictionary * dict = operation.responseObject[@"result"];
+        
+        viewHomePage.arrBannerData = dict[@"focus"];
+        [viewHomePage reloadDataForBanner];
+        
+        [scrollViewTemp.header endRefreshing];
+
         }];
 
     
@@ -64,7 +72,6 @@
     }];
 
     
-    [scrollViewTemp.header endRefreshing];
 
     [scrollViewTemp.header beginRefreshing];
 

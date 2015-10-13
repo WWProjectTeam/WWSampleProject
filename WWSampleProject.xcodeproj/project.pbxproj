@@ -83,6 +83,48 @@
 		4A40E0431BCCA10400E12DD9 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A40E0421BCCA10400E12DD9 /* libsqlite3.tbd */; };
 		4A40E0461BCCA52300E12DD9 /* PBMsg@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E0441BCCA52300E12DD9 /* PBMsg@2x.png */; settings = {ASSET_TAGS = (); }; };
 		4A40E0471BCCA52300E12DD9 /* PBMsg@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E0451BCCA52300E12DD9 /* PBMsg@3x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E04D1BCCF56A00E12DD9 /* WWPageControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A40E04C1BCCF56A00E12DD9 /* WWPageControl.m */; settings = {ASSET_TAGS = (); }; };
+		4A40E0771BCCFDB300E12DD9 /* banner@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E04F1BCCFDB300E12DD9 /* banner@2x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E0781BCCFDB300E12DD9 /* banner@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E0501BCCFDB300E12DD9 /* banner@3x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E0791BCCFDB300E12DD9 /* rugby下衣选中@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E0511BCCFDB300E12DD9 /* rugby下衣选中@2x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E07A1BCCFDB300E12DD9 /* rugby下衣选中@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E0521BCCFDB300E12DD9 /* rugby下衣选中@3x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E07B1BCCFDB300E12DD9 /* v@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E0531BCCFDB300E12DD9 /* v@2x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E07C1BCCFDB300E12DD9 /* v@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E0541BCCFDB300E12DD9 /* v@3x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E07D1BCCFDB300E12DD9 /* 上衣选中@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E0551BCCFDB300E12DD9 /* 上衣选中@2x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E07E1BCCFDB300E12DD9 /* 上衣选中@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E0561BCCFDB300E12DD9 /* 上衣选中@3x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E07F1BCCFDB300E12DD9 /* 上衣默认@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E0571BCCFDB300E12DD9 /* 上衣默认@2x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E0801BCCFDB300E12DD9 /* 上衣默认@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E0581BCCFDB300E12DD9 /* 上衣默认@3x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E0811BCCFDB300E12DD9 /* 下衣默认@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E0591BCCFDB300E12DD9 /* 下衣默认@2x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E0821BCCFDB300E12DD9 /* 下衣默认@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E05A1BCCFDB300E12DD9 /* 下衣默认@3x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E0831BCCFDB300E12DD9 /* 全部选中@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E05B1BCCFDB300E12DD9 /* 全部选中@2x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E0841BCCFDB300E12DD9 /* 全部选中@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E05C1BCCFDB300E12DD9 /* 全部选中@3x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E0851BCCFDB300E12DD9 /* 全部默认@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E05D1BCCFDB300E12DD9 /* 全部默认@2x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E0861BCCFDB300E12DD9 /* 全部默认@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E05E1BCCFDB300E12DD9 /* 全部默认@3x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E0871BCCFDB300E12DD9 /* 我的选中@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E05F1BCCFDB300E12DD9 /* 我的选中@2x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E0881BCCFDB300E12DD9 /* 我的选中@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E0601BCCFDB300E12DD9 /* 我的选中@3x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E0891BCCFDB300E12DD9 /* 我的默认@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E0611BCCFDB300E12DD9 /* 我的默认@2x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E08A1BCCFDB300E12DD9 /* 我的默认@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E0621BCCFDB300E12DD9 /* 我的默认@3x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E08B1BCCFDB300E12DD9 /* 消息@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E0631BCCFDB300E12DD9 /* 消息@2x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E08C1BCCFDB300E12DD9 /* 消息@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E0641BCCFDB300E12DD9 /* 消息@3x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E08D1BCCFDB300E12DD9 /* 衣服样品@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E0651BCCFDB300E12DD9 /* 衣服样品@2x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E08E1BCCFDB300E12DD9 /* 衣服样品@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E0661BCCFDB300E12DD9 /* 衣服样品@3x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E08F1BCCFDB300E12DD9 /* 衣柜选中@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E0671BCCFDB300E12DD9 /* 衣柜选中@2x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E0901BCCFDB300E12DD9 /* 衣柜选中@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E0681BCCFDB300E12DD9 /* 衣柜选中@3x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E0911BCCFDB300E12DD9 /* 衣柜默认@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E0691BCCFDB300E12DD9 /* 衣柜默认@2x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E0921BCCFDB300E12DD9 /* 衣柜默认@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E06A1BCCFDB300E12DD9 /* 衣柜默认@3x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E0931BCCFDB300E12DD9 /* 轮播图选中@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E06B1BCCFDB300E12DD9 /* 轮播图选中@2x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E0941BCCFDB300E12DD9 /* 轮播图选中@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E06C1BCCFDB300E12DD9 /* 轮播图选中@3x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E0951BCCFDB300E12DD9 /* 轮播图默认@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E06D1BCCFDB300E12DD9 /* 轮播图默认@2x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E0961BCCFDB300E12DD9 /* 轮播图默认@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E06E1BCCFDB300E12DD9 /* 轮播图默认@3x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E0971BCCFDB300E12DD9 /* 连衣裙选中@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E06F1BCCFDB300E12DD9 /* 连衣裙选中@2x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E0981BCCFDB300E12DD9 /* 连衣裙选中@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E0701BCCFDB300E12DD9 /* 连衣裙选中@3x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E0991BCCFDB300E12DD9 /* 连衣裙默认@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E0711BCCFDB300E12DD9 /* 连衣裙默认@2x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E09A1BCCFDB300E12DD9 /* 连衣裙默认@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E0721BCCFDB300E12DD9 /* 连衣裙默认@3x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E09B1BCCFDB300E12DD9 /* 首页收藏@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E0731BCCFDB300E12DD9 /* 首页收藏@2x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E09C1BCCFDB300E12DD9 /* 首页收藏@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E0741BCCFDB300E12DD9 /* 首页收藏@3x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E09D1BCCFDB300E12DD9 /* 默认衣服图片@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E0751BCCFDB300E12DD9 /* 默认衣服图片@2x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E09E1BCCFDB300E12DD9 /* 默认衣服图片@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40E0761BCCFDB300E12DD9 /* 默认衣服图片@3x.png */; settings = {ASSET_TAGS = (); }; };
+		4A40E0A21BCCFF8E00E12DD9 /* WWClotheSpressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A40E0A11BCCFF8E00E12DD9 /* WWClotheSpressViewController.m */; settings = {ASSET_TAGS = (); }; };
 		4AD21AE71BA0250100B4BDDC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AD21AE21BA0250100B4BDDC /* LaunchScreen.xib */; };
 		4AD21AE81BA0250100B4BDDC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AD21AE41BA0250100B4BDDC /* Images.xcassets */; };
 		4AD21AEA1BA0250100B4BDDC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21AE61BA0250100B4BDDC /* main.m */; };
@@ -285,6 +327,50 @@
 		4A40E0421BCCA10400E12DD9 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		4A40E0441BCCA52300E12DD9 /* PBMsg@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PBMsg@2x.png"; sourceTree = SOURCE_ROOT; };
 		4A40E0451BCCA52300E12DD9 /* PBMsg@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "PBMsg@3x.png"; sourceTree = SOURCE_ROOT; };
+		4A40E04B1BCCF56A00E12DD9 /* WWPageControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWPageControl.h; sourceTree = SOURCE_ROOT; };
+		4A40E04C1BCCF56A00E12DD9 /* WWPageControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWPageControl.m; sourceTree = SOURCE_ROOT; };
+		4A40E04F1BCCFDB300E12DD9 /* banner@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banner@2x.png"; sourceTree = "<group>"; };
+		4A40E0501BCCFDB300E12DD9 /* banner@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "banner@3x.png"; sourceTree = "<group>"; };
+		4A40E0511BCCFDB300E12DD9 /* rugby下衣选中@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rugby下衣选中@2x.png"; sourceTree = "<group>"; };
+		4A40E0521BCCFDB300E12DD9 /* rugby下衣选中@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "rugby下衣选中@3x.png"; sourceTree = "<group>"; };
+		4A40E0531BCCFDB300E12DD9 /* v@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "v@2x.png"; sourceTree = "<group>"; };
+		4A40E0541BCCFDB300E12DD9 /* v@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "v@3x.png"; sourceTree = "<group>"; };
+		4A40E0551BCCFDB300E12DD9 /* 上衣选中@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "上衣选中@2x.png"; sourceTree = "<group>"; };
+		4A40E0561BCCFDB300E12DD9 /* 上衣选中@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "上衣选中@3x.png"; sourceTree = "<group>"; };
+		4A40E0571BCCFDB300E12DD9 /* 上衣默认@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "上衣默认@2x.png"; sourceTree = "<group>"; };
+		4A40E0581BCCFDB300E12DD9 /* 上衣默认@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "上衣默认@3x.png"; sourceTree = "<group>"; };
+		4A40E0591BCCFDB300E12DD9 /* 下衣默认@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "下衣默认@2x.png"; sourceTree = "<group>"; };
+		4A40E05A1BCCFDB300E12DD9 /* 下衣默认@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "下衣默认@3x.png"; sourceTree = "<group>"; };
+		4A40E05B1BCCFDB300E12DD9 /* 全部选中@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "全部选中@2x.png"; sourceTree = "<group>"; };
+		4A40E05C1BCCFDB300E12DD9 /* 全部选中@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "全部选中@3x.png"; sourceTree = "<group>"; };
+		4A40E05D1BCCFDB300E12DD9 /* 全部默认@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "全部默认@2x.png"; sourceTree = "<group>"; };
+		4A40E05E1BCCFDB300E12DD9 /* 全部默认@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "全部默认@3x.png"; sourceTree = "<group>"; };
+		4A40E05F1BCCFDB300E12DD9 /* 我的选中@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我的选中@2x.png"; sourceTree = "<group>"; };
+		4A40E0601BCCFDB300E12DD9 /* 我的选中@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我的选中@3x.png"; sourceTree = "<group>"; };
+		4A40E0611BCCFDB300E12DD9 /* 我的默认@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我的默认@2x.png"; sourceTree = "<group>"; };
+		4A40E0621BCCFDB300E12DD9 /* 我的默认@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "我的默认@3x.png"; sourceTree = "<group>"; };
+		4A40E0631BCCFDB300E12DD9 /* 消息@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "消息@2x.png"; sourceTree = "<group>"; };
+		4A40E0641BCCFDB300E12DD9 /* 消息@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "消息@3x.png"; sourceTree = "<group>"; };
+		4A40E0651BCCFDB300E12DD9 /* 衣服样品@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "衣服样品@2x.png"; sourceTree = "<group>"; };
+		4A40E0661BCCFDB300E12DD9 /* 衣服样品@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "衣服样品@3x.png"; sourceTree = "<group>"; };
+		4A40E0671BCCFDB300E12DD9 /* 衣柜选中@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "衣柜选中@2x.png"; sourceTree = "<group>"; };
+		4A40E0681BCCFDB300E12DD9 /* 衣柜选中@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "衣柜选中@3x.png"; sourceTree = "<group>"; };
+		4A40E0691BCCFDB300E12DD9 /* 衣柜默认@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "衣柜默认@2x.png"; sourceTree = "<group>"; };
+		4A40E06A1BCCFDB300E12DD9 /* 衣柜默认@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "衣柜默认@3x.png"; sourceTree = "<group>"; };
+		4A40E06B1BCCFDB300E12DD9 /* 轮播图选中@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "轮播图选中@2x.png"; sourceTree = "<group>"; };
+		4A40E06C1BCCFDB300E12DD9 /* 轮播图选中@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "轮播图选中@3x.png"; sourceTree = "<group>"; };
+		4A40E06D1BCCFDB300E12DD9 /* 轮播图默认@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "轮播图默认@2x.png"; sourceTree = "<group>"; };
+		4A40E06E1BCCFDB300E12DD9 /* 轮播图默认@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "轮播图默认@3x.png"; sourceTree = "<group>"; };
+		4A40E06F1BCCFDB300E12DD9 /* 连衣裙选中@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "连衣裙选中@2x.png"; sourceTree = "<group>"; };
+		4A40E0701BCCFDB300E12DD9 /* 连衣裙选中@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "连衣裙选中@3x.png"; sourceTree = "<group>"; };
+		4A40E0711BCCFDB300E12DD9 /* 连衣裙默认@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "连衣裙默认@2x.png"; sourceTree = "<group>"; };
+		4A40E0721BCCFDB300E12DD9 /* 连衣裙默认@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "连衣裙默认@3x.png"; sourceTree = "<group>"; };
+		4A40E0731BCCFDB300E12DD9 /* 首页收藏@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页收藏@2x.png"; sourceTree = "<group>"; };
+		4A40E0741BCCFDB300E12DD9 /* 首页收藏@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "首页收藏@3x.png"; sourceTree = "<group>"; };
+		4A40E0751BCCFDB300E12DD9 /* 默认衣服图片@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "默认衣服图片@2x.png"; sourceTree = "<group>"; };
+		4A40E0761BCCFDB300E12DD9 /* 默认衣服图片@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "默认衣服图片@3x.png"; sourceTree = "<group>"; };
+		4A40E0A01BCCFF8E00E12DD9 /* WWClotheSpressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWClotheSpressViewController.h; sourceTree = SOURCE_ROOT; };
+		4A40E0A11BCCFF8E00E12DD9 /* WWClotheSpressViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWClotheSpressViewController.m; sourceTree = SOURCE_ROOT; };
 		4AD21AB51BA01A3C00B4BDDC /* WWSampleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWSampleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AD21ACE1BA01A3C00B4BDDC /* WWSampleProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWSampleProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AD21AE31BA0250100B4BDDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
@@ -702,6 +788,62 @@
 			path = CycleScrollView;
 			sourceTree = SOURCE_ROOT;
 		};
+		4A40E04E1BCCFDB300E12DD9 /* 9_13切图 */ = {
+			isa = PBXGroup;
+			children = (
+				4A40E04F1BCCFDB300E12DD9 /* banner@2x.png */,
+				4A40E0501BCCFDB300E12DD9 /* banner@3x.png */,
+				4A40E0511BCCFDB300E12DD9 /* rugby下衣选中@2x.png */,
+				4A40E0521BCCFDB300E12DD9 /* rugby下衣选中@3x.png */,
+				4A40E0531BCCFDB300E12DD9 /* v@2x.png */,
+				4A40E0541BCCFDB300E12DD9 /* v@3x.png */,
+				4A40E0551BCCFDB300E12DD9 /* 上衣选中@2x.png */,
+				4A40E0561BCCFDB300E12DD9 /* 上衣选中@3x.png */,
+				4A40E0571BCCFDB300E12DD9 /* 上衣默认@2x.png */,
+				4A40E0581BCCFDB300E12DD9 /* 上衣默认@3x.png */,
+				4A40E0591BCCFDB300E12DD9 /* 下衣默认@2x.png */,
+				4A40E05A1BCCFDB300E12DD9 /* 下衣默认@3x.png */,
+				4A40E05B1BCCFDB300E12DD9 /* 全部选中@2x.png */,
+				4A40E05C1BCCFDB300E12DD9 /* 全部选中@3x.png */,
+				4A40E05D1BCCFDB300E12DD9 /* 全部默认@2x.png */,
+				4A40E05E1BCCFDB300E12DD9 /* 全部默认@3x.png */,
+				4A40E05F1BCCFDB300E12DD9 /* 我的选中@2x.png */,
+				4A40E0601BCCFDB300E12DD9 /* 我的选中@3x.png */,
+				4A40E0611BCCFDB300E12DD9 /* 我的默认@2x.png */,
+				4A40E0621BCCFDB300E12DD9 /* 我的默认@3x.png */,
+				4A40E0631BCCFDB300E12DD9 /* 消息@2x.png */,
+				4A40E0641BCCFDB300E12DD9 /* 消息@3x.png */,
+				4A40E0651BCCFDB300E12DD9 /* 衣服样品@2x.png */,
+				4A40E0661BCCFDB300E12DD9 /* 衣服样品@3x.png */,
+				4A40E0671BCCFDB300E12DD9 /* 衣柜选中@2x.png */,
+				4A40E0681BCCFDB300E12DD9 /* 衣柜选中@3x.png */,
+				4A40E0691BCCFDB300E12DD9 /* 衣柜默认@2x.png */,
+				4A40E06A1BCCFDB300E12DD9 /* 衣柜默认@3x.png */,
+				4A40E06B1BCCFDB300E12DD9 /* 轮播图选中@2x.png */,
+				4A40E06C1BCCFDB300E12DD9 /* 轮播图选中@3x.png */,
+				4A40E06D1BCCFDB300E12DD9 /* 轮播图默认@2x.png */,
+				4A40E06E1BCCFDB300E12DD9 /* 轮播图默认@3x.png */,
+				4A40E06F1BCCFDB300E12DD9 /* 连衣裙选中@2x.png */,
+				4A40E0701BCCFDB300E12DD9 /* 连衣裙选中@3x.png */,
+				4A40E0711BCCFDB300E12DD9 /* 连衣裙默认@2x.png */,
+				4A40E0721BCCFDB300E12DD9 /* 连衣裙默认@3x.png */,
+				4A40E0731BCCFDB300E12DD9 /* 首页收藏@2x.png */,
+				4A40E0741BCCFDB300E12DD9 /* 首页收藏@3x.png */,
+				4A40E0751BCCFDB300E12DD9 /* 默认衣服图片@2x.png */,
+				4A40E0761BCCFDB300E12DD9 /* 默认衣服图片@3x.png */,
+			);
+			path = "9_13切图";
+			sourceTree = SOURCE_ROOT;
+		};
+		4A40E09F1BCCFF5900E12DD9 /* 衣柜 */ = {
+			isa = PBXGroup;
+			children = (
+				4A40E0A01BCCFF8E00E12DD9 /* WWClotheSpressViewController.h */,
+				4A40E0A11BCCFF8E00E12DD9 /* WWClotheSpressViewController.m */,
+			);
+			name = "衣柜";
+			sourceTree = "<group>";
+		};
 		4A5EC2671BBCD73600930162 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
@@ -757,6 +899,7 @@
 		4AD21ADE1BA01C8B00B4BDDC /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				4A40E04E1BCCFDB300E12DD9 /* 9_13切图 */,
 				4A40E0441BCCA52300E12DD9 /* PBMsg@2x.png */,
 				4A40E0451BCCA52300E12DD9 /* PBMsg@3x.png */,
 				4A40DE4D1BCA8C4200E12DD9 /* 9_23切图 */,
@@ -802,6 +945,7 @@
 		4AD21AEB1BA0254500B4BDDC /* FunctionalModule */ = {
 			isa = PBXGroup;
 			children = (
+				4A40E09F1BCCFF5900E12DD9 /* 衣柜 */,
 				4A40DDE91BCA86C800E12DD9 /* 公共 */,
 				4AD21AEC1BA0256600B4BDDC /* 首页 */,
 				4648E7091BCCED2700A54035 /* 我的 */,
@@ -897,6 +1041,8 @@
 			children = (
 				4AD21B1A1BA0396000B4BDDC /* UIViewController+AOP.h */,
 				4AD21B1B1BA0396000B4BDDC /* UIViewController+AOP.m */,
+				4A40E04B1BCCF56A00E12DD9 /* WWPageControl.h */,
+				4A40E04C1BCCF56A00E12DD9 /* WWPageControl.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -1005,32 +1151,58 @@
 			buildActionMask = 2147483647;
 			files = (
 				4A40DE2D1BCA895C00E12DD9 /* icon_sc@3x.png in Resources */,
+				4A40E0861BCCFDB300E12DD9 /* 全部默认@3x.png in Resources */,
 				4A40DE381BCA895C00E12DD9 /* logo-120.png in Resources */,
+				4A40E09D1BCCFDB300E12DD9 /* 默认衣服图片@2x.png in Resources */,
+				4A40E0911BCCFDB300E12DD9 /* 衣柜默认@2x.png in Resources */,
 				4A40DE261BCA895C00E12DD9 /* icon_dd@2x.png in Resources */,
 				4A40DE331BCA895C00E12DD9 /* icon_yjfk@3x.png in Resources */,
+				4A40E0981BCCFDB300E12DD9 /* 连衣裙选中@3x.png in Resources */,
+				4A40E0951BCCFDB300E12DD9 /* 轮播图默认@2x.png in Resources */,
 				4A40DE461BCA895C00E12DD9 /* logo-29.png in Resources */,
+				4A40E0901BCCFDB300E12DD9 /* 衣柜选中@3x.png in Resources */,
 				4A40DE241BCA895C00E12DD9 /* btn_sz_n@2x.png in Resources */,
 				4A40DE221BCA895C00E12DD9 /* btn_gb_n@2x.png in Resources */,
 				4A40DE391BCA895C00E12DD9 /* logo-100.png in Resources */,
 				4AD21AE71BA0250100B4BDDC /* LaunchScreen.xib in Resources */,
 				4A40E0461BCCA52300E12DD9 /* PBMsg@2x.png in Resources */,
 				4A40DE341BCA895C00E12DD9 /* img_ftx@2x.png in Resources */,
+				4A40E08A1BCCFDB300E12DD9 /* 我的默认@3x.png in Resources */,
 				4A40DE491BCA895C00E12DD9 /* logo-80.png in Resources */,
+				4A40E0921BCCFDB300E12DD9 /* 衣柜默认@3x.png in Resources */,
+				4A40E0851BCCFDB300E12DD9 /* 全部默认@2x.png in Resources */,
 				4A40DE271BCA895C00E12DD9 /* icon_dd@3x.png in Resources */,
 				4A40DE4A1BCA895C00E12DD9 /* logo-87.png in Resources */,
+				4A40E09A1BCCFDB300E12DD9 /* 连衣裙默认@3x.png in Resources */,
+				4A40E08E1BCCFDB300E12DD9 /* 衣服样品@3x.png in Resources */,
 				4A40DE351BCA895C00E12DD9 /* img_ftx@3x.png in Resources */,
 				4A40DE501BCA8C4200E12DD9 /* btn_zksq@2x.png in Resources */,
 				4A40DE431BCA895C00E12DD9 /* logo-114.png in Resources */,
+				4A40E0961BCCFDB300E12DD9 /* 轮播图默认@3x.png in Resources */,
 				4A40DE401BCA895C00E12DD9 /* logo-72.png in Resources */,
+				4A40E0811BCCFDB300E12DD9 /* 下衣默认@2x.png in Resources */,
+				4A40E09C1BCCFDB300E12DD9 /* 首页收藏@3x.png in Resources */,
+				4A40E0801BCCFDB300E12DD9 /* 上衣默认@3x.png in Resources */,
+				4A40E0791BCCFDB300E12DD9 /* rugby下衣选中@2x.png in Resources */,
+				4A40E0991BCCFDB300E12DD9 /* 连衣裙默认@2x.png in Resources */,
 				4A40DE201BCA895C00E12DD9 /* bg_grzx@2x.png in Resources */,
+				4A40E0781BCCFDB300E12DD9 /* banner@3x.png in Resources */,
 				4A40DE3D1BCA895C00E12DD9 /* logo-40.png in Resources */,
+				4A40E0771BCCFDB300E12DD9 /* banner@2x.png in Resources */,
 				4A40DE471BCA895C00E12DD9 /* logo-57.png in Resources */,
 				4A40DE3E1BCA895C00E12DD9 /* logo-50.png in Resources */,
 				4A3CD1EB1BBE311C004DD167 /* read_me.txt in Resources */,
+				4A40E09B1BCCFDB300E12DD9 /* 首页收藏@2x.png in Resources */,
+				4A40E0831BCCFDB300E12DD9 /* 全部选中@2x.png in Resources */,
+				4A40E08D1BCCFDB300E12DD9 /* 衣服样品@2x.png in Resources */,
 				4A40DE4B1BCA895C00E12DD9 /* logo-512.png in Resources */,
+				4A40E0881BCCFDB300E12DD9 /* 我的选中@3x.png in Resources */,
+				4A40E07D1BCCFDB300E12DD9 /* 上衣选中@2x.png in Resources */,
+				4A40E07C1BCCFDB300E12DD9 /* v@3x.png in Resources */,
 				4A40DE371BCA895C00E12DD9 /* img_tx@3x.png in Resources */,
 				4A40DE481BCA895C00E12DD9 /* logo-58.png in Resources */,
 				4A40DE411BCA895C00E12DD9 /* logo-76.png in Resources */,
+				4A40E0931BCCFDB300E12DD9 /* 轮播图选中@2x.png in Resources */,
 				4A40DE3C1BCA895C00E12DD9 /* logo-29.png in Resources */,
 				4A40DE2B1BCA895C00E12DD9 /* icon_logo@3x.png in Resources */,
 				4A40DE211BCA895C00E12DD9 /* bg_grzx@3x.png in Resources */,
@@ -1040,21 +1212,35 @@
 				4A40DE451BCA895C00E12DD9 /* logo-180.png in Resources */,
 				4A40E0471BCCA52300E12DD9 /* PBMsg@3x.png in Resources */,
 				4A40DE301BCA895C00E12DD9 /* icon_ygh@2x.png in Resources */,
+				4A40E07E1BCCFDB300E12DD9 /* 上衣选中@3x.png in Resources */,
+				4A40E07A1BCCFDB300E12DD9 /* rugby下衣选中@3x.png in Resources */,
 				4A40DE2F1BCA895C00E12DD9 /* icon_xttz@3x.png in Resources */,
 				4A40DE281BCA895C00E12DD9 /* icon_dh@2x.png in Resources */,
 				4A40DE3B1BCA895C00E12DD9 /* logo-152.png in Resources */,
+				4A40E09E1BCCFDB300E12DD9 /* 默认衣服图片@3x.png in Resources */,
 				4A40DE2E1BCA895C00E12DD9 /* icon_xttz@2x.png in Resources */,
+				4A40E08C1BCCFDB300E12DD9 /* 消息@3x.png in Resources */,
 				4A40DE321BCA895C00E12DD9 /* icon_yjfk@2x.png in Resources */,
+				4A40E08B1BCCFDB300E12DD9 /* 消息@2x.png in Resources */,
+				4A40E0971BCCFDB300E12DD9 /* 连衣裙选中@2x.png in Resources */,
+				4A40E0871BCCFDB300E12DD9 /* 我的选中@2x.png in Resources */,
 				4A3CD1F71BC8B1C0004DD167 /* Default-568h@2x.png in Resources */,
+				4A40E08F1BCCFDB300E12DD9 /* 衣柜选中@2x.png in Resources */,
 				4A40DE3A1BCA895C00E12DD9 /* logo-144.png in Resources */,
+				4A40E0941BCCFDB300E12DD9 /* 轮播图选中@3x.png in Resources */,
+				4A40E0891BCCFDB300E12DD9 /* 我的默认@2x.png in Resources */,
 				4A40DE3F1BCA895C00E12DD9 /* logo-58.png in Resources */,
 				4A40DE511BCA8C4200E12DD9 /* btn_zksq@3x.png in Resources */,
+				4A40E07B1BCCFDB300E12DD9 /* v@2x.png in Resources */,
 				4A40DE421BCA895C00E12DD9 /* logo-80.png in Resources */,
 				4A40DE231BCA895C00E12DD9 /* btn_gb_n@3x.png in Resources */,
 				4A40DE2C1BCA895C00E12DD9 /* icon_sc@2x.png in Resources */,
 				4A40DE441BCA895C00E12DD9 /* logo-120.png in Resources */,
+				4A40E0841BCCFDB300E12DD9 /* 全部选中@3x.png in Resources */,
+				4A40E07F1BCCFDB300E12DD9 /* 上衣默认@2x.png in Resources */,
 				4A40DE361BCA895C00E12DD9 /* img_tx@2x.png in Resources */,
 				4A40DE311BCA895C00E12DD9 /* icon_ygh@3x.png in Resources */,
+				4A40E0821BCCFDB300E12DD9 /* 下衣默认@3x.png in Resources */,
 				4A40DE2A1BCA895C00E12DD9 /* icon_logo@2x.png in Resources */,
 				4AD21AE81BA0250100B4BDDC /* Images.xcassets in Resources */,
 			);
@@ -1139,11 +1325,13 @@
 				46D3FF7B1BCC03DB0091AF67 /* AFImageRequestOperation.m in Sources */,
 				4A3CD1F31BBE33A2004DD167 /* ApiXml.mm in Sources */,
 				46D3FF801BCC03DB0091AF67 /* AFXMLRequestOperation.m in Sources */,
+				4A40E0A21BCCFF8E00E12DD9 /* WWClotheSpressViewController.m in Sources */,
 				46D3FF7A1BCC03DB0091AF67 /* AFHTTPRequestOperation.m in Sources */,
 				46D3FF671BCBFCAC0091AF67 /* FMFunctions.m in Sources */,
 				4A40DE5B1BCA921800E12DD9 /* NSTimer+Addition.m in Sources */,
 				4AD21B101BA0355000B4BDDC /* WWBaseNavigationViewController.m in Sources */,
 				4A3CD1F51BBE33A2004DD167 /* WXUtil.mm in Sources */,
+				4A40E04D1BCCF56A00E12DD9 /* WWPageControl.m in Sources */,
 				4AD21AEA1BA0250100B4BDDC /* main.m in Sources */,
 				4A40DE591BCA921800E12DD9 /* CycleScrollView.m in Sources */,
 				46D3FF7E1BCC03DB0091AF67 /* AFPropertyListRequestOperation.m in Sources */,

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4648E7101BCCEF5600A54035 /* WWMyPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4648E70F1BCCEF5600A54035 /* WWMyPageViewController.m */; settings = {ASSET_TAGS = (); }; };
 		46D3FF451BCBFB630091AF67 /* HTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D3FF3F1BCBFB630091AF67 /* HTTPClient.m */; settings = {ASSET_TAGS = (); }; };
 		46D3FF461BCBFB630091AF67 /* HTTPClient+Other.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D3FF411BCBFB630091AF67 /* HTTPClient+Other.m */; settings = {ASSET_TAGS = (); }; };
 		46D3FF471BCBFB630091AF67 /* WebAPIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D3FF441BCBFB630091AF67 /* WebAPIResponse.m */; settings = {ASSET_TAGS = (); }; };
@@ -107,6 +108,8 @@
 
 /* Begin PBXFileReference section */
 		16AE9000BDCE5CAC294783BF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4648E70E1BCCEF5600A54035 /* WWMyPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWMyPageViewController.h; sourceTree = SOURCE_ROOT; };
+		4648E70F1BCCEF5600A54035 /* WWMyPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWMyPageViewController.m; sourceTree = SOURCE_ROOT; };
 		46D3FF3E1BCBFB630091AF67 /* HTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPClient.h; sourceTree = SOURCE_ROOT; };
 		46D3FF3F1BCBFB630091AF67 /* HTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPClient.m; sourceTree = SOURCE_ROOT; };
 		46D3FF401BCBFB630091AF67 /* HTTPClient+Other.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HTTPClient+Other.h"; sourceTree = SOURCE_ROOT; };
@@ -331,6 +334,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4648E7091BCCED2700A54035 /* 我的 */ = {
+			isa = PBXGroup;
+			children = (
+				4648E70E1BCCEF5600A54035 /* WWMyPageViewController.h */,
+				4648E70F1BCCEF5600A54035 /* WWMyPageViewController.m */,
+			);
+			name = "我的";
+			sourceTree = "<group>";
+		};
 		46D3FF3C1BCBFB350091AF67 /* WebRequest */ = {
 			isa = PBXGroup;
 			children = (
@@ -792,6 +804,7 @@
 			children = (
 				4A40DDE91BCA86C800E12DD9 /* 公共 */,
 				4AD21AEC1BA0256600B4BDDC /* 首页 */,
+				4648E7091BCCED2700A54035 /* 我的 */,
 			);
 			name = FunctionalModule;
 			sourceTree = "<group>";
@@ -1138,6 +1151,7 @@
 				4A40DDEC1BCA86F100E12DD9 /* WWPublicNavtionBar.m in Sources */,
 				4AD21B1C1BA0396000B4BDDC /* UIViewController+AOP.m in Sources */,
 				4A3CD1F41BBE33A2004DD167 /* payRequsestHandler.mm in Sources */,
+				4648E7101BCCEF5600A54035 /* WWMyPageViewController.m in Sources */,
 				4AD21B071BA02FB600B4BDDC /* WWUtilityClass.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

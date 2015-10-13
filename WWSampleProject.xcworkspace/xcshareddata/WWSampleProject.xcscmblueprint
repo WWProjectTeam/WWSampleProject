@@ -1,9 +1,14 @@
 {
+<<<<<<< Updated upstream
   "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "9654D7BF50250D8045D234C6D16720CBF0F934F2+++779FB39",
+=======
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "9654D7BF50250D8045D234C6D16720CBF0F934F2+++DC12397",
+>>>>>>> Stashed changes
   "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
 
   },
   "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+<<<<<<< Updated upstream
     "9654D7BF50250D8045D234C6D16720CBF0F934F2+++83D8198" : 0,
     "9654D7BF50250D8045D234C6D16720CBF0F934F2+++779FB39" : 0,
     "9654D7BF50250D8045D234C6D16720CBF0F934F2+++29A25A6" : 0
@@ -13,6 +18,17 @@
     "9654D7BF50250D8045D234C6D16720CBF0F934F2+++83D8198" : "WWSampleProject\/SupportFiles\/",
     "9654D7BF50250D8045D234C6D16720CBF0F934F2+++779FB39" : "WWSampleProject\/",
     "9654D7BF50250D8045D234C6D16720CBF0F934F2+++29A25A6" : "WWSampleProject\/SupportFiles\/"
+=======
+    "9654D7BF50250D8045D234C6D16720CBF0F934F2+++9145FDA" : 0,
+    "9654D7BF50250D8045D234C6D16720CBF0F934F2+++4E9C283" : 0,
+    "9654D7BF50250D8045D234C6D16720CBF0F934F2+++DC12397" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "8BE09700-E55D-4EC9-9F80-47B7A0019961",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "9654D7BF50250D8045D234C6D16720CBF0F934F2+++9145FDA" : "WWSampleProject\/SupportFiles\/",
+    "9654D7BF50250D8045D234C6D16720CBF0F934F2+++4E9C283" : "WWSampleProject\/SupportFiles\/",
+    "9654D7BF50250D8045D234C6D16720CBF0F934F2+++DC12397" : "WWSampleProject\/"
+>>>>>>> Stashed changes
   },
   "DVTSourceControlWorkspaceBlueprintNameKey" : "WWSampleProject",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
@@ -21,16 +37,25 @@
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/oopww1992\/WWSampleProject.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+<<<<<<< Updated upstream
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9654D7BF50250D8045D234C6D16720CBF0F934F2+++29A25A6"
+=======
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9654D7BF50250D8045D234C6D16720CBF0F934F2+++4E9C283"
+>>>>>>> Stashed changes
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/WWProjectTeam\/WWSampleProject.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+<<<<<<< Updated upstream
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9654D7BF50250D8045D234C6D16720CBF0F934F2+++779FB39"
+=======
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9654D7BF50250D8045D234C6D16720CBF0F934F2+++9145FDA"
+>>>>>>> Stashed changes
     },
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/WWProjectTeam\/WWSampleProject.git",
       "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+<<<<<<< Updated upstream
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "9654D7BF50250D8045D234C6D16720CBF0F934F2+++83D8198"
     }
   ]

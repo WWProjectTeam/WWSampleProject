@@ -10,6 +10,8 @@
 
 //FunctionalModule
 #import "WWHomePageViewController.h"
+// 我的
+#import "WWMyPageViewController.h"
 
 //APP端签名相关头文件
 #import "payRequsestHandler.h"
@@ -39,15 +41,15 @@ NSString * g_UserId;
     
     //标签页控制器初始化
     WWHomePageViewController * homePageVC = [[WWHomePageViewController alloc]init];
+    WWMyPageViewController *myPageVC = [[WWMyPageViewController alloc]init];
 
     //视图数组
-    NSArray* controllerArray = [[NSArray alloc]initWithObjects:homePageVC,nil];
+    NSArray* controllerArray = [[NSArray alloc]initWithObjects:homePageVC,myPageVC,nil];
     
     //标签页控制器初始化
     self.tabBarController = [[UITabBarController alloc]init];
     [self.tabBarController setViewControllers:controllerArray];
     [self.tabBarController setSelectedIndex:0];
-
     
     //导航条创建
     self.navtionViewControl = [[UINavigationController alloc]initWithRootViewController:self.tabBarController];

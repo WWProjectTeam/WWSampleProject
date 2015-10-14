@@ -18,24 +18,16 @@
 -(void)setProductType:(NSDictionary *)dict;
 @end
 
-//home page banner action
-@protocol mainViewBannerActionDelegate <NSObject>
-@required
--(void)mainViewBannerSelectWithUrl:(NSString *)strUrl;
 
-@end
-
-
-
-@interface HomePageView : UIView<UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource>{
+@interface HomePageView : UIView<UIScrollViewDelegate,UITableViewDelegate,UITableViewDataSource,UICollectionViewDataSource,UICollectionViewDelegate>{
 
 
 }
 
-@property (nonatomic,assign) id<mainViewBannerActionDelegate>bannDelegate;
 @property (nonatomic,assign) id<WWHomePageDelegte>delegate;
 
 @property (strong) UIScrollView * homePageScrollView;
+@property (strong) UICollectionView * collectProduct;
 /**
  *  主页初始化
  *
@@ -43,12 +35,6 @@
  */
 -(id)initHomePageViewWithFrame:(CGRect)frame;
 
-/**
- *  菜单按钮参数传入
- *
- *  @param array 菜单按钮参数
- */
--(void)setMenuData:(NSArray *)array;
 
 
 
@@ -56,12 +42,6 @@
 @property(strong) NSMutableArray * arrBannerData;
 
 
-/**
- *
- *  首页banner刷新
- *
- **/
--(void)reloadDataForBanner;
 
 
 
@@ -82,4 +62,7 @@
  **/
 -(void)dismissProductType;
 
+
+//商品数据
+@property (strong) NSMutableArray * arrProductItem;
 @end

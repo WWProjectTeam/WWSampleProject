@@ -50,20 +50,20 @@
     ////////////////
     //MJ
     
-    __weak UIScrollView *scrollViewTemp = viewHomePage.homePageScrollView;
+    __weak UICollectionView *collectViewT = viewHomePage.collectProduct;
     
     // 添加下拉刷新控件
     
-    scrollViewTemp.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+    collectViewT.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
     [[HTTPClient sharedHTTPClient]postClothesListType:[strProductId intValue] index:0 WithCompletion:^(WebAPIResponse *operation) {
         
         
         NSDictionary * dict = operation.responseObject[@"result"];
         
         viewHomePage.arrBannerData = dict[@"focus"];
-        [viewHomePage reloadDataForBanner];
-        
-        [scrollViewTemp.header endRefreshing];
+        viewHomePage.arrProductItem = dict[@"list"];
+        [collectViewT reloadData];
+        [collectViewT.header endRefreshing];
 
         }];
 
@@ -73,7 +73,7 @@
 
     
 
-    [scrollViewTemp.header beginRefreshing];
+    [collectViewT.header beginRefreshing];
 
 }
 

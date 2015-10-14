@@ -115,5 +115,9 @@
     [viewNavtionBar HomePageSetTitle:dict[@"name"]];
     
     strProductId = dict[@"id"];
+    
+
+    [viewHomePage.collectProduct.header beginRefreshing];
+
 }
 @end

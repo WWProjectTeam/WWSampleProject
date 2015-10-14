@@ -15,6 +15,8 @@
 
 
 extern NSString * g_UserId;
+extern NSString * g_UserName;
+extern NSString * g_UserHeadImage;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate,WXApiDelegate>
 

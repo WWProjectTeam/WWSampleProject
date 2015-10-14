@@ -75,4 +75,10 @@
 //getProductType
 #define KProductType                @"yiyouv/clothes/types"
 
+//反馈信息
+#define KFeedBackURL                @"yiyouv/user/saveSuggestion"
+
+//userInformation
+#define KUserInformationURL         @"yiyouv/user/info?id=%@"
+
 #endif

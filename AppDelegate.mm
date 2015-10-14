@@ -15,6 +15,8 @@
 
 #import "WWClotheSpressViewController.h"
 
+// 登陆
+#import "WWLoginViewController.h"
 
 //APP端签名相关头文件
 #import "payRequsestHandler.h"
@@ -26,7 +28,9 @@
 
 
 NSString * g_UserId;
-@interface AppDelegate ()
+NSString * g_UserName;
+NSString * g_UserHeadImage;
+@interface AppDelegate ()<UITabBarControllerDelegate>
 
 @end
 
@@ -59,7 +63,7 @@ NSString * g_UserId;
     self.tabBarController = [[UITabBarController alloc]init];
     [self.tabBarController setViewControllers:controllerArray];
     [self.tabBarController setSelectedIndex:0];
-    
+    [self.tabBarController setDelegate:self];
     
     //设置标签页控制器图片
     UITabBar *tabBar = self.tabBarController.tabBar;
@@ -100,6 +104,21 @@ NSString * g_UserId;
 #pragma mark - 微信支付测试
     [self sendPay];
     return YES;
+}
+
+#pragma mark - UITabBarControllerDelegate
+- (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
+    
+    if ([viewController isKindOfClass:[WWMyPageViewController class]]) {
+        if (!g_UserName) {
+            WWLoginViewController *loginVC = [[WWLoginViewController alloc]init];
+            [self.window.rootViewController presentViewController:loginVC animated:YES completion:nil];
+        }else{
+            return;
+        }
+    }else{
+        
+    }
 }
 
 #pragma mark - 微信

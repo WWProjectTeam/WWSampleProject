@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4626E4EC1BCDFCC700D902B4 /* WWUserInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4626E4EB1BCDFCC700D902B4 /* WWUserInformationViewController.m */; settings = {ASSET_TAGS = (); }; };
+		4626E4EF1BCE1E0600D902B4 /* WWFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4626E4EE1BCE1E0600D902B4 /* WWFeedbackViewController.m */; settings = {ASSET_TAGS = (); }; };
+		4626E4F31BCE49D900D902B4 /* WWVIPPackageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4626E4F21BCE49D900D902B4 /* WWVIPPackageViewController.m */; settings = {ASSET_TAGS = (); }; };
+		4626E4F81BCE503600D902B4 /* WWLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4626E4F71BCE503600D902B4 /* WWLoginViewController.m */; settings = {ASSET_TAGS = (); }; };
 		4648E7101BCCEF5600A54035 /* WWMyPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4648E70F1BCCEF5600A54035 /* WWMyPageViewController.m */; settings = {ASSET_TAGS = (); }; };
 		4648E7141BCD0F3500A54035 /* UIView+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4648E7131BCD0F3500A54035 /* UIView+Tool.m */; settings = {ASSET_TAGS = (); }; };
 		4648E72C1BCD4CC200A54035 /* -seal@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4648E7161BCD4CC100A54035 /* -seal@2x.png */; settings = {ASSET_TAGS = (); }; };
@@ -156,6 +160,14 @@
 
 /* Begin PBXFileReference section */
 		16AE9000BDCE5CAC294783BF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4626E4EA1BCDFCC700D902B4 /* WWUserInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWUserInformationViewController.h; sourceTree = SOURCE_ROOT; };
+		4626E4EB1BCDFCC700D902B4 /* WWUserInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWUserInformationViewController.m; sourceTree = SOURCE_ROOT; };
+		4626E4ED1BCE1E0600D902B4 /* WWFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWFeedbackViewController.h; sourceTree = SOURCE_ROOT; };
+		4626E4EE1BCE1E0600D902B4 /* WWFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWFeedbackViewController.m; sourceTree = SOURCE_ROOT; };
+		4626E4F11BCE49D900D902B4 /* WWVIPPackageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWVIPPackageViewController.h; sourceTree = SOURCE_ROOT; };
+		4626E4F21BCE49D900D902B4 /* WWVIPPackageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWVIPPackageViewController.m; sourceTree = SOURCE_ROOT; };
+		4626E4F61BCE503600D902B4 /* WWLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWLoginViewController.h; sourceTree = SOURCE_ROOT; };
+		4626E4F71BCE503600D902B4 /* WWLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWLoginViewController.m; sourceTree = SOURCE_ROOT; };
 		4648E70E1BCCEF5600A54035 /* WWMyPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWMyPageViewController.h; sourceTree = SOURCE_ROOT; };
 		4648E70F1BCCEF5600A54035 /* WWMyPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWMyPageViewController.m; sourceTree = SOURCE_ROOT; };
 		4648E7121BCD0F3500A54035 /* UIView+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Tool.h"; sourceTree = SOURCE_ROOT; };
@@ -437,11 +449,58 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		4626E4E71BCDFBED00D902B4 /* 基本信息 */ = {
+			isa = PBXGroup;
+			children = (
+				4626E4EA1BCDFCC700D902B4 /* WWUserInformationViewController.h */,
+				4626E4EB1BCDFCC700D902B4 /* WWUserInformationViewController.m */,
+			);
+			name = "基本信息";
+			sourceTree = "<group>";
+		};
+		4626E4E81BCDFBF700D902B4 /* 我的收藏 */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "我的收藏";
+			sourceTree = "<group>";
+		};
+		4626E4E91BCDFC0700D902B4 /* 意见反馈 */ = {
+			isa = PBXGroup;
+			children = (
+				4626E4ED1BCE1E0600D902B4 /* WWFeedbackViewController.h */,
+				4626E4EE1BCE1E0600D902B4 /* WWFeedbackViewController.m */,
+			);
+			name = "意见反馈";
+			sourceTree = "<group>";
+		};
+		4626E4F01BCE49B100D902B4 /* VIP套餐 */ = {
+			isa = PBXGroup;
+			children = (
+				4626E4F11BCE49D900D902B4 /* WWVIPPackageViewController.h */,
+				4626E4F21BCE49D900D902B4 /* WWVIPPackageViewController.m */,
+			);
+			name = "VIP套餐";
+			sourceTree = "<group>";
+		};
+		4626E4F51BCE501E00D902B4 /* 登陆 */ = {
+			isa = PBXGroup;
+			children = (
+				4626E4F61BCE503600D902B4 /* WWLoginViewController.h */,
+				4626E4F71BCE503600D902B4 /* WWLoginViewController.m */,
+			);
+			name = "登陆";
+			sourceTree = "<group>";
+		};
 		4648E7091BCCED2700A54035 /* 我的 */ = {
 			isa = PBXGroup;
 			children = (
 				4648E70E1BCCEF5600A54035 /* WWMyPageViewController.h */,
 				4648E70F1BCCEF5600A54035 /* WWMyPageViewController.m */,
+				4626E4F01BCE49B100D902B4 /* VIP套餐 */,
+				4626E4E91BCDFC0700D902B4 /* 意见反馈 */,
+				4626E4E81BCDFBF700D902B4 /* 我的收藏 */,
+				4626E4E71BCDFBED00D902B4 /* 基本信息 */,
 				4648E7421BCD546D00A54035 /* 设置 */,
 			);
 			name = "我的";
@@ -944,6 +1003,7 @@
 			isa = PBXGroup;
 			children = (
 				4A40DDE91BCA86C800E12DD9 /* 公共 */,
+				4626E4F51BCE501E00D902B4 /* 登陆 */,
 				4AD21AEC1BA0256600B4BDDC /* 首页 */,
 				4A40E09F1BCCFF5900E12DD9 /* 衣柜 */,
 				4648E7091BCCED2700A54035 /* 我的 */,
@@ -1325,8 +1385,10 @@
 				4A40DE5E1BCA928E00E12DD9 /* HomePageView.m in Sources */,
 				46D3FF5B1BCBFB750091AF67 /* AFHTTPClient.m in Sources */,
 				46D3FF7D1BCC03DB0091AF67 /* AFNetworkActivityIndicatorManager.m in Sources */,
+				4626E4EC1BCDFCC700D902B4 /* WWUserInformationViewController.m in Sources */,
 				4AD21B0D1BA033DB00B4BDDC /* UINavigationBar+Awesome.m in Sources */,
 				46D3FF471BCBFB630091AF67 /* WebAPIResponse.m in Sources */,
+				4626E4F81BCE503600D902B4 /* WWLoginViewController.m in Sources */,
 				4A40DE5A1BCA921800E12DD9 /* MCPagerView.m in Sources */,
 				4648E74E1BCD5FEE00A54035 /* WWAboutUsPageViewController.m in Sources */,
 				4AD21AF21BA025DD00B4BDDC /* WWHomePageViewController.m in Sources */,
@@ -1348,10 +1410,12 @@
 				4AD21AFC1BA028B700B4BDDC /* AppDelegate.mm in Sources */,
 				4A40DDEC1BCA86F100E12DD9 /* WWPublicNavtionBar.m in Sources */,
 				4A5949291BCDDA4700036873 /* WWHeaderCollectionReusableView.m in Sources */,
+				4626E4F31BCE49D900D902B4 /* WWVIPPackageViewController.m in Sources */,
 				4AD21B1C1BA0396000B4BDDC /* UIViewController+AOP.m in Sources */,
 				4A3CD1F41BBE33A2004DD167 /* payRequsestHandler.mm in Sources */,
 				4648E7101BCCEF5600A54035 /* WWMyPageViewController.m in Sources */,
 				4AD21B071BA02FB600B4BDDC /* WWUtilityClass.m in Sources */,
+				4626E4EF1BCE1E0600D902B4 /* WWFeedbackViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

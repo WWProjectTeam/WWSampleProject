@@ -9,6 +9,8 @@
 #import "WWMyPageViewController.h"
 #import "HTTPClient+Other.h"
 #import "WWSettingViewController.h"
+#import "WWUserInformationViewController.h"
+#import "WWFeedbackViewController.h"
 
 @interface WWMyPageViewController ()<UIAlertViewDelegate>
 {
@@ -17,6 +19,7 @@
 
 @property (nonatomic,strong)UIView                  *headBackView;
 @property (nonatomic,strong)UIImageView             *headImage;
+@property (nonatomic,strong)UIButton                *headImageBtn;
 @property (nonatomic,strong)UIButton                *setButton;
 @property (nonatomic,strong)UILabel                 *numberLabel;
 
@@ -26,14 +29,24 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = RGBCOLOR(242, 242, 242);
+    self.view.backgroundColor = WW_BASE_COLOR;
     
     // 导航
     viewNavtionBar = [[WWPublicNavtionBar alloc]initWithLeftBtn:NO withTitle:@"我的" withRightBtn:NO withRightBtnPicName:nil withRightBtnSize:CGSizeZero];
     [self.view addSubview:viewNavtionBar];
     
-    // 实例化界面
-    [self layoutMyPageView];
+    
+    if (g_UserId) {
+        // 实例化界面
+        [self layoutMyPageView];
+    }else{
+        [self userInformationRequestData];
+    }
+}
+
+- (void)userInformationRequestData{
+    
+    
 }
 
 // 实例化界面
@@ -56,9 +69,19 @@
         imageView.layer.masksToBounds = YES;
         imageView.layer.borderColor = [[UIColor whiteColor] CGColor];
         imageView.layer.borderWidth = 2.0f;
-        imageView.image = [UIImage imageNamed:@"img_tx"];   // 默认图
+        [imageView setImageWithURL:[NSURL URLWithString:g_UserHeadImage] placeholderImage:[UIImage imageNamed:@"img_tx"]];
         [self.headBackView addSubview:imageView];
         imageView;
+    });
+    self.headImageBtn = ({
+        UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+        button.frame = self.headImage.frame;
+        button.layer.cornerRadius = (61*kPercenX)/2;
+        button.layer.masksToBounds = YES;
+        [button setBackgroundImage:[WWUtilityClass imageWithColor:WWBtnStateHighlightedColor] forState:UIControlStateHighlighted];
+        [button addTarget:self action:@selector(userInformationClickEvent:) forControlEvents:UIControlEventTouchUpInside];
+        [self.headBackView addSubview:button];
+        button;
     });
     // 手机号码
     self.numberLabel = ({
@@ -139,7 +162,8 @@
     }else if (sender.tag == 1){
         
     }else if (sender.tag == 2){
-        
+        WWFeedbackViewController *feedVC = [[WWFeedbackViewController alloc]init];
+        [self.navigationController pushViewController:feedVC animated:YES];
     }else if (sender.tag == 3){
         UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"电话咨询" message:@"400-585-5896" delegate:self cancelButtonTitle:@"取消" otherButtonTitles:@"呼叫", nil];
         alert.delegate = self;
@@ -158,6 +182,11 @@
 - (void)setBtnClickEvent:(UIButton *)sender{
     WWSettingViewController *setVC = [[WWSettingViewController alloc]init];
     [self.navigationController pushViewController:setVC animated:YES];
+}
+
+- (void)userInformationClickEvent:(UIButton *)sender{
+    WWUserInformationViewController *userVC = [[WWUserInformationViewController alloc]init];
+    [self.navigationController pushViewController:userVC animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

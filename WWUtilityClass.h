@@ -43,6 +43,14 @@
 
 //工程主调颜色
 #define WW_BASE_COLOR [UIColor colorWithRed:181.0f/255.0f green:34.0f/255.0f blue:0.0f/255.0f alpha:1.0f]
+//线条颜色
+#define WWPageLineColor                 RGBCOLOR(217,217,217)
+//内容颜色
+#define WWContentTextColor              RGBCOLOR(51,51,51)
+//副标题颜色
+#define WWSubTitleTextColor             RGBCOLOR(153,153,153)
+//按键高亮的显示颜色
+#define WWBtnStateHighlightedColor      RGBCOLOR(222,222,222)
 
 //字体宏-带适配系数
 #define font_size(size) [UIFont systemFontOfSize:size*kPercenX]
@@ -53,6 +61,11 @@
 //请求状态码
 #define WWAppSuccessCode @"000"
 #define WWAppNoData      @"001"
+
+// 商品ID
+#define kAppleLookupURLTemplate     @"http://itunes.apple.com/lookup?id=%@"
+#define kAppStoreURLTemplate        @"itms-apps://itunes.apple.com/app/id%@"
+#define kAppid                      @"923826908"        // 暂用爱瘦到时候换
 
 #pragma mark - 常用方法
 //键盘隐藏

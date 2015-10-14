@@ -1365,17 +1365,14 @@
 				4648E73D1BCD4CC200A54035 /* map-pointer@3x.png in Resources */,
 				4A40E0901BCCFDB300E12DD9 /* 衣柜选中@3x.png in Resources */,
 				4A40DE241BCA895C00E12DD9 /* btn_sz_n@2x.png in Resources */,
-<<<<<<< HEAD
 				4AF325391BCDF02A004DE507 /* write-reviews@2x.png in Resources */,
 				4A40DE221BCA895C00E12DD9 /* btn_gb_n@2x.png in Resources */,
 				4A40DE391BCA895C00E12DD9 /* logo-100.png in Resources */,
 				4AF3252D1BCDF02A004DE507 /* collect--default@2x.png in Resources */,
-=======
 				4648E72D1BCD4CC200A54035 /* -seal@3x.png in Resources */,
 				4A40DE221BCA895C00E12DD9 /* btn_gb_n@2x.png in Resources */,
 				4A40DE391BCA895C00E12DD9 /* logo-100.png in Resources */,
 				4648E73C1BCD4CC200A54035 /* map-pointer@2x.png in Resources */,
->>>>>>> origin/master
 				4AD21AE71BA0250100B4BDDC /* LaunchScreen.xib in Resources */,
 				4A40E0461BCCA52300E12DD9 /* PBMsg@2x.png in Resources */,
 				4A40DE341BCA895C00E12DD9 /* img_ftx@2x.png in Resources */,
@@ -1480,12 +1477,9 @@
 				4A40E0841BCCFDB300E12DD9 /* 全部选中@3x.png in Resources */,
 				4A40E07F1BCCFDB300E12DD9 /* 上衣默认@2x.png in Resources */,
 				4A40DE361BCA895C00E12DD9 /* img_tx@2x.png in Resources */,
-<<<<<<< HEAD
 				4AF325211BCDF02A004DE507 /* -avatars@2x.png in Resources */,
 				4AF325231BCDF02A004DE507 /* -default-point@2x.png in Resources */,
-=======
 				4648E7311BCD4CC200A54035 /* 支付宝@3x.png in Resources */,
->>>>>>> origin/master
 				4A40DE311BCA895C00E12DD9 /* icon_ygh@3x.png in Resources */,
 				4A40E0821BCCFDB300E12DD9 /* 下衣默认@3x.png in Resources */,
 				4648E73A1BCD4CC200A54035 /* key-tool@2x.png in Resources */,

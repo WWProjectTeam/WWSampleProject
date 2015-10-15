@@ -22,6 +22,9 @@
         ////////产品图片
         self.imgProduct = [[UIImageView alloc]init];
         [self.imgProduct setFrame:CGRectMake(3, 10,self.frame.size.width-7, iphone_size_scale(225))];
+       // [self.imgProduct setContentMode:UIViewAutoresizingFlexibleWidth];
+        [self.imgProduct setContentMode:UIViewContentModeScaleAspectFill];
+        self.imgProduct.clipsToBounds = YES;
         [self addSubview:self.imgProduct];
     
         

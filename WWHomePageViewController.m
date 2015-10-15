@@ -16,11 +16,12 @@
 //Mj
 #import "MJRefresh.h"
 
-
+///////productDetial
+#import "WWProductDetailViewController.h"
 @interface WWHomePageViewController()<HomePageNavtionDelegate,WWHomePageDelegte>{
     HomePageView * viewHomePage;
     WWPublicNavtionBar * viewNavtionBar;
-    
+    int  pageIndex;
     NSString * strProductId;
 }
 
@@ -55,6 +56,7 @@
     // 添加下拉刷新控件
     
     collectViewT.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        pageIndex = 0;
     [[HTTPClient sharedHTTPClient]postClothesListType:[strProductId intValue] index:0 WithCompletion:^(WebAPIResponse *operation) {
         
         
@@ -62,18 +64,64 @@
         
         viewHomePage.arrBannerData = dict[@"focus"];
         viewHomePage.arrProductItem = dict[@"list"];
+        
+        NSString * strIndex = [NSString stringWithFormat:@"%@",dict[@"next"]];
+        if ([strIndex isEqualToString:@"0"]) {
+            [collectViewT.footer noticeNoMoreData];
+            [collectViewT.footer setHidden:YES];
+        }
+        else
+        {
+            [collectViewT.footer setHidden:NO];
+        }
+        
         [collectViewT reloadData];
         [collectViewT.header endRefreshing];
 
         }];
-
-    
     
     }];
+    
+    collectViewT.footer = [MJRefreshAutoFooter footerWithRefreshingBlock:^{
+        pageIndex++;
+        [[HTTPClient sharedHTTPClient]postClothesListType:[strProductId intValue] index:pageIndex WithCompletion:^(WebAPIResponse *operation) {
+            
+            NSDictionary * dict = operation.responseObject[@"result"];
+            
+            viewHomePage.arrBannerData = dict[@"focus"];
+            [viewHomePage.arrProductItem addObjectsFromArray:dict[@"list"]];
+            
+            NSString * strIndex = [NSString stringWithFormat:@"%@",dict[@"next"]];
+            if ([strIndex isEqualToString:@"0"]) {
+                [collectViewT.footer noticeNoMoreData];
+                [collectViewT.footer setHidden:YES];
+            }
+            else
+            {
+                [collectViewT.footer setHidden:NO];
+            }
+            
+            [collectViewT reloadData];
+            [collectViewT.header endRefreshing];
+            
+        }];
 
+    }];
     
 
     [collectViewT.header beginRefreshing];
+    
+    
+    //商品点击事件
+    
+    __weak HomePageView * homePageTemp = viewHomePage;
+    
+    homePageTemp.TapCollectActionBlock = ^(NSString * strProductId){
+        WWProductDetailViewController * productVC = [[WWProductDetailViewController alloc]init];
+        productVC.strProductId = strProductId;
+        [self.navigationController pushViewController:productVC animated:YES];
+    };
+
 
 }
 

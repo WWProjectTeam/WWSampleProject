@@ -75,4 +75,7 @@
 //getProductType
 #define KProductType                @"yiyouv/clothes/types"
 
+//getProductDetial
+#define KProductDetial              @"yiyouv/clothes/info"
+
 #endif

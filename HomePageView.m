@@ -75,6 +75,21 @@
         
         [tableProductType setHidden:YES];
         
+        
+        
+        //轮播图创建
+        scrollBanner = [[CycleScrollView alloc] initWithFrame:CGRectMake(0, 0, iphone_size_scale(320), iphone_size_scale(200)) animationDuration:4];
+        scrollBanner.backgroundColor = [[UIColor purpleColor] colorWithAlphaComponent:0.1];
+        // [self.homePageScrollView addSubview:scrollBanner];
+        
+        //定义pageControl
+        pageControl = [[WWPageControl alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(scrollBanner.frame)-14, 320, 6)];
+        [pageControl setBackgroundColor:[UIColor clearColor]];
+        [pageControl setImagePageStateHighlighted:[UIImage imageNamed:@"click-on--point"]];
+        [pageControl setImagePageStateNormal:[UIImage imageNamed:@"-default-point"]];
+        [pageControl setHidesForSinglePage:YES];
+        [scrollBanner addSubview:pageControl];
+
     }
     return self;
 }
@@ -153,6 +168,11 @@
 //UICollectionView被选中时调用的方法
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    NSDictionary * dicTemp = self.arrProductItem[indexPath.row];
+    
+    if (self.TapCollectActionBlock) {
+        self.TapCollectActionBlock(dicTemp[@"id"]);
+    }
 }
 
 //返回这个UICollectionView是否可以被选择
@@ -193,19 +213,8 @@
     
     WWHeaderCollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headView" forIndexPath:indexPath];
         
-    //轮播图创建
-    scrollBanner = [[CycleScrollView alloc] initWithFrame:CGRectMake(0, 0, iphone_size_scale(320), iphone_size_scale(200)) animationDuration:4];
-    scrollBanner.backgroundColor = [[UIColor purpleColor] colorWithAlphaComponent:0.1];
-    // [self.homePageScrollView addSubview:scrollBanner];
     [headerView addSubview:scrollBanner];
-    
-    //定义pageControl
-    pageControl = [[WWPageControl alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(scrollBanner.frame)-14, 320, 6)];
-    [pageControl setBackgroundColor:[UIColor clearColor]];
-    [pageControl setImagePageStateHighlighted:[UIImage imageNamed:@"click-on--point"]];
-    [pageControl setImagePageStateNormal:[UIImage imageNamed:@"-default-point"]];
-    [pageControl setHidesForSinglePage:YES];
-    [scrollBanner addSubview:pageControl];
+
 
     //轮播图数据源准备
     NSMutableArray *viewsArray = [@[] mutableCopy];

@@ -22,4 +22,7 @@
 //HP-getProductType
 - (AFHTTPRequestOperation *)ProductTypeWithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
 
+//PD-getProductDetial
+- (AFHTTPRequestOperation *)ProductDetailWithComletion:(WebAPIRequestCompletionBlock)completionBlock;
+
 @end

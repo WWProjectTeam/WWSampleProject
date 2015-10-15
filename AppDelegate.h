@@ -16,7 +16,7 @@
 
 extern NSString * g_UserId;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate,WXApiDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,WXApiDelegate,UITabBarDelegate>
 
 @property (strong, nonatomic) UIWindow *window;
 

@@ -14,7 +14,6 @@
     
     BOOL isSelect;
 }
-@synthesize navtionBarDelegate = _navtionBarDelegate;
 @synthesize HomePageNavtionDelegate = _HomePageNavtionDelegate;
 //通用初始化方法
 -(id)initWithLeftBtn:(BOOL)leftBtnControl
@@ -34,8 +33,8 @@
             //返回按钮
             UIButton * btnBack = [[UIButton alloc]init];
             [btnBack setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-            [btnBack setBackgroundImage:[UIImage imageNamed:@"Public_btnBack.png"] forState:UIControlStateNormal];
-            [btnBack setFrame:CGRectMake(kPercenX, IOS7_Y, 44, 44)];
+            [btnBack setBackgroundImage:[UIImage imageNamed:@"backView"] forState:UIControlStateNormal];
+            [btnBack setFrame:CGRectMake(10, IOS7_Y+7, 30, 30)];
             [btnBack addTarget:self action:@selector(btnBack) forControlEvents:UIControlEventTouchUpInside];
             [self addSubview:btnBack];
         }
@@ -43,10 +42,10 @@
         UILabel * labelTitle = [[UILabel alloc]init];
         [labelTitle setText:strTitle];
         [labelTitle setFrame:CGRectMake(0, IOS7_Y, MainView_Width, 44)];
-        [labelTitle setTextColor:[UIColor whiteColor]];
+        [labelTitle setTextColor:[UIColor blackColor]];
         [labelTitle setBackgroundColor:[UIColor clearColor]];
         [labelTitle setTextAlignment:NSTextAlignmentCenter];
-        [labelTitle setFont:[UIFont boldSystemFontOfSize:18]];
+        [labelTitle setFont:font_navtionTitle];
         
         [self addSubview:labelTitle];
         
@@ -71,19 +70,18 @@
 
 //右侧按钮点击方法
 -(void)rightBtnSelelct{
-    [self.navtionBarDelegate rightBtnSelect];
+    if (self.TapRightButton) {
+        self.TapRightButton();
+    }
 }
 
 -(void)btnBack{
-    if([self.navtionBarDelegate respondsToSelector:@selector(leftBtnSelect)]){
-        [self.navtionBarDelegate leftBtnSelect];
-        
+    if (self.TapLeftButton) {
+        self.TapLeftButton();
     }
-    else
-    {
-        AppDelegate * appdelegate = (AppDelegate * )[UIApplication sharedApplication].delegate;
-        [appdelegate.navtionViewControl popViewControllerAnimated:YES];
-    }
+    
+    AppDelegate * appdelegate = (AppDelegate * )[UIApplication sharedApplication].delegate;
+    [appdelegate.navtionViewControl popViewControllerAnimated:YES];
 }
 
 

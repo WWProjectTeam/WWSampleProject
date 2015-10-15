@@ -65,4 +65,9 @@
 
 //商品数据
 @property (strong) NSMutableArray * arrProductItem;
+
+
+////////////商品点击
+@property (nonatomic , copy) void (^TapCollectActionBlock)(NSString * strProductId);
+
 @end

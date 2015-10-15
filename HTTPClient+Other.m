@@ -41,4 +41,10 @@
     return [self getPath:KProductType parameters:nil completion:completionBlock];
 }
 
+//PD-getProductDetial
+- (AFHTTPRequestOperation *)ProductDetailWithComletion:(WebAPIRequestCompletionBlock)completionBlock{
+    return [self getPath:KProductDetial parameters:nil completion:completionBlock];
+}
+
+
 @end

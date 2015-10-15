@@ -10,17 +10,8 @@
 //
 #import <UIKit/UIKit.h>
 
-#pragma mark - 通用导航条
-@protocol publicNavtionDelegate <NSObject>//协议声明
-//必选方法
-@required
--(void)rightBtnSelect;
-
-@optional
--(void)leftBtnSelect;
 
 
-@end
 
 #pragma mark - 首页特殊导航条
 @protocol HomePageNavtionDelegate <NSObject>//协议声明
@@ -34,8 +25,13 @@
 
 @interface WWPublicNavtionBar : UIView
 
-@property (nonatomic,assign) id<publicNavtionDelegate>navtionBarDelegate;
 @property (nonatomic,assign) id<HomePageNavtionDelegate>HomePageNavtionDelegate;
+
+////////通用导航条点击事件
+@property (nonatomic , copy) void (^TapLeftButton)();
+@property (nonatomic , copy) void (^TapRightButton)();
+
+
 
 #pragma mark - 通用导航条创建
 //通用初始化方法

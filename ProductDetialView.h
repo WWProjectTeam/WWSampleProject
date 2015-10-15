@@ -24,8 +24,13 @@
 
 @property (strong) CycleScrollView * scrollBanner;
 @property (strong) WWPageControl * pageControl;
-
+@property (strong) UIImageView * imagePhoto;
+@property (strong) UILabel * labelTitle;
+@property (strong) UILabel * labelDesc;
 
 -(void)reloadProductImgBannerWithImgData:(NSArray *)array;
+
+
+@property (nonatomic ,copy) void (^TapPhotoAction)(NSInteger index);
 
 @end

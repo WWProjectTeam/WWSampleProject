@@ -116,9 +116,9 @@
     
     __weak HomePageView * homePageTemp = viewHomePage;
     
-    homePageTemp.TapCollectActionBlock = ^(NSString * strProductId){
+    homePageTemp.TapCollectActionBlock = ^(NSString * ProductId){
         WWProductDetailViewController * productVC = [[WWProductDetailViewController alloc]init];
-        productVC.strProductId = strProductId;
+        productVC.strProductId = ProductId;
         [self.navigationController pushViewController:productVC animated:YES];
     };
 

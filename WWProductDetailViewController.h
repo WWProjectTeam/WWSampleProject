@@ -10,4 +10,5 @@
 
 @interface WWProductDetailViewController : UIViewController
 @property (strong) NSString * strProductId;
+@property (strong) NSMutableArray * arrayImgs;
 @end

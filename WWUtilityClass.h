@@ -43,6 +43,7 @@
 
 //工程主调颜色
 #define WW_BASE_COLOR [UIColor colorWithRed:181.0f/255.0f green:34.0f/255.0f blue:0.0f/255.0f alpha:1.0f]
+#define WW_BASE_COLOR [UIColor colorWithRed:242.0f/255.0f green:242.0f/255.0f blue:242.0f/255.0f alpha:1.0f]
 //线条颜色
 #define WWPageLineColor                 RGBCOLOR(217,217,217)
 //内容颜色
@@ -51,6 +52,8 @@
 #define WWSubTitleTextColor             RGBCOLOR(153,153,153)
 //按键高亮的显示颜色
 #define WWBtnStateHighlightedColor      RGBCOLOR(222,222,222)
+//部分按钮专用“黄色”
+#define WWBtnYellowColor                RGBCOLOR(224,162,28)
 
 //字体宏-带适配系数
 #define font_size(size) [UIFont systemFontOfSize:size*kPercenX]

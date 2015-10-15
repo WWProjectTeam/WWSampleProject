@@ -24,5 +24,10 @@
 
 //PD-getProductDetial
 - (AFHTTPRequestOperation *)ProductDetailWithComletion:(WebAPIRequestCompletionBlock)completionBlock;
+//postFeedback
+- (AFHTTPRequestOperation *)PostFeedBackToServerContent:(NSString *)feedContent WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
+
+//getUserInformation
+- (AFHTTPRequestOperation *)GetUserInformationUserId:(NSString *)userId WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
 
 @end

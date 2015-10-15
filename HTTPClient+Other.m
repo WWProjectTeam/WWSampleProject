@@ -46,5 +46,25 @@
     return [self getPath:KProductDetial parameters:nil completion:completionBlock];
 }
 
+//postFeedback
+- (AFHTTPRequestOperation *)PostFeedBackToServerContent:(NSString *)feedContent WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
+    NSDictionary *feedDic = @{@"content":feedContent};
+    
+    NSDictionary *param = @{@"json" : [feedDic JSONString]};
+    
+    return [self postPath:KFeedBackURL
+               parameters:param
+               completion:completionBlock];
+}
+
+//getUserInformation
+- (AFHTTPRequestOperation *)GetUserInformationUserId:(NSString *)userId WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
+    
+    NSString *url = [NSString stringWithFormat:KUserInformationURL,userId];
+    return [self getPath:url
+              parameters:nil
+              completion:completionBlock];
+}
+
 
 @end

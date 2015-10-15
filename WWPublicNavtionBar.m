@@ -79,9 +79,11 @@
     if (self.TapLeftButton) {
         self.TapLeftButton();
     }
-    
-    AppDelegate * appdelegate = (AppDelegate * )[UIApplication sharedApplication].delegate;
-    [appdelegate.navtionViewControl popViewControllerAnimated:YES];
+    else
+    {
+        AppDelegate * appdelegate = (AppDelegate * )[UIApplication sharedApplication].delegate;
+        [appdelegate.navtionViewControl popViewControllerAnimated:YES];
+    }
 }
 
 

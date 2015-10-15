@@ -42,8 +42,25 @@
 }
 
 //PD-getProductDetial
-- (AFHTTPRequestOperation *)ProductDetailWithComletion:(WebAPIRequestCompletionBlock)completionBlock{
-    return [self getPath:KProductDetial parameters:nil completion:completionBlock];
+- (AFHTTPRequestOperation *)ProductDetailPriductId:(NSString *)productId WithComletion:(WebAPIRequestCompletionBlock)completionBlock{
+    
+    NSDictionary * dicParam;
+    if (g_UserId) {
+        dicParam = @{
+                     @"userId":g_UserId,
+                     @"id":productId
+                     };
+    }
+    else
+    {
+        dicParam = @{
+                     @"userId":@"0",
+                     @"id":productId
+                     };
+
+    }
+    
+    return [self getPath:KProductDetial parameters:dicParam completion:completionBlock];
 }
 
 //postFeedback

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "CycleScrollView.h"
+#import "WWPageControl.h"
 @interface ProductDetialView : UIView<UIScrollViewDelegate>
 
 
@@ -20,5 +21,11 @@
 
 //scrollView滑动方法
 @property (nonatomic , copy) void (^ScrollViewDidScroll)(CGPoint point);
+
+@property (strong) CycleScrollView * scrollBanner;
+@property (strong) WWPageControl * pageControl;
+
+
+-(void)reloadProductImgBannerWithImgData:(NSArray *)array;
 
 @end

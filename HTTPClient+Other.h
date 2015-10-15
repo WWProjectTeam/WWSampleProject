@@ -23,7 +23,7 @@
 - (AFHTTPRequestOperation *)ProductTypeWithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
 
 //PD-getProductDetial
-- (AFHTTPRequestOperation *)ProductDetailWithComletion:(WebAPIRequestCompletionBlock)completionBlock;
+- (AFHTTPRequestOperation *)ProductDetailPriductId:(NSString *)productId WithComletion:(WebAPIRequestCompletionBlock)completionBlock;
 //postFeedback
 - (AFHTTPRequestOperation *)PostFeedBackToServerContent:(NSString *)feedContent WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
 

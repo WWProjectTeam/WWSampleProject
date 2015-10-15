@@ -147,7 +147,6 @@
     if (self.ScrollActionBlock) {
         self.ScrollActionBlock(self.currentPageIndex);
     }
-
 }
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView

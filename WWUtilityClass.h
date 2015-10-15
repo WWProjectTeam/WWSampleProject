@@ -62,7 +62,7 @@
 //常用字体设置
 #define font_navtionTitle font_bold_size(16)
 //请求状态码
-#define WWAppSuccessCode @"000"
+#define WWAppSuccessCode @"100"
 #define WWAppNoData      @"001"
 
 // 商品ID

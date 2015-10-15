@@ -7,19 +7,29 @@
 //
 
 #import "WWUserInformationViewController.h"
+#import "OSSsendPicture.h"
+#import "WWUserNameModifyViewController.h"
+#import "HTTPClient+Other.h"
 
-@interface WWUserInformationViewController (){
+
+@interface WWUserInformationViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,MLImageCropDelegate>{
     WWPublicNavtionBar *viewNavBarView;
+    UIImagePickerController *_pickerImage;
+    NSString * uploadTheImagePath;
 }
 
 @property (nonatomic,strong)UIView              *headView;      // 头像背静view
 @property (nonatomic,strong)UILabel             *headContent;
 @property (nonatomic,strong)UIImageView         *headImage;
 @property (nonatomic,strong)UIImageView         *headArrow;
+@property (nonatomic,strong)UIButton            *headBtn;
 @property (nonatomic,strong)UIView              *nameView;      // 名称
 @property (nonatomic,strong)UILabel             *nameContent;
 @property (nonatomic,strong)UILabel             *nameText;
 @property (nonatomic,strong)UIImageView         *nameArrow;
+@property (nonatomic,strong)UIButton            *nameBtn;
+
+@property (nonatomic,strong)NSString            *userNameStr;       // 用户名称
 
 @end
 
@@ -30,6 +40,10 @@
     self.view.backgroundColor = WW_BASE_COLOR;
     
     viewNavBarView = [[WWPublicNavtionBar alloc]initWithLeftBtn:YES withTitle:@"基本信息" withRightBtn:NO withRightBtnPicName:@"" withRightBtnSize:CGSizeZero];
+    __weak __typeof(&*self)weakSelf = self;
+    viewNavBarView.TapLeftButton = ^{
+        [weakSelf leftBackBtn];
+    };
     [self.view addSubview:viewNavBarView];
     
 #pragma mark ---  用户头像
@@ -68,6 +82,11 @@
         [self.headView addSubview:image];
         image;
     });
+    self.headBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.headBtn.frame = CGRectMake(0, 0, self.headView.width, self.headView.height);
+    [self.headBtn setBackgroundImage:[WWUtilityClass imageWithColor:WWBtnStateHighlightedColor] forState:UIControlStateHighlighted];
+    [self.headBtn addTarget:self action:@selector(headImageBtnClickEvent:) forControlEvents:UIControlEventTouchUpInside];
+    [self.headView addSubview:self.headBtn];
     
 #pragma mark ---  用户名称
     self.nameView = ({
@@ -108,6 +127,143 @@
         [self.nameView addSubview:subContentLab];
         subContentLab;
     });
+    self.nameBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    self.nameBtn.frame = CGRectMake(0, 0, self.nameView.width, self.nameView.height);
+    [self.nameBtn setBackgroundImage:[WWUtilityClass imageWithColor:WWBtnStateHighlightedColor] forState:UIControlStateHighlighted];
+    [self.nameBtn addTarget:self action:@selector(nameBtnClickEvent:) forControlEvents:UIControlEventTouchUpInside];
+    [self.nameView addSubview:self.nameBtn];
+}
+
+- (void)headImageBtnClickEvent:(UIButton *)sender{
+    UIActionSheet *action = [[UIActionSheet alloc]initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:@"拍照" otherButtonTitles:@"从相册选取", nil];
+    [action showInView:self.view];
+}
+
+- (void)nameBtnClickEvent:(UIButton *)sender{
+    WWUserNameModifyViewController *modifyVC = [[WWUserNameModifyViewController alloc]init];
+    [self.navigationController pushViewController:modifyVC animated:YES];
+}
+
+- (void)actionSheet:(UIActionSheet *)actionSheet clickedButtonAtIndex:(NSInteger)buttonIndex
+{
+    if (buttonIndex == 0) {
+        _pickerImage = [[UIImagePickerController alloc]init];
+        _pickerImage.delegate = self;
+        _pickerImage.sourceType = UIImagePickerControllerSourceTypeCamera;
+        _pickerImage.cameraDevice = UIImagePickerControllerCameraDeviceRear;
+        _pickerImage.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
+        _pickerImage.showsCameraControls = YES;
+        _pickerImage.allowsEditing = YES;
+        [self presentViewController:_pickerImage animated:YES completion:nil];
+        
+    }else if (buttonIndex == 1) {
+        _pickerImage  = [[UIImagePickerController alloc] init];
+        if([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+            _pickerImage.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+            _pickerImage.sourceType = UIImagePickerControllerSourceTypeSavedPhotosAlbum;
+        }
+        _pickerImage.delegate = self;
+        _pickerImage.allowsEditing = NO;
+        [self presentViewController:_pickerImage animated:YES completion:^{
+            
+        }];
+    }
+}
+
+#pragma mark ----- UIImagePickerControllerDelegate
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
+    //关闭相册选取控制器
+    [picker dismissViewControllerAnimated:YES completion:^{
+        //获取到媒体的类型
+        NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+        //判断选取的资源是否为相片
+        
+        if([mediaType isEqualToString:@"public.image"]) {
+            UIImage  *images = [info objectForKey:UIImagePickerControllerOriginalImage];
+            [self ClipPhoto:images];
+            
+        }
+    }];
+}
+
+//用户取消拍照
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)ClipPhoto:(UIImage *)imageObj
+{
+    MLImageCrop *imageCrop = [[MLImageCrop alloc]init];
+    imageCrop.delegate = self;
+    imageCrop.ratioOfWidthAndHeight = 1;
+    imageCrop.image = imageObj;
+    [imageCrop showWithAnimation:YES];
+}
+
+#pragma mark - crop delegate
+- (void)cropImage:(UIImage*)cropImage forOriginalImage:(UIImage*)originalImage
+{
+    self.headImage.image = [self imageWithImageSimple:cropImage scaledToSize:CGSizeMake(100, 100)];
+    // 上传图片
+    [self userHeadPhotoSendOSS];
+}
+
+- (void)userHeadPhotoSendOSS{
+    
+    if (self.headImage.image) {
+        OSSsendPicture *sendPic = [OSSsendPicture sharedInstance];
+        sendPic.bucketKey = kBucketKeyFormAS;
+        sendPic.cnameKey = kCnameKeyFormCN_HZ;
+        if ([sendPic OSSJudgeImageSizeFormImage:self.headImage.image]) {
+            return;
+        }
+        uploadTheImagePath = [sendPic OSSsendImageToOSSFormImageData:self.headImage.image imageContentOfRoute:@"face"];
+        if (IsStringEmptyOrNull(uploadTheImagePath)) {
+            [SVProgressHUD showErrorWithStatus:@"图片上传失败，请重新选择"];
+            uploadTheImagePath = @"";
+        }
+    }
+}
+
+//压缩图片
+- (UIImage*)imageWithImageSimple:(UIImage*)image scaledToSize:(CGSize)newSize
+{
+    // Create a graphics image context
+    UIGraphicsBeginImageContext(newSize);
+    
+    // Tell the old image to draw in this new context, with the desired
+    // new size
+    [image drawInRect:CGRectMake(0,0,newSize.width,newSize.height)];
+    
+    // Get the new image from the context
+    UIImage* newImage = UIGraphicsGetImageFromCurrentImageContext();
+    
+    // End the context
+    UIGraphicsEndImageContext();
+    
+    // Return the new image.
+    return newImage;
+}
+
+- (void)leftBackBtn{
+    __weak __typeof(&*self)weakSelf = self;
+    WWUserNameModifyViewController *userNameVC = [[WWUserNameModifyViewController alloc]init];
+    userNameVC.userNameStr = ^(NSString *name){
+        weakSelf.userNameStr = name;
+    };
+    
+    NSDictionary * parme = @{@"id":g_UserId,
+                             @"faceUrl":uploadTheImagePath,
+                             @"userName":self.userNameStr};
+    
+    [FMHTTPClient PostRequestModityUserInformationParmae:parme WithCompletion:^(WebAPIResponse *response) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (response.code == WebAPIResponseCodeSuccess) {
+                
+            }
+        });
+    }];
 }
 
 - (void)didReceiveMemoryWarning {

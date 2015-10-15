@@ -7,6 +7,7 @@
 //
 
 #import "WWLoginViewController.h"
+#import "HTTPClient+Other.h"
 
 @interface WWLoginViewController (){
     WWPublicNavtionBar *navtionBarView;
@@ -30,6 +31,13 @@
     self.view.backgroundColor = WW_BASE_COLOR;
     
     navtionBarView = [[WWPublicNavtionBar alloc]initWithLeftBtn:YES withTitle:@"" withRightBtn:NO withRightBtnPicName:@"" withRightBtnSize:CGSizeZero];
+    __weak __typeof(&*self)weakSelf = self;
+    navtionBarView.TapLeftButton = ^{
+        AppDelegate * appdelegate = (AppDelegate * )[UIApplication sharedApplication].delegate;
+        [appdelegate.tabBarController setSelectedIndex:0];
+        [weakSelf dismissViewControllerAnimated:YES completion:^{
+        }];
+    };
     [self.view addSubview:navtionBarView];
  
     [self loginPageLayout];
@@ -100,6 +108,7 @@
     self.getPasswordBtn.titleLabel.font = [UIFont systemFontOfSize:14.0f];
     [self.getPasswordBtn setBackgroundColor:RGBCOLOR(48, 160, 201)];
     [self.getPasswordBtn setBackgroundImage:[WWUtilityClass imageWithColor:RGBCOLOR(38, 139, 176)] forState:UIControlStateHighlighted];
+    [self.getPasswordBtn addTarget:self action:@selector(getDynamicPasswordRequest) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.getPasswordBtn];
     
     // 登陆即代表同意
@@ -122,9 +131,57 @@
     [self.loginBtn setTitle:@"发送" forState:UIControlStateNormal];
     self.loginBtn.backgroundColor = WWBtnYellowColor;
     [self.loginBtn setBackgroundImage:[WWUtilityClass imageWithColor:RGBCOLOR(211, 120, 23)] forState:UIControlStateHighlighted];
-//    [self.loginBtn addTarget:self action:@selector(submitFeedBack) forControlEvents:UIControlEventTouchUpInside];
+    [self.loginBtn addTarget:self action:@selector(sendLoginRequest) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.loginBtn];
     
+}
+
+// 请求动态密码
+- (void)getDynamicPasswordRequest{
+    if ([self.phoneTextField.text isEqualToString:@""]) {
+        [SVProgressHUD showInfoWithStatus:@"请输入手机号"];
+        return;
+    }else{
+        if (![WWUtilityClass validateMobile:self.phoneTextField.text]) {
+            [SVProgressHUD showInfoWithStatus:@"请输入正确的手机号"];
+            return;
+        }
+    }
+    
+    [FMHTTPClient GetDynamicPasswordAndPhone:self.phoneTextField.text WithCompletion:^(WebAPIResponse *response) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (response.code == WebAPIResponseCodeSuccess) {
+                [SVProgressHUD showSuccessWithStatus:@"动态密码已发送，请注意查收"];
+            }
+        });
+    }];
+}
+
+- (void)sendLoginRequest{
+    if ([self.phoneTextField.text isEqualToString:@""]) {
+        [SVProgressHUD showInfoWithStatus:@"请输入手机号"];
+        return;
+    }
+    if ([self.passwordTextField.text isEqualToString:@""]) {
+        [SVProgressHUD showInfoWithStatus:@"请输入密码"];
+        return;
+    }
+    [FMHTTPClient PostRequsetLoginNeedPhone:self.phoneTextField.text AndPassword:self.passwordTextField.text WithCompletion:^(WebAPIResponse *response) {
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (response.code == WebAPIResponseCodeSuccess) {
+//                AppDelegate * appdelegate = (AppDelegate * )[UIApplication sharedApplication].delegate;
+//                [appdelegate.tabBarController setSelectedIndex:0];
+                [self dismissViewControllerAnimated:YES completion:^{
+                    
+                }];
+            }
+        });
+    }];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
+{
+    [self.view endEditing:YES];
 }
 
 - (void)didReceiveMemoryWarning {

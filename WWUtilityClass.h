@@ -42,7 +42,6 @@
 //常用颜色定义
 
 //工程主调颜色
-#define WW_BASE_COLOR [UIColor colorWithRed:181.0f/255.0f green:34.0f/255.0f blue:0.0f/255.0f alpha:1.0f]
 #define WW_BASE_COLOR [UIColor colorWithRed:242.0f/255.0f green:242.0f/255.0f blue:242.0f/255.0f alpha:1.0f]
 //线条颜色
 #define WWPageLineColor                 RGBCOLOR(217,217,217)
@@ -70,6 +69,10 @@
 #define kAppStoreURLTemplate        @"itms-apps://itunes.apple.com/app/id%@"
 #define kAppid                      @"923826908"        // 暂用爱瘦到时候换
 
+////阿里云测试接口
+#define KEncryptorKeyForOSSURL                  @"common/oss-upload-parm"
+#define KEncryptorKeyURL                        @"common/aes-sk"
+
 #pragma mark - 常用方法
 //键盘隐藏
 + (void)hidderKeyboard;
@@ -86,5 +89,6 @@
 //md5加密
 + (NSString *)md5HexDigest:(NSString*)input;
 
-
+//正则判断手机号
++ (BOOL)validateMobile:(NSString *)mobileNum;
 @end

@@ -37,6 +37,16 @@
 		4648E7411BCD4CC200A54035 /* more@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4648E72B1BCD4CC100A54035 /* more@3x.png */; settings = {ASSET_TAGS = (); }; };
 		4648E7451BCD548900A54035 /* WWSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4648E7441BCD548900A54035 /* WWSettingViewController.m */; settings = {ASSET_TAGS = (); }; };
 		4648E74E1BCD5FEE00A54035 /* WWAboutUsPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4648E74D1BCD5FEE00A54035 /* WWAboutUsPageViewController.m */; settings = {ASSET_TAGS = (); }; };
+		46B743A11BCF722400C31FF7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B743A01BCF722400C31FF7 /* AVFoundation.framework */; };
+		46B743A41BCF762400C31FF7 /* MLImageCrop.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B743A31BCF762400C31FF7 /* MLImageCrop.m */; settings = {ASSET_TAGS = (); }; };
+		46B743A71BCF7B4F00C31FF7 /* OSSsendPicture.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B743A61BCF7B4F00C31FF7 /* OSSsendPicture.m */; settings = {ASSET_TAGS = (); }; };
+		46B743B51BCF7F1400C31FF7 /* libOSS_IOS_SDK_3.2.4.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46B743A91BCF7F1400C31FF7 /* libOSS_IOS_SDK_3.2.4.a */; settings = {ASSET_TAGS = (); }; };
+		46B743B81BCF7F9900C31FF7 /* ASForALYunFBDecryptAES.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B743B71BCF7F9900C31FF7 /* ASForALYunFBDecryptAES.m */; settings = {ASSET_TAGS = (); }; };
+		46B743BB1BCF812F00C31FF7 /* CommonUtil.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B743BA1BCF812F00C31FF7 /* CommonUtil.m */; settings = {ASSET_TAGS = (); }; };
+		46B743BE1BCF821600C31FF7 /* ASFBEncryptorAES.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B743BD1BCF821600C31FF7 /* ASFBEncryptorAES.m */; settings = {ASSET_TAGS = (); }; };
+		46B743C41BCF827A00C31FF7 /* FBEncryptorAES.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B743C11BCF827A00C31FF7 /* FBEncryptorAES.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		46B743C51BCF827A00C31FF7 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B743C31BCF827A00C31FF7 /* NSData+Base64.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		46B743C81BCF8D7000C31FF7 /* WWUserNameModifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46B743C71BCF8D7000C31FF7 /* WWUserNameModifyViewController.m */; settings = {ASSET_TAGS = (); }; };
 		46D3FF451BCBFB630091AF67 /* HTTPClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D3FF3F1BCBFB630091AF67 /* HTTPClient.m */; settings = {ASSET_TAGS = (); }; };
 		46D3FF461BCBFB630091AF67 /* HTTPClient+Other.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D3FF411BCBFB630091AF67 /* HTTPClient+Other.m */; settings = {ASSET_TAGS = (); }; };
 		46D3FF471BCBFB630091AF67 /* WebAPIResponse.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D3FF441BCBFB630091AF67 /* WebAPIResponse.m */; settings = {ASSET_TAGS = (); }; };
@@ -230,6 +240,35 @@
 		4648E7441BCD548900A54035 /* WWSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWSettingViewController.m; sourceTree = SOURCE_ROOT; };
 		4648E74C1BCD5FEE00A54035 /* WWAboutUsPageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWAboutUsPageViewController.h; sourceTree = SOURCE_ROOT; };
 		4648E74D1BCD5FEE00A54035 /* WWAboutUsPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWAboutUsPageViewController.m; sourceTree = SOURCE_ROOT; };
+		46B743A01BCF722400C31FF7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		46B743A21BCF762400C31FF7 /* MLImageCrop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLImageCrop.h; sourceTree = SOURCE_ROOT; };
+		46B743A31BCF762400C31FF7 /* MLImageCrop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLImageCrop.m; sourceTree = SOURCE_ROOT; };
+		46B743A51BCF7B4F00C31FF7 /* OSSsendPicture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSSsendPicture.h; sourceTree = SOURCE_ROOT; };
+		46B743A61BCF7B4F00C31FF7 /* OSSsendPicture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OSSsendPicture.m; sourceTree = SOURCE_ROOT; };
+		46B743A91BCF7F1400C31FF7 /* libOSS_IOS_SDK_3.2.4.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libOSS_IOS_SDK_3.2.4.a; sourceTree = SOURCE_ROOT; };
+		46B743AA1BCF7F1400C31FF7 /* OSSArgs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSSArgs.h; sourceTree = SOURCE_ROOT; };
+		46B743AB1BCF7F1400C31FF7 /* OSSBucket.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSSBucket.h; sourceTree = SOURCE_ROOT; };
+		46B743AC1BCF7F1400C31FF7 /* OSSClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSSClient.h; sourceTree = SOURCE_ROOT; };
+		46B743AD1BCF7F1400C31FF7 /* OSSData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSSData.h; sourceTree = SOURCE_ROOT; };
+		46B743AE1BCF7F1400C31FF7 /* OSSFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSSFile.h; sourceTree = SOURCE_ROOT; };
+		46B743AF1BCF7F1400C31FF7 /* OSSLog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSSLog.h; sourceTree = SOURCE_ROOT; };
+		46B743B01BCF7F1400C31FF7 /* OSSMeta.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSSMeta.h; sourceTree = SOURCE_ROOT; };
+		46B743B11BCF7F1400C31FF7 /* OSSMultipart.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSSMultipart.h; sourceTree = SOURCE_ROOT; };
+		46B743B21BCF7F1400C31FF7 /* OSSObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSSObject.h; sourceTree = SOURCE_ROOT; };
+		46B743B31BCF7F1400C31FF7 /* OSSRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSSRange.h; sourceTree = SOURCE_ROOT; };
+		46B743B41BCF7F1400C31FF7 /* OSSTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OSSTool.h; sourceTree = SOURCE_ROOT; };
+		46B743B61BCF7F9900C31FF7 /* ASForALYunFBDecryptAES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASForALYunFBDecryptAES.h; sourceTree = SOURCE_ROOT; };
+		46B743B71BCF7F9900C31FF7 /* ASForALYunFBDecryptAES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASForALYunFBDecryptAES.m; sourceTree = SOURCE_ROOT; };
+		46B743B91BCF812F00C31FF7 /* CommonUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommonUtil.h; sourceTree = SOURCE_ROOT; };
+		46B743BA1BCF812F00C31FF7 /* CommonUtil.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommonUtil.m; sourceTree = SOURCE_ROOT; };
+		46B743BC1BCF821600C31FF7 /* ASFBEncryptorAES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASFBEncryptorAES.h; sourceTree = SOURCE_ROOT; };
+		46B743BD1BCF821600C31FF7 /* ASFBEncryptorAES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASFBEncryptorAES.m; sourceTree = SOURCE_ROOT; };
+		46B743C01BCF827A00C31FF7 /* FBEncryptorAES.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBEncryptorAES.h; sourceTree = SOURCE_ROOT; };
+		46B743C11BCF827A00C31FF7 /* FBEncryptorAES.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBEncryptorAES.m; sourceTree = SOURCE_ROOT; };
+		46B743C21BCF827A00C31FF7 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = SOURCE_ROOT; };
+		46B743C31BCF827A00C31FF7 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = SOURCE_ROOT; };
+		46B743C61BCF8D7000C31FF7 /* WWUserNameModifyViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWUserNameModifyViewController.h; sourceTree = SOURCE_ROOT; };
+		46B743C71BCF8D7000C31FF7 /* WWUserNameModifyViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWUserNameModifyViewController.m; sourceTree = SOURCE_ROOT; };
 		46D3FF3E1BCBFB630091AF67 /* HTTPClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HTTPClient.h; sourceTree = SOURCE_ROOT; };
 		46D3FF3F1BCBFB630091AF67 /* HTTPClient.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HTTPClient.m; sourceTree = SOURCE_ROOT; };
 		46D3FF401BCBFB630091AF67 /* HTTPClient+Other.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "HTTPClient+Other.h"; sourceTree = SOURCE_ROOT; };
@@ -498,9 +537,11 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46B743A11BCF722400C31FF7 /* AVFoundation.framework in Frameworks */,
 				4A40E0431BCCA10400E12DD9 /* libsqlite3.tbd in Frameworks */,
 				4A40DDE81BCA64B200E12DD9 /* CoreTelephony.framework in Frameworks */,
 				4A3CD1EA1BBE311C004DD167 /* libWeChatSDK.a in Frameworks */,
+				46B743B51BCF7F1400C31FF7 /* libOSS_IOS_SDK_3.2.4.a in Frameworks */,
 				47B6DC70C49B57918E2BF9CD /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -520,6 +561,8 @@
 			children = (
 				4626E4EA1BCDFCC700D902B4 /* WWUserInformationViewController.h */,
 				4626E4EB1BCDFCC700D902B4 /* WWUserInformationViewController.m */,
+				46B743C61BCF8D7000C31FF7 /* WWUserNameModifyViewController.h */,
+				46B743C71BCF8D7000C31FF7 /* WWUserNameModifyViewController.m */,
 			);
 			name = "基本信息";
 			sourceTree = "<group>";
@@ -610,6 +653,36 @@
 				4648E74D1BCD5FEE00A54035 /* WWAboutUsPageViewController.m */,
 			);
 			name = "设置";
+			sourceTree = "<group>";
+		};
+		46B743A81BCF7EFF00C31FF7 /* OSSTestFrameWork */ = {
+			isa = PBXGroup;
+			children = (
+				46B743A91BCF7F1400C31FF7 /* libOSS_IOS_SDK_3.2.4.a */,
+				46B743AA1BCF7F1400C31FF7 /* OSSArgs.h */,
+				46B743AB1BCF7F1400C31FF7 /* OSSBucket.h */,
+				46B743AC1BCF7F1400C31FF7 /* OSSClient.h */,
+				46B743AD1BCF7F1400C31FF7 /* OSSData.h */,
+				46B743AE1BCF7F1400C31FF7 /* OSSFile.h */,
+				46B743AF1BCF7F1400C31FF7 /* OSSLog.h */,
+				46B743B01BCF7F1400C31FF7 /* OSSMeta.h */,
+				46B743B11BCF7F1400C31FF7 /* OSSMultipart.h */,
+				46B743B21BCF7F1400C31FF7 /* OSSObject.h */,
+				46B743B31BCF7F1400C31FF7 /* OSSRange.h */,
+				46B743B41BCF7F1400C31FF7 /* OSSTool.h */,
+			);
+			name = OSSTestFrameWork;
+			sourceTree = "<group>";
+		};
+		46B743BF1BCF826B00C31FF7 /* FBEncryptorAES */ = {
+			isa = PBXGroup;
+			children = (
+				46B743C01BCF827A00C31FF7 /* FBEncryptorAES.h */,
+				46B743C11BCF827A00C31FF7 /* FBEncryptorAES.m */,
+				46B743C21BCF827A00C31FF7 /* NSData+Base64.h */,
+				46B743C31BCF827A00C31FF7 /* NSData+Base64.m */,
+			);
+			name = FBEncryptorAES;
 			sourceTree = "<group>";
 		};
 		46D3FF3C1BCBFB350091AF67 /* WebRequest */ = {
@@ -1232,12 +1305,24 @@
 		4AD21AF81BA0272D00B4BDDC /* Categories */ = {
 			isa = PBXGroup;
 			children = (
+				46B743A51BCF7B4F00C31FF7 /* OSSsendPicture.h */,
+				46B743A61BCF7B4F00C31FF7 /* OSSsendPicture.m */,
+				46B743B61BCF7F9900C31FF7 /* ASForALYunFBDecryptAES.h */,
+				46B743B71BCF7F9900C31FF7 /* ASForALYunFBDecryptAES.m */,
+				46B743BC1BCF821600C31FF7 /* ASFBEncryptorAES.h */,
+				46B743BD1BCF821600C31FF7 /* ASFBEncryptorAES.m */,
+				46B743B91BCF812F00C31FF7 /* CommonUtil.h */,
+				46B743BA1BCF812F00C31FF7 /* CommonUtil.m */,
+				46B743BF1BCF826B00C31FF7 /* FBEncryptorAES */,
+				46B743A81BCF7EFF00C31FF7 /* OSSTestFrameWork */,
 				4648E7121BCD0F3500A54035 /* UIView+Tool.h */,
 				4648E7131BCD0F3500A54035 /* UIView+Tool.m */,
 				4AD21B1A1BA0396000B4BDDC /* UIViewController+AOP.h */,
 				4AD21B1B1BA0396000B4BDDC /* UIViewController+AOP.m */,
 				4A40E04B1BCCF56A00E12DD9 /* WWPageControl.h */,
 				4A40E04C1BCCF56A00E12DD9 /* WWPageControl.m */,
+				46B743A21BCF762400C31FF7 /* MLImageCrop.h */,
+				46B743A31BCF762400C31FF7 /* MLImageCrop.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -1245,6 +1330,7 @@
 		A7DEF0AA4559BAEC0D704C30 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				46B743A01BCF722400C31FF7 /* AVFoundation.framework */,
 				4A40E0421BCCA10400E12DD9 /* libsqlite3.tbd */,
 				4A40DDE71BCA64B200E12DD9 /* CoreTelephony.framework */,
 				4A40DDE31BCA5E0C00E12DD9 /* ImageIO.framework */,
@@ -1534,14 +1620,17 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46B743C41BCF827A00C31FF7 /* FBEncryptorAES.m in Sources */,
 				4A40E0A51BCD07AB00E12DD9 /* HomePageProductCollectionViewCell.m in Sources */,
 				46D3FF631BCBFB750091AF67 /* JSONKit.m in Sources */,
 				46D3FF461BCBFB630091AF67 /* HTTPClient+Other.m in Sources */,
 				4AD21B0A1BA032B700B4BDDC /* InterfaceClassFile.m in Sources */,
+				46B743A71BCF7B4F00C31FF7 /* OSSsendPicture.m in Sources */,
 				4AD21B131BA0358400B4BDDC /* WWBaseViewController.m in Sources */,
 				4A27AAF21BCE0731006CFC15 /* ProductDetialView.m in Sources */,
 				46D3FF7C1BCC03DB0091AF67 /* AFJSONRequestOperation.m in Sources */,
 				46D3FF7F1BCC03DB0091AF67 /* AFURLConnectionOperation.m in Sources */,
+				46B743A41BCF762400C31FF7 /* MLImageCrop.m in Sources */,
 				46D3FF451BCBFB630091AF67 /* HTTPClient.m in Sources */,
 				4A40DE5E1BCA928E00E12DD9 /* HomePageView.m in Sources */,
 				46D3FF5B1BCBFB750091AF67 /* AFHTTPClient.m in Sources */,
@@ -1569,7 +1658,9 @@
 				4A4293A21BCF515400381272 /* MCPagerView.m in Sources */,
 				4AD21AFC1BA028B700B4BDDC /* AppDelegate.mm in Sources */,
 				4A40DDEC1BCA86F100E12DD9 /* WWPublicNavtionBar.m in Sources */,
+				46B743C51BCF827A00C31FF7 /* NSData+Base64.m in Sources */,
 				4A5949291BCDDA4700036873 /* WWHeaderCollectionReusableView.m in Sources */,
+				46B743B81BCF7F9900C31FF7 /* ASForALYunFBDecryptAES.m in Sources */,
 				4626E4F31BCE49D900D902B4 /* WWVIPPackageViewController.m in Sources */,
 				4A4293A11BCF515400381272 /* CycleScrollView.m in Sources */,
 				4A4293A31BCF515400381272 /* NSTimer+Addition.m in Sources */,
@@ -1577,7 +1668,10 @@
 				4A3CD1F41BBE33A2004DD167 /* payRequsestHandler.mm in Sources */,
 				4648E7101BCCEF5600A54035 /* WWMyPageViewController.m in Sources */,
 				4AD21B071BA02FB600B4BDDC /* WWUtilityClass.m in Sources */,
+				46B743C81BCF8D7000C31FF7 /* WWUserNameModifyViewController.m in Sources */,
+				46B743BB1BCF812F00C31FF7 /* CommonUtil.m in Sources */,
 				4626E4EF1BCE1E0600D902B4 /* WWFeedbackViewController.m in Sources */,
+				46B743BE1BCF821600C31FF7 /* ASFBEncryptorAES.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

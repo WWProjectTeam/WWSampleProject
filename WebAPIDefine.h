@@ -83,4 +83,13 @@
 //userInformation
 #define KUserInformationURL         @"yiyouv/user/info?id=%@"
 
+//动态密码
+#define KDynamicPasswordURL         @"yiyouv/user/validateMobile?mobile=%@"
+
+//登陆
+#define KLoginURL                   @"yiyouv/user/login"
+
+//修改用户资料
+#define KModifyUserInformationURL   @"yiyouv/user/update"
+
 #endif

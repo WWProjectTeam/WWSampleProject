@@ -19,7 +19,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.view.backgroundColor = RGBCOLOR(242, 242, 242);
     self.view.backgroundColor = WW_BASE_COLOR;
     
     viewNavtionBar = [[WWPublicNavtionBar alloc]initWithLeftBtn:YES withTitle:@"设置" withRightBtn:NO withRightBtnPicName:@"" withRightBtnSize:CGSizeZero];

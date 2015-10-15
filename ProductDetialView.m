@@ -23,6 +23,7 @@
         [self.scrollViewBackground setShowsHorizontalScrollIndicator:NO];
         [self.scrollViewBackground setShowsVerticalScrollIndicator:NO];
         [self.scrollViewBackground setDelegate:self];
+        self.scrollViewBackground.backgroundColor = [UIColor redColor];
         [self addSubview:self.scrollViewBackground];
         
         

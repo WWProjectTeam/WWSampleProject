@@ -83,5 +83,33 @@
               completion:completionBlock];
 }
 
+//getDynamicPassword
+- (AFHTTPRequestOperation *)GetDynamicPasswordAndPhone:(NSString *)phoneStr WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
+    NSString *passwordUrl = [NSString stringWithFormat:KDynamicPasswordURL,phoneStr];
+    return [self getPath:passwordUrl
+              parameters:nil
+              completion:completionBlock];
+}
+
+//login
+- (AFHTTPRequestOperation *)PostRequsetLoginNeedPhone:(NSString *)phoneStr AndPassword:(NSString *)password WithCompletion:(WebAPIRequestCompletionBlock)completionBlock
+{
+    NSDictionary *LoginDic = @{@"mobile":phoneStr,
+                               @"code":[password JSONString]};
+    NSDictionary *parame = @{@"json" : LoginDic};
+    return [self postPath:KLoginURL
+               parameters:parame
+               completion:completionBlock];
+}
+
+//modityUserInformation
+- (AFHTTPRequestOperation *)PostRequestModityUserInformationParmae:(NSDictionary *)parmae WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
+    NSDictionary *parameDic = @{@"json" : [parmae JSONString]};
+    
+    return [self postPath:KModifyUserInformationURL
+               parameters:parameDic
+               completion:completionBlock];
+}
+
 
 @end

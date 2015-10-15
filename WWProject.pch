@@ -37,6 +37,9 @@
 //HUD
 #import "SVProgressHUD.h"
 
+//裁剪图片
+#import "MLImageCrop.h"
+
 #import "JSONKit.h"
 #import "HTTPClient.h"
 #import "FMFunctions.h"             ///系统方法

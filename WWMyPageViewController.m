@@ -35,10 +35,10 @@
     viewNavtionBar = [[WWPublicNavtionBar alloc]initWithLeftBtn:NO withTitle:@"我的" withRightBtn:NO withRightBtnPicName:nil withRightBtnSize:CGSizeZero];
     [self.view addSubview:viewNavtionBar];
     
-    
+    [self layoutMyPageView];
     if (g_UserId) {
         // 实例化界面
-        [self layoutMyPageView];
+        
     }else{
         [self userInformationRequestData];
     }
@@ -69,7 +69,7 @@
         imageView.layer.masksToBounds = YES;
         imageView.layer.borderColor = [[UIColor whiteColor] CGColor];
         imageView.layer.borderWidth = 2.0f;
-        [imageView setImageWithURL:[NSURL URLWithString:g_UserHeadImage] placeholderImage:[UIImage imageNamed:@"img_tx"]];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:g_UserHeadImage] placeholderImage:[UIImage imageNamed:@"imgtx"]];
         [self.headBackView addSubview:imageView];
         imageView;
     });

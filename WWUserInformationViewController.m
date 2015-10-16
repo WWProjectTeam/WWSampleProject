@@ -12,7 +12,7 @@
 #import "HTTPClient+Other.h"
 
 
-@interface WWUserInformationViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,MLImageCropDelegate>{
+@interface WWUserInformationViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,MLImageCropDelegate,ModifyUserNameDelegate>{
     WWPublicNavtionBar *viewNavBarView;
     UIImagePickerController *_pickerImage;
     NSString * uploadTheImagePath;
@@ -78,7 +78,12 @@
     // 头像
     self.headImage = ({
         UIImageView *image = [[UIImageView alloc]initWithFrame:CGRectMake(self.headArrow.left-45*kPercenX, (self.headView.height-45*kPercenX)/2, 45*kPercenX, 45*kPercenX)];
-        image.image = [UIImage imageNamed:@"img_ftx"];
+        if ([self.userFaceUrl isEqualToString:@""]) {
+            image.image = [UIImage imageNamed:@"img_ftx"];
+        }{
+            [image sd_setImageWithURL:[NSURL URLWithString:self.userFaceUrl] placeholderImage:[UIImage imageNamed:@"img_ftx"]];
+        }
+        
         [self.headView addSubview:image];
         image;
     });
@@ -121,7 +126,7 @@
         // 内容
         UILabel *subContentLab = [[UILabel alloc]initWithFrame:CGRectMake(self.nameArrow.left-100, (self.nameView.height-13*kPercenX)/2, 100, 13*kPercenX)];
         subContentLab.textAlignment = NSTextAlignmentRight;
-        subContentLab.text = @"13269329498";
+        subContentLab.text = self.userName;
         subContentLab.textColor = WWSubTitleTextColor;
         subContentLab.font = [UIFont systemFontOfSize:13.0f*kPercenX];
         [self.nameView addSubview:subContentLab];
@@ -132,6 +137,7 @@
     [self.nameBtn setBackgroundImage:[WWUtilityClass imageWithColor:WWBtnStateHighlightedColor] forState:UIControlStateHighlighted];
     [self.nameBtn addTarget:self action:@selector(nameBtnClickEvent:) forControlEvents:UIControlEventTouchUpInside];
     [self.nameView addSubview:self.nameBtn];
+    
 }
 
 - (void)headImageBtnClickEvent:(UIButton *)sender{
@@ -141,6 +147,8 @@
 
 - (void)nameBtnClickEvent:(UIButton *)sender{
     WWUserNameModifyViewController *modifyVC = [[WWUserNameModifyViewController alloc]init];
+    modifyVC.delegate = self;
+    modifyVC.nameStr = self.userName;
     [self.navigationController pushViewController:modifyVC animated:YES];
 }
 
@@ -246,22 +254,31 @@
     return newImage;
 }
 
+// WWUserNameModifyViewControllerViewDelegate
+- (void)userNameModifyDelegate:(NSString *)userName{
+    self.nameText.text = userName;
+    self.userNameStr = userName;
+}
+
 - (void)leftBackBtn{
-    __weak __typeof(&*self)weakSelf = self;
-    WWUserNameModifyViewController *userNameVC = [[WWUserNameModifyViewController alloc]init];
-    userNameVC.userNameStr = ^(NSString *name){
-        weakSelf.userNameStr = name;
-    };
+    if (uploadTheImagePath == NULL) {
+        uploadTheImagePath = @"";
+    }
+    if (self.userNameStr == NULL) {
+        self.userNameStr = self.nameText.text;
+    }
     
-    NSDictionary * parme = @{@"id":g_UserId,
+    NSDictionary * parme = @{@"id":[WWUtilityClass getNSUserDefaults:UserID],
                              @"faceUrl":uploadTheImagePath,
                              @"userName":self.userNameStr};
     
     [FMHTTPClient PostRequestModityUserInformationParmae:parme WithCompletion:^(WebAPIResponse *response) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (response.code == WebAPIResponseCodeSuccess) {
-                
+                // 通知--刷新个人信息
+                [[NSNotificationCenter defaultCenter] postNotificationName:WWRefreshUserInformation object:nil];
             }
+            [self.navigationController popViewControllerAnimated:YES];
         });
     }];
 }
@@ -270,6 +287,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
 
 @end

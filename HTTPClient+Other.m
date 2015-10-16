@@ -95,8 +95,8 @@
 - (AFHTTPRequestOperation *)PostRequsetLoginNeedPhone:(NSString *)phoneStr AndPassword:(NSString *)password WithCompletion:(WebAPIRequestCompletionBlock)completionBlock
 {
     NSDictionary *LoginDic = @{@"mobile":phoneStr,
-                               @"code":[password JSONString]};
-    NSDictionary *parame = @{@"json" : LoginDic};
+                               @"code":password};
+    NSDictionary *parame = @{@"json" : [LoginDic JSONString]};
     return [self postPath:KLoginURL
                parameters:parame
                completion:completionBlock];
@@ -111,5 +111,13 @@
                completion:completionBlock];
 }
 
+//userCollection
+- (AFHTTPRequestOperation *)GetUserCollectionIndex:(NSInteger)index userId:(NSString *)userId WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
+    NSString *url = [NSString stringWithFormat:KMyCollectionURL,[NSNumber numberWithInteger:index],userId];
+    
+    return [self getPath:url
+              parameters:nil
+              completion:completionBlock];
+}
 
 @end

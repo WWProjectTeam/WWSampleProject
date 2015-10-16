@@ -127,5 +127,18 @@
     }
 }
 
++ (void)saveNSUserDefaults:(NSString *)key value:(id)value
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    [defaults setObject:value forKey:key];
+    [defaults synchronize];
+}
+
++ (id)getNSUserDefaults:(NSString *)key
+{
+    NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+    return [defaults valueForKey:key] ? [defaults valueForKey:key] : @"";
+}
+
 
 @end

@@ -26,9 +26,7 @@
     navtionBarView = [[WWPublicNavtionBar alloc]initWithLeftBtn:YES withTitle:@"修改昵称" withRightBtn:NO withRightBtnPicName:nil withRightBtnSize:CGSizeZero];
     __weak __typeof(&*self)weakSelf = self;
     navtionBarView.TapLeftButton = ^{
-        if (weakSelf.userNameStr) {
-            weakSelf.userNameStr(weakSelf.nameTextField.text);
-        }
+        [weakSelf.delegate userNameModifyDelegate:weakSelf.nameTextField.text];
         [weakSelf.navigationController popViewControllerAnimated:YES];
     };
     [self.view addSubview:navtionBarView];
@@ -45,10 +43,11 @@
     [backName addSubview:nameDownLine];
     
     self.nameTextField = [[UITextField alloc]initWithFrame:CGRectMake(15, 0, backName.width-15.0f, backName.height)];
-    self.nameTextField.text = @"123534534";
+    self.nameTextField.text = self.nameStr;
     self.nameTextField.textColor = WWContentTextColor;
     self.nameTextField.font = [UIFont systemFontOfSize:13.0f*kPercenX];
     self.nameTextField.clearButtonMode = UITextFieldViewModeWhileEditing;
+    [self.nameTextField becomeFirstResponder];
     [backName addSubview:self.nameTextField];
 }
 

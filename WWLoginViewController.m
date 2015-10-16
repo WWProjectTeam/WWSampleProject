@@ -138,6 +138,7 @@
 
 // 请求动态密码
 - (void)getDynamicPasswordRequest{
+    [self.passwordTextField becomeFirstResponder];
     if ([self.phoneTextField.text isEqualToString:@""]) {
         [SVProgressHUD showInfoWithStatus:@"请输入手机号"];
         return;
@@ -166,14 +167,29 @@
         [SVProgressHUD showInfoWithStatus:@"请输入密码"];
         return;
     }
+    [SVProgressHUD show];
     [FMHTTPClient PostRequsetLoginNeedPhone:self.phoneTextField.text AndPassword:self.passwordTextField.text WithCompletion:^(WebAPIResponse *response) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (response.code == WebAPIResponseCodeSuccess) {
-//                AppDelegate * appdelegate = (AppDelegate * )[UIApplication sharedApplication].delegate;
-//                [appdelegate.tabBarController setSelectedIndex:0];
+                [SVProgressHUD dismiss];
+                NSDictionary *result = [response.responseObject objectForKey:@"result"];
+                //保存用户信息--id、名称、头像
+                g_UserId = StringForKeyInUnserializedJSONDic(result, @"id");
+                g_UserHeadImage = StringForKeyInUnserializedJSONDic(result, @"faceUrl");
+                g_UserName = StringForKeyInUnserializedJSONDic(result, @"userName");
+                // 将用户信息保存本地
+                [WWUtilityClass saveNSUserDefaults:UserID value:StringForKeyInUnserializedJSONDic(result, @"id")];
+                [WWUtilityClass saveNSUserDefaults:UserImageURL value:StringForKeyInUnserializedJSONDic(result, @"faceUrl")];
+                [WWUtilityClass saveNSUserDefaults:UserName value:StringForKeyInUnserializedJSONDic(result, @"userName")];
+                
+                // 通知--刷新个人信息
+                [[NSNotificationCenter defaultCenter] postNotificationName:WWRefreshUserInformation object:nil];
+                // 返回上级
                 [self dismissViewControllerAnimated:YES completion:^{
-                    
                 }];
+            }else{
+                sleep(60);
+                [SVProgressHUD dismiss];
             }
         });
     }];

@@ -13,4 +13,9 @@
 #define URL_MAIN_HOST @"http://apitest.aishou.com:8080/"
 
 
+// 保存本地key
+#define UserID          @"id"
+#define UserImageURL    @"userImageURL"
+#define UserName        @"userName"
+
 #endif

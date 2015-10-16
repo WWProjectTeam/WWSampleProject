@@ -92,4 +92,7 @@
 //修改用户资料
 #define KModifyUserInformationURL   @"yiyouv/user/update"
 
+//我的收藏
+#define KMyCollectionURL            @"yiyouv/clothes/favoriters?index=%@&userId=%@"
+
 #endif

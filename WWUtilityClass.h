@@ -73,6 +73,10 @@
 #define KEncryptorKeyForOSSURL                  @"common/oss-upload-parm"
 #define KEncryptorKeyURL                        @"common/aes-sk"
 
+#pragma mark ---- NotificationName
+// 刷新个人信息
+#define WWRefreshUserInformation                @"refreshUserInformation"
+
 #pragma mark - 常用方法
 //键盘隐藏
 + (void)hidderKeyboard;
@@ -91,4 +95,8 @@
 
 //正则判断手机号
 + (BOOL)validateMobile:(NSString *)mobileNum;
+
++ (void)saveNSUserDefaults:(NSString *)key value:(NSString *)value;
+
++ (NSString *)getNSUserDefaults:(NSString *)key;
 @end

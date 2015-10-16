@@ -88,7 +88,10 @@
 
 // 退出登录
 - (void)exitBtnClickEvent:(UIButton *)sender{
-    
+    [WWUtilityClass saveNSUserDefaults:UserID value:@""];
+    AppDelegate * appdelegate = (AppDelegate * )[UIApplication sharedApplication].delegate;
+    [appdelegate.tabBarController setSelectedIndex:0];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

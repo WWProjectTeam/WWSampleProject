@@ -11,6 +11,7 @@
 #import "WWSettingViewController.h"
 #import "WWUserInformationViewController.h"
 #import "WWFeedbackViewController.h"
+#import "WWMyCollectionViewController.h"
 
 @interface WWMyPageViewController ()<UIAlertViewDelegate>
 {
@@ -36,17 +37,41 @@
     [self.view addSubview:viewNavtionBar];
     
     [self layoutMyPageView];
-    if (g_UserId) {
-        // 实例化界面
-        
-    }else{
-        [self userInformationRequestData];
-    }
+    [self getUserInformationWebRequest];
+    
+    // 消息通知刷新个人信息
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(NotificationRefreshUserInformation:)
+                                                 name:WWRefreshUserInformation
+                                               object:nil];
 }
 
-- (void)userInformationRequestData{
+// 获取网络信息
+- (void)getUserInformationWebRequest{
     
-    
+    [FMHTTPClient GetUserInformationUserId:[WWUtilityClass getNSUserDefaults:UserID] WithCompletion:^(WebAPIResponse *response) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (response.code == WebAPIResponseCodeSuccess) {
+                    
+                    NSDictionary *resultDic = [response.responseObject objectForKey:@"result"];
+                    // 保存用户信息
+                    [WWUtilityClass saveNSUserDefaults:UserID value:StringForKeyInUnserializedJSONDic(resultDic, @"id")];
+                    [WWUtilityClass saveNSUserDefaults:UserImageURL value:StringForKeyInUnserializedJSONDic(resultDic, @"faceUrl")];
+                    [WWUtilityClass saveNSUserDefaults:UserName value:StringForKeyInUnserializedJSONDic(resultDic, @"userName")];
+                    if ([[WWUtilityClass getNSUserDefaults:UserImageURL] isEqualToString:@""]) {
+                        self.headImage.image = [UIImage imageNamed:@"img_tx"];
+                    }else{
+                        [self.headImage sd_setImageWithURL:[NSURL URLWithString:StringForKeyInUnserializedJSONDic(resultDic, @"faceUrl")] placeholderImage:[UIImage imageNamed:@"img_tx"]];
+                    }
+                    self.numberLabel.text = StringForKeyInUnserializedJSONDic(resultDic, @"userName");
+                }
+            });
+    }];
+}
+
+// 登录更新信息
+- (void)NotificationRefreshUserInformation:(NSNotification *)notification{
+    [self getUserInformationWebRequest];
 }
 
 // 实例化界面
@@ -69,7 +94,6 @@
         imageView.layer.masksToBounds = YES;
         imageView.layer.borderColor = [[UIColor whiteColor] CGColor];
         imageView.layer.borderWidth = 2.0f;
-        [imageView sd_setImageWithURL:[NSURL URLWithString:g_UserHeadImage] placeholderImage:[UIImage imageNamed:@"imgtx"]];
         [self.headBackView addSubview:imageView];
         imageView;
     });
@@ -86,8 +110,6 @@
     // 手机号码
     self.numberLabel = ({
         UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake((self.headBackView.width-154)/2, self.headImage.bottom+15, 154, 15)];
-        label.text = @"13269329498";
-//        label.font = [UIFont fontWithName:@"Helvetica-Bold" size:14.0f];
         label.textAlignment = NSTextAlignmentCenter;
         label.textColor = [UIColor whiteColor];
         label.font = [UIFont systemFontOfSize:14.0f];
@@ -160,7 +182,8 @@
     if (sender.tag == 0) {
         
     }else if (sender.tag == 1){
-        
+        WWMyCollectionViewController *collectionVC = [[WWMyCollectionViewController alloc]init];
+        [self.navigationController pushViewController:collectionVC animated:YES];
     }else if (sender.tag == 2){
         WWFeedbackViewController *feedVC = [[WWFeedbackViewController alloc]init];
         [self.navigationController pushViewController:feedVC animated:YES];
@@ -186,6 +209,8 @@
 
 - (void)userInformationClickEvent:(UIButton *)sender{
     WWUserInformationViewController *userVC = [[WWUserInformationViewController alloc]init];
+    userVC.userFaceUrl = [WWUtilityClass getNSUserDefaults:UserImageURL];
+    userVC.userName = [WWUtilityClass getNSUserDefaults:UserName];
     [self.navigationController pushViewController:userVC animated:YES];
 }
 

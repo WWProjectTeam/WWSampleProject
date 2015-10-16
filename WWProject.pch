@@ -34,6 +34,9 @@
 //NetWork
 #import "AFNetworking.h"
 
+//分页控制器
+#import "DataPage.h"
+
 //HUD
 #import "SVProgressHUD.h"
 
@@ -42,7 +45,7 @@
 
 #import "JSONKit.h"
 #import "HTTPClient.h"
-#import "FMFunctions.h"             ///系统方法
+#import "FMFunctions.h"   ///系统方法
 
 
 #import "AppDelegate.h"

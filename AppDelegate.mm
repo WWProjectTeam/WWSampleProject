@@ -108,17 +108,14 @@ NSString * g_UserHeadImage;
 
 #pragma mark - UITabBarControllerDelegate
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
-    
-//    if ([viewController isKindOfClass:[WWMyPageViewController class]]) {
-//        if (!g_UserName) {
-//            WWLoginViewController *loginVC = [[WWLoginViewController alloc]init];
-//            [self.window.rootViewController presentViewController:loginVC animated:YES completion:nil];
-//        }else{
-//            return;
-//        }
-//    }else{
-//        
-//    }
+    if ([viewController isKindOfClass:[WWMyPageViewController class]]) {
+        if ([[WWUtilityClass getNSUserDefaults:UserID] isEqualToString:@""]) {
+            WWLoginViewController *loginVC = [[WWLoginViewController alloc]init];
+            [self.window.rootViewController presentViewController:loginVC animated:YES completion:nil];
+        }else{
+            return;
+        }
+    }
 }
 
 #pragma mark - 微信

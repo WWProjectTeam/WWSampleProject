@@ -8,9 +8,16 @@
 
 #import <UIKit/UIKit.h>
 
+@protocol ModifyUserNameDelegate <NSObject>
+
+- (void)userNameModifyDelegate:(NSString *)userName;
+
+@end
 
 @interface WWUserNameModifyViewController : UIViewController
 
-@property (nonatomic,copy)void(^userNameStr)(NSString *name);
+@property (nonatomic,strong)id<ModifyUserNameDelegate>delegate;
+
+@property (nonatomic,strong)NSString *nameStr;
 
 @end

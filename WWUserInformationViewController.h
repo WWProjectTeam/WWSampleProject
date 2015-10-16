@@ -10,5 +10,7 @@
 
 @interface WWUserInformationViewController : UIViewController
 
+@property (nonatomic,strong)NSString *userFaceUrl;
+@property (nonatomic,strong)NSString *userName;
 
 @end

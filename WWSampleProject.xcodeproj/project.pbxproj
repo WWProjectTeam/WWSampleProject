@@ -60,6 +60,9 @@
 		46D3FF7E1BCC03DB0091AF67 /* AFPropertyListRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D3FF751BCC03DB0091AF67 /* AFPropertyListRequestOperation.m */; settings = {ASSET_TAGS = (); }; };
 		46D3FF7F1BCC03DB0091AF67 /* AFURLConnectionOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D3FF771BCC03DB0091AF67 /* AFURLConnectionOperation.m */; settings = {ASSET_TAGS = (); }; };
 		46D3FF801BCC03DB0091AF67 /* AFXMLRequestOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 46D3FF791BCC03DB0091AF67 /* AFXMLRequestOperation.m */; settings = {ASSET_TAGS = (); }; };
+		46E880651BD0E906002481CB /* WWMyCollectionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E880641BD0E906002481CB /* WWMyCollectionViewController.m */; settings = {ASSET_TAGS = (); }; };
+		46E880681BD0ED7C002481CB /* MyCollectionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E880671BD0ED7C002481CB /* MyCollectionCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		46E8806B1BD0F5FE002481CB /* DataPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E8806A1BD0F5FE002481CB /* DataPage.m */; settings = {ASSET_TAGS = (); }; };
 		4A27AAEF1BCE00EA006CFC15 /* WWProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A27AAEE1BCE00EA006CFC15 /* WWProductDetailViewController.m */; settings = {ASSET_TAGS = (); }; };
 		4A27AAF21BCE0731006CFC15 /* ProductDetialView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A27AAF11BCE0731006CFC15 /* ProductDetialView.m */; settings = {ASSET_TAGS = (); }; };
 		4A27AB431BCE2FB0006CFC15 /* -avatars@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A27AB291BCE2FB0006CFC15 /* -avatars@2x.png */; settings = {ASSET_TAGS = (); }; };
@@ -306,6 +309,12 @@
 		46D3FF771BCC03DB0091AF67 /* AFURLConnectionOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFURLConnectionOperation.m; sourceTree = SOURCE_ROOT; };
 		46D3FF781BCC03DB0091AF67 /* AFXMLRequestOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFXMLRequestOperation.h; sourceTree = SOURCE_ROOT; };
 		46D3FF791BCC03DB0091AF67 /* AFXMLRequestOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFXMLRequestOperation.m; sourceTree = SOURCE_ROOT; };
+		46E880631BD0E906002481CB /* WWMyCollectionViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWMyCollectionViewController.h; sourceTree = SOURCE_ROOT; };
+		46E880641BD0E906002481CB /* WWMyCollectionViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWMyCollectionViewController.m; sourceTree = SOURCE_ROOT; };
+		46E880661BD0ED7C002481CB /* MyCollectionCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyCollectionCollectionViewCell.h; sourceTree = SOURCE_ROOT; };
+		46E880671BD0ED7C002481CB /* MyCollectionCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyCollectionCollectionViewCell.m; sourceTree = SOURCE_ROOT; };
+		46E880691BD0F5FE002481CB /* DataPage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataPage.h; sourceTree = SOURCE_ROOT; };
+		46E8806A1BD0F5FE002481CB /* DataPage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataPage.m; sourceTree = SOURCE_ROOT; };
 		4A27AAED1BCE00EA006CFC15 /* WWProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWProductDetailViewController.h; sourceTree = SOURCE_ROOT; };
 		4A27AAEE1BCE00EA006CFC15 /* WWProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWProductDetailViewController.m; sourceTree = SOURCE_ROOT; };
 		4A27AAF01BCE0731006CFC15 /* ProductDetialView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetialView.h; sourceTree = SOURCE_ROOT; };
@@ -569,7 +578,6 @@
 				4A40DDE81BCA64B200E12DD9 /* CoreTelephony.framework in Frameworks */,
 				4A3CD1EA1BBE311C004DD167 /* libWeChatSDK.a in Frameworks */,
 				46B743B51BCF7F1400C31FF7 /* libOSS_IOS_SDK_3.2.4.a in Frameworks */,
-				47B6DC70C49B57918E2BF9CD /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -597,6 +605,10 @@
 		4626E4E81BCDFBF700D902B4 /* 我的收藏 */ = {
 			isa = PBXGroup;
 			children = (
+				46E880631BD0E906002481CB /* WWMyCollectionViewController.h */,
+				46E880641BD0E906002481CB /* WWMyCollectionViewController.m */,
+				46E880661BD0ED7C002481CB /* MyCollectionCollectionViewCell.h */,
+				46E880671BD0ED7C002481CB /* MyCollectionCollectionViewCell.m */,
 			);
 			name = "我的收藏";
 			sourceTree = "<group>";
@@ -1392,6 +1404,8 @@
 				4A40E04C1BCCF56A00E12DD9 /* WWPageControl.m */,
 				46B743A21BCF762400C31FF7 /* MLImageCrop.h */,
 				46B743A31BCF762400C31FF7 /* MLImageCrop.m */,
+				46E880691BD0F5FE002481CB /* DataPage.h */,
+				46E8806A1BD0F5FE002481CB /* DataPage.m */,
 			);
 			name = Categories;
 			sourceTree = "<group>";
@@ -1691,6 +1705,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46E880681BD0ED7C002481CB /* MyCollectionCollectionViewCell.m in Sources */,
 				46B743C41BCF827A00C31FF7 /* FBEncryptorAES.m in Sources */,
 				4A40E0A51BCD07AB00E12DD9 /* HomePageProductCollectionViewCell.m in Sources */,
 				46D3FF631BCBFB750091AF67 /* JSONKit.m in Sources */,
@@ -1748,7 +1763,9 @@
 				4648E7101BCCEF5600A54035 /* WWMyPageViewController.m in Sources */,
 				4AD21B071BA02FB600B4BDDC /* WWUtilityClass.m in Sources */,
 				46B743C81BCF8D7000C31FF7 /* WWUserNameModifyViewController.m in Sources */,
+				46E8806B1BD0F5FE002481CB /* DataPage.m in Sources */,
 				46B743BB1BCF812F00C31FF7 /* CommonUtil.m in Sources */,
+				46E880651BD0E906002481CB /* WWMyCollectionViewController.m in Sources */,
 				4626E4EF1BCE1E0600D902B4 /* WWFeedbackViewController.m in Sources */,
 				46B743BE1BCF821600C31FF7 /* ASFBEncryptorAES.m in Sources */,
 			);

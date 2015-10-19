@@ -10,7 +10,4 @@
 
 @interface WWMyCollectionViewController : UIViewController
 
-////////////商品点击
-@property (nonatomic , copy) void (^TapCollectActionBlock)(NSString * strProductId);
-
 @end

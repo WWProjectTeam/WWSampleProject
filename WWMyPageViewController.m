@@ -12,6 +12,7 @@
 #import "WWUserInformationViewController.h"
 #import "WWFeedbackViewController.h"
 #import "WWMyCollectionViewController.h"
+#import "WWVIPPackageViewController.h"
 
 @interface WWMyPageViewController ()<UIAlertViewDelegate>
 {
@@ -180,7 +181,8 @@
 
 - (void)listBtnSelectClickEvent:(UIButton *)sender{
     if (sender.tag == 0) {
-        
+        WWVIPPackageViewController *vipVC = [[WWVIPPackageViewController alloc] init];
+        [self.navigationController pushViewController:vipVC animated:YES];
     }else if (sender.tag == 1){
         WWMyCollectionViewController *collectionVC = [[WWMyCollectionViewController alloc]init];
         [self.navigationController pushViewController:collectionVC animated:YES];

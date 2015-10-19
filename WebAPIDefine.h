@@ -95,6 +95,15 @@
 //我的收藏
 #define KMyCollectionURL            @"yiyouv/clothes/favoriters?index=%@&userId=%@"
 
+<<<<<<< HEAD
 //收藏商品
 #define KAddToCollectionURL         @"yiyouv/clothes/favoriter"
+=======
+//获取VIP价格表
+#define KVIPPriceListURL            @"yiyouv/vip/getVIPPackage"
+
+//购买VIP
+#define KBuyVipURL                  @"yiyouv/vip/buy"
+
+>>>>>>> origin/master
 #endif

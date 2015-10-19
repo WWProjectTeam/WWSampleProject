@@ -18,6 +18,10 @@
     
     UIImageView * ClotheSpressNum;
     UILabel * labelSpressNum;
+    
+    
+    
+    UIWebView * webSection1;
 }
 
 

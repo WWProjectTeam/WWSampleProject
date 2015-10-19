@@ -79,10 +79,12 @@
         [self.scrollViewBackground addSubview:self.imgGrey];
         
 #pragma mark - body
-         _menuItems = @[[@"图文介绍" uppercaseString], [@"商品参数" uppercaseString],[@"评论" uppercaseString]];
+         _menuItems = @[[@"图文介绍" uppercaseString], [@"商品参数" uppercaseString]];
          [self.scrollViewBackground addSubview:self.control];
             
         
+        webSection1 = [[UIWebView alloc]init];
+        [self.scrollViewBackground addSubview:webSection1];
         
 #pragma mark - foot
         

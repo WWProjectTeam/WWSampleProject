@@ -201,11 +201,12 @@
             
             //分段控制器
             NSString * strReply = [NSString stringWithFormat:@"评论(%@)",dicData[@"replyCount"]];
-           // productView.menuItems
-            productView.menuItems = @[[@"图文介绍" uppercaseString], [@"商品参数" uppercaseString],[strReply uppercaseString]];
-            [productView.control setFrame:CGRectMake(0, CGRectGetMaxY(productView.imgGrey.frame), MainView_Width, 160)];
+            
 
-          //  [productView.scrollViewBackground addSubview:productView.control];
+            [productView.control setFrame:CGRectMake(0, CGRectGetMaxY(productView.imgGrey.frame), MainView_Width, 40)];
+
+            [productView.control removeAllSegments];
+            [productView.control setItems:@[[@"图文介绍" uppercaseString], [@"商品参数" uppercaseString],strReply ]];
 
             
             //////////////////////setObj

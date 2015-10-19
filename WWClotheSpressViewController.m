@@ -7,8 +7,15 @@
 //
 
 #import "WWClotheSpressViewController.h"
+#define KLANGUAGELOCALIZABLE_LANGUAGENameKey    @"LANGUAGELOCALIZABLE_LANGUAGENameKey"
+@interface WWClotheSpressViewController (){
+    WWPublicNavtionBar *navtionBarView;
+}
 
-@interface WWClotheSpressViewController ()
+@property (nonatomic,strong)        UIView              *clockbakcGroupView;
+@property (nonatomic,strong)        UIButton            *clockDynamicButton;
+@property (nonatomic,strong)        UIButton            *clockNumberButton;
+@property (nonatomic,strong)        UILabel             *clockChooseLabel;
 
 @end
 
@@ -17,6 +24,28 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.view.backgroundColor = WW_BASE_COLOR;
+    
+    navtionBarView = [[WWPublicNavtionBar alloc] initWithLeftBtn:NO withTitle:@"衣柜" withRightBtn:NO withRightBtnPicName:nil withRightBtnSize:CGSizeZero];
+    [self.view addSubview:navtionBarView];
+    
+    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
+    NSString *string = [def valueForKey:KLANGUAGELOCALIZABLE_LANGUAGENameKey];
+    if(string.length == 0){
+        //获取系统当前语言版本
+        NSArray* languages = [def objectForKey:@"AppleLanguages"];
+        
+        if (languages.count > 0) {
+            NSString *current = [languages objectAtIndex:0];
+            string = current;
+            [def setValue:current forKey:KLANGUAGELOCALIZABLE_LANGUAGENameKey];
+            [def synchronize];//持久化，不加的话不会保存
+        }
+    }
+    
+    NSString *language = [def valueForKey:KLANGUAGELOCALIZABLE_LANGUAGENameKey];
+    
+    NSLog(@"current is %@",language);
 }
 
 - (void)didReceiveMemoryWarning {

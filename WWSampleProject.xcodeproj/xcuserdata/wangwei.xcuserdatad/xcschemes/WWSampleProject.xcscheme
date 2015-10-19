@@ -20,20 +20,6 @@
                ReferencedContainer = "container:WWSampleProject.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "4AD21ACD1BA01A3C00B4BDDC"
-               BuildableName = "WWSampleProjectTests.xctest"
-               BlueprintName = "WWSampleProjectTests"
-               ReferencedContainer = "container:WWSampleProject.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction

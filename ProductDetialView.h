@@ -19,9 +19,6 @@
     UIImageView * ClotheSpressNum;
     UILabel * labelSpressNum;
     
-    
-    
-    UIWebView * webSection1;
 }
 
 
@@ -66,5 +63,9 @@
 @property (nonatomic, strong) DZNSegmentedControl *control;
 @property (nonatomic, strong) NSArray *menuItems;
 
+
+/////////////WEB
+@property (strong) UIWebView * webSection1;
+@property (strong) UIWebView * webSection2;
 
 @end

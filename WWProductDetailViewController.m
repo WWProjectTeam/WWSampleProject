@@ -220,6 +220,12 @@
                 [productView setCollectionStatu:YES];
                 CollectionStatu = YES;
             }
+            
+            
+            ///////////////websection01
+            
+            
+            
         }
         else
         {

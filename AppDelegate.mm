@@ -95,14 +95,13 @@ NSString * g_UserHeadImage;
     [self.window makeKeyAndVisible];
     
     
-    
 #pragma mark - wxAPIkey
     //微信
     [WXApi registerApp:@"appkey"];
     
     
 #pragma mark - 微信支付测试
-    [self sendPay];
+  //  [self sendPay];
     return YES;
 }
 

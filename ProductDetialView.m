@@ -16,7 +16,8 @@
 @synthesize pageControl = _pageControl;
 @synthesize imagePhoto = _imagePhoto;
 @synthesize imgGrey = _imgGrey;
-
+@synthesize webSection1 = _webSection1;
+@synthesize webSection2 = _webSection2;
 
 -(id)initProductDetialView{
     self = [super initWithFrame:CGRectMake(0,0,MainView_Width,MainView_Height)];
@@ -83,8 +84,8 @@
          [self.scrollViewBackground addSubview:self.control];
             
         
-        webSection1 = [[UIWebView alloc]init];
-        [self.scrollViewBackground addSubview:webSection1];
+        self.webSection1 = [[UIWebView alloc]init];
+        [self.scrollViewBackground addSubview:self.webSection1];
         
 #pragma mark - foot
         

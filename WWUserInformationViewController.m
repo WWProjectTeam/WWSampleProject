@@ -7,7 +7,7 @@
 //
 
 #import "WWUserInformationViewController.h"
-#import "OSSsendPicture.h"
+//#import "OSSsendPicture.h"
 #import "WWUserNameModifyViewController.h"
 #import "HTTPClient+Other.h"
 
@@ -218,20 +218,20 @@
 }
 
 - (void)userHeadPhotoSendOSS{
-    
-    if (self.headImage.image) {
-        OSSsendPicture *sendPic = [OSSsendPicture sharedInstance];
-        sendPic.bucketKey = kBucketKeyFormAS;
-        sendPic.cnameKey = kCnameKeyFormCN_HZ;
-        if ([sendPic OSSJudgeImageSizeFormImage:self.headImage.image]) {
-            return;
-        }
-        uploadTheImagePath = [sendPic OSSsendImageToOSSFormImageData:self.headImage.image imageContentOfRoute:@"face"];
-        if (IsStringEmptyOrNull(uploadTheImagePath)) {
-            [SVProgressHUD showErrorWithStatus:@"图片上传失败，请重新选择"];
-            uploadTheImagePath = @"";
-        }
-    }
+//    
+//    if (self.headImage.image) {
+//        OSSsendPicture *sendPic = [OSSsendPicture sharedInstance];
+//        sendPic.bucketKey = kBucketKeyFormAS;
+//        sendPic.cnameKey = kCnameKeyFormCN_HZ;
+//        if ([sendPic OSSJudgeImageSizeFormImage:self.headImage.image]) {
+//            return;
+//        }
+//        uploadTheImagePath = [sendPic OSSsendImageToOSSFormImageData:self.headImage.image imageContentOfRoute:@"face"];
+//        if (IsStringEmptyOrNull(uploadTheImagePath)) {
+//            [SVProgressHUD showErrorWithStatus:@"图片上传失败，请重新选择"];
+//            uploadTheImagePath = @"";
+//        }
+//    }
 }
 
 //压缩图片

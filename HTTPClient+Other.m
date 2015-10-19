@@ -63,6 +63,17 @@
     return [self getPath:KProductDetial parameters:dicParam completion:completionBlock];
 }
 
+//PD-AddToCollection
+- (AFHTTPRequestOperation *)AddToCollection:(NSString *)productId WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
+    NSDictionary * dicParam;
+        dicParam = @{
+                     @"userId":g_UserId,
+                     @"id":productId
+                     };
+    
+    return [self getPath:KAddToCollectionURL parameters:dicParam completion:completionBlock];
+}
+
 //postFeedback
 - (AFHTTPRequestOperation *)PostFeedBackToServerContent:(NSString *)feedContent WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
     NSDictionary *feedDic = @{@"content":feedContent};

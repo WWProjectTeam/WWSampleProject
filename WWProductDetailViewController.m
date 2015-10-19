@@ -13,10 +13,16 @@
 #import "UIImageView+WebCache.h"
 #import "MJPhotoBrowser.h"
 #import "MJPhoto.h"
+#import "WWLoginViewController.h"
+
+#import "WWClotheSpressViewController.h"
 @interface WWProductDetailViewController (){
 
     ProductDetialView * productView;
 //    NSMutableArray * arrayImgs;
+    
+    
+    BOOL CollectionStatu;
 }
 
 @end
@@ -34,7 +40,6 @@
     [self.view addSubview:productView];
 
    
-    
     
     WWPublicNavtionBar * navtionBar = [[WWPublicNavtionBar alloc]initWithLeftBtn:YES withTitle:@"详情" withRightBtn:NO withRightBtnPicName:nil withRightBtnSize:CGSizeZero];    
     [navtionBar setAlpha:0];
@@ -55,7 +60,7 @@
         [navtionBar setAlpha:point.y/100];
     };
     
-    
+#pragma mark - tapPhoto
     __weak typeof(self) weakself = self;
     productView.TapPhotoAction = ^(NSInteger index){
     
@@ -89,9 +94,61 @@
     };
    
     
-    
     [self productDetialUpdate];
+ 
+#pragma mark - foot
+    /////////添加收藏
+    __weak ProductDetialView * productTemp = productView;
+    productView.AddToCollection = ^(){
+        if ([AppDelegate isAuthentication]) {
+            if (CollectionStatu==YES) {
+                [productTemp setCollectionStatu:NO];
+                CollectionStatu = NO;
+            }
+            else{
+                [productTemp setCollectionStatu:YES];
+                CollectionStatu = YES;
+            }
+            
+            ///调用收藏接口
+            [weakself CollectionStatuUpdate];
+
+        }
     
+    };
+    
+    
+    ////////添加到衣柜
+    productView.AddToCart = ^(){
+        if ([AppDelegate isAuthentication]) {
+            
+        }
+    
+    };
+    
+    ///////打开衣柜
+    productView.TapClotheSpress = ^(){
+        if ([AppDelegate isAuthentication]) {
+            WWClotheSpressViewController * clotheVC = [[WWClotheSpressViewController alloc]init];
+            [weakself.navigationController pushViewController:clotheVC animated:YES];
+        }
+    };
+    
+    AppDelegate * app = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    app.UserLoginStatuUpdate = ^(){
+        [self productDetialUpdate];
+    };
+    
+}
+
+
+#pragma mark - update
+-(void)CollectionStatuUpdate{
+    [[HTTPClient sharedHTTPClient]AddToCollection:self.strProductId WithCompletion:^(WebAPIResponse *operation) {
+        NSDictionary * dict = operation.responseObject;
+        WWLog(@"%@",dict);
+    }];
+
 }
 
 -(void)productDetialUpdate{
@@ -112,47 +169,56 @@
             [productView reloadProductImgBannerWithImgData:array];
             
             
+            /////////标题
             NSString * strTitle = dicData[@"title"];
             
-            
-            
             NSMutableAttributedString *attributedString = [[NSMutableAttributedString alloc]initWithString:strTitle];
-            
             NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc]init];
-            
             [paragraphStyle setLineSpacing:5];
-            
             [attributedString addAttribute:NSParagraphStyleAttributeName value:paragraphStyle range:NSMakeRange(0, strTitle.length)];
-            
-            
             productView.labelTitle.attributedText = attributedString;
-            
-            //调节高度
-            
             CGSize size = CGSizeMake(iphone_size_scale(300), MAXFLOAT);
-            
-            
-           // [productView.labelTitle sizeToFit];
-           CGSize sizeTitle = [productView.labelTitle sizeThatFits:size];
+            CGSize sizeTitle = [productView.labelTitle sizeThatFits:size];
             
             productView.labelTitle.frame = CGRectMake(iphone_size_scale(10), productView.labelTitle.frame.origin.y, iphone_size_scale(300), sizeTitle.height);
+            
+            
+            /////////描述
+            NSString * strContent = dicData[@"content"];
+            
+            NSMutableAttributedString *attributedStringt = [[NSMutableAttributedString alloc]initWithString:strContent];
+            NSMutableParagraphStyle *paragraphStylet = [[NSMutableParagraphStyle alloc]init];
+            [paragraphStylet setLineSpacing:7];
+            [attributedStringt addAttribute:NSParagraphStyleAttributeName value:paragraphStylet range:NSMakeRange(0, strContent.length)];
+            productView.labelDesc.attributedText = attributedStringt;
+            CGSize sizet = CGSizeMake(iphone_size_scale(300), MAXFLOAT);
+            CGSize sizeContent = [productView.labelDesc sizeThatFits:sizet];
+            
+            productView.labelDesc.frame = CGRectMake(iphone_size_scale(10), CGRectGetMaxY(productView.labelTitle.frame)+10, iphone_size_scale(300), sizeContent.height);
+            
+            
+            [productView.imgGrey setFrame:CGRectMake(0, CGRectGetMaxY(productView.labelDesc.frame)+10, MainView_Width, 10)];
+            
+            //分段控制器
+            NSString * strReply = [NSString stringWithFormat:@"评论(%@)",dicData[@"replyCount"]];
+           // productView.menuItems
+            productView.menuItems = @[[@"图文介绍" uppercaseString], [@"商品参数" uppercaseString],[strReply uppercaseString]];
+            [productView.control setFrame:CGRectMake(0, CGRectGetMaxY(productView.imgGrey.frame), MainView_Width, 160)];
 
-//            NSMutableAttributedString *attStr = [[NSMutableAttributedString alloc]initWithString:strTitle];
-//            NSMutableParagraphStyle *style = [[NSMutableParagraphStyle alloc]init];
-//            [style setLineSpacing:10.0f];
-//            NSInteger leng = iphone_size_scale(300);
-//            if (attStr.length < iphone_size_scale(300)) {
-//                leng = attStr.length;
-//            }
-//            [attStr addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, strTitle.length)];
-//            productView.labelTitle.attributedText = attStr;
-//
-//            
-//            CGSize titleSize = [WWUtilityClass boundingRectWithSize:CGSizeMake(iphone_size_scale(300), MAXFLOAT) withText:strTitle withFont:font_size(15)];
-//            [productView.labelTitle setFrame:CGRectMake(iphone_size_scale(10), iphone_size_scale(300), iphone_size_scale(300), titleSize.height)];
-           // [productView.labelTitle setText:strTitle];
+          //  [productView.scrollViewBackground addSubview:productView.control];
+
             
-            
+            //////////////////////setObj
+            [productView setClotheSpressNum:[dicData[@"favoriterCount"] integerValue]];
+            if ([[NSString stringWithFormat:@"%@",dicData[@"isFavoriter"]]isEqualToString:@"0"]) {
+                [productView setCollectionStatu:NO];
+                CollectionStatu = NO;
+            }
+            else
+            {
+                [productView setCollectionStatu:YES];
+                CollectionStatu = YES;
+            }
         }
         else
         {
@@ -169,9 +235,6 @@
 -(void)btnBack{
     [self.navigationController popViewControllerAnimated:YES];
 }
-
-
-
 
 
 @end

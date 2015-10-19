@@ -77,6 +77,10 @@
 // 刷新个人信息
 #define WWRefreshUserInformation                @"refreshUserInformation"
 
+
+//客服的电话号码
+#define WWSupportTel        @"400-585-5896"
+
 #pragma mark - 常用方法
 //键盘隐藏
 + (void)hidderKeyboard;

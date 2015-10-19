@@ -26,5 +26,14 @@ extern NSString * g_UserHeadImage;
 //控制器创建
 @property (strong, nonatomic) UINavigationController * navtionViewControl;
 @property (strong, nonatomic) UITabBarController     * tabBarController;
+
+
+//////////////////isAuthentication
++(BOOL)isAuthentication;
+
+@property (nonatomic ,copy) void (^UserLoginStatuUpdate)();
+
+
+
 @end
 

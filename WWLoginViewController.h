@@ -10,4 +10,6 @@
 
 @interface WWLoginViewController : UIViewController
 
+@property (nonatomic ,copy) void (^UserLoginStatu)(BOOL statu);
+
 @end

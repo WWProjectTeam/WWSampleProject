@@ -306,4 +306,26 @@ NSString * g_UserHeadImage;
     [alter show];
 }
 
+
++(BOOL)isAuthentication{
+    if (g_UserId) {
+        return YES;
+    }
+    
+    WWLoginViewController * loginVC = [[WWLoginViewController alloc]init];
+    AppDelegate * app = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    [app.window.rootViewController presentViewController:loginVC animated:YES completion:nil];
+    
+    loginVC.UserLoginStatu = ^(BOOL statu){
+        if (statu) {
+            if (app.UserLoginStatuUpdate) {
+                app.UserLoginStatuUpdate();
+            }
+        }
+    };
+    return NO;
+}
+
+
 @end

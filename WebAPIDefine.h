@@ -95,4 +95,6 @@
 //我的收藏
 #define KMyCollectionURL            @"yiyouv/clothes/favoriters?index=%@&userId=%@"
 
+//收藏商品
+#define KAddToCollectionURL         @"yiyouv/clothes/favoriter"
 #endif

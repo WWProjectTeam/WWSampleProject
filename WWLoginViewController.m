@@ -36,6 +36,10 @@
         AppDelegate * appdelegate = (AppDelegate * )[UIApplication sharedApplication].delegate;
         [appdelegate.tabBarController setSelectedIndex:0];
         [weakSelf dismissViewControllerAnimated:YES completion:^{
+            if (weakSelf.UserLoginStatu) {
+                weakSelf.UserLoginStatu(NO);
+            }
+            
         }];
     };
     [self.view addSubview:navtionBarView];
@@ -186,6 +190,9 @@
                 [[NSNotificationCenter defaultCenter] postNotificationName:WWRefreshUserInformation object:nil];
                 // 返回上级
                 [self dismissViewControllerAnimated:YES completion:^{
+                    if (self.UserLoginStatu) {
+                        self.UserLoginStatu(YES);
+                    }
                 }];
             }else{
                 sleep(60);

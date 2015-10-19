@@ -50,4 +50,14 @@
 //buy_vip
 - (AFHTTPRequestOperation *)PostBuyVipUserId:(NSString *)userId andPackageId:(NSString *)packageId andMoney:(NSString *)money andMethod:(NSString *)method WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
 
+//PD-getProductictureDetial
+- (AFHTTPRequestOperation *)ProductPictureDetial:(NSString *)productId  WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
+
+//PD-getProductParm
+- (AFHTTPRequestOperation *)ProductParameters:(NSString *)productId  WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
+
+//PD-getProductReplyList
+- (AFHTTPRequestOperation *)ProductReplyList:(NSString *)productId maxId:(NSString *)maxID WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
+
+
 @end

@@ -94,8 +94,10 @@
     };
    
     
+    [self productPictureDetialUpdate];
     [self productDetialUpdate];
- 
+    [self productReplyList];
+
 #pragma mark - foot
     /////////添加收藏
     __weak ProductDetialView * productTemp = productView;
@@ -157,6 +159,10 @@
         NSDictionary * dict = operation.responseObject;
         
         if ([[NSString stringWithFormat:@"%@",dict[@"code"]]isEqualToString:WWAppSuccessCode]) {
+            /////////////////继续请求图文详情
+            
+            
+            
             [SVProgressHUD dismiss];
             
             NSDictionary * dicData = dict[@"result"];
@@ -232,6 +238,64 @@
             [SVProgressHUD showErrorWithStatus:@"出错,请稍后再试!"];
         }
     }];
+}
+
+///商品图文详情
+-(void)productPictureDetialUpdate{
+    [[HTTPClient sharedHTTPClient]ProductPictureDetial:self.strProductId WithCompletion:^(WebAPIResponse *operation) {
+        NSDictionary * dict = operation.responseObject;
+        
+        if ([[NSString stringWithFormat:@"%@",dict[@"code"]]isEqualToString:WWAppSuccessCode]) {
+            
+            ///////////////websection01
+            
+            
+            
+        }
+        else
+        {
+            WWLog(@"商品图文详情请求失败!!")
+        }
+    }];
+
+}
+
+-(void)productParamerUpdate{
+    [[HTTPClient sharedHTTPClient]ProductParameters:self.strProductId WithCompletion:^(WebAPIResponse *operation) {
+        NSDictionary * dict = operation.responseObject;
+        
+        if ([[NSString stringWithFormat:@"%@",dict[@"code"]]isEqualToString:WWAppSuccessCode]) {
+            
+            ///////////////websection01
+            
+            
+            
+        }
+        else
+        {
+            WWLog(@"商品图文详情请求失败!!")
+        }
+    }];
+
+}
+
+-(void)productReplyList{
+    [[HTTPClient sharedHTTPClient]ProductReplyList:self.strProductId maxId:@"0" WithCompletion:^(WebAPIResponse *operation) {
+        NSDictionary * dict = operation.responseObject;
+        
+        if ([[NSString stringWithFormat:@"%@",dict[@"code"]]isEqualToString:WWAppSuccessCode]) {
+            
+            ///////////////websection01
+            
+            
+            
+        }
+        else
+        {
+            WWLog(@"商品图文详情请求失败!!")
+        }
+    }];
+
 }
 
 - (void)didReceiveMemoryWarning {

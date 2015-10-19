@@ -103,4 +103,14 @@
 //购买VIP
 #define KBuyVipURL                  @"yiyouv/vip/buy"
 
+//获得商品图文
+#define KproductPictureDetial       @"yiyouv/clothes/details"
+
+//获得商品参数
+#define KproductParameters          @"yiyouv/clothes/parameter"
+
+//获得商品评论列表
+#define KproductReplyList           @"yiyouv/reply/list"
+
+
 #endif

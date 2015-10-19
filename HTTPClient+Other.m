@@ -152,4 +152,38 @@
                completion:completionBlock];
 }
 
+
+//PD-getProductictureDetial
+- (AFHTTPRequestOperation *)ProductPictureDetial:(NSString *)productId  WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
+
+    NSDictionary * dicParam;
+    dicParam = @{@"id":productId};
+    
+    return [self getPath:KproductPictureDetial parameters:dicParam completion:completionBlock];
+}
+
+//PD-getProductParm
+- (AFHTTPRequestOperation *)ProductParameters:(NSString *)productId  WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
+    
+    NSDictionary * dicParam;
+    dicParam = @{
+                 @"id":productId
+                 };
+    
+    return [self getPath:KproductParameters parameters:dicParam completion:completionBlock];
+}
+
+//PD-getProductReplyList
+- (AFHTTPRequestOperation *)ProductReplyList:(NSString *)productId maxId:(NSString *)maxID WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
+    NSDictionary * dicParam;
+    dicParam = @{
+                 @"id":productId,
+                 @"maxId":maxID
+                 };
+    
+    return [self getPath:KproductReplyList parameters:dicParam completion:completionBlock];
+
+
+}
+
 @end

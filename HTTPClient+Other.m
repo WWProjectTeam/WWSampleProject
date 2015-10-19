@@ -120,4 +120,25 @@
               completion:completionBlock];
 }
 
+//VIP--PriceList
+- (AFHTTPRequestOperation *)GetVIPPriceListWithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
+    
+    return [self getPath:KVIPPriceListURL
+              parameters:nil
+              completion:completionBlock];
+}
+
+//buy_vip
+- (AFHTTPRequestOperation *)PostBuyVipUserId:(NSString *)userId andPackageId:(NSString *)packageId andMoney:(NSString *)money andMethod:(NSString *)method WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
+    NSDictionary *parameDic = @{@"userId":userId,
+                                @"packageId":packageId,
+                                @"money":money,
+                                @"method":method};
+    NSDictionary *parame = @{@"json":[parameDic JSONString]};
+    
+    return [self postPath:KBuyVipURL
+               parameters:parame
+               completion:completionBlock];
+}
+
 @end

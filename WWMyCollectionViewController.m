@@ -14,10 +14,10 @@
 
 @interface WWMyCollectionViewController ()<UICollectionViewDataSource,UICollectionViewDelegate>{
     WWPublicNavtionBar *navtionBarView;
+    int  pageIndex;
 }
 @property (nonatomic,strong) UICollectionView * collectProduct;
 @property (nonatomic,strong) NSMutableArray * arrProduct;
-@property (nonatomic,strong) DataPage         *dataSource;
 
 @end
 
@@ -25,7 +25,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.dataSource = [DataPage page];
     self.arrProduct = [NSMutableArray new];
     self.view.backgroundColor = WW_BASE_COLOR;
     navtionBarView = [[WWPublicNavtionBar alloc]initWithLeftBtn:YES withTitle:@"我的收藏" withRightBtn:NO withRightBtnPicName:nil withRightBtnSize:CGSizeZero];
@@ -53,13 +52,13 @@
     // 添加下拉刷新控件
     
     self.collectProduct.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        pageIndex = 0;
         __weak __typeof(&*self)weakSelf = self;
-        [FMHTTPClient GetUserCollectionIndex:0 userId:@"1000" WithCompletion:^(WebAPIResponse *response) {
+        [FMHTTPClient GetUserCollectionIndex:pageIndex userId:[WWUtilityClass getNSUserDefaults:UserID] WithCompletion:^(WebAPIResponse *response) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (response.code == WebAPIResponseCodeSuccess) {
                     NSDictionary *resultDic = [response.responseObject objectForKey:@"result"];
                     self.arrProduct = [resultDic objectForKey:@"list"];
-                    [self.dataSource appendPage:self.arrProduct];
                     
                     NSString * strIndex = [NSString stringWithFormat:@"%@",resultDic[@"next"]];
                     if ([strIndex isEqualToString:@"0"]) {
@@ -71,9 +70,6 @@
                         [self.collectProduct.footer setHidden:NO];
                     }
 
-                    ///判断是否还有下一页信息
-                    BOOL hasNextBool = BoolForKeyInUnserializedJSONDic(resultDic, KDataKeyNext);
-                    [weakSelf.dataSource setDataHasNextPage:hasNextBool];
                     [weakSelf.collectProduct reloadData];
                     [self.collectProduct.header endRefreshing];
                 }
@@ -82,13 +78,14 @@
     }];
     // 添加上拉加载
     self.collectProduct.footer = [MJRefreshAutoFooter footerWithRefreshingBlock:^{
+        pageIndex ++;
         __weak __typeof(&*self)weakSelf = self;
-        [FMHTTPClient GetUserCollectionIndex:self.dataSource.nextPageIndex userId:@"1000" WithCompletion:^(WebAPIResponse *response) {
+        [FMHTTPClient GetUserCollectionIndex:pageIndex userId:[WWUtilityClass getNSUserDefaults:UserID] WithCompletion:^(WebAPIResponse *response) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (response.code == WebAPIResponseCodeSuccess) {
                     NSDictionary *resultDic = [response.responseObject objectForKey:@"result"];
-                    [self.arrProduct  addObjectsFromArray: [resultDic objectForKey:@"list"]];
-                    [self.dataSource appendPage:self.arrProduct];
+                    [self.arrProduct addObjectsFromArray: [resultDic objectForKey:@"list"]];
+                    
                     NSString * strIndex = [NSString stringWithFormat:@"%@",resultDic[@"next"]];
                     if ([strIndex isEqualToString:@"0"]) {
                         [self.collectProduct.footer noticeNoMoreData];
@@ -98,9 +95,7 @@
                     {
                         [self.collectProduct.footer setHidden:NO];
                     }
-                    ///判断是否还有下一页信息
-                    BOOL hasNextBool = BoolForKeyInUnserializedJSONDic(resultDic, KDataKeyNext);
-                    [weakSelf.dataSource setDataHasNextPage:hasNextBool];
+                    
                     [weakSelf.collectProduct reloadData];
                     [self.collectProduct.header endRefreshing];
                 }
@@ -117,7 +112,7 @@
 //定义展示的UICollectionViewCell的个数
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return self.dataSource.count;
+    return self.arrProduct.count;
 }
 
 //定义展示的Section的个数
@@ -140,10 +135,10 @@
 //UICollectionView被选中时调用的方法
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (self.dataSource.count < indexPath.row) {
+    if (self.arrProduct.count < indexPath.row) {
         return;
     }
-    NSDictionary * dicTemp = self.dataSource.data[indexPath.row];
+    NSDictionary * dicTemp = self.arrProduct[indexPath.row];
     WWProductDetailViewController * productVC = [[WWProductDetailViewController alloc]init];
     productVC.strProductId = dicTemp[@"id"];
     [self.navigationController pushViewController:productVC animated:YES];
@@ -159,7 +154,7 @@
 {
     static NSString * CellIdentifier = @"GradientCell";
     
-    NSDictionary * dicTemp = self.dataSource.data[indexPath.row];
+    NSDictionary * dicTemp = self.arrProduct[indexPath.row];
     
     
     MyCollectionCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];

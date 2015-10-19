@@ -242,7 +242,10 @@
 
 ///商品图文详情
 -(void)productPictureDetialUpdate{
-    [[HTTPClient sharedHTTPClient]ProductPictureDetial:self.strProductId WithCompletion:^(WebAPIResponse *operation) {
+    [FMHTTPClient ProductPictureDetial:self.strProductId WithCompletion:^(WebAPIResponse *operation) {
+        if (operation.code == WebAPIResponseCodeSuccess) {
+            
+        }
         NSDictionary * dict = operation.responseObject;
         
         if ([[NSString stringWithFormat:@"%@",dict[@"code"]]isEqualToString:WWAppSuccessCode]) {
@@ -261,7 +264,7 @@
 }
 
 -(void)productParamerUpdate{
-    [[HTTPClient sharedHTTPClient]ProductParameters:self.strProductId WithCompletion:^(WebAPIResponse *operation) {
+    [FMHTTPClient ProductParameters:self.strProductId WithCompletion:^(WebAPIResponse *operation) {
         NSDictionary * dict = operation.responseObject;
         
         if ([[NSString stringWithFormat:@"%@",dict[@"code"]]isEqualToString:WWAppSuccessCode]) {

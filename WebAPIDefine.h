@@ -104,7 +104,7 @@
 #define KBuyVipURL                  @"yiyouv/vip/buy"
 
 //获得商品图文
-#define KproductPictureDetial       @"yiyouv/clothes/details"
+#define KproductPictureDetial       @"yiyouv/clothes/details?id=%@"
 
 //获得商品参数
 #define KproductParameters          @"yiyouv/clothes/parameter"

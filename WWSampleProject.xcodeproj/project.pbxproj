@@ -1558,7 +1558,7 @@
 				TargetAttributes = {
 					4AD21AB41BA01A3C00B4BDDC = {
 						CreatedOnToolsVersion = 6.4;
-						DevelopmentTeam = HRS7CNH4E7;
+						DevelopmentTeam = CE3DSE22PK;
 					};
 					4AD21ACD1BA01A3C00B4BDDC = {
 						CreatedOnToolsVersion = 6.4;
@@ -1986,7 +1986,7 @@
 			buildSettings = {
 				ARCHS = armv7s;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Pengyun Pei (2DF2UNPL4C)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = WWProject.pch;
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
@@ -2030,7 +2030,7 @@
 			buildSettings = {
 				ARCHS = armv7s;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Pengyun Pei (2DF2UNPL4C)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PREFIX_HEADER = WWProject.pch;
 				INFOPLIST_FILE = Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;

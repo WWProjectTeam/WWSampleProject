@@ -35,8 +35,15 @@
         //设置后台模式
         [MobClick setBackgroundTaskEnabled:YES];
 
-        
-        g_UserId = [WWUtilityClass getNSUserDefaults:UserVipID];
+        NSString * strUserId;
+        strUserId = [WWUtilityClass getNSUserDefaults:UserID];
+        if (![strUserId isEqualToString:@""]&&
+            strUserId.class!=[NSNull null]
+            &&strUserId!=nil) {
+            
+            g_UserId = [WWUtilityClass getNSUserDefaults:UserID];
+
+        }
 
     });
 }

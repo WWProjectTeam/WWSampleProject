@@ -8,17 +8,18 @@
 
 #import "ProductDetialView.h"
 #import "WWPageControl.h"
-
+#import "WWProductReplyListTableViewCell.h"
 
 @implementation ProductDetialView
 @synthesize scrollViewBackground = _scrollViewBackground;
-@synthesize scrollBanner = _scrollBanner;
-@synthesize pageControl = _pageControl;
-@synthesize imagePhoto = _imagePhoto;
-@synthesize imgGrey = _imgGrey;
-@synthesize webSection1 = _webSection1;
-@synthesize webSection2 = _webSection2;
-
+@synthesize scrollBanner         = _scrollBanner;
+@synthesize pageControl          = _pageControl;
+@synthesize imagePhoto           = _imagePhoto;
+@synthesize imgGrey              = _imgGrey;
+@synthesize webSection1          = _webSection1;
+@synthesize webSection2          = _webSection2;
+@synthesize tableReplyList       = _tableReplyList;
+@synthesize arrReplyList         = _arrReplyList;
 -(id)initProductDetialView{
     self = [super initWithFrame:CGRectMake(0,0,MainView_Width,MainView_Height)];
     
@@ -85,8 +86,23 @@
             
         
         self.webSection1 = [[UIWebView alloc]init];
+        [self.webSection1 setTag:10001];
         [self.scrollViewBackground addSubview:self.webSection1];
         
+        self.webSection2 = [[UIWebView alloc]init];
+        [self.webSection2 setTag:10002];
+        [self.webSection2 setHidden:YES];
+        [self.scrollViewBackground addSubview:self.webSection2];
+        
+        
+        self.tableReplyList = [[UITableView alloc]init];
+        [self.tableReplyList setDelegate:self];
+        [self.tableReplyList setDataSource:self];
+        [self.tableReplyList setHidden:YES];
+        
+
+        
+        [self.scrollViewBackground addSubview:self.tableReplyList];
 #pragma mark - foot
         
         UIButton * btnSer = [[UIButton alloc]init];
@@ -405,8 +421,58 @@
 
 - (void)selectedSegment:(DZNSegmentedControl *)control
 {
+    if (self.SwitchTab) {
+        self.SwitchTab(control.selectedSegmentIndex);
+    }
+}
+
+
+#pragma mark - UITableView Datasource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [self.arrReplyList count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *cellIdentifier = @"replyListCell";
+    //
+    WWProductReplyListTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     
- }
+    if(cell == nil) {
+        cell = [[WWProductReplyListTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+    }
+    
+    NSDictionary * dicTemp = [self.arrReplyList objectAtIndex:indexPath.row];
+//    cell.labelTime.text = dicTemp[@"time_create"];
+//    cell.labelPeople.text = dicTemp[@"employee_name"];
+//    cell.labelSouce.text = dicTemp[@"take_source"];
+//    cell.labelGold.text = [NSString stringWithFormat:@"%@",dicTemp[@"amount"]];
+    
+    //CGSize size = [WWUtilityConfig boundingRectWithSize:CGSizeMake(MainView_Width/3, 100) withText:cell.labelGold.text withFont:font_size(12)];
+    // [cell.labelProduct setFrame:CGRectMake(cell.labelProduct.frame.origin.x, cell.labelProduct.frame.origin.y, size.width, size.height)];
+    
+    // cell.frame = CGRectMake(0, 0, MainView_Width, size.height);
+    
+    return cell;
+    
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return iphone_size_scale(40);
+}
+
+
+
+#pragma mark - UITableView Delegate methods
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
 
 
 

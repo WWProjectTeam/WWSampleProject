@@ -115,5 +115,7 @@
 //获取衣柜中的商品
 #define KWardrobeGoodsURL           @"yiyouv/wardrobe/now?userId=%@"
 
+//新增评论
+#define KproductAddReply            @"yiyouv/reply/save"
 
 #endif

@@ -8,7 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface WWProductDetailViewController : UIViewController
+@interface WWProductDetailViewController : UIViewController<UIWebViewDelegate>
 @property (strong) NSString * strProductId;
 @property (strong) NSMutableArray * arrayImgs;
+@property (strong) UIButton * btnAddReply;
+@property (strong) UITextField * tfReply;
+@property (strong) UIView * viewAddReply;
 @end

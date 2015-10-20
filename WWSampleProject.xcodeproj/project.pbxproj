@@ -204,6 +204,7 @@
 		4A4BC15A1BD4F3950077EED0 /* DZNSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4BC1571BD4F3950077EED0 /* DZNSegmentedControl.m */; settings = {ASSET_TAGS = (); }; };
 		4A4BC15B1BD4F3950077EED0 /* UIScrollView+DZNSegmentedControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4BC1591BD4F3950077EED0 /* UIScrollView+DZNSegmentedControl.m */; settings = {ASSET_TAGS = (); }; };
 		4A4BC15C1BD517B00077EED0 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3CD1E61BBE311C004DD167 /* libWeChatSDK.a */; };
+		4A4BC16D1BD5CF6C0077EED0 /* WWProductReplyListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4BC16C1BD5CF6C0077EED0 /* WWProductReplyListTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		4A5949291BCDDA4700036873 /* WWHeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5949281BCDDA4700036873 /* WWHeaderCollectionReusableView.m */; settings = {ASSET_TAGS = (); }; };
 		4AD21AE71BA0250100B4BDDC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AD21AE21BA0250100B4BDDC /* LaunchScreen.xib */; };
 		4AD21AE81BA0250100B4BDDC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AD21AE41BA0250100B4BDDC /* Images.xcassets */; };
@@ -216,6 +217,7 @@
 		4AD21B101BA0355000B4BDDC /* WWBaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21B0F1BA0355000B4BDDC /* WWBaseNavigationViewController.m */; };
 		4AD21B131BA0358400B4BDDC /* WWBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21B121BA0358400B4BDDC /* WWBaseViewController.m */; };
 		4AD21B1C1BA0396000B4BDDC /* UIViewController+AOP.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21B1B1BA0396000B4BDDC /* UIViewController+AOP.m */; };
+		F21A682048EBFAF8CA07CAD4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16AE9000BDCE5CAC294783BF /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -559,6 +561,8 @@
 		4A4BC1571BD4F3950077EED0 /* DZNSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DZNSegmentedControl.m; sourceTree = "<group>"; };
 		4A4BC1581BD4F3950077EED0 /* UIScrollView+DZNSegmentedControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+DZNSegmentedControl.h"; sourceTree = "<group>"; };
 		4A4BC1591BD4F3950077EED0 /* UIScrollView+DZNSegmentedControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+DZNSegmentedControl.m"; sourceTree = "<group>"; };
+		4A4BC16B1BD5CF6C0077EED0 /* WWProductReplyListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWProductReplyListTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		4A4BC16C1BD5CF6C0077EED0 /* WWProductReplyListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWProductReplyListTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		4A5949271BCDDA4700036873 /* WWHeaderCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWHeaderCollectionReusableView.h; sourceTree = SOURCE_ROOT; };
 		4A5949281BCDDA4700036873 /* WWHeaderCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWHeaderCollectionReusableView.m; sourceTree = SOURCE_ROOT; };
 		4AD21AB51BA01A3C00B4BDDC /* WWSampleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWSampleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -598,6 +602,7 @@
 				46B743A11BCF722400C31FF7 /* AVFoundation.framework in Frameworks */,
 				4A40E0431BCCA10400E12DD9 /* libsqlite3.tbd in Frameworks */,
 				4A40DDE81BCA64B200E12DD9 /* CoreTelephony.framework in Frameworks */,
+				F21A682048EBFAF8CA07CAD4 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -809,6 +814,8 @@
 			children = (
 				4A27AAF01BCE0731006CFC15 /* ProductDetialView.h */,
 				4A27AAF11BCE0731006CFC15 /* ProductDetialView.m */,
+				4A4BC16B1BD5CF6C0077EED0 /* WWProductReplyListTableViewCell.h */,
+				4A4BC16C1BD5CF6C0077EED0 /* WWProductReplyListTableViewCell.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -1766,6 +1773,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				46E880681BD0ED7C002481CB /* MyCollectionCollectionViewCell.m in Sources */,
+				4A4BC16D1BD5CF6C0077EED0 /* WWProductReplyListTableViewCell.m in Sources */,
 				4A40E0A51BCD07AB00E12DD9 /* HomePageProductCollectionViewCell.m in Sources */,
 				46D3FF631BCBFB750091AF67 /* JSONKit.m in Sources */,
 				46D3FF461BCBFB630091AF67 /* HTTPClient+Other.m in Sources */,

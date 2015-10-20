@@ -29,6 +29,11 @@
 			<key>orderHint</key>
 			<integer>5</integer>
 		</dict>
+		<key>UIViewController-KeyboardAdditions.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>6</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
@@ -47,7 +52,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>42FB75DEBA398E1122B0647E51523F81</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>4B47B32630308D394788291ECCBA461D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>742675E1AA30C5326733380E39F71A8F</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>8880EF020A71F65FCE6176A8B2EC06DD</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -58,6 +78,11 @@
 			<true/>
 		</dict>
 		<key>9F0ADC930810CD4629D44AC7B409B204</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>B82660D57FC5B62F5B99ECD771E50C3C</key>
 		<dict>
 			<key>primary</key>
 			<true/>

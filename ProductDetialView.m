@@ -178,8 +178,6 @@
             [labelSpressNum setTextAlignment:NSTextAlignmentCenter];
             [ClotheSpressNum addSubview:labelSpressNum];
             
-        
-            
             btnTemp;
         });
         [self addSubview:btnClo];
@@ -283,8 +281,6 @@
     if (self.ScrollViewDidScroll) {
         self.ScrollViewDidScroll(pointTemp);
     }
-    
-    
 }
 
 
@@ -444,18 +440,37 @@
     
     if(cell == nil) {
         cell = [[WWProductReplyListTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        [cell setSelectionStyle:UITableViewCellSelectionStyleNone];
     }
     
     NSDictionary * dicTemp = [self.arrReplyList objectAtIndex:indexPath.row];
-//    cell.labelTime.text = dicTemp[@"time_create"];
-//    cell.labelPeople.text = dicTemp[@"employee_name"];
-//    cell.labelSouce.text = dicTemp[@"take_source"];
-//    cell.labelGold.text = [NSString stringWithFormat:@"%@",dicTemp[@"amount"]];
     
-    //CGSize size = [WWUtilityConfig boundingRectWithSize:CGSizeMake(MainView_Width/3, 100) withText:cell.labelGold.text withFont:font_size(12)];
-    // [cell.labelProduct setFrame:CGRectMake(cell.labelProduct.frame.origin.x, cell.labelProduct.frame.origin.y, size.width, size.height)];
+    NSDictionary * dicUserTemp = dicTemp[@"user"];
     
-    // cell.frame = CGRectMake(0, 0, MainView_Width, size.height);
+    [cell.imgUserPic sd_setImageWithURL:[NSURL URLWithString:dicUserTemp[@"faceurl"]] placeholderImage:[UIImage imageNamed:@"-avatars"]];
+    cell.labelTime.text = dicTemp[@"createTime"];
+    cell.labelContent.text = dicTemp[@"content"];
+    
+    
+    NSString * strUserName = dicUserTemp[@"userName"];
+    if ([WWUtilityClass validateMobile:strUserName]) {
+        strUserName = [NSString stringWithFormat:@"%@****",[strUserName substringToIndex:3]];
+    }
+    else if(strUserName.length>=1)
+    {
+        strUserName = [NSString stringWithFormat:@"%@****",[strUserName substringToIndex:1]];
+    }
+    
+    cell.labelUserName.text = strUserName;
+    
+
+    
+    CGSize size = [WWUtilityClass boundingRectWithSize:CGSizeMake(iphone_size_scale(260), MAXFLOAT) withText:cell.labelContent.text withFont:font_size(14)];
+    [cell.labelContent setFrame:CGRectMake(cell.labelContent.frame.origin.x, cell.labelContent.frame.origin.y,iphone_size_scale(260), size.height)];
+    
+    
+     cell.frame = CGRectMake(0, 0, MainView_Width, CGRectGetMaxY(cell.labelContent.frame)+10);
+    
     
     return cell;
     
@@ -463,7 +478,9 @@
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return iphone_size_scale(40);
+    UITableViewCell *cell = [self tableView:tableView cellForRowAtIndexPath:indexPath];
+    return cell.frame.size.height;
+
 }
 
 

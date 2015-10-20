@@ -23,13 +23,8 @@
 @interface WWProductDetailViewController (){
 
     ProductDetialView * productView;
-//    NSMutableArray * arrayImgs;
-    
-    
     BOOL CollectionStatu;
-    
-
-    
+    UITapGestureRecognizer *tapGestureRecognizer;
 }
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewBottomConstraint;
 
@@ -45,7 +40,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+
     ////监听键盘
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
@@ -300,6 +295,10 @@
             [SVProgressHUD showErrorWithStatus:@"出错,请稍后再试!"];
         }
     }];
+    
+    ////////手势
+    tapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hideKeyboard)];
+    [self.view addGestureRecognizer:tapGestureRecognizer];
 }
 
 ///商品图文详情
@@ -313,24 +312,7 @@
     NSURLRequest *request=[NSURLRequest requestWithURL:url];
     [productView.webSection1 loadRequest:request];
   
-    [FMHTTPClient ProductPictureDetial:self.strProductId WithCompletion:^(WebAPIResponse *operation) {
-        if (operation.code == WebAPIResponseCodeSuccess) {
-            
-        }
-        NSDictionary * dict = operation.responseObject;
-        
-        if ([[NSString stringWithFormat:@"%@",dict[@"code"]]isEqualToString:WWAppSuccessCode]) {
-            
-            ///////////////websection01
-            
-            
-            
-        }
-        else
-        {
-            WWLog(@"商品图文详情请求失败!!")
-        }
-    }];
+
 
    
 }
@@ -344,22 +326,7 @@
     NSURLRequest *request=[NSURLRequest requestWithURL:url];
     [productView.webSection2 loadRequest:request];
   
-    [FMHTTPClient ProductParameters:self.strProductId WithCompletion:^(WebAPIResponse *operation) {
-        NSDictionary * dict = operation.responseObject;
-        
-        if ([[NSString stringWithFormat:@"%@",dict[@"code"]]isEqualToString:WWAppSuccessCode]) {
-            
-            ///////////////websection01
-            
-            
-            
-        }
-        else
-        {
-            WWLog(@"商品图文详情请求失败!!")
-        }
-    }];
-
+   
 }
 
 -(void)productReplyList{
@@ -409,8 +376,10 @@
             NSDictionary * dicResult = dict[@"result"];
             productView.arrReplyList = [NSMutableArray arrayWithArray:dicResult[@"list"]];
             [productView.tableReplyList reloadData];
+            [productView.tableReplyList setFrame:CGRectMake(0, productView.tableReplyList.frame.origin.y, MainView_Width, productView.tableReplyList.contentSize.height)];
             
-            
+            [productView.scrollViewBackground setContentSize:CGSizeMake(MainView_Width, CGRectGetMaxY(productView.tableReplyList.frame))];
+
         }
         else
         {
@@ -453,10 +422,10 @@
 -(void)addReply{
     
     if ([AppDelegate isAuthentication]) {
-        [self.btnAddReply setHidden:YES];
         [self.viewAddReply setHidden:NO];
         [self.tfReply becomeFirstResponder];
-
+        
+        [productView setUserInteractionEnabled:NO];
         
     }
 }
@@ -472,8 +441,7 @@
         
         if ([[NSString stringWithFormat:@"%@",dict[@"code"]]isEqualToString:WWAppSuccessCode]) {
             [SVProgressHUD dismiss];
-            
-            [WWUtilityClass hidderKeyboard];
+            [self hideInput];
             [self productReplyList];
         }
         else
@@ -495,5 +463,17 @@
     [UIView animateWithDuration:duration animations:^{
         self.viewAddReply.transform = CGAffineTransformMakeTranslation(0, transformY);
     }];
+}
+
+
+-(void)hideInput{
+    [WWUtilityClass hidderKeyboard];
+    self.tfReply.text = @"";
+    self.viewAddReply.hidden = YES;
+    [productView setUserInteractionEnabled:YES];
+}
+
+-(void)hideKeyboard{
+    [self hideInput];
 }
 @end

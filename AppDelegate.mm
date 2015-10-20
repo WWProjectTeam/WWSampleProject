@@ -180,7 +180,6 @@ NSString * g_UserHeadImage;
 // App将要从后台返回
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
-    g_UserId = [WWUtilityClass getNSUserDefaults:UserVipID];
 //    [[EaseMob sharedInstance] applicationWillEnterForeground:application];
 }
 

@@ -36,6 +36,7 @@
         [MobClick setBackgroundTaskEnabled:YES];
 
         
+        g_UserId = [WWUtilityClass getNSUserDefaults:UserVipID];
 
     });
 }

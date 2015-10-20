@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		462500E81BD5DE1200D3CC20 /* WWWantWearView.m in Sources */ = {isa = PBXBuildFile; fileRef = 462500E71BD5DE1200D3CC20 /* WWWantWearView.m */; settings = {ASSET_TAGS = (); }; };
+		462500EB1BD5E7A400D3CC20 /* WWWantWearCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 462500EA1BD5E7A400D3CC20 /* WWWantWearCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		4626E4EC1BCDFCC700D902B4 /* WWUserInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4626E4EB1BCDFCC700D902B4 /* WWUserInformationViewController.m */; settings = {ASSET_TAGS = (); }; };
 		4626E4EF1BCE1E0600D902B4 /* WWFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4626E4EE1BCE1E0600D902B4 /* WWFeedbackViewController.m */; settings = {ASSET_TAGS = (); }; };
 		4626E4F31BCE49D900D902B4 /* WWVIPPackageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4626E4F21BCE49D900D902B4 /* WWVIPPackageViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -228,6 +230,10 @@
 
 /* Begin PBXFileReference section */
 		16AE9000BDCE5CAC294783BF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		462500E61BD5DE1200D3CC20 /* WWWantWearView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWWantWearView.h; sourceTree = SOURCE_ROOT; };
+		462500E71BD5DE1200D3CC20 /* WWWantWearView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWWantWearView.m; sourceTree = SOURCE_ROOT; };
+		462500E91BD5E7A400D3CC20 /* WWWantWearCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWWantWearCollectionViewCell.h; sourceTree = SOURCE_ROOT; };
+		462500EA1BD5E7A400D3CC20 /* WWWantWearCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWWantWearCollectionViewCell.m; sourceTree = SOURCE_ROOT; };
 		4626E4EA1BCDFCC700D902B4 /* WWUserInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWUserInformationViewController.h; sourceTree = SOURCE_ROOT; };
 		4626E4EB1BCDFCC700D902B4 /* WWUserInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWUserInformationViewController.m; sourceTree = SOURCE_ROOT; };
 		4626E4ED1BCE1E0600D902B4 /* WWFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWFeedbackViewController.h; sourceTree = SOURCE_ROOT; };
@@ -605,6 +611,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		462500E51BD5DDD000D3CC20 /* view */ = {
+			isa = PBXGroup;
+			children = (
+				462500E61BD5DE1200D3CC20 /* WWWantWearView.h */,
+				462500E71BD5DE1200D3CC20 /* WWWantWearView.m */,
+				462500E91BD5E7A400D3CC20 /* WWWantWearCollectionViewCell.h */,
+				462500EA1BD5E7A400D3CC20 /* WWWantWearCollectionViewCell.m */,
+			);
+			name = view;
+			sourceTree = "<group>";
+		};
 		4626E4E71BCDFBED00D902B4 /* 基本信息 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1133,6 +1150,7 @@
 			children = (
 				4A40E0A01BCCFF8E00E12DD9 /* WWClotheSpressViewController.h */,
 				4A40E0A11BCCFF8E00E12DD9 /* WWClotheSpressViewController.m */,
+				462500E51BD5DDD000D3CC20 /* view */,
 			);
 			name = "衣柜";
 			sourceTree = "<group>";
@@ -1778,6 +1796,7 @@
 				4A40E0A21BCCFF8E00E12DD9 /* WWClotheSpressViewController.m in Sources */,
 				46D3FF7A1BCC03DB0091AF67 /* AFHTTPRequestOperation.m in Sources */,
 				4648E7451BCD548900A54035 /* WWSettingViewController.m in Sources */,
+				462500EB1BD5E7A400D3CC20 /* WWWantWearCollectionViewCell.m in Sources */,
 				46D3FF671BCBFCAC0091AF67 /* FMFunctions.m in Sources */,
 				4AD21B101BA0355000B4BDDC /* WWBaseNavigationViewController.m in Sources */,
 				4648E7141BCD0F3500A54035 /* UIView+Tool.m in Sources */,
@@ -1790,6 +1809,7 @@
 				46D3FF7E1BCC03DB0091AF67 /* AFPropertyListRequestOperation.m in Sources */,
 				4A4293A21BCF515400381272 /* MCPagerView.m in Sources */,
 				4A4294D41BCF943100381272 /* MJPhotoView.m in Sources */,
+				462500E81BD5DE1200D3CC20 /* WWWantWearView.m in Sources */,
 				4AD21AFC1BA028B700B4BDDC /* AppDelegate.mm in Sources */,
 				4A40DDEC1BCA86F100E12DD9 /* WWPublicNavtionBar.m in Sources */,
 				4A4294D01BCF943100381272 /* MJPhotoBrowser.m in Sources */,

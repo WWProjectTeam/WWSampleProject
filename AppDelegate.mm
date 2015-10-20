@@ -114,6 +114,13 @@ NSString * g_UserHeadImage;
         }else{
             return;
         }
+    }else if ([viewController isKindOfClass:[WWClotheSpressViewController class]]){
+        if ([[WWUtilityClass getNSUserDefaults:UserID] isEqualToString:@""]) {
+            WWLoginViewController *loginVC = [[WWLoginViewController alloc]init];
+            [self.window.rootViewController presentViewController:loginVC animated:YES completion:nil];
+        }else{
+            return;
+        }
     }
 }
 
@@ -173,6 +180,7 @@ NSString * g_UserHeadImage;
 // App将要从后台返回
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
+    g_UserId = [WWUtilityClass getNSUserDefaults:UserVipID];
 //    [[EaseMob sharedInstance] applicationWillEnterForeground:application];
 }
 

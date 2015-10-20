@@ -56,9 +56,15 @@
                     
                     NSDictionary *resultDic = [response.responseObject objectForKey:@"result"];
                     // 保存用户信息
+                    g_UserId = StringForKeyInUnserializedJSONDic(resultDic, @"id");
                     [WWUtilityClass saveNSUserDefaults:UserID value:StringForKeyInUnserializedJSONDic(resultDic, @"id")];
                     [WWUtilityClass saveNSUserDefaults:UserImageURL value:StringForKeyInUnserializedJSONDic(resultDic, @"faceUrl")];
                     [WWUtilityClass saveNSUserDefaults:UserName value:StringForKeyInUnserializedJSONDic(resultDic, @"userName")];
+                    NSDictionary *vipDic = [resultDic objectForKey:@"vip"];
+                    [WWUtilityClass saveNSUserDefaults:UserVipID value:[vipDic objectForKey:@"state"]];
+                    if ([[vipDic objectForKey:@"state"] intValue] == 1) {
+                        [WWUtilityClass saveNSUserDefaults:UserVipEndTime value:[vipDic objectForKey:@"endTime"]];
+                    }
                     if ([[WWUtilityClass getNSUserDefaults:UserImageURL] isEqualToString:@""]) {
                         self.headImage.image = [UIImage imageNamed:@"img_tx"];
                     }else{
@@ -132,8 +138,14 @@
     NSArray *iconArr = @[@"icon_dd",@"icon_sc",@"icon_yjfk",@"icon_dh"];
     // 内容
     NSArray *contentArr = @[@"VIP套餐",@"我的收藏",@"意见反馈",@"客服电话"];
+    NSString *VipTime;
+    if ([[WWUtilityClass getNSUserDefaults:UserVipID] intValue] == 1) {
+        VipTime = [WWUtilityClass getNSUserDefaults:UserVipEndTime];
+    }else {
+        VipTime = @"立即购买";
+    }
     // 附表题内容
-    NSArray *subContentArr = @[@"立即购买",@"",@"",@"400-585-5896"];
+    NSArray *subContentArr = @[VipTime,@"",@"",WWSupportTel];
     for (int i = 0; i <= 3; i++) {
         UIView *listView = [[UIView alloc]initWithFrame:CGRectMake(0, maxWidth+5, MainView_Width, 44*kPercenX)];
         listView.backgroundColor = [UIColor whiteColor];
@@ -200,7 +212,7 @@
 {
     if (buttonIndex == 1) {
         // 打开tel：开头的URL代表拨打电话，使用tel：或tel：//前缀都行
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:@"tel:400-585-5896"]];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:[NSString stringWithFormat:@"tel:%@",WWSupportTel]]];
     }
 }
 

@@ -112,5 +112,8 @@
 //获得商品评论列表
 #define KproductReplyList           @"yiyouv/reply/list"
 
+//获取衣柜中的商品
+#define KWardrobeGoodsURL           @"yiyouv/wardrobe/now?userId=%@"
+
 
 #endif

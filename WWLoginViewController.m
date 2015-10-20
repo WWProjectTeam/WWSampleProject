@@ -185,6 +185,11 @@
                 [WWUtilityClass saveNSUserDefaults:UserID value:StringForKeyInUnserializedJSONDic(result, @"id")];
                 [WWUtilityClass saveNSUserDefaults:UserImageURL value:StringForKeyInUnserializedJSONDic(result, @"faceUrl")];
                 [WWUtilityClass saveNSUserDefaults:UserName value:StringForKeyInUnserializedJSONDic(result, @"userName")];
+                NSDictionary *vipDic = [result objectForKey:@"vip"];
+                [WWUtilityClass saveNSUserDefaults:UserVipID value:[vipDic objectForKey:@"state"]];
+                if ([[vipDic objectForKey:@"state"] intValue] == 1) {
+                    [WWUtilityClass saveNSUserDefaults:UserVipEndTime value:[vipDic objectForKey:@"endTime"]];
+                }
                 
                 // 通知--刷新个人信息
                 [[NSNotificationCenter defaultCenter] postNotificationName:WWRefreshUserInformation object:nil];

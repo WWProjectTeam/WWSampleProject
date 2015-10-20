@@ -182,8 +182,15 @@
                  };
     
     return [self getPath:KproductReplyList parameters:dicParam completion:completionBlock];
+}
 
-
+//WardrobeGoods
+- (AFHTTPRequestOperation *)GetWardrobeGoodsUserId:(NSString *)userId WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
+    NSString *goodsUrl = [NSString stringWithFormat:KWardrobeGoodsURL,userId];
+    
+    return [self getPath:goodsUrl
+              parameters:nil
+              completion:completionBlock];
 }
 
 @end

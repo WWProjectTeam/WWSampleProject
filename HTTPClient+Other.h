@@ -59,5 +59,6 @@
 //PD-getProductReplyList
 - (AFHTTPRequestOperation *)ProductReplyList:(NSString *)productId maxId:(NSString *)maxID WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
 
-
+//WardrobeGoods
+- (AFHTTPRequestOperation *)GetWardrobeGoodsUserId:(NSString *)userId WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
 @end

@@ -17,5 +17,7 @@
 #define UserID          @"id"
 #define UserImageURL    @"userImageURL"
 #define UserName        @"userName"
+#define UserVipID       @"userVip"
+#define UserVipEndTime  @"UserVipEndTime"
 
 #endif

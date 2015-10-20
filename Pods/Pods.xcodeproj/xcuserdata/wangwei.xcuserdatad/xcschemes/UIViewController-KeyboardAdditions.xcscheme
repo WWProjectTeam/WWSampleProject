@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'E60F4D1BB63875CF75A5D7C5'
-               BlueprintName = 'SVProgressHUD'
+               BlueprintIdentifier = '34F6D5E04D06373C2063B195'
+               BlueprintName = 'UIViewController-KeyboardAdditions'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libSVProgressHUD.a'>
+               BuildableName = 'libUIViewController-KeyboardAdditions.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

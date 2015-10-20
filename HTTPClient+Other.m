@@ -182,8 +182,22 @@
                  };
     
     return [self getPath:KproductReplyList parameters:dicParam completion:completionBlock];
-
-
 }
+
+
+
+//PD-addProductReplyList
+- (AFHTTPRequestOperation *)AddProductReply:(NSString *)productId content:(NSString *)content WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
+    NSDictionary * dicParam;
+    dicParam = @{
+                 @"id":productId,
+                 @"content":content,
+                 @"userId":g_UserId
+                 };
+    NSDictionary *parame = @{@"json":[dicParam JSONString]};
+
+    return [self postPath:KproductAddReply
+               parameters:parame
+               completion:completionBlock];}
 
 @end

@@ -112,5 +112,7 @@
 //获得商品评论列表
 #define KproductReplyList           @"yiyouv/reply/list"
 
+//新增评论
+#define KproductAddReply            @"yiyouv/reply/save"
 
 #endif

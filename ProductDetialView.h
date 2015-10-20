@@ -11,7 +11,7 @@
 #import "WWPageControl.h"
 #import "DZNSegmentedControl.h"
 
-@interface ProductDetialView : UIView<UIScrollViewDelegate,UIAlertViewDelegate,DZNSegmentedControlDelegate>{
+@interface ProductDetialView : UIView<UIScrollViewDelegate,UIAlertViewDelegate,DZNSegmentedControlDelegate,UITableViewDataSource,UITableViewDelegate>{
     UIButton * btnFav;
     UIButton * btnClo;
     
@@ -67,5 +67,12 @@
 /////////////WEB
 @property (strong) UIWebView * webSection1;
 @property (strong) UIWebView * webSection2;
+@property (strong) UITableView * tableReplyList;
+@property (strong) NSMutableArray * arrReplyList;
+
+
+////////////////tab
+@property (nonatomic ,copy) void (^SwitchTab)(NSInteger index);
+
 
 @end

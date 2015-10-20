@@ -16,6 +16,10 @@
 #import "WWLoginViewController.h"
 
 #import "WWClotheSpressViewController.h"
+
+
+
+///////////tf
 @interface WWProductDetailViewController (){
 
     ProductDetialView * productView;
@@ -23,15 +27,27 @@
     
     
     BOOL CollectionStatu;
+    
+
+    
 }
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewBottomConstraint;
 
 @end
 
 @implementation WWProductDetailViewController
-@synthesize strProductId = _strProductId;
-@synthesize arrayImgs =  _arrayImgs;
+@synthesize strProductId    = _strProductId;
+@synthesize arrayImgs       =  _arrayImgs;
+@synthesize btnAddReply     = _btnAddReply;
+@synthesize tfReply         = _tfReply;
+@synthesize viewAddReply    = _viewAddReply;
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    ////监听键盘
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
     [self.view setBackgroundColor:[UIColor whiteColor]];
 
@@ -94,9 +110,7 @@
     };
    
     
-    [self productPictureDetialUpdate];
     [self productDetialUpdate];
-    [self productReplyList];
 
 #pragma mark - foot
     /////////添加收藏
@@ -141,6 +155,55 @@
         [self productDetialUpdate];
     };
     
+    
+#pragma mark - switchTab
+    
+    productView.SwitchTab = ^(NSInteger index){
+        switch (index) {
+            case 0:
+            {
+                productTemp.webSection1.hidden = NO;
+                productTemp.webSection2.hidden = YES;
+                productTemp.tableReplyList.hidden = YES;
+                weakself.btnAddReply.hidden = YES;
+
+                
+                [productTemp.scrollViewBackground setContentSize:CGSizeMake(MainView_Width, CGRectGetMaxY(productTemp.webSection1.frame))];
+            }
+                break;
+                
+                
+            case 1:
+            {
+                productTemp.webSection1.hidden = YES;
+                productTemp.webSection2.hidden = NO;
+                productTemp.tableReplyList.hidden = YES;
+                weakself.btnAddReply.hidden = YES;
+
+                [productTemp.scrollViewBackground setContentSize:CGSizeMake(MainView_Width, CGRectGetMaxY(productTemp.webSection2.frame))];
+            }
+                break;
+                
+            case 2:
+            {
+                productTemp.webSection1.hidden = YES;
+                productTemp.webSection2.hidden = YES;
+                productTemp.tableReplyList.hidden = NO;
+                weakself.btnAddReply.hidden = NO;
+
+                [productTemp.scrollViewBackground setContentSize:CGSizeMake(MainView_Width, CGRectGetMaxY(productTemp.tableReplyList.frame))];
+            }
+                break;
+
+                
+            default:
+                break;
+        }
+    
+    
+    
+    };
+    
 }
 
 
@@ -159,10 +222,6 @@
         NSDictionary * dict = operation.responseObject;
         
         if ([[NSString stringWithFormat:@"%@",dict[@"code"]]isEqualToString:WWAppSuccessCode]) {
-            /////////////////继续请求图文详情
-            
-            
-            
             [SVProgressHUD dismiss];
             
             NSDictionary * dicData = dict[@"result"];
@@ -230,7 +289,10 @@
             
             ///////////////websection01
             
-            
+            /////////////////继续请求图文详情
+            [self productPictureDetialUpdate];
+            [self productParamerUpdate];
+            [self productReplyList];
             
         }
         else
@@ -242,57 +304,82 @@
 
 ///商品图文详情
 -(void)productPictureDetialUpdate{
-    [[HTTPClient sharedHTTPClient]ProductPictureDetial:self.strProductId WithCompletion:^(WebAPIResponse *operation) {
-        NSDictionary * dict = operation.responseObject;
-        
-        if ([[NSString stringWithFormat:@"%@",dict[@"code"]]isEqualToString:WWAppSuccessCode]) {
-            
-            ///////////////websection01
-            
-            
-            
-        }
-        else
-        {
-            WWLog(@"商品图文详情请求失败!!")
-        }
-    }];
+    
+    [productView.webSection1 setFrame:CGRectMake(0,CGRectGetMaxY(productView.control.frame)+10,MainView_Width, 0)];
+    [productView.webSection1 setDelegate:self];
+    
+    NSString * strUrl = [NSString stringWithFormat:@"http://apitest.aishou.com:8080/yiyouv/clothes/details?id=%@",self.strProductId];
+    NSURL *url=[NSURL URLWithString:strUrl];
+    NSURLRequest *request=[NSURLRequest requestWithURL:url];
+    [productView.webSection1 loadRequest:request];
 
+   
 }
 
 -(void)productParamerUpdate{
-    [[HTTPClient sharedHTTPClient]ProductParameters:self.strProductId WithCompletion:^(WebAPIResponse *operation) {
-        NSDictionary * dict = operation.responseObject;
-        
-        if ([[NSString stringWithFormat:@"%@",dict[@"code"]]isEqualToString:WWAppSuccessCode]) {
-            
-            ///////////////websection01
-            
-            
-            
-        }
-        else
-        {
-            WWLog(@"商品图文详情请求失败!!")
-        }
-    }];
+    [productView.webSection2 setFrame:CGRectMake(0,CGRectGetMaxY(productView.control.frame)+10,MainView_Width, 0)];
+    [productView.webSection2 setDelegate:self];
+    
+    NSString * strUrl = [NSString stringWithFormat:@"http://apitest.aishou.com:8080/yiyouv/clothes/parameter?id=%@",self.strProductId];
+    NSURL *url=[NSURL URLWithString:strUrl];
+    NSURLRequest *request=[NSURLRequest requestWithURL:url];
+    [productView.webSection2 loadRequest:request];
 
 }
 
 -(void)productReplyList{
+    if (!self.btnAddReply) {
+        self.btnAddReply = [[UIButton alloc]init];
+        [self.btnAddReply setBackgroundImage:[UIImage imageNamed:@"write-reviews"] forState:UIControlStateNormal];
+        [self.btnAddReply setFrame:CGRectMake(iphone_size_scale(250), MainView_Height-100, 36, 36)];
+        [self.btnAddReply setHidden:YES];
+        [self.btnAddReply addTarget:self action:@selector(addReply) forControlEvents:UIControlEventTouchUpInside];
+        [self.view addSubview:self.btnAddReply];
+    }
+    
+    if (!self.viewAddReply) {
+        self.viewAddReply = [[UIView alloc]init];
+        [self.viewAddReply setBackgroundColor:WWPageLineColor];
+        [self.viewAddReply setFrame:CGRectMake(0, MainView_Height-44, MainView_Width, 44)];
+        [self.viewAddReply setHidden:YES];
+        [self.viewAddReply setUserInteractionEnabled:YES];
+        
+        [self.view addSubview:self.viewAddReply];
+        
+        self.tfReply = [[UITextField alloc]init];
+        [self.tfReply setBorderStyle:UITextBorderStyleRoundedRect];
+        [self.tfReply setFrame:CGRectMake(iphone_size_scale(10), 7, iphone_size_scale(260), 30)];
+        [self.tfReply setPlaceholder:@"输入评论..."];
+        [self.viewAddReply addSubview:self.tfReply];
+        
+        UIButton * btnSendReply = [[UIButton alloc]init];
+        [btnSendReply setTitle:@"发送" forState:UIControlStateNormal];
+        [btnSendReply setFrame:CGRectMake(CGRectGetMaxX(self.tfReply.frame)+5, 0, iphone_size_scale(40), 44)];
+        [btnSendReply setTitleColor:WWSubTitleTextColor forState:UIControlStateNormal];
+        [btnSendReply.titleLabel setFont:font_size(14)];
+        [btnSendReply addTarget:self action:@selector(postReply) forControlEvents:UIControlEventTouchUpInside];
+        [self.viewAddReply addSubview:btnSendReply];
+    }
+    
+    
+    
+    [productView.tableReplyList setFrame:CGRectMake(0,CGRectGetMaxY(productView.control.frame)+10,MainView_Width, MainView_Height-CGRectGetMaxY(productView.control.frame)-10)];
+
     [[HTTPClient sharedHTTPClient]ProductReplyList:self.strProductId maxId:@"0" WithCompletion:^(WebAPIResponse *operation) {
         NSDictionary * dict = operation.responseObject;
         
         if ([[NSString stringWithFormat:@"%@",dict[@"code"]]isEqualToString:WWAppSuccessCode]) {
             
             ///////////////websection01
-            
+            NSDictionary * dicResult = dict[@"result"];
+            productView.arrReplyList = [NSMutableArray arrayWithArray:dicResult[@"list"]];
+            [productView.tableReplyList reloadData];
             
             
         }
         else
         {
-            WWLog(@"商品图文详情请求失败!!")
+            WWLog(@"商品评论请求失败!!")
         }
     }];
 
@@ -307,5 +394,71 @@
     [self.navigationController popViewControllerAnimated:YES];
 }
 
+#pragma mark - webViewDelegate
+- (void)webViewDidFinishLoad:(UIWebView *)webView
+{
+   
+  NSString * htmlHeight = [webView stringByEvaluatingJavaScriptFromString:@"document.body.scrollHeight"];
+  UIScrollView *tempView=(UIScrollView *)[webView.subviews objectAtIndex:0];
+  tempView.scrollEnabled=NO;
+    
+  [webView setFrame:CGRectMake(0, CGRectGetMaxY(productView.control.frame)+10, MainView_Width
+                               , [htmlHeight integerValue])];
+    
+    
+    if (webView.tag==10001) {
+        [productView.scrollViewBackground setContentSize:CGSizeMake(MainView_Width, CGRectGetMaxY(webView.frame))];
+    }
+}
 
+
+
+
+#pragma mark - addReply
+-(void)addReply{
+    
+    if ([AppDelegate isAuthentication]) {
+        [self.btnAddReply setHidden:YES];
+        [self.viewAddReply setHidden:NO];
+        [self.tfReply becomeFirstResponder];
+
+        
+    }
+}
+
+-(void)postReply{
+    if (self.tfReply.text.length==0) {
+        return;
+    }
+    
+    [SVProgressHUD show];
+    [[HTTPClient sharedHTTPClient]AddProductReply:self.strProductId  content:self.tfReply.text WithCompletion:^(WebAPIResponse *operation) {
+        NSDictionary * dict = operation.responseObject;
+        
+        if ([[NSString stringWithFormat:@"%@",dict[@"code"]]isEqualToString:WWAppSuccessCode]) {
+            [SVProgressHUD dismiss];
+            
+            [WWUtilityClass hidderKeyboard];
+            [self productReplyList];
+        }
+        else
+        {
+            [SVProgressHUD showErrorWithStatus:@"出错,请稍后再试!"];
+        }
+    }];
+
+}
+
+- (void)keyboardWillChangeFrame:(NSNotification *)note
+{
+    CGFloat duration = [note.userInfo[UIKeyboardAnimationDurationUserInfoKey] doubleValue];
+    
+    CGRect keyboardFrame = [note.userInfo[UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    CGFloat transformY = keyboardFrame.origin.y - self.view.frame.size.height;
+    
+    [UIView animateWithDuration:duration animations:^{
+        self.viewAddReply.transform = CGAffineTransformMakeTranslation(0, transformY);
+    }];
+}
 @end

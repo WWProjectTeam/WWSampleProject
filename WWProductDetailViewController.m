@@ -304,7 +304,6 @@
 
 ///商品图文详情
 -(void)productPictureDetialUpdate{
-<<<<<<< HEAD
     
     [productView.webSection1 setFrame:CGRectMake(0,CGRectGetMaxY(productView.control.frame)+10,MainView_Width, 0)];
     [productView.webSection1 setDelegate:self];
@@ -313,7 +312,7 @@
     NSURL *url=[NSURL URLWithString:strUrl];
     NSURLRequest *request=[NSURLRequest requestWithURL:url];
     [productView.webSection1 loadRequest:request];
-=======
+  
     [FMHTTPClient ProductPictureDetial:self.strProductId WithCompletion:^(WebAPIResponse *operation) {
         if (operation.code == WebAPIResponseCodeSuccess) {
             
@@ -332,13 +331,11 @@
             WWLog(@"商品图文详情请求失败!!")
         }
     }];
->>>>>>> origin/master
 
    
 }
 
 -(void)productParamerUpdate{
-<<<<<<< HEAD
     [productView.webSection2 setFrame:CGRectMake(0,CGRectGetMaxY(productView.control.frame)+10,MainView_Width, 0)];
     [productView.webSection2 setDelegate:self];
     
@@ -346,7 +343,7 @@
     NSURL *url=[NSURL URLWithString:strUrl];
     NSURLRequest *request=[NSURLRequest requestWithURL:url];
     [productView.webSection2 loadRequest:request];
-=======
+  
     [FMHTTPClient ProductParameters:self.strProductId WithCompletion:^(WebAPIResponse *operation) {
         NSDictionary * dict = operation.responseObject;
         
@@ -362,7 +359,6 @@
             WWLog(@"商品图文详情请求失败!!")
         }
     }];
->>>>>>> origin/master
 
 }
 

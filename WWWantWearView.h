@@ -10,7 +10,10 @@
 
 @interface WWWantWearView : UIView
 
+// 购买会员
 @property (nonatomic,copy)void (^wantWearBtnClickBlock)();
+
+@property (nonatomic,copy)void (^collectionCellDelegateBlock)();
 
 - (id)initWithFrame:(CGRect)frame;
 

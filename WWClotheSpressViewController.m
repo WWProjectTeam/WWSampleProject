@@ -8,6 +8,8 @@
 
 #import "WWClotheSpressViewController.h"
 #import "WWWantWearView.h"
+#import "WWVIPPackageViewController.h"
+#import "WWClothesInTheUseView.h"
 
 #define KLANGUAGELOCALIZABLE_LANGUAGENameKey    @"LANGUAGELOCALIZABLE_LANGUAGENameKey"
 @interface WWClotheSpressViewController ()<UIScrollViewDelegate>{
@@ -126,12 +128,24 @@
     UISwipeGestureRecognizer *recogizerLeft=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipeFrom:)];
     recogizerLeft.direction=UISwipeGestureRecognizerDirectionLeft;
     [self.clothesScrollView addGestureRecognizer:recogizerLeft];
-    
+#pragma mark ---- 想穿
     WWWantWearView *wantVC = [[WWWantWearView alloc]initWithFrame:CGRectMake(0, 0, MainView_Width, self.clothesScrollView.height)];
+    // 购买VIP
     wantVC.wantWearBtnClickBlock = ^{
-            
+        WWVIPPackageViewController *vipVC = [[WWVIPPackageViewController alloc]init];
+        [self.navigationController pushViewController:vipVC animated:YES];
+    };
+    // 删除按钮
+    wantVC.collectionCellDelegateBlock = ^{
+        
     };
     [self.clothesScrollView addSubview:wantVC];
+#pragma mark ---- 使用中
+    WWClothesInTheUseView *useVC = [[WWClothesInTheUseView alloc]initWithFrame:CGRectMake(MainView_Width, 0, MainView_Width, self.clothesScrollView.height)];
+    
+    
+    [self.clothesScrollView addSubview:useVC];
+    
 }
 
 

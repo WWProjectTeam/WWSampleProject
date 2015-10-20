@@ -49,7 +49,7 @@
         bottonView.alpha = 0.8f;
         [self addSubview:bottonView];
         // 运费+次数
-        self.otherContentLab = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, bottonView.width-125*kPercenX, bottonView.height)];
+        self.otherContentLab = [[UILabel alloc]initWithFrame:CGRectMake(5, 0, bottonView.width-125*kPercenX-10, bottonView.height)];
         self.otherContentLab.font = font_size(12);
         self.otherContentLab.textColor = [UIColor whiteColor];
         [bottonView addSubview:self.otherContentLab];
@@ -153,6 +153,9 @@
         static NSString * CellIdentifier = wantWearCollectionCell;
         
         WWWantWearCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
+        cell.clothesDelegateBlock = ^{
+            self.wantWearBtnClickBlock();
+        };
         if (indexPath.row < self.clothesArray.count) {
             
             NSDictionary * dicTemp = self.clothesArray[indexPath.row];
@@ -178,6 +181,7 @@
         addClothesBtn.backgroundColor = [UIColor clearColor];
         addClothesBtn.frame = CGRectMake(0, 0, viewt.width, viewt.height);
         [addClothesBtn setImage:[UIImage imageNamed:@"add-clos"] forState:UIControlStateNormal];
+        [addClothesBtn setImage:[WWUtilityClass imageWithColor:WWBtnStateHighlightedColor] forState:UIControlStateHighlighted];
         [viewt addSubview:addClothesBtn];
         
         return cell;

@@ -11,6 +11,7 @@
 		462500EB1BD5E7A400D3CC20 /* WWWantWearCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 462500EA1BD5E7A400D3CC20 /* WWWantWearCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		462500F01BD6373200D3CC20 /* WWClothesInTheUseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 462500EF1BD6373200D3CC20 /* WWClothesInTheUseView.m */; settings = {ASSET_TAGS = (); }; };
 		462500F31BD638E300D3CC20 /* WWClothesUseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 462500F21BD638E300D3CC20 /* WWClothesUseTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		462500F61BD6850E00D3CC20 /* WWClothesUseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 462500F51BD6850E00D3CC20 /* WWClothesUseModel.m */; settings = {ASSET_TAGS = (); }; };
 		4626E4EC1BCDFCC700D902B4 /* WWUserInformationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4626E4EB1BCDFCC700D902B4 /* WWUserInformationViewController.m */; settings = {ASSET_TAGS = (); }; };
 		4626E4EF1BCE1E0600D902B4 /* WWFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4626E4EE1BCE1E0600D902B4 /* WWFeedbackViewController.m */; settings = {ASSET_TAGS = (); }; };
 		4626E4F31BCE49D900D902B4 /* WWVIPPackageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4626E4F21BCE49D900D902B4 /* WWVIPPackageViewController.m */; settings = {ASSET_TAGS = (); }; };
@@ -244,6 +245,8 @@
 		462500EF1BD6373200D3CC20 /* WWClothesInTheUseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWClothesInTheUseView.m; sourceTree = SOURCE_ROOT; };
 		462500F11BD638E300D3CC20 /* WWClothesUseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWClothesUseTableViewCell.h; sourceTree = SOURCE_ROOT; };
 		462500F21BD638E300D3CC20 /* WWClothesUseTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWClothesUseTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		462500F41BD6850E00D3CC20 /* WWClothesUseModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWClothesUseModel.h; sourceTree = SOURCE_ROOT; };
+		462500F51BD6850E00D3CC20 /* WWClothesUseModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWClothesUseModel.m; sourceTree = SOURCE_ROOT; };
 		4626E4EA1BCDFCC700D902B4 /* WWUserInformationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWUserInformationViewController.h; sourceTree = SOURCE_ROOT; };
 		4626E4EB1BCDFCC700D902B4 /* WWUserInformationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWUserInformationViewController.m; sourceTree = SOURCE_ROOT; };
 		4626E4ED1BCE1E0600D902B4 /* WWFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWFeedbackViewController.h; sourceTree = SOURCE_ROOT; };
@@ -655,6 +658,8 @@
 				462500EF1BD6373200D3CC20 /* WWClothesInTheUseView.m */,
 				462500F11BD638E300D3CC20 /* WWClothesUseTableViewCell.h */,
 				462500F21BD638E300D3CC20 /* WWClothesUseTableViewCell.m */,
+				462500F41BD6850E00D3CC20 /* WWClothesUseModel.h */,
+				462500F51BD6850E00D3CC20 /* WWClothesUseModel.m */,
 			);
 			name = "使用中";
 			sourceTree = "<group>";
@@ -1822,6 +1827,7 @@
 				46D3FF631BCBFB750091AF67 /* JSONKit.m in Sources */,
 				46D3FF461BCBFB630091AF67 /* HTTPClient+Other.m in Sources */,
 				4AD21B0A1BA032B700B4BDDC /* InterfaceClassFile.m in Sources */,
+				462500F61BD6850E00D3CC20 /* WWClothesUseModel.m in Sources */,
 				4AD21B131BA0358400B4BDDC /* WWBaseViewController.m in Sources */,
 				4A27AAF21BCE0731006CFC15 /* ProductDetialView.m in Sources */,
 				4A4294CB1BCF943100381272 /* MBProgressHUD+Add.m in Sources */,

@@ -10,4 +10,6 @@
 
 @interface WWHomePageViewController : WWBaseViewController
 
+@property (nonatomic,assign) BOOL    IsClothesSpressPush;
+
 @end

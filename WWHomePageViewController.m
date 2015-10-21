@@ -37,9 +37,19 @@
     
     viewNavtionBar = [[WWPublicNavtionBar alloc]initHomePageNavtion];
     [viewNavtionBar setHomePageNavtionDelegate:self];
+    if (self.IsClothesSpressPush == YES) {
+        viewNavtionBar = [[WWPublicNavtionBar alloc]initWithLeftBtn:YES withTitle:@"首页" withRightBtn:NO withRightBtnPicName:nil withRightBtnSize:CGSizeZero];
+    }
+    
     [self.view addSubview:viewNavtionBar];
     
-    viewHomePage = [[HomePageView alloc]initHomePageViewWithFrame:CGRectMake(0, IOS7_Y+44, MainView_Width, MainView_Height-IOS7_Y-44)];
+    
+    
+    if (self.IsClothesSpressPush == YES) {
+        viewHomePage = [[HomePageView alloc]initHomePageViewWithFrame:CGRectMake(0, IOS7_Y+44, MainView_Width, MainView_Height-IOS7_Y-44)];
+    }else{
+        viewHomePage = [[HomePageView alloc]initHomePageViewWithFrame:CGRectMake(0, IOS7_Y+44, MainView_Width, MainView_Height-IOS7_Y-44-49)];
+    }
     [viewHomePage setDelegate:self];
     [self.view addSubview:viewHomePage];
     

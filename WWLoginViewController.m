@@ -30,7 +30,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = WW_BASE_COLOR;
     
-    navtionBarView = [[WWPublicNavtionBar alloc]initWithLeftBtn:YES withTitle:@"" withRightBtn:NO withRightBtnPicName:@"" withRightBtnSize:CGSizeZero];
+    navtionBarView = [[WWPublicNavtionBar alloc]initWithLeftBtn:YES withTitle:@"登陆" withRightBtn:NO withRightBtnPicName:@"" withRightBtnSize:CGSizeZero];
     __weak __typeof(&*self)weakSelf = self;
     navtionBarView.TapLeftButton = ^{
         AppDelegate * appdelegate = (AppDelegate * )[UIApplication sharedApplication].delegate;

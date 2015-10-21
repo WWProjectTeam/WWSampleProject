@@ -9,6 +9,7 @@
 #import "WWWantWearView.h"
 #import "WWWantWearCollectionViewCell.h"
 #import "HTTPClient+Other.h"
+#import "WWProductDetailViewController.h"
 
 #define wantWearCollectionCell      @"wantWearCollectionCell"
 #define CollectionCell              @"CollectionCell"
@@ -30,6 +31,11 @@
     if (self) {
         self.backgroundColor = WW_BASE_COLOR;
         self.clothesArray = [NSMutableArray new];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(refreshWantWearClothesNum:)
+                                                     name:WWDelegateWantWearGoods
+                                                   object:nil];
         
         //collectView
         UICollectionViewFlowLayout *flowLayout =[[UICollectionViewFlowLayout alloc]init];
@@ -66,8 +72,8 @@
         // 添加下拉刷新控件
         
         self.clothesCollection.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-            //[WWUtilityClass getNSUserDefaults:UserID]
-            [FMHTTPClient GetWardrobeGoodsUserId:@"1000" WithCompletion:^(WebAPIResponse *response) {
+            //
+            [FMHTTPClient GetWardrobeGoodsUserId:[WWUtilityClass getNSUserDefaults:UserID] WithCompletion:^(WebAPIResponse *response) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if (response.code == WebAPIResponseCodeSuccess) {
                         NSDictionary *resultDic = [response.responseObject objectForKey:@"result"];
@@ -77,10 +83,12 @@
                         // 运费
                         NSString *freight = [resultDic objectForKey:@"freight"];
                         if ([expressCount intValue] == 0) {
-                            self.otherContentLab.text = [NSString stringWithFormat:@"运费：￥%@",expressCount];
+                            self.otherContentLab.text = [NSString stringWithFormat:@"运费：￥%@",freight];
                         }else{
-                            self.otherContentLab.text = [NSString stringWithFormat:@"您还可免费更换%@次",freight];
+                            self.otherContentLab.text = [NSString stringWithFormat:@"您还可免费更换%@次",expressCount];
                         }
+                        self.clothesArray = [resultDic objectForKey:@"clientWardrobes"];
+                        
                         [self.clothesCollection reloadData];
                         [self.clothesCollection.header endRefreshing];
                     }
@@ -91,6 +99,10 @@
         [self.clothesCollection.header beginRefreshing];
     }
     return self;
+}
+
+- (void)refreshWantWearClothesNum:(NSNotification *)notification{
+    [self.clothesCollection.header beginRefreshing];
 }
 
 - (void)settlementClickEvent:(UIButton *)sender{
@@ -132,13 +144,14 @@
 //UICollectionView被选中时调用的方法
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
-//    if (self.arrProduct.count < indexPath.row) {
-//        return;
-//    }
-//    NSDictionary * dicTemp = self.arrProduct[indexPath.row];
-//    WWProductDetailViewController * productVC = [[WWProductDetailViewController alloc]init];
-//    productVC.strProductId = dicTemp[@"id"];
-//    [self.navigationController pushViewController:productVC animated:YES];
+    if (self.clothesArray.count < indexPath.row) {
+        return;
+    }
+    NSDictionary * dicTemp = self.clothesArray[indexPath.row];
+    
+    if (indexPath.row < self.clothesArray.count){
+        self.collectionDidSelectItemBlock(StringForKeyInUnserializedJSONDic(dicTemp, @"id"));
+    }
 }
 
 //返回这个UICollectionView是否可以被选择
@@ -153,15 +166,19 @@
         static NSString * CellIdentifier = wantWearCollectionCell;
         
         WWWantWearCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
-        cell.clothesDelegateBlock = ^{
-            self.wantWearBtnClickBlock();
-        };
+        
         if (indexPath.row < self.clothesArray.count) {
             
             NSDictionary * dicTemp = self.clothesArray[indexPath.row];
-            
-            [cell.clothesImage sd_setImageWithURL:[NSURL URLWithString:dicTemp[@"imgurl"]] placeholderImage:[UIImage imageNamed:@"默认衣服图片"]];
-            [cell.clothesNameLab setText:dicTemp[@"title"]];
+            NSString *imageURL = StringForKeyInUnserializedJSONDic(dicTemp, @"imgurl");
+            [cell.clothesImage sd_setImageWithURL:[NSURL URLWithString:imageURL] placeholderImage:[UIImage imageNamed:@"默认衣服图片"]];
+            NSString *name = [NSString stringWithFormat:@"%@ %@",StringForKeyInUnserializedJSONDic(dicTemp, @"color"),StringForKeyInUnserializedJSONDic(dicTemp, @"size")];
+            [cell.clothesNameLab setText:name];
+            // 删除按钮
+            cell.clothesDelegateBlock = ^{
+                self.collectionCellDelegateBlock(StringForKeyInUnserializedJSONDic(dicTemp, @"code"));
+            };
+
         }
         
         return cell;
@@ -182,11 +199,16 @@
         addClothesBtn.frame = CGRectMake(0, 0, viewt.width, viewt.height);
         [addClothesBtn setImage:[UIImage imageNamed:@"add-clos"] forState:UIControlStateNormal];
         [addClothesBtn setImage:[WWUtilityClass imageWithColor:WWBtnStateHighlightedColor] forState:UIControlStateHighlighted];
+        [addClothesBtn addTarget:self action:@selector(addBtnClickEvent:) forControlEvents:UIControlEventTouchUpInside];
         [viewt addSubview:addClothesBtn];
         
         return cell;
     }
     
+}
+
+- (void)addBtnClickEvent:(UIButton *)sender{
+    self.collectionDidSelectItemBlock(@"");
 }
 
 #pragma mark --- UIAlertViewDelegate

@@ -62,6 +62,12 @@
 //WardrobeGoods
 - (AFHTTPRequestOperation *)GetWardrobeGoodsUserId:(NSString *)userId WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
 
+//WardrobeIsGoods
+- (AFHTTPRequestOperation *)GetWardrobeIsGoodsUserId:(NSString *)userId WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
+
+//delegateWardrobeGoods
+- (AFHTTPRequestOperation *)GetDelegateWardrobeGoodsUserId:(NSString *)userId andCode:(NSString *)code WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
+
 //PD-addProductReplyList
 - (AFHTTPRequestOperation *)AddProductReply:(NSString *)productId content:(NSString *)content WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
 @end

@@ -10,4 +10,6 @@
 
 @interface WWClotheSpressViewController : UIViewController
 
+@property (nonatomic,assign) BOOL    IsHomePush;
+
 @end

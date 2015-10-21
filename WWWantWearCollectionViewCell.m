@@ -39,7 +39,7 @@
         
         //////产品名称
         self.clothesNameLab = [[UILabel alloc]init];
-        [self.clothesNameLab setFrame:CGRectMake(5, 0, CGRectGetWidth(clothesNameView.frame)-10, clothesNameView.height)];
+        [self.clothesNameLab setFrame:CGRectMake(10, 0, CGRectGetWidth(clothesNameView.frame)-20, clothesNameView.height)];
         [self.clothesNameLab setFont:font_size(12)];
         [self.clothesNameLab setTextColor:[UIColor whiteColor]];
         [clothesNameView addSubview:self.clothesNameLab];

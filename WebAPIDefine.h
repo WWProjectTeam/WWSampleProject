@@ -115,6 +115,12 @@
 //获取衣柜中的商品
 #define KWardrobeGoodsURL           @"yiyouv/wardrobe/now?userId=%@"
 
+//获取衣柜中真在租赁的商品
+#define KWardrobeIsGoodsURL         @"yiyouv/wardrobe/leaseing?userId=%@"
+
+//删除商品
+#define KDelegateWardRodeGoodsURL   @"yiyouv/wardrobe/del?userId=%@&code=%@"
+
 //新增评论
 #define KproductAddReply            @"yiyouv/reply/save"
 

@@ -7,8 +7,11 @@
 //
 
 #import "WWAddRessTableViewCell.h"
+#import "RadioButton.h"
 
-@interface WWAddRessTableViewCell ()
+@interface WWAddRessTableViewCell (){
+    RadioButton * radio;
+}
 
 @property (nonatomic,strong)UIView          *backView;
 @property (nonatomic,strong)UILabel         *userName;
@@ -61,12 +64,20 @@
         self.userAddRess.textColor = WWContentTextColor;
         self.userAddRess.numberOfLines = 2;
         [self.backView addSubview:self.userAddRess];
-        // 选择
-        self.selectBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        [self.selectBtn setImage:[UIImage imageNamed:@"btn_zf_n@3x"] forState:UIControlStateNormal];
-        [self.selectBtn setImage:[UIImage imageNamed:@"btn_zf_c@3x"] forState:UIControlStateSelected];
-        [self.selectBtn addTarget:self action:@selector(selectBtnClickEvent:) forControlEvents:UIControlEventTouchUpInside];
-        [self.backView addSubview:self.selectBtn];
+//        // 选择
+//        self.selectBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+//        [self.selectBtn setImage:[UIImage imageNamed:@"btn_zf_n@3x"] forState:UIControlStateNormal];
+//        [self.selectBtn setImage:[UIImage imageNamed:@"btn_zf_c@3x"] forState:UIControlStateSelected];
+//        [self.selectBtn addTarget:self action:@selector(selectBtnClickEvent:) forControlEvents:UIControlEventTouchUpInside];
+//        [self.backView addSubview:self.selectBtn];
+        
+        radio = [[RadioButton alloc]init];
+        [radio setTitleColor:WWSubTitleTextColor forState:UIControlStateNormal];
+        [radio setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+        [radio setImage:[UIImage imageNamed:@"btn_zf_n@3x"] forState:UIControlStateNormal];
+        [radio setImage:[UIImage imageNamed:@"btn_zf_c@3x"] forState:UIControlStateSelected];
+        [radio setSelected:NO];
+        [self.backView addSubview:radio];
         
     }
     return self;
@@ -94,7 +105,8 @@
     [self.userAddRess setAttributedText:attributedString1];
     [self.userAddRess sizeToFit];
     self.userAddRess.frame =CGRectMake(10, self.userName.bottom+5, 250, 40);
-    self.selectBtn.frame = CGRectMake(self.backView.width-14*kPercenX-24, (self.backView.height-14*kPercenX)/2, iphone_size_scale(14), iphone_size_scale(14));
+//    self.selectBtn.frame = CGRectMake(self.backView.width-14*kPercenX-24, (self.backView.height-14*kPercenX)/2, iphone_size_scale(14), iphone_size_scale(14));
+    radio.frame = CGRectMake(self.backView.width-14*kPercenX-24, (self.backView.height-14*kPercenX)/2, iphone_size_scale(14), iphone_size_scale(14));
     
 }
 

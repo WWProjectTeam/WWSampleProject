@@ -10,9 +10,11 @@
 #import "WWAddRessTableViewCell.h"
 #import "WWAddRessModel.h"
 #import "HTTPClient+Other.h"
+#import "RadioButton.h"
 
 @interface WWOrderAddressViewController ()<UITableViewDelegate,UITableViewDataSource>{
     WWPublicNavtionBar *navTionBarView;
+    NSMutableArray *arrSelectBtn;
 }
 
 @property (nonatomic,strong)UITableView         *addRessTableView;
@@ -26,7 +28,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = WW_BASE_COLOR;
     self.addRessArray = [NSMutableArray new];
-    
+    arrSelectBtn = [NSMutableArray new];
     navTionBarView = [[WWPublicNavtionBar alloc]initWithLeftBtn:YES withTitle:@"选择收货地址" withRightBtn:NO withRightBtnPicName:nil withRightBtnSize:CGSizeZero];
     [self.view addSubview:navTionBarView];
     
@@ -79,6 +81,27 @@
     cell.addRessSelectBtnClickBlock= ^{
         
     };
+    
+    RadioButton *radio = [[RadioButton alloc]init];
+    [radio setTitleColor:WWSubTitleTextColor forState:UIControlStateNormal];
+    [radio setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
+    [radio setImage:[UIImage imageNamed:@"btn_zf_n@3x"] forState:UIControlStateNormal];
+    [radio setImage:[UIImage imageNamed:@"btn_zf_c@3x"] forState:UIControlStateSelected];
+//    [radio addTarget:self action:@selector(selectBtnClickEvent:) forControlEvents:UIControlEventTouchUpInside];
+    [arrSelectBtn addObject:radio];
+    //设置默认
+    if (indexPath.row==0) {
+        [radio setSelected:YES];
+    }
+    //设置单选组
+    if (indexPath.row==arrSelectBtn.count-1) {
+        radio.groupButtons = arrSelectBtn;
+    }
+    
+    radio.frame = CGRectMake(cell.backView.width-14*kPercenX-24, (cell.backView.height-14*kPercenX)/2, iphone_size_scale(14), iphone_size_scale(14));
+    [cell.backView addSubview:radio];
+
+    
     if (indexPath.row < self.addRessArray.count) {
         WWAddRessModel *model = [self.addRessArray objectAtIndex:indexPath.row];
         [cell initRequestAddRessData:model];
@@ -98,19 +121,24 @@
     }
 }
 
-//- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath{
-//    // 删除的操作
-//    if (editingStyle == UITableViewCellEditingStyleDelete) {
-//        
-//        [_titleArray removeObjectAtIndex:indexPath.row];
-//        [_icoArray removeObjectAtIndex:indexPath.row];
-//        
-//        
-//        NSArray *indexPaths = @[indexPath]; // 构建 索引处的行数 的数组
-//        // 删除 索引的方法 后面是动画样式
-//        [self.addRessTableView deleteRowsAtIndexPaths:indexPaths withRowAnimation:(UITableViewRowAnimationLeft)];
-//
-//}
+#pragma mark 提交编辑操作时会调用这个方法(删除，添加)
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    // 删除操作
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        // 1.删除数据
+        [self.addRessArray removeObjectAtIndex:indexPath.row];
+        
+        // 2.更新UITableView UI界面
+        // [tableView reloadData];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+    }
+}
+
+#pragma mark 只有实现这个方法，编辑模式中才允许移动Cell
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    // 更换数据的顺序
+    [self.addRessArray exchangeObjectAtIndex:sourceIndexPath.row withObjectAtIndex:destinationIndexPath.row];
+}
 
 
 - (void)didReceiveMemoryWarning {

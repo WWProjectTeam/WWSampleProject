@@ -9,9 +9,11 @@
 #import <UIKit/UIKit.h>
 #import "WWAddRessModel.h"
 
+
 @interface WWAddRessTableViewCell : UITableViewCell
 
 @property (nonatomic,copy)void (^addRessSelectBtnClickBlock)();
+@property (nonatomic,strong)UIView          *backView;
 
 - (void)initRequestAddRessData:(WWAddRessModel *)dicInfor;
 

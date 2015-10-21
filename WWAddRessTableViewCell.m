@@ -7,13 +7,12 @@
 //
 
 #import "WWAddRessTableViewCell.h"
-#import "RadioButton.h"
 
-@interface WWAddRessTableViewCell (){
-    RadioButton * radio;
-}
 
-@property (nonatomic,strong)UIView          *backView;
+
+@interface WWAddRessTableViewCell ()
+
+
 @property (nonatomic,strong)UILabel         *userName;
 @property (nonatomic,strong)UILabel         *userPhone;
 @property (nonatomic,strong)UILabel         *userAddRess;
@@ -36,6 +35,7 @@
 - (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
+        
         self.backView = [[UIView alloc]initWithFrame:CGRectMake(0, 5, MainView_Width, 76*kPercenX)];
         self.backView.backgroundColor = [UIColor whiteColor];
         [self addSubview:self.backView];
@@ -71,13 +71,7 @@
 //        [self.selectBtn addTarget:self action:@selector(selectBtnClickEvent:) forControlEvents:UIControlEventTouchUpInside];
 //        [self.backView addSubview:self.selectBtn];
         
-        radio = [[RadioButton alloc]init];
-        [radio setTitleColor:WWSubTitleTextColor forState:UIControlStateNormal];
-        [radio setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
-        [radio setImage:[UIImage imageNamed:@"btn_zf_n@3x"] forState:UIControlStateNormal];
-        [radio setImage:[UIImage imageNamed:@"btn_zf_c@3x"] forState:UIControlStateSelected];
-        [radio setSelected:NO];
-        [self.backView addSubview:radio];
+       
         
     }
     return self;
@@ -106,14 +100,7 @@
     [self.userAddRess sizeToFit];
     self.userAddRess.frame =CGRectMake(10, self.userName.bottom+5, 250, 40);
 //    self.selectBtn.frame = CGRectMake(self.backView.width-14*kPercenX-24, (self.backView.height-14*kPercenX)/2, iphone_size_scale(14), iphone_size_scale(14));
-    radio.frame = CGRectMake(self.backView.width-14*kPercenX-24, (self.backView.height-14*kPercenX)/2, iphone_size_scale(14), iphone_size_scale(14));
     
-}
-
-- (void)selectBtnClickEvent:(UIButton *)sender{
-    if (self.addRessSelectBtnClickBlock) {
-        self.addRessSelectBtnClickBlock();
-    }
 }
 
 @end

@@ -152,6 +152,9 @@
             [radio setFrame:CGRectMake(btnWidth, CGRectGetMaxY(labelSize.frame)+btnLineNum*40, titleSize.width, titleSize.height)];
         }
         
+        [radio addTarget:self action:@selector(userSlectSize:) forControlEvents:UIControlEventValueChanged];
+
+        
         //按钮数组
         [arrSizeBtn addObject:radio];
         
@@ -221,6 +224,9 @@
             [radio setFrame:CGRectMake(btnWidth, CGRectGetMaxY(labelColor.frame)+btnLineNum*40, titleSize.width, titleSize.height)];
         }
         
+        
+        [radio addTarget:self action:@selector(userSlectColor:) forControlEvents:UIControlEventValueChanged];
+
         //按钮数组
         [arrSizeBtn addObject:radio];
         
@@ -238,7 +244,21 @@
     [scrollView setContentSize:CGSizeMake(MainView_Width, 1000)];
 }
 
--(void)logSelectedButton:(id)sender{}
+
+#pragma mark - radioResult
+-(void) userSlectColor:(RadioButton*)sender
+{
+    if(sender.selected) {
+        NSLog(@"Selected color: %@", sender.titleLabel.text);
+    }
+}
+
+-(void)userSlectSize:(RadioButton *)sender{
+    if(sender.selected) {
+        NSLog(@"Selected size: %@", sender.titleLabel.text);
+    }
+}
+
 -(void)Cancle{
     self.hidden = YES;
 }

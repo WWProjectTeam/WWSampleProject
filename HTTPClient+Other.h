@@ -73,4 +73,7 @@
 
 //userAddRessList
 - (AFHTTPRequestOperation *)GetUserAddRessListUserId:(NSString *)userId WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
+
+//PD-addToCartSubmit
+- (AFHTTPRequestOperation *)PostAddToCartWithProductId:(NSString *)productId WithColor:(NSString*)color WithSize:(NSString*)size WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
 @end

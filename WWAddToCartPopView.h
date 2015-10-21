@@ -15,4 +15,9 @@
 
 
 -(void)showWithProductMsg:(NSDictionary *)dict;
+
+
+////加入衣柜
+@property (nonatomic , copy) void (^AddToCart)(NSString * strColor,NSString * strSize);
+
 @end

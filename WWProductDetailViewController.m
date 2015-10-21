@@ -146,6 +146,24 @@
             }
             
         }
+#pragma mark - 添加到衣柜
+        weakself.addCartPopView.AddToCart = ^(NSString * strColor,NSString * strSize){
+            [SVProgressHUD show];
+            [[HTTPClient sharedHTTPClient]PostAddToCartWithProductId:weakself.strProductId WithColor:strColor WithSize:strSize WithCompletion:^(WebAPIResponse *operation) {
+                NSDictionary * dict = operation.responseObject;
+                
+                if ([[NSString stringWithFormat:@"%@",dict[@"code"]]isEqualToString:WWAppSuccessCode]) {
+                    [SVProgressHUD showSuccessWithStatus:@"添加成功!"];
+                    [weakself.addCartPopView setHidden:YES];
+                    
+                }
+                else
+                {
+                    [SVProgressHUD showErrorWithStatus:dict[@"result"]];
+                }
+            }];
+
+        };
     
     };
     

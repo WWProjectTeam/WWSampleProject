@@ -235,4 +235,23 @@
               completion:completionBlock];
 }
 
+
+
+//PD-addToCartSubmit
+- (AFHTTPRequestOperation *)PostAddToCartWithProductId:(NSString *)productId WithColor:(NSString*)color WithSize:(NSString*)size WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
+    NSDictionary * dicParam;
+    dicParam = @{
+                 @"id":productId,
+                 @"userId":g_UserId,
+                 @"color":color,
+                 @"size":size
+                 };
+    NSDictionary *parame = @{@"json":[dicParam JSONString]};
+    
+    return [self postPath:KaddToCart
+               parameters:parame
+               completion:completionBlock];
+
+
+}
 @end

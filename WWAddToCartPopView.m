@@ -16,6 +16,10 @@
     UILabel * labelColthSpressNum;
     
     UIScrollView * scrollView;
+    
+    
+    NSString * strResultSize;
+    NSString * strResultColor;
 }
 
 -(id)initAddToCartPopView{
@@ -71,6 +75,7 @@
         [btnSubmit setFrame:CGRectMake(0, iphone_size_scale(285)-49, MainView_Width, 49)];
         [btnSubmit setBackgroundColor:WWBtnYellowColor];
         [btnSubmit setTitle:@"确定" forState:UIControlStateNormal];
+        [btnSubmit addTarget:self action:@selector(submit) forControlEvents:UIControlContentVerticalAlignmentTop];
         [viewBG addSubview:btnSubmit];
         
         
@@ -143,7 +148,6 @@
         if (btnWidth+titleSize.width<iphone_size_scale(300)) {
             [radio setFrame:CGRectMake(btnWidth, CGRectGetMaxY(labelSize.frame)+btnLineNum*40, titleSize.width, titleSize.height)];
             btnWidth += titleSize.width+10;
-
         }
         else
         {
@@ -161,6 +165,7 @@
         //设置默认
         if (i==0) {
             [radio setSelected:YES];
+            strResultSize = radio.titleLabel.text;
         }
         //设置单选组
         if (i==arraySize.count-1) {
@@ -233,6 +238,8 @@
         //设置默认
         if (i==0) {
             [radio setSelected:YES];
+            strResultColor = radio.titleLabel.text;
+
         }
         //设置单选组
         if (i==arrayColor.count-1) {
@@ -241,7 +248,7 @@
         [scrollView addSubview:radio];
     }
 
-    [scrollView setContentSize:CGSizeMake(MainView_Width, 1000)];
+    [scrollView setContentSize:CGSizeMake(MainView_Width,CGRectGetMaxY(labelColor.frame)+(btnLineNum+1)*40)];
 }
 
 
@@ -249,17 +256,26 @@
 -(void) userSlectColor:(RadioButton*)sender
 {
     if(sender.selected) {
-        NSLog(@"Selected color: %@", sender.titleLabel.text);
+        strResultColor = sender.titleLabel.text;
+        WWLog(@"Selected color: %@", sender.titleLabel.text);
     }
 }
 
 -(void)userSlectSize:(RadioButton *)sender{
     if(sender.selected) {
-        NSLog(@"Selected size: %@", sender.titleLabel.text);
+        strResultSize = sender.titleLabel.text;
+        WWLog(@"Selected size: %@", sender.titleLabel.text);
     }
 }
 
 -(void)Cancle{
     self.hidden = YES;
+}
+
+-(void)submit{
+    if (self.AddToCart) {
+        self.AddToCart(strResultColor,strResultSize);
+    }
+    
 }
 @end

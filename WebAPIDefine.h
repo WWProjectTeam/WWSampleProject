@@ -127,4 +127,7 @@
 //获取收货地址列表
 #define KAddRessListURL             @"yiyouv/address/search?userId=%@"
 
+//添加到衣柜
+#define KaddToCart                  @"yiyouv/wardrobe/save"
+
 #endif

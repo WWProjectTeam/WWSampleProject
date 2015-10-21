@@ -21,7 +21,7 @@
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-        self.clothesUseTableView = [UITableView alloc]initWithFrame:CGRectMake(0, 0, <#CGFloat width#>, <#CGFloat height#>) style:<#(UITableViewStyle)#>
+     //   self.clothesUseTableView = [UITableView alloc]initWithFrame:CGRectMake(0, 0, <#CGFloat width#>, <#CGFloat height#>) style:<#(UITableViewStyle)#>
     }
     return self;
 }

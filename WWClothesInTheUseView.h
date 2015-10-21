@@ -10,4 +10,8 @@
 
 @interface WWClothesInTheUseView : UIView
 
+@property (nonatomic,copy)void (^clothesInTheUseDidSelectItemBlock)(NSString *);
+
+@property (nonatomic,strong)UITableView         *clothesUseTableView;
+
 @end

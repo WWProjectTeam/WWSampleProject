@@ -52,7 +52,7 @@
 
         //collectView
         UICollectionViewFlowLayout *flowLayout =[[UICollectionViewFlowLayout alloc]init];
-        self.collectProduct  =[[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, MainView_Width, MainView_Height-IOS7_Y-96) collectionViewLayout:flowLayout];
+        self.collectProduct  =[[UICollectionView alloc]initWithFrame:CGRectMake(0, 0, MainView_Width, frame.size.height) collectionViewLayout:flowLayout];
         [self.collectProduct setBackgroundColor:[UIColor whiteColor]];
         [self.collectProduct setDataSource:self];
         [self.collectProduct setDelegate:self];

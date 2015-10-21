@@ -193,6 +193,24 @@
               completion:completionBlock];
 }
 
+//WardrobeIsGoods
+- (AFHTTPRequestOperation *)GetWardrobeIsGoodsUserId:(NSString *)userId WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
+    NSString *isGoodURL = [NSString stringWithFormat:KWardrobeIsGoodsURL,userId];
+    
+    return [self getPath:isGoodURL
+              parameters:nil
+              completion:completionBlock];
+}
+
+//delegateWardrobeGoods
+- (AFHTTPRequestOperation *)GetDelegateWardrobeGoodsUserId:(NSString *)userId andCode:(NSString *)code WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
+    NSString *delegateURL = [NSString stringWithFormat:KDelegateWardRodeGoodsURL,userId,code];
+    
+    return [self getPath:delegateURL
+              parameters:nil
+              completion:completionBlock];
+}
+
 //PD-addProductReplyList
 - (AFHTTPRequestOperation *)AddProductReply:(NSString *)productId content:(NSString *)content WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
     NSDictionary * dicParam;

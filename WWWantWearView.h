@@ -12,8 +12,10 @@
 
 // 购买会员
 @property (nonatomic,copy)void (^wantWearBtnClickBlock)();
-
-@property (nonatomic,copy)void (^collectionCellDelegateBlock)();
+// 删除商品
+@property (nonatomic,copy)void (^collectionCellDelegateBlock)(NSString *);
+// 点击详情
+@property (nonatomic,copy)void (^collectionDidSelectItemBlock)(NSString *);
 
 - (id)initWithFrame:(CGRect)frame;
 

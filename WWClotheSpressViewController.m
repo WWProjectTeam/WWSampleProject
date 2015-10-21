@@ -10,10 +10,13 @@
 #import "WWWantWearView.h"
 #import "WWVIPPackageViewController.h"
 #import "WWClothesInTheUseView.h"
+#import "HTTPClient+Other.h"
+#import "WWHomePageViewController.h"
+#import "WWProductDetailViewController.h"
 
-#define KLANGUAGELOCALIZABLE_LANGUAGENameKey    @"LANGUAGELOCALIZABLE_LANGUAGENameKey"
 @interface WWClotheSpressViewController ()<UIScrollViewDelegate>{
     WWPublicNavtionBar *navtionBarView;
+    WWClothesInTheUseView *useVC;
 }
 
 @property (nonatomic,strong)        UIView              *clockbakcGroupView;
@@ -31,30 +34,14 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = WW_BASE_COLOR;
     
-    navtionBarView = [[WWPublicNavtionBar alloc] initWithLeftBtn:NO withTitle:@"衣柜" withRightBtn:NO withRightBtnPicName:nil withRightBtnSize:CGSizeZero];
+    if (self.IsHomePush == YES) {
+        navtionBarView = [[WWPublicNavtionBar alloc] initWithLeftBtn:YES withTitle:@"衣柜" withRightBtn:NO withRightBtnPicName:nil withRightBtnSize:CGSizeZero];
+    }else{
+        navtionBarView = [[WWPublicNavtionBar alloc] initWithLeftBtn:NO withTitle:@"衣柜" withRightBtn:NO withRightBtnPicName:nil withRightBtnSize:CGSizeZero];
+    }
     [self.view addSubview:navtionBarView];
     
-//    NSUserDefaults *def = [NSUserDefaults standardUserDefaults];
-//    NSString *string = [def valueForKey:KLANGUAGELOCALIZABLE_LANGUAGENameKey];
-//    if(string.length == 0){
-//        //获取系统当前语言版本
-//        NSArray* languages = [def objectForKey:@"AppleLanguages"];
-//        
-//        if (languages.count > 0) {
-//            NSString *current = [languages objectAtIndex:0];
-//            string = current;
-//            [def setValue:current forKey:KLANGUAGELOCALIZABLE_LANGUAGENameKey];
-//            [def synchronize];//持久化，不加的话不会保存
-//        }
-//    }
-//    
-//    NSString *language = [def valueForKey:KLANGUAGELOCALIZABLE_LANGUAGENameKey];
-//    
-//    NSLog(@"current is %@",language);
-    
     [self clothesViewLayout];
-    
-   
 }
 
 - (void)clothesViewLayout{
@@ -120,7 +107,9 @@
         [self.view addSubview:scrllView];
         scrllView;
     });
-    
+    if (self.IsHomePush == YES) {
+        self.clothesScrollView.frame = CGRectMake(0, self.clockbakcGroupView.bottom, MainView_Width, MainView_Height-self.clockbakcGroupView.height-IOS7_Y-44);
+    }
     //创建滑动手势
     UISwipeGestureRecognizer *recogizerRight=[[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(handleSwipeFrom:)];
     recogizerRight.direction=UISwipeGestureRecognizerDirectionRight;
@@ -129,32 +118,58 @@
     recogizerLeft.direction=UISwipeGestureRecognizerDirectionLeft;
     [self.clothesScrollView addGestureRecognizer:recogizerLeft];
 #pragma mark ---- 想穿
+    __weak __typeof(&*self)weakSelf = self;
     WWWantWearView *wantVC = [[WWWantWearView alloc]initWithFrame:CGRectMake(0, 0, MainView_Width, self.clothesScrollView.height)];
     // 购买VIP
     wantVC.wantWearBtnClickBlock = ^{
         WWVIPPackageViewController *vipVC = [[WWVIPPackageViewController alloc]init];
-        [self.navigationController pushViewController:vipVC animated:YES];
+        [weakSelf.navigationController pushViewController:vipVC animated:YES];
     };
     // 删除按钮
-    wantVC.collectionCellDelegateBlock = ^{
-        
+    wantVC.collectionCellDelegateBlock = ^(NSString *clothesCode){
+        [FMHTTPClient GetDelegateWardrobeGoodsUserId:[WWUtilityClass getNSUserDefaults:UserID] andCode:clothesCode WithCompletion:^(WebAPIResponse *response) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (response.code == WebAPIResponseCodeSuccess) {
+                    [[NSNotificationCenter defaultCenter] postNotificationName:WWDelegateWantWearGoods object:nil];
+                }
+            });
+        }];
+    };
+    // 点击item
+    wantVC.collectionDidSelectItemBlock = ^(NSString *clothes_id){
+        if ([clothes_id isEqualToString:@""]) {
+            WWHomePageViewController *homeVC = [[WWHomePageViewController alloc]init];
+            homeVC.IsClothesSpressPush = YES;
+            [weakSelf.navigationController pushViewController:homeVC animated:YES];
+        }else{
+            WWProductDetailViewController *productDetailVC = [[WWProductDetailViewController alloc]init];
+            productDetailVC.strProductId = clothes_id;
+            [weakSelf.navigationController pushViewController:productDetailVC animated:YES];
+        }
     };
     [self.clothesScrollView addSubview:wantVC];
 #pragma mark ---- 使用中
-    WWClothesInTheUseView *useVC = [[WWClothesInTheUseView alloc]initWithFrame:CGRectMake(MainView_Width, 0, MainView_Width, self.clothesScrollView.height)];
-    
-    
+    useVC = [[WWClothesInTheUseView alloc]initWithFrame:CGRectMake(MainView_Width, 0, MainView_Width, self.clothesScrollView.height)];
+    // 点击item
+    useVC.clothesInTheUseDidSelectItemBlock = ^(NSString *clothesId){
+        WWProductDetailViewController *productDetailVC = [[WWProductDetailViewController alloc]init];
+        productDetailVC.strProductId = clothesId;
+        [weakSelf.navigationController pushViewController:productDetailVC animated:YES];
+    };
     [self.clothesScrollView addSubview:useVC];
     
 }
 
-
+- (void)viewWillAppear:(BOOL)animated{
+    [useVC.clothesUseTableView reloadData];
+}
 
 /**
  *  选择button触发事件
  */
 - (void)clockJumpToDynamic{
-    [UIView animateWithDuration:0.2 animations:^{
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.clothesScrollView setContentOffset:CGPointMake(0, 0)];
         self.clockDynamicButton.selected = YES;
         self.clockNumberButton.selected = NO;
         self.clockChooseLabel.frame = CGRectMake(0, self.clockbakcGroupView.height-2, self.clockbakcGroupView.width/2, 2);
@@ -164,7 +179,8 @@
 
 - (void)clockJumpToNumber{
     
-    [UIView animateWithDuration:0.2 animations:^{
+    [UIView animateWithDuration:0.3 animations:^{
+        [self.clothesScrollView setContentOffset:CGPointMake(MainView_Width, 0)];
         self.clockDynamicButton.selected = NO;
         self.clockNumberButton.selected = YES;
         self.clockChooseLabel.frame = CGRectMake(self.clockbakcGroupView.width/2, self.clockbakcGroupView.height-2, self.clockbakcGroupView.width/2, 2);
@@ -176,7 +192,8 @@
 - (void)handleSwipeFrom:(UISwipeGestureRecognizer *)swipeGesture{
     
     if (swipeGesture.direction == UISwipeGestureRecognizerDirectionRight) {
-        [UIView animateWithDuration:0.2 animations:^{
+        [UIView animateWithDuration:0.3 animations:^{
+            [self.clothesScrollView setContentOffset:CGPointMake(0, 0)];
             self.clockDynamicButton.selected = YES;
             self.clockNumberButton.selected = NO;
             self.clockChooseLabel.frame = CGRectMake(0, self.clockbakcGroupView.height-2, self.clockbakcGroupView.width/2, 2);
@@ -184,7 +201,8 @@
     }
     else
     {
-        [UIView animateWithDuration:0.2 animations:^{
+        [UIView animateWithDuration:0.3 animations:^{
+            [self.clothesScrollView setContentOffset:CGPointMake(MainView_Width, 0)];
             self.clockDynamicButton.selected = NO;
             self.clockNumberButton.selected = YES;
             self.clockChooseLabel.frame = CGRectMake(self.clockbakcGroupView.width/2, self.clockbakcGroupView.height-2, self.clockbakcGroupView.width/2, 2);

@@ -141,6 +141,7 @@
     productView.TapClotheSpress = ^(){
         if ([AppDelegate isAuthentication]) {
             WWClotheSpressViewController * clotheVC = [[WWClotheSpressViewController alloc]init];
+            clotheVC.IsHomePush = YES;
             [weakself.navigationController pushViewController:clotheVC animated:YES];
         }
     };

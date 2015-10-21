@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WWClothesUseModel.h"
 
 @interface WWClothesUseTableViewCell : UITableViewCell
+
+
+- (void)initRequestClothesDetailData:(WWClothesUseModel *)dicInfor;
 
 @end

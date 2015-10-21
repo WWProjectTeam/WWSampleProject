@@ -74,13 +74,6 @@
 #define KEncryptorKeyURL                        @"common/aes-sk"
 
 
-#pragma mark ----------------- NotificationName
-// 刷新个人信息
-#define WWRefreshUserInformation                @"refreshUserInformation"
-// 衣柜删除刷新信息
-#define WWDelegateWantWearGoods                 @"DelegateWantWearGoods"
-
-
 //客服的电话号码
 #define WWSupportTel        @"400-585-5896"
 

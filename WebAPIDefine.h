@@ -130,4 +130,10 @@
 //添加到衣柜
 #define KaddToCart                  @"yiyouv/wardrobe/save"
 
+//保存用户收获地址
+#define KSaveUserAddressURL         @"yiyouv/address/save"
+
+//删除用户收获地址
+#define KdeleteUserAddressURL     @"yiyouv/address/del?id=%@"
+
 #endif

@@ -36,15 +36,15 @@
     self = [super initWithStyle:style reuseIdentifier:reuseIdentifier];
     if (self) {
         
-        self.backView = [[UIView alloc]initWithFrame:CGRectMake(0, 5, MainView_Width, 76*kPercenX)];
+        self.backView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, MainView_Width, 76*kPercenX)];
         self.backView.backgroundColor = [UIColor whiteColor];
         [self addSubview:self.backView];
         UILabel *upLine = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, MainView_Width, 1)];
         upLine.backgroundColor = WWPageLineColor;
         [self.backView addSubview:upLine];
-        UILabel *downLine = [[UILabel alloc]initWithFrame:CGRectMake(0, self.backView.height-1, MainView_Width, 1)];
-        downLine.backgroundColor = WWPageLineColor;
-        [self.backView addSubview:downLine];
+//        UILabel *downLine = [[UILabel alloc]initWithFrame:CGRectMake(0, self.backView.height-1, MainView_Width, 1)];
+//        downLine.backgroundColor = WWPageLineColor;
+//        [self.backView addSubview:downLine];
         
         // 用户名称
         self.userName = [[UILabel alloc]init];
@@ -64,15 +64,6 @@
         self.userAddRess.textColor = WWContentTextColor;
         self.userAddRess.numberOfLines = 2;
         [self.backView addSubview:self.userAddRess];
-//        // 选择
-//        self.selectBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//        [self.selectBtn setImage:[UIImage imageNamed:@"btn_zf_n@3x"] forState:UIControlStateNormal];
-//        [self.selectBtn setImage:[UIImage imageNamed:@"btn_zf_c@3x"] forState:UIControlStateSelected];
-//        [self.selectBtn addTarget:self action:@selector(selectBtnClickEvent:) forControlEvents:UIControlEventTouchUpInside];
-//        [self.backView addSubview:self.selectBtn];
-        
-       
-        
     }
     return self;
 }
@@ -80,12 +71,12 @@
 - (void)initRequestAddRessData:(WWAddRessModel *)dicInfor{
     self.userName.text = [NSString stringWithFormat:@"收货人：%@",dicInfor.userName];
     self.userPhone.text = dicInfor.mobile;
-    self.userAddRess.text = [NSString stringWithFormat:@"收货地址：%@",dicInfor.addressId];
+    self.userAddRess.text = [NSString stringWithFormat:@"收货地址：%@%@",dicInfor.cityStr,dicInfor.content];
     [self layoutSubviews];
 }
 
 - (void)layoutSubviews{
-    self.backView.frame = CGRectMake(0, 5, MainView_Width, 76*kPercenX);
+    self.backView.frame = CGRectMake(0, 0, MainView_Width, 76*kPercenX);
     CGSize navSize = CGSizeMake(300, 20000.0f);
     navSize = [self.userName.text sizeWithFont:self.userName.font constrainedToSize:navSize lineBreakMode:NSLineBreakByCharWrapping];
     self.userName.frame = CGRectMake(10, 10, navSize.width, navSize.height);
@@ -99,7 +90,6 @@
     [self.userAddRess setAttributedText:attributedString1];
     [self.userAddRess sizeToFit];
     self.userAddRess.frame =CGRectMake(10, self.userName.bottom+5, 250, 40);
-//    self.selectBtn.frame = CGRectMake(self.backView.width-14*kPercenX-24, (self.backView.height-14*kPercenX)/2, iphone_size_scale(14), iphone_size_scale(14));
     
 }
 

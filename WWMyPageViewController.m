@@ -60,6 +60,7 @@
                     [WWUtilityClass saveNSUserDefaults:UserID value:StringForKeyInUnserializedJSONDic(resultDic, @"id")];
                     [WWUtilityClass saveNSUserDefaults:UserImageURL value:StringForKeyInUnserializedJSONDic(resultDic, @"faceUrl")];
                     [WWUtilityClass saveNSUserDefaults:UserName value:StringForKeyInUnserializedJSONDic(resultDic, @"userName")];
+                    [WWUtilityClass saveNSUserDefaults:UserPhone value:StringForKeyInUnserializedJSONDic(resultDic, @"mobile")];
                     NSDictionary *vipDic = [resultDic objectForKey:@"vip"];
                     [WWUtilityClass saveNSUserDefaults:UserVipID value:[vipDic objectForKey:@"state"]];
                     if ([[vipDic objectForKey:@"state"] intValue] == 1) {

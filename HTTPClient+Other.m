@@ -251,7 +251,32 @@
     return [self postPath:KaddToCart
                parameters:parame
                completion:completionBlock];
-
-
 }
+
+//saveUserAddress
+- (AFHTTPRequestOperation *)PostSaveUserAddressWithUserId:(NSString *)userId WithName:(NSString*)name WithMobile:(NSString*)mobile WithCity:(NSString *)city WContent:(NSString *)content WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
+    NSDictionary * dicParam = @{@"userId":userId,
+                                @"name":name,
+                                @"mobile":mobile,
+                                @"city":city,
+                                @"content":content};
+    
+    NSDictionary *parame = @{@"json":[dicParam JSONString]};
+    
+    return [self postPath:KSaveUserAddressURL
+               parameters:parame
+               completion:completionBlock];
+    
+}
+
+//deleteUserAddress
+- (AFHTTPRequestOperation *)GEtDeleteUserAddressId:(NSString *)goodId WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
+    
+    NSString *deleteURL = [NSString stringWithFormat:KdeleteUserAddressURL,goodId];
+    
+    return [self getPath:deleteURL
+              parameters:nil
+              completion:completionBlock];
+}
+
 @end

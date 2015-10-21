@@ -11,6 +11,7 @@
 #import "WWAddRessModel.h"
 #import "HTTPClient+Other.h"
 #import "RadioButton.h"
+#import "WWAddShippingAddressViewController.h"
 
 @interface WWOrderAddressViewController ()<UITableViewDelegate,UITableViewDataSource>{
     WWPublicNavtionBar *navTionBarView;
@@ -32,6 +33,20 @@
     navTionBarView = [[WWPublicNavtionBar alloc]initWithLeftBtn:YES withTitle:@"选择收货地址" withRightBtn:NO withRightBtnPicName:nil withRightBtnSize:CGSizeZero];
     [self.view addSubview:navTionBarView];
     
+    UIButton *navRightBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    navRightBtn.frame = CGRectMake(MainView_Width-30-10, IOS7_Y+(44-20)/2, 30,20);
+    [navRightBtn setTitle:@"添加" forState:UIControlStateNormal];
+    [navRightBtn setTitleColor:RGBCOLOR(20, 20, 20) forState:UIControlStateNormal];
+    navRightBtn.titleLabel.font = font_size(14);
+    [navRightBtn addTarget:self action:@selector(navRightClickEvent:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:navRightBtn];
+
+    // 消息通知刷新信息
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(refreshUserAddRessInformation:)
+                                                 name:WWSaveUserAddress
+                                               object:nil];
+    
     self.addRessTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, IOS7_Y+44, MainView_Width, MainView_Height-IOS7_Y-44) style:UITableViewStylePlain];
     self.addRessTableView.delegate = self;
     self.addRessTableView.dataSource = self;
@@ -43,12 +58,12 @@
     
     self.addRessTableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
         [self.addRessArray removeAllObjects];
+        [arrSelectBtn removeAllObjects];
         //
-        [FMHTTPClient GetUserAddRessListUserId:@"1000" WithCompletion:^(WebAPIResponse *response) {
+        [FMHTTPClient GetUserAddRessListUserId:[WWUtilityClass getNSUserDefaults:UserID] WithCompletion:^(WebAPIResponse *response) {
             dispatch_async(dispatch_get_main_queue(), ^{
                 if (response.code == WebAPIResponseCodeSuccess) {
                     NSArray *resultArr = [response.responseObject objectForKey:@"result"];
-         
                     for (NSDictionary *dic in resultArr) {
                         WWAddRessModel *model = [WWAddRessModel initWithUserAddRessModel:dic];
                         [self.addRessArray addObject:model];
@@ -64,6 +79,11 @@
     [self.addRessTableView.header beginRefreshing];
     
 }
+
+- (void)refreshUserAddRessInformation:(NSNotification *)notification{
+    [self.addRessTableView.header beginRefreshing];
+}
+
 #pragma mark --- UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -77,14 +97,13 @@
     if (cell == nil) {
         cell = [[WWAddRessTableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellString];
         cell.backgroundColor = [UIColor clearColor];
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
     cell.addRessSelectBtnClickBlock= ^{
         
     };
     
     RadioButton *radio = [[RadioButton alloc]init];
-    [radio setTitleColor:WWSubTitleTextColor forState:UIControlStateNormal];
-    [radio setTitleColor:[UIColor whiteColor] forState:UIControlStateSelected];
     [radio setImage:[UIImage imageNamed:@"btn_zf_n@3x"] forState:UIControlStateNormal];
     [radio setImage:[UIImage imageNamed:@"btn_zf_c@3x"] forState:UIControlStateSelected];
 //    [radio addTarget:self action:@selector(selectBtnClickEvent:) forControlEvents:UIControlEventTouchUpInside];
@@ -111,26 +130,27 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 81*kPercenX;
-}
-
-- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    if (indexPath.row < self.addRessArray.count) {
-        WWAddRessModel *model = [self.addRessArray objectAtIndex:indexPath.row];
-        
-    }
+    return 76*kPercenX;
 }
 
 #pragma mark 提交编辑操作时会调用这个方法(删除，添加)
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     // 删除操作
     if (editingStyle == UITableViewCellEditingStyleDelete) {
+        WWAddRessModel *model = [self.addRessArray objectAtIndex:indexPath.row];
+        [FMHTTPClient GEtDeleteUserAddressId:model.addressId WithCompletion:^(WebAPIResponse *response) {
+            if (response.code == WebAPIResponseCodeSuccess) {
+                NSLog(@"删除成功");
+            }
+        }];
+        
         // 1.删除数据
         [self.addRessArray removeObjectAtIndex:indexPath.row];
         
         // 2.更新UITableView UI界面
         // [tableView reloadData];
         [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+       
     }
 }
 
@@ -140,6 +160,10 @@
     [self.addRessArray exchangeObjectAtIndex:sourceIndexPath.row withObjectAtIndex:destinationIndexPath.row];
 }
 
+- (void)navRightClickEvent:(UIButton *)sender{
+    WWAddShippingAddressViewController *addVC = [[WWAddShippingAddressViewController alloc]init];
+    [self.navigationController pushViewController:addVC animated:YES];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

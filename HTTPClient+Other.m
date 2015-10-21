@@ -226,4 +226,13 @@
                completion:completionBlock];
 }
 
+//userAddRessList
+- (AFHTTPRequestOperation *)GetUserAddRessListUserId:(NSString *)userId WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
+    NSString *addressUrl = [NSString stringWithFormat:KAddRessListURL,userId];
+    
+    return [self getPath:addressUrl
+              parameters:nil
+              completion:completionBlock];
+}
+
 @end

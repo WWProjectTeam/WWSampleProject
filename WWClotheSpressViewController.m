@@ -13,6 +13,7 @@
 #import "HTTPClient+Other.h"
 #import "WWHomePageViewController.h"
 #import "WWProductDetailViewController.h"
+#import "WWOrderViewController.h"
 
 @interface WWClotheSpressViewController ()<UIScrollViewDelegate>{
     WWPublicNavtionBar *navtionBarView;
@@ -120,6 +121,11 @@
 #pragma mark ---- 想穿
     __weak __typeof(&*self)weakSelf = self;
     WWWantWearView *wantVC = [[WWWantWearView alloc]initWithFrame:CGRectMake(0, 0, MainView_Width, self.clothesScrollView.height)];
+    // 立即拥有
+    wantVC.settlementBtnClickBlock = ^{
+        WWOrderViewController *orderVC = [[WWOrderViewController alloc]init];
+        [self.navigationController pushViewController:orderVC animated:YES];
+    };
     // 购买VIP
     wantVC.wantWearBtnClickBlock = ^{
         WWVIPPackageViewController *vipVC = [[WWVIPPackageViewController alloc]init];

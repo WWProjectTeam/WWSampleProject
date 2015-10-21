@@ -124,4 +124,7 @@
 //新增评论
 #define KproductAddReply            @"yiyouv/reply/save"
 
+//获取收货地址列表
+#define KAddRessListURL             @"yiyouv/address/search?userId=%@"
+
 #endif

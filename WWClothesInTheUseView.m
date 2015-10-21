@@ -26,6 +26,7 @@
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
+     //   self.clothesUseTableView = [UITableView alloc]initWithFrame:CGRectMake(0, 0, <#CGFloat width#>, <#CGFloat height#>) style:<#(UITableViewStyle)#>
         self.backgroundColor = WW_BASE_COLOR;
         self.clothesUseArray = [NSMutableArray new];
 //        if ([[WWUtilityClass getNSUserDefaults:UserVipID] intValue] != 1) {

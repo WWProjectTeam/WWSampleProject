@@ -17,7 +17,7 @@
 
 #import "WWClotheSpressViewController.h"
 
-
+#import "WWAddToCartPopView.h"
 
 ///////////tf
 @interface WWProductDetailViewController (){
@@ -25,8 +25,8 @@
     ProductDetialView * productView;
     BOOL CollectionStatu;
     UITapGestureRecognizer *tapGestureRecognizer;
+    
 }
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *containerViewBottomConstraint;
 
 @end
 
@@ -36,7 +36,8 @@
 @synthesize btnAddReply     = _btnAddReply;
 @synthesize tfReply         = _tfReply;
 @synthesize viewAddReply    = _viewAddReply;
-
+@synthesize addCartPopView  = _addCartPopView;
+@synthesize dicProductMsg   = _dicProductMsg;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -130,8 +131,19 @@
     
     
     ////////添加到衣柜
+    
     productView.AddToCart = ^(){
         if ([AppDelegate isAuthentication]) {
+            if (!weakself.addCartPopView) {
+                weakself.addCartPopView = [[WWAddToCartPopView alloc]initAddToCartPopView];
+                [weakself.view addSubview:weakself.addCartPopView];
+                [weakself.addCartPopView showWithProductMsg:weakself.dicProductMsg];
+
+            }
+            else
+            {
+                weakself.addCartPopView.hidden = NO;
+            }
             
         }
     
@@ -221,6 +233,10 @@
             [SVProgressHUD dismiss];
             
             NSDictionary * dicData = dict[@"result"];
+            
+            
+            self.dicProductMsg = dicData;
+            
             NSString * strImgUrl = dicData[@"imgurl"];
             
             NSArray *array = [strImgUrl componentsSeparatedByString:@","];

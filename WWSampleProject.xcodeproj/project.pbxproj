@@ -114,6 +114,7 @@
 		4A3CD1F41BBE33A2004DD167 /* payRequsestHandler.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4A3CD1F01BBE33A2004DD167 /* payRequsestHandler.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4A3CD1F51BBE33A2004DD167 /* WXUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4A3CD1F21BBE33A2004DD167 /* WXUtil.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4A3CD1F71BC8B1C0004DD167 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A3CD1F61BC8B1C0004DD167 /* Default-568h@2x.png */; };
+		4A3F45061BD71DD200EEB35A /* WWAddToCartPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F45051BD71DD200EEB35A /* WWAddToCartPopView.m */; settings = {ASSET_TAGS = (); }; };
 		4A40DDE81BCA64B200E12DD9 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A40DDE71BCA64B200E12DD9 /* CoreTelephony.framework */; };
 		4A40DDEC1BCA86F100E12DD9 /* WWPublicNavtionBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A40DDEB1BCA86F100E12DD9 /* WWPublicNavtionBar.m */; };
 		4A40DE201BCA895C00E12DD9 /* bg_grzx@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40DDEE1BCA895C00E12DD9 /* bg_grzx@2x.png */; };
@@ -213,6 +214,7 @@
 		4A4BC15C1BD517B00077EED0 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A3CD1E61BBE311C004DD167 /* libWeChatSDK.a */; };
 		4A4BC16D1BD5CF6C0077EED0 /* WWProductReplyListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4BC16C1BD5CF6C0077EED0 /* WWProductReplyListTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		4A5949291BCDDA4700036873 /* WWHeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5949281BCDDA4700036873 /* WWHeaderCollectionReusableView.m */; settings = {ASSET_TAGS = (); }; };
+		4A9A92671BD7725E007E9474 /* RadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9A92661BD7725E007E9474 /* RadioButton.m */; settings = {ASSET_TAGS = (); }; };
 		4AD21AE71BA0250100B4BDDC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AD21AE21BA0250100B4BDDC /* LaunchScreen.xib */; };
 		4AD21AE81BA0250100B4BDDC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AD21AE41BA0250100B4BDDC /* Images.xcassets */; };
 		4AD21AEA1BA0250100B4BDDC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21AE61BA0250100B4BDDC /* main.m */; };
@@ -392,6 +394,8 @@
 		4A3CD1F11BBE33A2004DD167 /* WXUtil.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXUtil.h; sourceTree = "<group>"; };
 		4A3CD1F21BBE33A2004DD167 /* WXUtil.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = WXUtil.mm; sourceTree = "<group>"; };
 		4A3CD1F61BC8B1C0004DD167 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		4A3F45041BD71DD200EEB35A /* WWAddToCartPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWAddToCartPopView.h; sourceTree = SOURCE_ROOT; };
+		4A3F45051BD71DD200EEB35A /* WWAddToCartPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWAddToCartPopView.m; sourceTree = SOURCE_ROOT; };
 		4A40DD8E1BCA287900E12DD9 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		4A40DD8F1BCA287900E12DD9 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
 		4A40DD901BCA287900E12DD9 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
@@ -586,6 +590,8 @@
 		4A4BC16C1BD5CF6C0077EED0 /* WWProductReplyListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWProductReplyListTableViewCell.m; sourceTree = SOURCE_ROOT; };
 		4A5949271BCDDA4700036873 /* WWHeaderCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWHeaderCollectionReusableView.h; sourceTree = SOURCE_ROOT; };
 		4A5949281BCDDA4700036873 /* WWHeaderCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWHeaderCollectionReusableView.m; sourceTree = SOURCE_ROOT; };
+		4A9A92651BD7725E007E9474 /* RadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadioButton.h; sourceTree = SOURCE_ROOT; };
+		4A9A92661BD7725E007E9474 /* RadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadioButton.m; sourceTree = SOURCE_ROOT; };
 		4AD21AB51BA01A3C00B4BDDC /* WWSampleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWSampleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AD21ACE1BA01A3C00B4BDDC /* WWSampleProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWSampleProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AD21AE31BA0250100B4BDDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
@@ -882,6 +888,8 @@
 				4A27AAF11BCE0731006CFC15 /* ProductDetialView.m */,
 				4A4BC16B1BD5CF6C0077EED0 /* WWProductReplyListTableViewCell.h */,
 				4A4BC16C1BD5CF6C0077EED0 /* WWProductReplyListTableViewCell.m */,
+				4A3F45041BD71DD200EEB35A /* WWAddToCartPopView.h */,
+				4A3F45051BD71DD200EEB35A /* WWAddToCartPopView.m */,
 			);
 			name = view;
 			sourceTree = "<group>";
@@ -1305,6 +1313,7 @@
 		4A5EC2671BBCD73600930162 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				4A9A92611BD7712E007E9474 /* WWRadioButton */,
 				4A4BC1551BD4F3950077EED0 /* Source */,
 				4A4294941BCF943100381272 /* lib */,
 				4A42939A1BCF515400381272 /* CycleScrollView */,
@@ -1312,6 +1321,15 @@
 				4A3CD1E51BBE311C004DD167 /* Wechat */,
 			);
 			name = Vendor;
+			sourceTree = "<group>";
+		};
+		4A9A92611BD7712E007E9474 /* WWRadioButton */ = {
+			isa = PBXGroup;
+			children = (
+				4A9A92651BD7725E007E9474 /* RadioButton.h */,
+				4A9A92661BD7725E007E9474 /* RadioButton.m */,
+			);
+			name = WWRadioButton;
 			sourceTree = "<group>";
 		};
 		4AD21AAC1BA01A3C00B4BDDC = {
@@ -1863,6 +1881,7 @@
 				4631B7281BD7798100D94373 /* WWOrderAddressViewController.m in Sources */,
 				4AD21B0D1BA033DB00B4BDDC /* UINavigationBar+Awesome.m in Sources */,
 				46D3FF471BCBFB630091AF67 /* WebAPIResponse.m in Sources */,
+				4A3F45061BD71DD200EEB35A /* WWAddToCartPopView.m in Sources */,
 				4626E4F81BCE503600D902B4 /* WWLoginViewController.m in Sources */,
 				4648E74E1BCD5FEE00A54035 /* WWAboutUsPageViewController.m in Sources */,
 				4AD21AF21BA025DD00B4BDDC /* WWHomePageViewController.m in Sources */,
@@ -1876,6 +1895,7 @@
 				46D3FF7A1BCC03DB0091AF67 /* AFHTTPRequestOperation.m in Sources */,
 				4648E7451BCD548900A54035 /* WWSettingViewController.m in Sources */,
 				462500EB1BD5E7A400D3CC20 /* WWWantWearCollectionViewCell.m in Sources */,
+				4A9A92671BD7725E007E9474 /* RadioButton.m in Sources */,
 				46D3FF671BCBFCAC0091AF67 /* FMFunctions.m in Sources */,
 				4AD21B101BA0355000B4BDDC /* WWBaseNavigationViewController.m in Sources */,
 				4648E7141BCD0F3500A54035 /* UIView+Tool.m in Sources */,

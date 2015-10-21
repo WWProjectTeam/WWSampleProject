@@ -10,4 +10,3 @@ pod 'SVProgressHUD'
 
 pod 'MJRefresh'
 
-pod "UIViewController-KeyboardAdditions"

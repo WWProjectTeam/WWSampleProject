@@ -70,4 +70,8 @@
 ////////////商品点击
 @property (nonatomic , copy) void (^TapCollectActionBlock)(NSString * strProductId);
 
+
+//////////轮播点击
+@property (nonatomic , copy) void (^TapBannerActionBlock)(NSDictionary * dicMsg);
+
 @end

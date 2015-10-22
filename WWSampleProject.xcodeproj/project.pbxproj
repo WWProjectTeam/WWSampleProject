@@ -232,6 +232,8 @@
 		4AC79E181BD8D67E00851DC7 /* NSDate+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC79E171BD8D67E00851DC7 /* NSDate+Tool.m */; settings = {ASSET_TAGS = (); }; };
 		4AC79E1E1BD8DCDF00851DC7 /* KZLinkLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC79E1B1BD8DCDF00851DC7 /* KZLinkLabel.m */; settings = {ASSET_TAGS = (); }; };
 		4AC79E1F1BD8DCDF00851DC7 /* NSAttributedString+Emotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC79E1D1BD8DCDF00851DC7 /* NSAttributedString+Emotion.m */; settings = {ASSET_TAGS = (); }; };
+		4AC79E231BD8E57200851DC7 /* WWGuidePageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC79E221BD8E57200851DC7 /* WWGuidePageViewController.m */; settings = {ASSET_TAGS = (); }; };
+		4AC79E271BD8E58900851DC7 /* WWPublicWebLoadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC79E261BD8E58900851DC7 /* WWPublicWebLoadViewController.m */; settings = {ASSET_TAGS = (); }; };
 		4AD21AE71BA0250100B4BDDC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AD21AE21BA0250100B4BDDC /* LaunchScreen.xib */; };
 		4AD21AE81BA0250100B4BDDC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AD21AE41BA0250100B4BDDC /* Images.xcassets */; };
 		4AD21AEA1BA0250100B4BDDC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21AE61BA0250100B4BDDC /* main.m */; };
@@ -651,6 +653,10 @@
 		4AC79E1B1BD8DCDF00851DC7 /* KZLinkLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZLinkLabel.m; sourceTree = "<group>"; };
 		4AC79E1C1BD8DCDF00851DC7 /* NSAttributedString+Emotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Emotion.h"; sourceTree = "<group>"; };
 		4AC79E1D1BD8DCDF00851DC7 /* NSAttributedString+Emotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Emotion.m"; sourceTree = "<group>"; };
+		4AC79E211BD8E57200851DC7 /* WWGuidePageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWGuidePageViewController.h; sourceTree = "<group>"; };
+		4AC79E221BD8E57200851DC7 /* WWGuidePageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWGuidePageViewController.m; sourceTree = "<group>"; };
+		4AC79E251BD8E58900851DC7 /* WWPublicWebLoadViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWPublicWebLoadViewController.h; sourceTree = "<group>"; };
+		4AC79E261BD8E58900851DC7 /* WWPublicWebLoadViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWPublicWebLoadViewController.m; sourceTree = "<group>"; };
 		4AD21AB51BA01A3C00B4BDDC /* WWSampleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWSampleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AD21ACE1BA01A3C00B4BDDC /* WWSampleProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWSampleProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AD21AE31BA0250100B4BDDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
@@ -1471,6 +1477,24 @@
 			path = RickLabel;
 			sourceTree = SOURCE_ROOT;
 		};
+		4AC79E201BD8E54700851DC7 /* 新手引导页 */ = {
+			isa = PBXGroup;
+			children = (
+				4AC79E211BD8E57200851DC7 /* WWGuidePageViewController.h */,
+				4AC79E221BD8E57200851DC7 /* WWGuidePageViewController.m */,
+			);
+			name = "新手引导页";
+			sourceTree = "<group>";
+		};
+		4AC79E241BD8E57600851DC7 /* 公共web加载 */ = {
+			isa = PBXGroup;
+			children = (
+				4AC79E251BD8E58900851DC7 /* WWPublicWebLoadViewController.h */,
+				4AC79E261BD8E58900851DC7 /* WWPublicWebLoadViewController.m */,
+			);
+			name = "公共web加载";
+			sourceTree = "<group>";
+		};
 		4AD21AAC1BA01A3C00B4BDDC = {
 			isa = PBXGroup;
 			children = (
@@ -1567,6 +1591,8 @@
 		4AD21AEB1BA0254500B4BDDC /* FunctionalModule */ = {
 			isa = PBXGroup;
 			children = (
+				4AC79E241BD8E57600851DC7 /* 公共web加载 */,
+				4AC79E201BD8E54700851DC7 /* 新手引导页 */,
 				4A402C301BD87CE700575E49 /* 消息中心 */,
 				4A40DDE91BCA86C800E12DD9 /* 公共 */,
 				4A27AAE91BCE00B6006CFC15 /* 商品详情 */,
@@ -2050,6 +2076,7 @@
 				46D3FF671BCBFCAC0091AF67 /* FMFunctions.m in Sources */,
 				4AD21B101BA0355000B4BDDC /* WWBaseNavigationViewController.m in Sources */,
 				4648E7141BCD0F3500A54035 /* UIView+Tool.m in Sources */,
+				4AC79E231BD8E57200851DC7 /* WWGuidePageViewController.m in Sources */,
 				4A3CD1F51BBE33A2004DD167 /* WXUtil.mm in Sources */,
 				4A40E04D1BCCF56A00E12DD9 /* WWPageControl.m in Sources */,
 				4AC79E1E1BD8DCDF00851DC7 /* KZLinkLabel.m in Sources */,
@@ -2076,6 +2103,7 @@
 				4A4293A11BCF515400381272 /* CycleScrollView.m in Sources */,
 				4A4293A31BCF515400381272 /* NSTimer+Addition.m in Sources */,
 				4AD21B1C1BA0396000B4BDDC /* UIViewController+AOP.m in Sources */,
+				4AC79E271BD8E58900851DC7 /* WWPublicWebLoadViewController.m in Sources */,
 				4A402C381BD87DD100575E49 /* WWMessageListTableViewCell.m in Sources */,
 				4A3CD1F41BBE33A2004DD167 /* payRequsestHandler.mm in Sources */,
 				4648E7101BCCEF5600A54035 /* WWMyPageViewController.m in Sources */,

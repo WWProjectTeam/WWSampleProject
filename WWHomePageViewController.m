@@ -22,6 +22,9 @@
 ////MSGCENTER
 #import "WWMessageCenterViewController.h"
 
+
+#import "WWPublicWebLoadViewController.h"
+#import "WWGuidePageViewController.h"
 @interface WWHomePageViewController()<HomePageNavtionDelegate,WWHomePageDelegte>{
     HomePageView * viewHomePage;
     WWPublicNavtionBar * viewNavtionBar;
@@ -140,7 +143,36 @@
         [self.navigationController pushViewController:productVC animated:YES];
     };
 
+    homePageTemp.TapBannerActionBlock = ^(NSDictionary * dicMsg){
+        NSString * strType = dicMsg[@"type"];
+        switch ([strType intValue]) {
+            case 1:
+            {
+                WWPublicWebLoadViewController * webVC = [[WWPublicWebLoadViewController alloc]init];
+                webVC.strUrl = dicMsg[@"content"];
+                [self.navigationController pushViewController:webVC animated:YES];
+            }
+                break;
+                
+            case 2:
+            {
+                WWProductDetailViewController * productVC = [[WWProductDetailViewController alloc]init];
+                productVC.strProductId = [NSString stringWithFormat:@"%@",dicMsg[@"content"]];
+                [self.navigationController pushViewController:productVC animated:YES];
+            }
+                break;
+                
+            case 3:
+            {
+                WWGuidePageViewController * guidVC = [[WWGuidePageViewController alloc]init];
+                [self.navigationController pushViewController:guidVC animated:YES];
+            }
+                break;
+            default:
+                break;
+        }
     
+    };
 #pragma mark - 尝试读取未读消息
     [self getUnreadMsg];
     

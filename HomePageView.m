@@ -250,6 +250,10 @@
     scroll.TapActionBlock = ^(NSInteger pageIndex){
         NSDictionary * dicTemp = self.arrBannerData[pageIndex];
         
+        if (self.TapBannerActionBlock) {
+            self.TapBannerActionBlock(dicTemp);
+        }
+        
     };
     scroll.ScrollActionBlock = ^(NSInteger pageIndex){
         pageControl.currentPage = pageIndex;

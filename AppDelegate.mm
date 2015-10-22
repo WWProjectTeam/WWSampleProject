@@ -26,6 +26,8 @@
 #import <QuartzCore/QuartzCore.h>
 ////////////////////
 
+#import <AlipaySDK/AlipaySDK.h>
+
 
 NSString * g_UserId;
 NSString * g_UserName;
@@ -107,21 +109,21 @@ NSString * g_UserHeadImage;
 
 #pragma mark - UITabBarControllerDelegate
 - (void)tabBarController:(UITabBarController *)tabBarController didSelectViewController:(UIViewController *)viewController{
-    if ([viewController isKindOfClass:[WWMyPageViewController class]]) {
-        if ([[WWUtilityClass getNSUserDefaults:UserID] isEqualToString:@""]) {
-            WWLoginViewController *loginVC = [[WWLoginViewController alloc]init];
-            [self.window.rootViewController presentViewController:loginVC animated:YES completion:nil];
-        }else{
-            return;
-        }
-    }else if ([viewController isKindOfClass:[WWClotheSpressViewController class]]){
-        if ([[WWUtilityClass getNSUserDefaults:UserID] isEqualToString:@""]) {
-            WWLoginViewController *loginVC = [[WWLoginViewController alloc]init];
-            [self.window.rootViewController presentViewController:loginVC animated:YES completion:nil];
-        }else{
-            return;
-        }
-    }
+//    if ([viewController isKindOfClass:[WWMyPageViewController class]]) {
+//        if ([[WWUtilityClass getNSUserDefaults:UserID] isEqualToString:@""]) {
+//            WWLoginViewController *loginVC = [[WWLoginViewController alloc]init];
+//            [self.window.rootViewController presentViewController:loginVC animated:YES completion:nil];
+//        }else{
+//            return;
+//        }
+//    }else if ([viewController isKindOfClass:[WWClotheSpressViewController class]]){
+//        if ([[WWUtilityClass getNSUserDefaults:UserID] isEqualToString:@""]) {
+//            WWLoginViewController *loginVC = [[WWLoginViewController alloc]init];
+//            [self.window.rootViewController presentViewController:loginVC animated:YES completion:nil];
+//        }else{
+//            return;
+//        }
+//    }
 }
 
 #pragma mark - 微信
@@ -132,6 +134,11 @@ NSString * g_UserHeadImage;
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation
 {
+    //跳转支付宝钱包进行支付，处理支付结果
+    [[AlipaySDK defaultService] processOrderWithPaymentResult:url standbyCallback:^(NSDictionary *resultDic) {
+        NSLog(@"result = %@",resultDic);
+    }];
+    
     BOOL isSuc = [WXApi handleOpenURL:url delegate:self];
     WWLog(@"url %@ isSuc %d",url,isSuc == YES ? 1 : 0);
     return  isSuc;
@@ -332,6 +339,5 @@ NSString * g_UserHeadImage;
     };
     return NO;
 }
-
 
 @end

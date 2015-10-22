@@ -202,6 +202,7 @@
                 }];
             }else{
                 sleep(60);
+                [SVProgressHUD showErrorWithStatus:@"登陆失败"];
                 [SVProgressHUD dismiss];
             }
         });

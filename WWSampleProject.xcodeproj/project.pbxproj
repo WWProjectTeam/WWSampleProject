@@ -115,6 +115,11 @@
 		4A3CD1F51BBE33A2004DD167 /* WXUtil.mm in Sources */ = {isa = PBXBuildFile; fileRef = 4A3CD1F21BBE33A2004DD167 /* WXUtil.mm */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		4A3CD1F71BC8B1C0004DD167 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A3CD1F61BC8B1C0004DD167 /* Default-568h@2x.png */; };
 		4A3F45061BD71DD200EEB35A /* WWAddToCartPopView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A3F45051BD71DD200EEB35A /* WWAddToCartPopView.m */; settings = {ASSET_TAGS = (); }; };
+		4A402C331BD87D0F00575E49 /* WWMessageCenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A402C321BD87D0F00575E49 /* WWMessageCenterViewController.m */; settings = {ASSET_TAGS = (); }; };
+		4A402C381BD87DD100575E49 /* WWMessageListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A402C371BD87DD100575E49 /* WWMessageListTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		4A402C3B1BD88C9C00575E49 /* WWMessageDetialViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A402C3A1BD88C9C00575E49 /* WWMessageDetialViewController.m */; settings = {ASSET_TAGS = (); }; };
+		4A402C511BD8C71D00575E49 /* WWMessageDetialCellTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A402C501BD8C71D00575E49 /* WWMessageDetialCellTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
+		4A402C631BD8CF6C00575E49 /* popChat.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A402C621BD8CF6C00575E49 /* popChat.png */; settings = {ASSET_TAGS = (); }; };
 		4A40DDE81BCA64B200E12DD9 /* CoreTelephony.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4A40DDE71BCA64B200E12DD9 /* CoreTelephony.framework */; };
 		4A40DDEC1BCA86F100E12DD9 /* WWPublicNavtionBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A40DDEB1BCA86F100E12DD9 /* WWPublicNavtionBar.m */; };
 		4A40DE201BCA895C00E12DD9 /* bg_grzx@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A40DDEE1BCA895C00E12DD9 /* bg_grzx@2x.png */; };
@@ -215,6 +220,10 @@
 		4A4BC16D1BD5CF6C0077EED0 /* WWProductReplyListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A4BC16C1BD5CF6C0077EED0 /* WWProductReplyListTableViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		4A5949291BCDDA4700036873 /* WWHeaderCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A5949281BCDDA4700036873 /* WWHeaderCollectionReusableView.m */; settings = {ASSET_TAGS = (); }; };
 		4A9A92671BD7725E007E9474 /* RadioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A9A92661BD7725E007E9474 /* RadioButton.m */; settings = {ASSET_TAGS = (); }; };
+		4AC79E151BD8D3DF00851DC7 /* chat_recive_nor@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4AC79E141BD8D3DF00851DC7 /* chat_recive_nor@2x.png */; settings = {ASSET_TAGS = (); }; };
+		4AC79E181BD8D67E00851DC7 /* NSDate+Tool.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC79E171BD8D67E00851DC7 /* NSDate+Tool.m */; settings = {ASSET_TAGS = (); }; };
+		4AC79E1E1BD8DCDF00851DC7 /* KZLinkLabel.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC79E1B1BD8DCDF00851DC7 /* KZLinkLabel.m */; settings = {ASSET_TAGS = (); }; };
+		4AC79E1F1BD8DCDF00851DC7 /* NSAttributedString+Emotion.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AC79E1D1BD8DCDF00851DC7 /* NSAttributedString+Emotion.m */; settings = {ASSET_TAGS = (); }; };
 		4AD21AE71BA0250100B4BDDC /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4AD21AE21BA0250100B4BDDC /* LaunchScreen.xib */; };
 		4AD21AE81BA0250100B4BDDC /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4AD21AE41BA0250100B4BDDC /* Images.xcassets */; };
 		4AD21AEA1BA0250100B4BDDC /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21AE61BA0250100B4BDDC /* main.m */; };
@@ -396,6 +405,15 @@
 		4A3CD1F61BC8B1C0004DD167 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		4A3F45041BD71DD200EEB35A /* WWAddToCartPopView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWAddToCartPopView.h; sourceTree = SOURCE_ROOT; };
 		4A3F45051BD71DD200EEB35A /* WWAddToCartPopView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWAddToCartPopView.m; sourceTree = SOURCE_ROOT; };
+		4A402C311BD87D0F00575E49 /* WWMessageCenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWMessageCenterViewController.h; sourceTree = SOURCE_ROOT; };
+		4A402C321BD87D0F00575E49 /* WWMessageCenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWMessageCenterViewController.m; sourceTree = SOURCE_ROOT; };
+		4A402C361BD87DD100575E49 /* WWMessageListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWMessageListTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		4A402C371BD87DD100575E49 /* WWMessageListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWMessageListTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		4A402C391BD88C9C00575E49 /* WWMessageDetialViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWMessageDetialViewController.h; sourceTree = SOURCE_ROOT; };
+		4A402C3A1BD88C9C00575E49 /* WWMessageDetialViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWMessageDetialViewController.m; sourceTree = SOURCE_ROOT; };
+		4A402C4F1BD8C71D00575E49 /* WWMessageDetialCellTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWMessageDetialCellTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		4A402C501BD8C71D00575E49 /* WWMessageDetialCellTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWMessageDetialCellTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		4A402C621BD8CF6C00575E49 /* popChat.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = popChat.png; sourceTree = SOURCE_ROOT; };
 		4A40DD8E1BCA287900E12DD9 /* AFHTTPRequestOperation.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperation.h; sourceTree = "<group>"; };
 		4A40DD8F1BCA287900E12DD9 /* AFHTTPRequestOperationManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFHTTPRequestOperationManager.h; sourceTree = "<group>"; };
 		4A40DD901BCA287900E12DD9 /* AFHTTPSessionManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AFHTTPSessionManager.h; sourceTree = "<group>"; };
@@ -592,6 +610,13 @@
 		4A5949281BCDDA4700036873 /* WWHeaderCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWHeaderCollectionReusableView.m; sourceTree = SOURCE_ROOT; };
 		4A9A92651BD7725E007E9474 /* RadioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RadioButton.h; sourceTree = SOURCE_ROOT; };
 		4A9A92661BD7725E007E9474 /* RadioButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RadioButton.m; sourceTree = SOURCE_ROOT; };
+		4AC79E141BD8D3DF00851DC7 /* chat_recive_nor@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "chat_recive_nor@2x.png"; sourceTree = "<group>"; };
+		4AC79E161BD8D67E00851DC7 /* NSDate+Tool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Tool.h"; sourceTree = SOURCE_ROOT; };
+		4AC79E171BD8D67E00851DC7 /* NSDate+Tool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Tool.m"; sourceTree = SOURCE_ROOT; };
+		4AC79E1A1BD8DCDF00851DC7 /* KZLinkLabel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KZLinkLabel.h; sourceTree = "<group>"; };
+		4AC79E1B1BD8DCDF00851DC7 /* KZLinkLabel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KZLinkLabel.m; sourceTree = "<group>"; };
+		4AC79E1C1BD8DCDF00851DC7 /* NSAttributedString+Emotion.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSAttributedString+Emotion.h"; sourceTree = "<group>"; };
+		4AC79E1D1BD8DCDF00851DC7 /* NSAttributedString+Emotion.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSAttributedString+Emotion.m"; sourceTree = "<group>"; };
 		4AD21AB51BA01A3C00B4BDDC /* WWSampleProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWSampleProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AD21ACE1BA01A3C00B4BDDC /* WWSampleProjectTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWSampleProjectTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4AD21AE31BA0250100B4BDDC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = LaunchScreen.xib; sourceTree = "<group>"; };
@@ -966,6 +991,37 @@
 			path = lib;
 			sourceTree = "<group>";
 		};
+		4A402C301BD87CE700575E49 /* 消息中心 */ = {
+			isa = PBXGroup;
+			children = (
+				4A402C351BD87DB300575E49 /* Control */,
+				4A402C341BD87DAD00575E49 /* View */,
+			);
+			name = "消息中心";
+			sourceTree = "<group>";
+		};
+		4A402C341BD87DAD00575E49 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				4A402C361BD87DD100575E49 /* WWMessageListTableViewCell.h */,
+				4A402C371BD87DD100575E49 /* WWMessageListTableViewCell.m */,
+				4A402C4F1BD8C71D00575E49 /* WWMessageDetialCellTableViewCell.h */,
+				4A402C501BD8C71D00575E49 /* WWMessageDetialCellTableViewCell.m */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		4A402C351BD87DB300575E49 /* Control */ = {
+			isa = PBXGroup;
+			children = (
+				4A402C311BD87D0F00575E49 /* WWMessageCenterViewController.h */,
+				4A402C321BD87D0F00575E49 /* WWMessageCenterViewController.m */,
+				4A402C391BD88C9C00575E49 /* WWMessageDetialViewController.h */,
+				4A402C3A1BD88C9C00575E49 /* WWMessageDetialViewController.m */,
+			);
+			name = Control;
+			sourceTree = "<group>";
+		};
 		4A40DD8B1BCA287900E12DD9 /* Headers */ = {
 			isa = PBXGroup;
 			children = (
@@ -1144,6 +1200,7 @@
 				4A40DDEF1BCA895C00E12DD9 /* bg_grzx@3x.png */,
 				4A40DDF01BCA895C00E12DD9 /* btn_gb_n@2x.png */,
 				4A40DDF11BCA895C00E12DD9 /* btn_gb_n@3x.png */,
+				4AC79E141BD8D3DF00851DC7 /* chat_recive_nor@2x.png */,
 				4A40DDF21BCA895C00E12DD9 /* btn_sz_n@2x.png */,
 				4A40DDF31BCA895C00E12DD9 /* btn_sz_n@3x.png */,
 				4A40DDF41BCA895C00E12DD9 /* icon_dd@2x.png */,
@@ -1313,6 +1370,9 @@
 		4A5EC2671BBCD73600930162 /* Vendor */ = {
 			isa = PBXGroup;
 			children = (
+				4AC79E191BD8DCDF00851DC7 /* RickLabel */,
+				4AC79E161BD8D67E00851DC7 /* NSDate+Tool.h */,
+				4AC79E171BD8D67E00851DC7 /* NSDate+Tool.m */,
 				4A9A92611BD7712E007E9474 /* WWRadioButton */,
 				4A4BC1551BD4F3950077EED0 /* Source */,
 				4A4294941BCF943100381272 /* lib */,
@@ -1331,6 +1391,17 @@
 			);
 			name = WWRadioButton;
 			sourceTree = "<group>";
+		};
+		4AC79E191BD8DCDF00851DC7 /* RickLabel */ = {
+			isa = PBXGroup;
+			children = (
+				4AC79E1A1BD8DCDF00851DC7 /* KZLinkLabel.h */,
+				4AC79E1B1BD8DCDF00851DC7 /* KZLinkLabel.m */,
+				4AC79E1C1BD8DCDF00851DC7 /* NSAttributedString+Emotion.h */,
+				4AC79E1D1BD8DCDF00851DC7 /* NSAttributedString+Emotion.m */,
+			);
+			path = RickLabel;
+			sourceTree = SOURCE_ROOT;
 		};
 		4AD21AAC1BA01A3C00B4BDDC = {
 			isa = PBXGroup;
@@ -1377,6 +1448,7 @@
 		4AD21ADE1BA01C8B00B4BDDC /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				4A402C621BD8CF6C00575E49 /* popChat.png */,
 				4A4BC1471BD476F10077EED0 /* font */,
 				462B5C401BD48BAF002DA506 /* 10_10切图 */,
 				4A27AB281BCE2FB0006CFC15 /* 9_14切图 */,
@@ -1427,6 +1499,7 @@
 		4AD21AEB1BA0254500B4BDDC /* FunctionalModule */ = {
 			isa = PBXGroup;
 			children = (
+				4A402C301BD87CE700575E49 /* 消息中心 */,
 				4A40DDE91BCA86C800E12DD9 /* 公共 */,
 				4A27AAE91BCE00B6006CFC15 /* 商品详情 */,
 				4626E4F51BCE501E00D902B4 /* 登陆 */,
@@ -1666,6 +1739,7 @@
 				4A40DE221BCA895C00E12DD9 /* btn_gb_n@2x.png in Resources */,
 				4648E72D1BCD4CC200A54035 /* -seal@3x.png in Resources */,
 				462B5C521BD48BAF002DA506 /* icon_mfps@3x.png in Resources */,
+				4AC79E151BD8D3DF00851DC7 /* chat_recive_nor@2x.png in Resources */,
 				4A40DE221BCA895C00E12DD9 /* btn_gb_n@2x.png in Resources */,
 				4648E73C1BCD4CC200A54035 /* map-pointer@2x.png in Resources */,
 				4AD21AE71BA0250100B4BDDC /* LaunchScreen.xib in Resources */,
@@ -1753,6 +1827,7 @@
 				4A40E0871BCCFDB300E12DD9 /* 我的选中@2x.png in Resources */,
 				4A27AB5B1BCE2FB0006CFC15 /* write-reviews@2x.png in Resources */,
 				4648E72F1BCD4CC200A54035 /* 微信@3x.png in Resources */,
+				4A402C631BD8CF6C00575E49 /* popChat.png in Resources */,
 				4A3CD1F71BC8B1C0004DD167 /* Default-568h@2x.png in Resources */,
 				4648E7351BCD4CC200A54035 /* check--details@3x.png in Resources */,
 				4A27AB481BCE2FB0006CFC15 /* click-on--chest@3x.png in Resources */,
@@ -1861,7 +1936,9 @@
 				4A4BC16D1BD5CF6C0077EED0 /* WWProductReplyListTableViewCell.m in Sources */,
 				4A40E0A51BCD07AB00E12DD9 /* HomePageProductCollectionViewCell.m in Sources */,
 				46D3FF631BCBFB750091AF67 /* JSONKit.m in Sources */,
+				4A402C331BD87D0F00575E49 /* WWMessageCenterViewController.m in Sources */,
 				46D3FF461BCBFB630091AF67 /* HTTPClient+Other.m in Sources */,
+				4A402C511BD8C71D00575E49 /* WWMessageDetialCellTableViewCell.m in Sources */,
 				4AD21B0A1BA032B700B4BDDC /* InterfaceClassFile.m in Sources */,
 				462500F61BD6850E00D3CC20 /* WWClothesUseModel.m in Sources */,
 				4AD21B131BA0358400B4BDDC /* WWBaseViewController.m in Sources */,
@@ -1886,6 +1963,8 @@
 				4648E74E1BCD5FEE00A54035 /* WWAboutUsPageViewController.m in Sources */,
 				4AD21AF21BA025DD00B4BDDC /* WWHomePageViewController.m in Sources */,
 				46D3FF7B1BCC03DB0091AF67 /* AFImageRequestOperation.m in Sources */,
+				4AC79E1F1BD8DCDF00851DC7 /* NSAttributedString+Emotion.m in Sources */,
+				4A402C3B1BD88C9C00575E49 /* WWMessageDetialViewController.m in Sources */,
 				4A4BC15A1BD4F3950077EED0 /* DZNSegmentedControl.m in Sources */,
 				4A3CD1F31BBE33A2004DD167 /* ApiXml.mm in Sources */,
 				46D3FF801BCC03DB0091AF67 /* AFXMLRequestOperation.m in Sources */,
@@ -1901,6 +1980,7 @@
 				4648E7141BCD0F3500A54035 /* UIView+Tool.m in Sources */,
 				4A3CD1F51BBE33A2004DD167 /* WXUtil.mm in Sources */,
 				4A40E04D1BCCF56A00E12DD9 /* WWPageControl.m in Sources */,
+				4AC79E1E1BD8DCDF00851DC7 /* KZLinkLabel.m in Sources */,
 				4A27AAEF1BCE00EA006CFC15 /* WWProductDetailViewController.m in Sources */,
 				4A4294D31BCF943100381272 /* MJPhotoToolbar.m in Sources */,
 				4631B72E1BD77D8300D94373 /* WWAddRessModel.m in Sources */,
@@ -1921,11 +2001,13 @@
 				4A4293A11BCF515400381272 /* CycleScrollView.m in Sources */,
 				4A4293A31BCF515400381272 /* NSTimer+Addition.m in Sources */,
 				4AD21B1C1BA0396000B4BDDC /* UIViewController+AOP.m in Sources */,
+				4A402C381BD87DD100575E49 /* WWMessageListTableViewCell.m in Sources */,
 				4A3CD1F41BBE33A2004DD167 /* payRequsestHandler.mm in Sources */,
 				4648E7101BCCEF5600A54035 /* WWMyPageViewController.m in Sources */,
 				4AD21B071BA02FB600B4BDDC /* WWUtilityClass.m in Sources */,
 				46B743C81BCF8D7000C31FF7 /* WWUserNameModifyViewController.m in Sources */,
 				46E8806B1BD0F5FE002481CB /* DataPage.m in Sources */,
+				4AC79E181BD8D67E00851DC7 /* NSDate+Tool.m in Sources */,
 				46B743BB1BCF812F00C31FF7 /* CommonUtil.m in Sources */,
 				46E880651BD0E906002481CB /* WWMyCollectionViewController.m in Sources */,
 				4626E4EF1BCE1E0600D902B4 /* WWFeedbackViewController.m in Sources */,

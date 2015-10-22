@@ -76,4 +76,13 @@
 
 //PD-addToCartSubmit
 - (AFHTTPRequestOperation *)PostAddToCartWithProductId:(NSString *)productId WithColor:(NSString*)color WithSize:(NSString*)size WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
+
+//HP-MSGList
+- (AFHTTPRequestOperation *)GetUserMsgList:(NSString *)maxID WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
+
+
+//HP-GETFirstMsg
+- (AFHTTPRequestOperation *)GetUserFirstMsgWithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
+
+
 @end

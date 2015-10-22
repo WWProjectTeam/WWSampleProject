@@ -130,4 +130,10 @@
 //添加到衣柜
 #define KaddToCart                  @"yiyouv/wardrobe/save"
 
+//获得消息列表
+#define KMsgListURL                 @"yiyouv/message/messages"
+
+//获得用户第一条消息
+#define KFirstMsgUrl                @"/yiyouv/message/first"
+
 #endif

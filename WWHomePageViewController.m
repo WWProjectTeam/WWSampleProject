@@ -18,6 +18,10 @@
 
 ///////productDetial
 #import "WWProductDetailViewController.h"
+
+////MSGCENTER
+#import "WWMessageCenterViewController.h"
+
 @interface WWHomePageViewController()<HomePageNavtionDelegate,WWHomePageDelegte>{
     HomePageView * viewHomePage;
     WWPublicNavtionBar * viewNavtionBar;
@@ -62,6 +66,10 @@
     //MJ
     
     __weak UICollectionView *collectViewT = viewHomePage.collectProduct;
+    
+    //刷新未读消息
+    [self getUnreadMsg];
+    
     
     // 添加下拉刷新控件
     
@@ -132,12 +140,44 @@
         [self.navigationController pushViewController:productVC animated:YES];
     };
 
+    
+#pragma mark - 尝试读取未读消息
+    [self getUnreadMsg];
+    
+    //登录后再次刷新未读消息
+    AppDelegate * app = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    app.UserLoginStatuUpdate = ^(){
+        [self getUnreadMsg];
+    };
 
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
 }
+
+#pragma mark - 获得未读消息数
+
+-(void)getUnreadMsg{
+    if ([AppDelegate isAuthentication]) {
+        [[HTTPClient sharedHTTPClient]UserUnreadMsgNumWithCompletion:^(WebAPIResponse *operation) {
+            NSDictionary * dict = operation.responseObject;
+            
+            if ([[NSString stringWithFormat:@"%@",dict[@"code"]]isEqualToString:WWAppSuccessCode]) {
+                if (dict[@"result"]!=[NSNull null]) {
+                    [viewNavtionBar HomePageSetMsgNum:[dict[@"result"][@"sys"] integerValue]];
+                }
+                
+            }
+            else
+            {
+                [SVProgressHUD showErrorWithStatus:dict[@"result"]];
+            }
+        }];
+        
+    }
+}
+
 
 #pragma mark - HomePageNavtionDelegate
 
@@ -163,6 +203,15 @@
     
     [self.tabBarController.tabBar setHidden:NO];
 
+}
+
+//点击消息
+-(void)rightBtnSelect{
+    if ([AppDelegate isAuthentication]) {
+        [viewNavtionBar HomePageSetMsgNum:0];
+        WWMessageCenterViewController * MsgVc = [[WWMessageCenterViewController alloc]init];
+        [self.navigationController pushViewController:MsgVc animated:YES];
+    }
 }
 
 

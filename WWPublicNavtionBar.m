@@ -13,6 +13,9 @@
     UIButton * btnTitle;
     
     BOOL isSelect;
+    
+    UIImageView * ClotheSpressNum;
+    UILabel * labelSpressNum;
 }
 @synthesize HomePageNavtionDelegate = _HomePageNavtionDelegate;
 //通用初始化方法
@@ -111,15 +114,31 @@
         [self addSubview:imageFlag];
         
         
-        UIButton * btnRight = [[UIButton alloc]init];
-        [btnRight setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [btnRight setBackgroundImage:[UIImage imageNamed:@"PBMsg"] forState:UIControlStateNormal];
-        [btnRight setFrame:CGRectMake(MainView_Width-50, IOS7_Y+2, 40,40)];
+      
         
-        [btnRight addTarget:self action:@selector(rightBtnSelelct) forControlEvents:UIControlEventTouchUpInside];
+        UIButton * btnUserMsg;
+        btnUserMsg = ({
+            UIButton * btnRight = [[UIButton alloc]init];
+            [btnRight setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+            [btnRight setBackgroundImage:[UIImage imageNamed:@"PBMsg"] forState:UIControlStateNormal];
+            [btnRight setFrame:CGRectMake(MainView_Width-50, IOS7_Y+2, 40,40)];
+            
+            [btnRight addTarget:self action:@selector(homePageRightBtn:) forControlEvents:UIControlEventTouchUpInside];
+
+            
+            ClotheSpressNum = [[UIImageView alloc]init];
+            [btnRight addSubview:ClotheSpressNum];
+            
+            labelSpressNum = [[UILabel alloc]init];
+            [labelSpressNum setTextColor:[UIColor whiteColor]];
+            [labelSpressNum setFont:font_bold_size(10)];
+            [labelSpressNum setTextAlignment:NSTextAlignmentCenter];
+            [ClotheSpressNum addSubview:labelSpressNum];
+            btnRight;
+        });
         
-        [self addSubview:btnRight];
-        
+        [self addSubview:btnUserMsg];
+
         
     }
     return self;
@@ -127,7 +146,51 @@
 
 //首页设置小红点数
 -(void)HomePageSetMsgNum:(NSInteger)Num{
+    if (Num==0) {
+        [ClotheSpressNum setHidden:YES];
+        return;
+    }
     
+    if (Num<10) {
+        [ClotheSpressNum setHidden:NO];
+        [ClotheSpressNum setImage:[UIImage imageNamed:@"icon_xx"]];
+        [ClotheSpressNum setFrame:CGRectMake(iphone_size_scale(24), 3, 13, 13)];
+        
+        [labelSpressNum setFrame:CGRectMake(0, 0, 13, 13)];
+        
+        [labelSpressNum setText:[NSString stringWithFormat:@"%d",Num]];
+        
+        return;
+    }
+    
+    if (Num<100) {
+        [ClotheSpressNum setHidden:NO];
+        [ClotheSpressNum setImage:[UIImage imageNamed:@"icon_xxd"]];
+        [ClotheSpressNum setFrame:CGRectMake(iphone_size_scale(22), 3, 19, 13)];
+        
+        [labelSpressNum setFrame:CGRectMake(0, 0, 20, 13)];
+        
+        [labelSpressNum setText:[NSString stringWithFormat:@"%d",Num]];
+        
+        return;
+    }
+    
+    
+    if (Num>=100) {
+        [ClotheSpressNum setHidden:NO];
+        [ClotheSpressNum setImage:[UIImage imageNamed:@"icon_xxd"]];
+        [ClotheSpressNum setFrame:CGRectMake(iphone_size_scale(22), 3, 19, 13)];
+        
+        [labelSpressNum setFrame:CGRectMake(0, 0, 20, 13)];
+        [labelSpressNum setText:@"99+"];
+        [labelSpressNum setFont:font_bold_size(8)];
+        
+        return;
+    }
+}
+
+-(void)homePageRightBtn:(UIButton *)sender{
+    [self.HomePageNavtionDelegate rightBtnSelect];
 }
 
 //首页设置标题

@@ -14,6 +14,7 @@
     
     
     UILabel * labelColthSpressNum;
+    UILabel * labelDesc;
     
     UIScrollView * scrollView;
     
@@ -55,7 +56,7 @@
         [viewBG addSubview:labelColthSpressNum];
         
         
-        UILabel * labelDesc = [[UILabel alloc]init];
+        labelDesc = [[UILabel alloc]init];
         [labelDesc setText:@"衣柜满三件才能达到借穿条件"];
         [labelDesc setTextColor:WWSubTitleTextColor];
         [labelDesc setFrame:CGRectMake(CGRectGetMaxX(imgProduct.frame)+10, iphone_size_scale(50), iphone_size_scale(200), 30)];
@@ -75,7 +76,7 @@
         [btnSubmit setFrame:CGRectMake(0, iphone_size_scale(285)-49, MainView_Width, 49)];
         [btnSubmit setBackgroundColor:WWBtnYellowColor];
         [btnSubmit setTitle:@"确定" forState:UIControlStateNormal];
-        [btnSubmit addTarget:self action:@selector(submit) forControlEvents:UIControlContentVerticalAlignmentTop];
+        [btnSubmit addTarget:self action:@selector(submit) forControlEvents:UIControlEventTouchUpInside];
         [viewBG addSubview:btnSubmit];
         
         
@@ -103,6 +104,9 @@
     [self setHidden:NO];
     
     [imgProduct sd_setImageWithURL:[NSURL URLWithString:dict[@"imgurl"]] placeholderImage:[UIImage imageNamed:@"bg_yfxq"]];
+    
+    
+    labelDesc.text = [NSString stringWithFormat:@"衣柜满%@件才能达到借穿条件",dict[@"wardrobe"]];
     
     UILabel * labelSize = [[UILabel alloc]init];
     [labelSize setText:@"尺寸"];

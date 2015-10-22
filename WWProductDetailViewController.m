@@ -21,7 +21,7 @@
 
 ///////////tf
 @interface WWProductDetailViewController (){
-
+    
     ProductDetialView * productView;
     BOOL CollectionStatu;
     UITapGestureRecognizer *tapGestureRecognizer;
@@ -41,19 +41,21 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-
+    
     ////监听键盘
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillChangeFrame:) name:UIKeyboardWillChangeFrameNotification object:nil];
     
     [self.view setBackgroundColor:[UIColor whiteColor]];
-
+    
+    
+#pragma mark - 页面主体加载
     productView = [[ProductDetialView alloc]initProductDetialView];
     [productView setFrame:CGRectMake(0, 0, MainView_Width, MainView_Height)];
     [self.view addSubview:productView];
-
-   
     
-    WWPublicNavtionBar * navtionBar = [[WWPublicNavtionBar alloc]initWithLeftBtn:YES withTitle:@"详情" withRightBtn:NO withRightBtnPicName:nil withRightBtnSize:CGSizeZero];    
+    
+#pragma mark - 导航条
+    WWPublicNavtionBar * navtionBar = [[WWPublicNavtionBar alloc]initWithLeftBtn:YES withTitle:@"详情" withRightBtn:NO withRightBtnPicName:nil withRightBtnSize:CGSizeZero];
     [navtionBar setAlpha:0];
     
     [self.view addSubview:navtionBar];
@@ -72,27 +74,23 @@
         [navtionBar setAlpha:point.y/100];
     };
     
+    
+    
 #pragma mark - tapPhoto
     __weak typeof(self) weakself = self;
     productView.TapPhotoAction = ^(NSInteger index){
-    
-
+        
         if (!index) {
             index = 0;
         }
-        
         int count = weakself.arrayImgs.count;
-        // 1.封装图片数据
         NSMutableArray *photos = [NSMutableArray arrayWithCapacity:count];
         for (int i = 0; i<count; i++) {
-            // 替换为中等尺寸图片
-
             MJPhoto *photo = [[MJPhoto alloc] init];
             photo.url = [NSURL URLWithString:weakself.arrayImgs[i]]; // 图片路径
-            
             UIImageView * imgT = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, iphone_size_scale(400), iphone_size_scale(300))];
             [imgT setImage:[UIImage imageNamed:@"bg_yfxq"]];
-           // photo.srcImageView = imgT; // 来源于哪个UIImageView
+            // photo.srcImageView = imgT; // 来源于哪个UIImageView
             [photos addObject:photo];
         }
         
@@ -101,13 +99,10 @@
         browser.currentPhotoIndex = index; // 弹出相册时显示的第一张图片是？
         browser.photos = photos; // 设置所有的图片
         [browser show];
-
-
     };
-   
     
     [self productDetialUpdate];
-
+    
 #pragma mark - foot
     /////////添加收藏
     __weak ProductDetialView * productTemp = productView;
@@ -124,9 +119,9 @@
             
             ///调用收藏接口
             [weakself CollectionStatuUpdate];
-
+            
         }
-    
+        
     };
     
     
@@ -138,7 +133,7 @@
                 weakself.addCartPopView = [[WWAddToCartPopView alloc]initAddToCartPopView];
                 [weakself.view addSubview:weakself.addCartPopView];
                 [weakself.addCartPopView showWithProductMsg:weakself.dicProductMsg];
-
+                
             }
             else
             {
@@ -162,9 +157,9 @@
                     [SVProgressHUD showErrorWithStatus:dict[@"result"]];
                 }
             }];
-
+            
         };
-    
+        
     };
     
     ///////打开衣柜
@@ -192,7 +187,7 @@
                 productTemp.webSection2.hidden = YES;
                 productTemp.tableReplyList.hidden = YES;
                 weakself.btnAddReply.hidden = YES;
-
+                
                 
                 [productTemp.scrollViewBackground setContentSize:CGSizeMake(MainView_Width, CGRectGetMaxY(productTemp.webSection1.frame))];
             }
@@ -205,7 +200,7 @@
                 productTemp.webSection2.hidden = NO;
                 productTemp.tableReplyList.hidden = YES;
                 weakself.btnAddReply.hidden = YES;
-
+                
                 [productTemp.scrollViewBackground setContentSize:CGSizeMake(MainView_Width, CGRectGetMaxY(productTemp.webSection2.frame))];
             }
                 break;
@@ -216,20 +211,23 @@
                 productTemp.webSection2.hidden = YES;
                 productTemp.tableReplyList.hidden = NO;
                 weakself.btnAddReply.hidden = NO;
-
+                
                 [productTemp.scrollViewBackground setContentSize:CGSizeMake(MainView_Width, CGRectGetMaxY(productTemp.tableReplyList.frame))];
             }
                 break;
-
+                
                 
             default:
                 break;
         }
-    
-    
-    
+        
+        
+        
     };
     
+    
+    
+
 }
 
 
@@ -239,7 +237,7 @@
         NSDictionary * dict = operation.responseObject;
         WWLog(@"%@",dict);
     }];
-
+    
 }
 
 -(void)productDetialUpdate{
@@ -297,12 +295,12 @@
             //分段控制器
             NSString * strReply = [NSString stringWithFormat:@"评论(%@)",dicData[@"replyCount"]];
             
-
+            
             [productView.control setFrame:CGRectMake(0, CGRectGetMaxY(productView.imgGrey.frame), MainView_Width, 40)];
-
+            
             [productView.control removeAllSegments];
             [productView.control setItems:@[[@"图文介绍" uppercaseString], [@"商品参数" uppercaseString],strReply ]];
-
+            
             
             //////////////////////setObj
             [productView setClotheSpressNum:[dicData[@"favoriterCount"] integerValue]];
@@ -346,10 +344,10 @@
     NSURL *url=[NSURL URLWithString:strUrl];
     NSURLRequest *request=[NSURLRequest requestWithURL:url];
     [productView.webSection1 loadRequest:request];
-  
-
-
-   
+    
+    
+    
+    
 }
 
 -(void)productParamerUpdate{
@@ -360,8 +358,8 @@
     NSURL *url=[NSURL URLWithString:strUrl];
     NSURLRequest *request=[NSURLRequest requestWithURL:url];
     [productView.webSection2 loadRequest:request];
-  
-   
+    
+    
 }
 
 -(void)productReplyList{
@@ -401,7 +399,7 @@
     
     
     [productView.tableReplyList setFrame:CGRectMake(0,CGRectGetMaxY(productView.control.frame)+10,MainView_Width, MainView_Height-CGRectGetMaxY(productView.control.frame)-10)];
-
+    
     [[HTTPClient sharedHTTPClient]ProductReplyList:self.strProductId maxId:@"0" WithCompletion:^(WebAPIResponse *operation) {
         NSDictionary * dict = operation.responseObject;
         
@@ -414,14 +412,14 @@
             [productView.tableReplyList setFrame:CGRectMake(0, productView.tableReplyList.frame.origin.y, MainView_Width, productView.tableReplyList.contentSize.height)];
             
             [productView.scrollViewBackground setContentSize:CGSizeMake(MainView_Width, CGRectGetMaxY(productView.tableReplyList.frame))];
-
+            
         }
         else
         {
             WWLog(@"商品评论请求失败!!")
         }
     }];
-
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -436,13 +434,13 @@
 #pragma mark - webViewDelegate
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
-   
-  NSString * htmlHeight = [webView stringByEvaluatingJavaScriptFromString:@"document.body.scrollHeight"];
-  UIScrollView *tempView=(UIScrollView *)[webView.subviews objectAtIndex:0];
-  tempView.scrollEnabled=NO;
     
-  [webView setFrame:CGRectMake(0, CGRectGetMaxY(productView.control.frame)+10, MainView_Width
-                               , [htmlHeight integerValue])];
+    NSString * htmlHeight = [webView stringByEvaluatingJavaScriptFromString:@"document.body.scrollHeight"];
+    UIScrollView *tempView=(UIScrollView *)[webView.subviews objectAtIndex:0];
+    tempView.scrollEnabled=NO;
+    
+    [webView setFrame:CGRectMake(0, CGRectGetMaxY(productView.control.frame)+10, MainView_Width
+                                 , [htmlHeight integerValue])];
     
     
     if (webView.tag==10001) {
@@ -484,7 +482,7 @@
             [SVProgressHUD showErrorWithStatus:@"出错,请稍后再试!"];
         }
     }];
-
+    
 }
 
 - (void)keyboardWillChangeFrame:(NSNotification *)note

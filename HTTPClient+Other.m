@@ -252,6 +252,28 @@
                parameters:parame
                completion:completionBlock];
 
+}
+
+//HP-MSGList
+- (AFHTTPRequestOperation *)GetUserMsgList:(NSString *)maxID WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
+
+    NSDictionary * dicParam;
+    dicParam = @{
+                 @"userId":g_UserId,
+                 @"maxId":maxID
+                 };
+    
+    return [self getPath:KMsgListURL parameters:dicParam completion:completionBlock];
+}
+
+//HP-GETFirstMsg
+- (AFHTTPRequestOperation *)GetUserFirstMsgWithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
+    NSDictionary * dicParam;
+    dicParam = @{
+                 @"userId":g_UserId
+                 };
+    
+    return [self getPath:KFirstMsgUrl parameters:dicParam completion:completionBlock];
 
 }
 @end

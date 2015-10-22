@@ -10,6 +10,7 @@
 #import "WWClothesUseTableViewCell.h"
 #import "WWClothesUseModel.h"
 #import "WWOrderAddressViewController.h"
+#import "WWProductDetailViewController.h"
 
 @interface WWOrderViewController ()<UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate>{
     WWPublicNavtionBar *navTionBarView;
@@ -23,6 +24,9 @@
 
 @property (nonatomic,strong)NSMutableArray  *orderClothesArray;
 
+@property (nonatomic,strong)UILabel         *orderOtherContentLab;
+@property (nonatomic,strong)UIButton        *orderSettlementBtn;
+
 @end
 
 @implementation WWOrderViewController
@@ -31,6 +35,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = WW_BASE_COLOR;
     self.orderClothesArray = [NSMutableArray new];
+    
     navTionBarView = [[WWPublicNavtionBar alloc]initWithLeftBtn:YES withTitle:@"确认订单" withRightBtn:NO withRightBtnPicName:nil withRightBtnSize:CGSizeZero];
     [self.view addSubview:navTionBarView];
     
@@ -90,16 +95,62 @@
     [promptViewContent sizeToFit];
     [promptView addSubview:promptViewContent];
     
-    self.orderClothesTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, promptView.bottom, MainView_Width, 75*kPercenX*3) style:UITableViewStylePlain];
+    // 加载数据
+    for (NSDictionary *dic  in [self.orderDataDic objectForKey:@"clientWardrobes"]) {
+        WWClothesUseModel *model = [WWClothesUseModel initWithClothesModel:dic];
+        [self.orderClothesArray addObject:model];
+    }
+    
+    self.orderClothesTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, promptView.bottom, MainView_Width, 75*kPercenX*self.orderClothesArray.count) style:UITableViewStylePlain];
     self.orderClothesTableView.delegate = self;
     self.orderClothesTableView.dataSource = self;
     self.orderClothesTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     self.orderClothesTableView.backgroundColor = [UIColor clearColor];
     self.orderClothesTableView.showsVerticalScrollIndicator = NO;
+    self.orderClothesTableView.scrollEnabled = NO;
     [self.orderBackScrollView addSubview:self.orderClothesTableView];
+    [self.orderClothesTableView reloadData];
+    
+    // 免费次数
+    NSString *expressCount = [self.orderDataDic objectForKey:@"expressCount"];
+    // 运费
+    NSString *freight = [self.orderDataDic objectForKey:@"freight"];
+    
+    // 底部view
+    UIView *bottonView = [[UIView alloc]initWithFrame:CGRectMake(0, MainView_Height-44*kPercenX, MainView_Width, iphone_size_scale(44))];
+    bottonView.backgroundColor = [UIColor whiteColor];
+    bottonView.alpha = 0.8f;
+    [self.view addSubview:bottonView];
+    UILabel *bottonUpLine = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, MainView_Width, 0.5f)];
+    bottonUpLine.backgroundColor = WWPageLineColor;
+    [bottonView addSubview:bottonUpLine];
+    // 运费+次数
+    self.orderOtherContentLab = [[UILabel alloc]initWithFrame:CGRectMake(5, 0, bottonView.width-125*kPercenX-10, bottonView.height)];
+    self.orderOtherContentLab.font = font_size(12);
+    self.orderOtherContentLab.textColor = RGBCOLOR(224, 162, 28);
+    if ([expressCount intValue] == 0) {
+        self.orderOtherContentLab.text = [NSString stringWithFormat:@"运费：￥%@",freight];
+    }else{
+        self.orderOtherContentLab.text = [NSString stringWithFormat:@"您还可免费更换%@次",expressCount];
+    }
+    [bottonView addSubview:self.orderOtherContentLab];
+    // 立即拥有
+    self.orderSettlementBtn = [UIButton buttonWithType: UIButtonTypeCustom];
+    self.orderSettlementBtn.frame = CGRectMake(bottonView.width-125*kPercenX, 0, iphone_size_scale(125), bottonView.height);
+    [self.orderSettlementBtn setTitle:@"立即拥有" forState:UIControlStateNormal];
+    [self.orderSettlementBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    self.orderSettlementBtn.titleLabel.font = font_size(14);
+    self.orderSettlementBtn.backgroundColor = WWBtnYellowColor;
+    [self.orderSettlementBtn setBackgroundImage:[WWUtilityClass imageWithColor:RGBCOLOR(211, 120, 23)] forState:UIControlStateHighlighted];
+//    [self.settlementBtn addTarget:self action:@selector(settlementClickEvent:) forControlEvents:UIControlEventTouchUpInside];
+    [bottonView addSubview:self.orderSettlementBtn];
+    
 }
 
-#pragma mark ----- UITableViewDataSource
+- (void)viewWillAppear:(BOOL)animated{
+    [self.orderClothesTableView reloadData];
+}
+
 #pragma mark --- UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -129,6 +180,9 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row < self.orderClothesArray.count) {
         WWClothesUseModel *model = [self.orderClothesArray objectAtIndex:indexPath.row];
+        WWProductDetailViewController *productDetailVC = [[WWProductDetailViewController alloc]init];
+        productDetailVC.strProductId = model.clothes_id;
+        [self.navigationController pushViewController:productDetailVC animated:YES];
     }
 }
 

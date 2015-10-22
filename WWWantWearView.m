@@ -14,7 +14,9 @@
 #define wantWearCollectionCell      @"wantWearCollectionCell"
 #define CollectionCell              @"CollectionCell"
 
-@interface WWWantWearView ()<UICollectionViewDataSource,UICollectionViewDelegate,UIAlertViewDelegate>
+@interface WWWantWearView ()<UICollectionViewDataSource,UICollectionViewDelegate,UIAlertViewDelegate>{
+    NSDictionary *clothesRequestDataDic;
+}
 
 @property (nonatomic,strong)UICollectionView            *clothesCollection;
 @property (nonatomic,strong)NSMutableArray              *clothesArray;
@@ -65,7 +67,7 @@
         [self.settlementBtn setTitle:@"立即拥有" forState:UIControlStateNormal];
         self.settlementBtn.titleLabel.font = font_size(14);
         self.settlementBtn.backgroundColor = WWBtnYellowColor;
-        [self.settlementBtn setImage:[WWUtilityClass imageWithColor:RGBCOLOR(211, 120, 23)] forState:UIControlStateHighlighted];
+        [self.settlementBtn setBackgroundImage:[WWUtilityClass imageWithColor:RGBCOLOR(211, 120, 23)] forState:UIControlStateHighlighted];
         [self.settlementBtn addTarget:self action:@selector(settlementClickEvent:) forControlEvents:UIControlEventTouchUpInside];
         [bottonView addSubview:self.settlementBtn];
         
@@ -76,8 +78,9 @@
             [FMHTTPClient GetWardrobeGoodsUserId:[WWUtilityClass getNSUserDefaults:UserID] WithCompletion:^(WebAPIResponse *response) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if (response.code == WebAPIResponseCodeSuccess) {
-                        NSDictionary *resultDic = [response.responseObject objectForKey:@"result"];
                         
+                        NSDictionary *resultDic = [response.responseObject objectForKey:@"result"];
+                        clothesRequestDataDic = resultDic;
                         // 免费次数
                         NSString *expressCount = [resultDic objectForKey:@"expressCount"];
                         // 运费
@@ -117,7 +120,7 @@
 //            return;
 //        }
 //    }
-    self.settlementBtnClickBlock();
+    self.settlementBtnClickBlock(clothesRequestDataDic);
     
 }
 

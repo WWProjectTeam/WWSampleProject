@@ -130,10 +130,18 @@
 //添加到衣柜
 #define KaddToCart                  @"yiyouv/wardrobe/save"
 
+<<<<<<< HEAD
 //获得消息列表
 #define KMsgListURL                 @"yiyouv/message/messages"
 
 //获得用户第一条消息
 #define KFirstMsgUrl                @"/yiyouv/message/first"
+=======
+//保存用户收获地址
+#define KSaveUserAddressURL         @"yiyouv/address/save"
+
+//删除用户收获地址
+#define KdeleteUserAddressURL     @"yiyouv/address/del?id=%@"
+>>>>>>> origin/master
 
 #endif

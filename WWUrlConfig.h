@@ -17,7 +17,20 @@
 #define UserID          @"id"
 #define UserImageURL    @"userImageURL"
 #define UserName        @"userName"
+#define UserPhone       @"userPhone"
 #define UserVipID       @"userVip"
 #define UserVipEndTime  @"UserVipEndTime"
+
+
+
+#pragma mark ------------------------------- NotificationName
+
+// 刷新个人信息
+#define WWRefreshUserInformation                @"refreshUserInformation"
+// 衣柜删除刷新信息
+#define WWDelegateWantWearGoods                 @"DelegateWantWearGoods"
+// 保存收货地址
+#define WWSaveUserAddress                       @"SaveUserAddress"
+
 
 #endif

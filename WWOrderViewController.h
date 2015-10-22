@@ -10,4 +10,6 @@
 
 @interface WWOrderViewController : UIViewController
 
+@property (nonatomic,strong)NSDictionary        *orderDataDic;
+
 @end

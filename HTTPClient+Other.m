@@ -253,8 +253,7 @@
                completion:completionBlock];
 }
 
-<<<<<<< HEAD
-}
+
 
 //HP-MSGList
 - (AFHTTPRequestOperation *)GetUserMsgList:(NSString *)maxID WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
@@ -276,7 +275,7 @@
                  };
     
     return [self getPath:KFirstMsgUrl parameters:dicParam completion:completionBlock];
-=======
+}
 //saveUserAddress
 - (AFHTTPRequestOperation *)PostSaveUserAddressWithUserId:(NSString *)userId WithName:(NSString*)name WithMobile:(NSString*)mobile WithCity:(NSString *)city WContent:(NSString *)content WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
     NSDictionary * dicParam = @{@"userId":userId,
@@ -292,7 +291,6 @@
                completion:completionBlock];
     
 }
->>>>>>> origin/master
 
 //deleteUserAddress
 - (AFHTTPRequestOperation *)GEtDeleteUserAddressId:(NSString *)goodId WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{

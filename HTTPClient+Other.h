@@ -77,7 +77,6 @@
 //PD-addToCartSubmit
 - (AFHTTPRequestOperation *)PostAddToCartWithProductId:(NSString *)productId WithColor:(NSString*)color WithSize:(NSString*)size WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
 
-<<<<<<< HEAD
 //HP-MSGList
 - (AFHTTPRequestOperation *)GetUserMsgList:(NSString *)maxID WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
 
@@ -86,12 +85,10 @@
 - (AFHTTPRequestOperation *)GetUserFirstMsgWithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
 
 
-=======
 
 //saveUserAddress
 - (AFHTTPRequestOperation *)PostSaveUserAddressWithUserId:(NSString *)userId WithName:(NSString*)name WithMobile:(NSString*)mobile WithCity:(NSString *)city WContent:(NSString *)content WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
 
 //deleteUserAddress
 - (AFHTTPRequestOperation *)GEtDeleteUserAddressId:(NSString *)goodId WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
->>>>>>> origin/master
 @end

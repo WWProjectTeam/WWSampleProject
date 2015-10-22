@@ -122,8 +122,9 @@
     __weak __typeof(&*self)weakSelf = self;
     WWWantWearView *wantVC = [[WWWantWearView alloc]initWithFrame:CGRectMake(0, 0, MainView_Width, self.clothesScrollView.height)];
     // 立即拥有
-    wantVC.settlementBtnClickBlock = ^{
+    wantVC.settlementBtnClickBlock = ^(NSDictionary *orderDic){
         WWOrderViewController *orderVC = [[WWOrderViewController alloc]init];
+        orderVC.orderDataDic = orderDic;
         [self.navigationController pushViewController:orderVC animated:YES];
     };
     // 购买VIP

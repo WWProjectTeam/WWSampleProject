@@ -17,7 +17,7 @@
 // 点击详情
 @property (nonatomic,copy)void (^collectionDidSelectItemBlock)(NSString *);
 // 立即拥有
-@property (nonatomic,copy)void (^settlementBtnClickBlock)();
+@property (nonatomic,copy)void (^settlementBtnClickBlock)(NSDictionary *);
 
 - (id)initWithFrame:(CGRect)frame;
 

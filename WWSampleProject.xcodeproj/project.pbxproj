@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		460BB6311BD88BE100211903 /* WWPaymentView.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BB6301BD88BE100211903 /* WWPaymentView.m */; settings = {ASSET_TAGS = (); }; };
 		462500E81BD5DE1200D3CC20 /* WWWantWearView.m in Sources */ = {isa = PBXBuildFile; fileRef = 462500E71BD5DE1200D3CC20 /* WWWantWearView.m */; settings = {ASSET_TAGS = (); }; };
 		462500EB1BD5E7A400D3CC20 /* WWWantWearCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 462500EA1BD5E7A400D3CC20 /* WWWantWearCollectionViewCell.m */; settings = {ASSET_TAGS = (); }; };
 		462500F01BD6373200D3CC20 /* WWClothesInTheUseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 462500EF1BD6373200D3CC20 /* WWClothesInTheUseView.m */; settings = {ASSET_TAGS = (); }; };
@@ -248,6 +249,8 @@
 
 /* Begin PBXFileReference section */
 		16AE9000BDCE5CAC294783BF /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		460BB62F1BD88BE100211903 /* WWPaymentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWPaymentView.h; sourceTree = "<group>"; };
+		460BB6301BD88BE100211903 /* WWPaymentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWPaymentView.m; sourceTree = "<group>"; };
 		462500E61BD5DE1200D3CC20 /* WWWantWearView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWWantWearView.h; sourceTree = SOURCE_ROOT; };
 		462500E71BD5DE1200D3CC20 /* WWWantWearView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWWantWearView.m; sourceTree = SOURCE_ROOT; };
 		462500E91BD5E7A400D3CC20 /* WWWantWearCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWWantWearCollectionViewCell.h; sourceTree = SOURCE_ROOT; };
@@ -744,6 +747,8 @@
 			children = (
 				4626E4F11BCE49D900D902B4 /* WWVIPPackageViewController.h */,
 				4626E4F21BCE49D900D902B4 /* WWVIPPackageViewController.m */,
+				460BB62F1BD88BE100211903 /* WWPaymentView.h */,
+				460BB6301BD88BE100211903 /* WWPaymentView.m */,
 			);
 			name = "VIP套餐";
 			sourceTree = "<group>";
@@ -1949,6 +1954,7 @@
 				46D3FF471BCBFB630091AF67 /* WebAPIResponse.m in Sources */,
 				4A3F45061BD71DD200EEB35A /* WWAddToCartPopView.m in Sources */,
 				4626E4F81BCE503600D902B4 /* WWLoginViewController.m in Sources */,
+				460BB6311BD88BE100211903 /* WWPaymentView.m in Sources */,
 				4648E74E1BCD5FEE00A54035 /* WWAboutUsPageViewController.m in Sources */,
 				4AD21AF21BA025DD00B4BDDC /* WWHomePageViewController.m in Sources */,
 				46D3FF7B1BCC03DB0091AF67 /* AFImageRequestOperation.m in Sources */,

@@ -11,6 +11,7 @@
 #import "WWClothesUseModel.h"
 #import "WWOrderAddressViewController.h"
 #import "WWProductDetailViewController.h"
+#import "WWAddRessModel.h"
 
 @interface WWOrderViewController ()<UIScrollViewDelegate,UITableViewDataSource,UITableViewDelegate>{
     WWPublicNavtionBar *navTionBarView;
@@ -34,6 +35,12 @@
 @property (nonatomic,strong)UIButton    *weChatBtn;
 @property (nonatomic,strong)UIButton    *allPayBtn;
 
+// 用户地址
+@property (nonatomic,strong)UIView          *backView;
+@property (nonatomic,strong)UILabel         *userName;
+@property (nonatomic,strong)UILabel         *userPhone;
+@property (nonatomic,strong)UILabel         *userAddRess;
+
 @end
 
 @implementation WWOrderViewController
@@ -48,14 +55,13 @@
     
     //背景view
     self.orderBackScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, IOS7_Y+44, MainView_Width, MainView_Height-IOS7_Y-44)];
-    self.orderBackScrollView.contentSize = CGSizeMake(0, 0);
-    self.orderBackScrollView.scrollEnabled = NO;
-    self.orderBackScrollView.bounces = NO;
+//    self.orderBackScrollView.bounces = NO;
     self.orderBackScrollView.delegate = self;
     self.orderBackScrollView.showsHorizontalScrollIndicator = NO;
     self.orderBackScrollView.showsVerticalScrollIndicator = NO;
     self.orderBackScrollView.backgroundColor = [UIColor clearColor];
     [self.view addSubview:self.orderBackScrollView];
+    
     
     // 收获地址
     self.orderAddressView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, MainView_Width, 76*kPercenX)];
@@ -77,6 +83,32 @@
     UIImageView *arrowImage = [[UIImageView alloc]initWithFrame:CGRectMake(self.orderAddressView.width-24*kPercenX, (self.orderAddressView.height-24*kPercenX)/2, 24*kPercenX, 24*kPercenX)];
     arrowImage.image = [UIImage imageNamed:@"check--details"];
     [self.orderAddressView addSubview:arrowImage];
+    
+    self.backView = [[UIView alloc]initWithFrame:CGRectMake(iconImage.right+10, 1, self.orderAddressView.width-iconImage.width-25-arrowImage.width, self.orderAddressView.height-1)];
+    self.backView.backgroundColor = [UIColor whiteColor];
+    [self.orderAddressView addSubview:self.backView];
+    
+    // 用户名称
+    self.userName = [[UILabel alloc]init];
+    self.userName.textColor = RGBCOLOR(20, 20, 20);
+    self.userName.font = font_size(14);
+    [self.backView addSubview:self.userName];
+    
+    // 用户手机
+    self.userPhone = [[UILabel alloc]init];
+    self.userPhone.font = font_size(13);
+    self.userPhone.textColor = [UIColor blackColor];
+    [self.backView addSubview:self.userPhone];
+    
+    // 用户收货地址
+    self.userAddRess = [[UILabel alloc]init];
+    self.userAddRess.font = font_size(12);
+    self.userAddRess.textColor = WWContentTextColor;
+    self.userAddRess.numberOfLines = 2;
+    [self.backView addSubview:self.userAddRess];
+    
+    self.backView.hidden = YES;
+    
     UIButton *orderBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     orderBtn.frame = CGRectMake(0, 0, self.orderAddressView.width, self.orderAddressView.height);
     [orderBtn addTarget:self action:@selector(orderClickEvent:) forControlEvents:UIControlEventTouchUpInside];
@@ -121,7 +153,6 @@
     // 底部view
     UIView *bottonView = [[UIView alloc]initWithFrame:CGRectMake(0, MainView_Height-44*kPercenX, MainView_Width, iphone_size_scale(44))];
     bottonView.backgroundColor = [UIColor whiteColor];
-    bottonView.alpha = 0.8f;
     [self.view addSubview:bottonView];
     UILabel *bottonUpLine = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, MainView_Width, 0.5f)];
     bottonUpLine.backgroundColor = WWPageLineColor;
@@ -149,11 +180,15 @@
     if ([expressCount intValue] == 0) {
         self.orderOtherContentLab.text = [NSString stringWithFormat:@"运费：￥%@",freight];
         [self payMentView];
-        self.orderBackScrollView.contentSize = CGSizeMake(MainView_Width, self.orderAddressView.height+promptView.height+self.orderClothesTableView.height+100);
+        self.orderBackScrollView.contentSize = CGSizeMake(MainView_Width, self.orderAddressView.height+promptView.height+self.orderClothesTableView.height+150);
     }else{
         self.orderOtherContentLab.text = [NSString stringWithFormat:@"您还可免费更换%@次",expressCount];
         self.orderBackScrollView.contentSize = CGSizeMake(MainView_Width, self.orderAddressView.height+promptView.height+self.orderClothesTableView.height+10);
     }
+}
+
+- (void)userOrderAddRessView{
+    
 }
 
 - (void)payMentView{
@@ -162,7 +197,7 @@
      */
     self.payBackView = [[UIView alloc]initWithFrame:CGRectMake(0, self.orderClothesTableView.bottom+5, MainView_Width, 44*kPercenX)];
     self.payBackView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.payBackView];
+    [self.orderBackScrollView addSubview:self.payBackView];
     // 方向箭头
     self.payArrowImage = [[UIImageView alloc]initWithFrame:CGRectMake(self.payBackView.width-24*kPercenX, (self.payBackView.height-24*kPercenX)/2, 24*kPercenX, 24*kPercenX)];
     self.payArrowImage.image = [UIImage imageNamed:@"check--details1"];
@@ -197,7 +232,7 @@
 #pragma mark --- 支付选择
     self.payDetailView = [[UIView alloc]initWithFrame:CGRectMake(0, self.payBackView.bottom, MainView_Width, 60*kPercenX)];
     self.payDetailView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.payDetailView];
+    [self.orderBackScrollView addSubview:self.payDetailView];
     // 微信
     UIView *weChatView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, MainView_Width, self.payDetailView.height/2)];
     weChatView.backgroundColor = [UIColor whiteColor];
@@ -285,11 +320,12 @@
     }];
     if (bol == YES) {
         self.payDetailView.hidden = NO;
+        self.orderBackScrollView.contentOffset = CGPointMake(0, 120);
     }else{
         self.payDetailView.hidden = YES;
+        self.orderBackScrollView.contentOffset = CGPointMake(0, 0);
     }
 }
-
 
 - (void)viewWillAppear:(BOOL)animated{
     [self.orderClothesTableView reloadData];
@@ -333,6 +369,25 @@
 // 添加收货地址
 - (void)orderClickEvent:(UIButton *)sender{
     WWOrderAddressViewController *addressVC = [[WWOrderAddressViewController alloc]init];
+    addressVC.userOrderAddressBlock= ^(WWAddRessModel *model){
+        self.backView.hidden = NO;
+        self.userName.text = [NSString stringWithFormat:@"收货人：%@",model.userName];
+        self.userPhone.text = model.mobile;
+        self.userAddRess.text = [NSString stringWithFormat:@"收货地址：%@%@",model.cityStr,model.content];
+        CGSize navSize = CGSizeMake(150, 20000.0f);
+        navSize = [self.userName.text sizeWithFont:self.userName.font constrainedToSize:navSize lineBreakMode:NSLineBreakByCharWrapping];
+        self.userName.frame = CGRectMake(0, 10, navSize.width, navSize.height);
+        CGSize navSizePhone = CGSizeMake(300, 20000.0f);
+        navSizePhone = [self.userPhone.text sizeWithFont:self.userPhone.font constrainedToSize:navSize lineBreakMode:NSLineBreakByCharWrapping];
+        self.userPhone.frame = CGRectMake(self.backView.width-navSizePhone.width, 10, navSizePhone.width, navSizePhone.height);
+        NSMutableAttributedString * attributedString1 = [[NSMutableAttributedString alloc] initWithString:self.userAddRess.text];
+        NSMutableParagraphStyle * paragraphStyle1 = [[NSMutableParagraphStyle alloc] init];
+        [paragraphStyle1 setLineSpacing:5];
+        [attributedString1 addAttribute:NSParagraphStyleAttributeName value:paragraphStyle1 range:NSMakeRange(0, [self.userAddRess.text length])];
+        [self.userAddRess setAttributedText:attributedString1];
+        [self.userAddRess sizeToFit];
+        self.userAddRess.frame =CGRectMake(0, self.userName.bottom+5, 250, 40);
+    };
     [self.navigationController pushViewController:addressVC animated:YES];
 }
 

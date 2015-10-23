@@ -99,19 +99,21 @@
         cell.backgroundColor = [UIColor clearColor];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
     }
-    cell.addRessSelectBtnClickBlock= ^{
-        
-    };
     
     RadioButton *radio = [[RadioButton alloc]init];
-    [radio setImage:[UIImage imageNamed:@"btn_zf_n@3x"] forState:UIControlStateNormal];
-    [radio setImage:[UIImage imageNamed:@"btn_zf_c@3x"] forState:UIControlStateSelected];
-//    [radio addTarget:self action:@selector(selectBtnClickEvent:) forControlEvents:UIControlEventTouchUpInside];
+    [radio setBackgroundImage:[WWUtilityClass imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+    [radio setBackgroundImage:[WWUtilityClass imageWithColor:RGBCOLOR(5, 178, 15)] forState:UIControlStateSelected];
+    radio.layer.cornerRadius = 14*kPercenX/2;
+    radio.layer.borderColor = RGBCOLOR(128, 128, 128).CGColor;
+    radio.layer.borderWidth = 1;
+    radio.layer.masksToBounds = YES;
+    radio.tag = indexPath.row;
+    [radio addTarget:self action:@selector(selectBtnClickEvent:) forControlEvents:UIControlEventTouchUpInside];
     [arrSelectBtn addObject:radio];
     //设置默认
-    if (indexPath.row==0) {
-        [radio setSelected:YES];
-    }
+//    if (indexPath.row==0) {
+//        [radio setSelected:YES];
+//    }
     //设置单选组
     if (indexPath.row==arrSelectBtn.count-1) {
         radio.groupButtons = arrSelectBtn;
@@ -158,6 +160,13 @@
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
     // 更换数据的顺序
     [self.addRessArray exchangeObjectAtIndex:sourceIndexPath.row withObjectAtIndex:destinationIndexPath.row];
+}
+
+- (void)selectBtnClickEvent:(RadioButton *)sender{
+    if (sender.tag < self.addRessArray.count) {
+        WWAddRessModel *model = [self.addRessArray objectAtIndex:sender.tag];
+        self.userOrderAddressBlock(model);
+    }
 }
 
 - (void)navRightClickEvent:(UIButton *)sender{

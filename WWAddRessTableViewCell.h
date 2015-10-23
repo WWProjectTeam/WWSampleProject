@@ -12,7 +12,6 @@
 
 @interface WWAddRessTableViewCell : UITableViewCell
 
-@property (nonatomic,copy)void (^addRessSelectBtnClickBlock)();
 @property (nonatomic,strong)UIView          *backView;
 
 - (void)initRequestAddRessData:(WWAddRessModel *)dicInfor;

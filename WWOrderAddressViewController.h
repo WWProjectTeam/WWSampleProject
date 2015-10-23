@@ -7,7 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "WWAddRessModel.h"
 @interface WWOrderAddressViewController : UIViewController
+
+@property (nonatomic,copy)void (^userOrderAddressBlock)(WWAddRessModel *);
 
 @end

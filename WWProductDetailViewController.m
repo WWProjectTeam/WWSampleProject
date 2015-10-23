@@ -150,6 +150,8 @@
                 if ([[NSString stringWithFormat:@"%@",dict[@"code"]]isEqualToString:WWAppSuccessCode]) {
                     [SVProgressHUD showSuccessWithStatus:@"添加成功!"];
                     [weakself.addCartPopView setHidden:YES];
+                    // 通知--刷新衣柜信息
+                    [[NSNotificationCenter defaultCenter] postNotificationName:WWRefreshUserInformation object:nil];
                     
                 }
                 else

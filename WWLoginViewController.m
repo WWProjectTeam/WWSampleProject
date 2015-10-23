@@ -191,7 +191,7 @@
                 if ([[vipDic objectForKey:@"state"] intValue] == 1) {
                     [WWUtilityClass saveNSUserDefaults:UserVipEndTime value:[vipDic objectForKey:@"endTime"]];
                 }
-                
+                [SVProgressHUD showErrorWithStatus:@"登陆成功"];
                 // 通知--刷新个人信息
                 [[NSNotificationCenter defaultCenter] postNotificationName:WWRefreshUserInformation object:nil];
                 // 返回上级

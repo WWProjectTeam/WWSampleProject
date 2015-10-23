@@ -38,6 +38,10 @@
                                                  selector:@selector(refreshWantWearClothesNum:)
                                                      name:WWDelegateWantWearGoods
                                                    object:nil];
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(refreshWantWearClothesNum:)
+                                                     name:WWRefreshUserInformation
+                                                   object:nil];
         
         //collectView
         UICollectionViewFlowLayout *flowLayout =[[UICollectionViewFlowLayout alloc]init];

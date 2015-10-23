@@ -105,8 +105,8 @@
     
     [imgProduct sd_setImageWithURL:[NSURL URLWithString:dict[@"imgurl"]] placeholderImage:[UIImage imageNamed:@"bg_yfxq"]];
     
+    [labelColthSpressNum setText:[NSString stringWithFormat:@"衣柜:共有%@件衣服",dict[@"wardrobe"]]];
     
-    labelDesc.text = [NSString stringWithFormat:@"衣柜满%@件才能达到借穿条件",dict[@"wardrobe"]];
     
     UILabel * labelSize = [[UILabel alloc]init];
     [labelSize setText:@"尺寸"];

@@ -16,7 +16,6 @@
 @property (nonatomic,strong)UILabel         *userName;
 @property (nonatomic,strong)UILabel         *userPhone;
 @property (nonatomic,strong)UILabel         *userAddRess;
-@property (nonatomic,strong)UIButton        *selectBtn;
 
 @end
 

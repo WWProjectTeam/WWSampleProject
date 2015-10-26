@@ -13,12 +13,17 @@
 //微信
 #import "WXApi.h"
 
+#import "GeTuiSdk.h"
 
 extern NSString * g_UserId;
 extern NSString * g_UserName;
 extern NSString * g_UserHeadImage;
 
-@interface AppDelegate : UIResponder <UIApplicationDelegate,WXApiDelegate,UITabBarDelegate>
+@interface AppDelegate : UIResponder <UIApplicationDelegate,WXApiDelegate,UITabBarDelegate,GeTuiSdkDelegate>{
+    NSString *_deviceToken;
+    NSString *_clientId;
+    NSString *_payloadId;
+}
 
 @property (strong, nonatomic) UIWindow *window;
 

@@ -11,6 +11,8 @@
 
 @interface WWLoginViewController (){
     WWPublicNavtionBar *navtionBarView;
+    NSTimer *timer;
+    int seconds;
 }
 
 @property (nonatomic,strong)UIView          *phoneBackView;         // 手机号
@@ -43,7 +45,7 @@
         }];
     };
     [self.view addSubview:navtionBarView];
- 
+    
     [self loginPageLayout];
 }
 
@@ -142,6 +144,8 @@
 
 // 请求动态密码
 - (void)getDynamicPasswordRequest{
+    timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(timerFireMethod:) userInfo:nil repeats:YES];
+    seconds = 90;
     [self.passwordTextField becomeFirstResponder];
     if ([self.phoneTextField.text isEqualToString:@""]) {
         [SVProgressHUD showInfoWithStatus:@"请输入手机号"];
@@ -192,6 +196,8 @@
                     [WWUtilityClass saveNSUserDefaults:UserVipEndTime value:[vipDic objectForKey:@"endTime"]];
                 }
                 [SVProgressHUD showErrorWithStatus:@"登陆成功"];
+                //如果登陆成功，停止验证码的倒数，
+                [self releaseTImer];
                 // 通知--刷新个人信息
                 [[NSNotificationCenter defaultCenter] postNotificationName:WWRefreshUserInformation object:nil];
                 // 返回上级
@@ -208,6 +214,38 @@
         });
     }];
 }
+
+
+
+
+
+//倒计时方法验证码实现倒计时60秒，60秒后按钮变换开始的样子
+-(void)timerFireMethod:(NSTimer *)theTimer {
+    if (seconds == 1) {
+        [theTimer invalidate];
+        [self.getPasswordBtn setTitle:@"获取动态密码" forState: UIControlStateNormal];
+        [self.getPasswordBtn setEnabled:YES];
+    }else{
+        seconds--;
+        NSString *title = [NSString stringWithFormat:@"%ds后重新获取",seconds];
+        [self.getPasswordBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        [self.getPasswordBtn setEnabled:NO];
+        [self.getPasswordBtn setTitle:title forState:UIControlStateNormal];
+    }
+}
+//如果登陆成功，停止验证码的倒数，
+- (void)releaseTImer {
+    if (timer) {
+        if ([timer respondsToSelector:@selector(isValid)]) {
+            if ([timer isValid]) {
+                [timer invalidate];
+                seconds = 90;
+            }
+        }
+    }
+}
+
+
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {

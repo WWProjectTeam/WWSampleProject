@@ -16,7 +16,6 @@
 #import <AlipaySDK/AlipaySDK.h>
 
 #import "APAuthV2Info.h"
-
 @implementation UIViewController (AOP)
 
 + (void)load
@@ -51,7 +50,9 @@
             g_UserId = [WWUtilityClass getNSUserDefaults:UserID];
 
         }
-
+        
+        //个推
+       // [self s];
     });
 }
 
@@ -99,6 +100,7 @@ void swizzleMethod(Class class, SEL originalSelector,SEL swizzledSelector)
     [self aop_viewDidLoad];
    
 }
+
 
 #pragma mark -
 #pragma mark   ==============产生随机订单号==============

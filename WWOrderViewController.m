@@ -310,7 +310,7 @@
     if (self.payDetailView.hidden == YES) {
         [self payDetailViewHidden:YES];
     }else{
-        [self payDetailViewHidden:NO];
+        [self payDetailViewHidden:NO]; 
     }
 }
 

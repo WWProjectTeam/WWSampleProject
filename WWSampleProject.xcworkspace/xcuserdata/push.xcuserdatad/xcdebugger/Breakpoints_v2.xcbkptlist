@@ -9,13 +9,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "AppDelegate.mm"
-            timestampString = "467458107.588126"
+            filePath = "WWUserInformationViewController.m"
+            timestampString = "467548283.140362"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "287"
-            endingLineNumber = "287"
-            landmarkName = "-GeTuiSdkDidReceivePayload:andTaskId:andMessageId:fromApplication:"
+            startingLineNumber = "309"
+            endingLineNumber = "309"
+            landmarkName = "-uploadImage"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

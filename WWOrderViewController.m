@@ -180,7 +180,7 @@
     if ([expressCount intValue] == 0) {
         self.orderOtherContentLab.text = [NSString stringWithFormat:@"运费：￥%@",freight];
         [self payMentView];
-        self.orderBackScrollView.contentSize = CGSizeMake(MainView_Width, self.orderAddressView.height+promptView.height+self.orderClothesTableView.height+150);
+        self.orderBackScrollView.contentSize = CGSizeMake(MainView_Width, self.orderAddressView.height+promptView.height+self.orderClothesTableView.height+180);
     }else{
         self.orderOtherContentLab.text = [NSString stringWithFormat:@"您还可免费更换%@次",expressCount];
         self.orderBackScrollView.contentSize = CGSizeMake(MainView_Width, self.orderAddressView.height+promptView.height+self.orderClothesTableView.height+10);
@@ -230,7 +230,7 @@
     [self.payBackView addSubview:payClickBtn];
     
 #pragma mark --- 支付选择
-    self.payDetailView = [[UIView alloc]initWithFrame:CGRectMake(0, self.payBackView.bottom, MainView_Width, 60*kPercenX)];
+    self.payDetailView = [[UIView alloc]initWithFrame:CGRectMake(0, self.payBackView.bottom, MainView_Width, 80*kPercenX)];
     self.payDetailView.backgroundColor = [UIColor whiteColor];
     [self.orderBackScrollView addSubview:self.payDetailView];
     // 微信
@@ -252,9 +252,12 @@
     self.weChatBtn.frame = CGRectMake(weChatView.width-8-14*kPercenX, (weChatView.height-14*kPercenX)/2, iphone_size_scale(14), iphone_size_scale(14));
     [self.weChatBtn setImage:[UIImage imageNamed:@"btn_zf_n@3x"] forState:UIControlStateNormal];
     [self.weChatBtn setImage:[UIImage imageNamed:@"btn_zf_c@3x"] forState:UIControlStateSelected];
-    [self.weChatBtn addTarget:self action:@selector(payBtnClickEvent:) forControlEvents:UIControlEventTouchUpInside];
-    self.weChatBtn.tag = 20000;
     [weChatView addSubview:self.weChatBtn];
+    UIButton *weChat = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    weChat.frame = CGRectMake(0, 0, weChatView.width, weChatView.height);
+    [weChat addTarget:self action:@selector(payBtnClickEvent:) forControlEvents:UIControlEventTouchUpInside];
+    weChat.tag = 20000;
+    [weChatView addSubview:weChat];
     
     // 支付宝
     UIView *allPayView = [[UIView alloc]initWithFrame:CGRectMake(0, weChatView.bottom, MainView_Width, self.payDetailView.height/2)];
@@ -284,9 +287,12 @@
     [self.allPayBtn setImage:[UIImage imageNamed:@"btn_zf_n@3x"] forState:UIControlStateNormal];
     [self.allPayBtn setImage:[UIImage imageNamed:@"btn_zf_c@3x"] forState:UIControlStateSelected];
     self.allPayBtn.selected = YES;
-    [self.allPayBtn addTarget:self action:@selector(payBtnClickEvent:) forControlEvents:UIControlEventTouchUpInside];
-    self.allPayBtn.tag = 20001;
     [allPayView addSubview:self.allPayBtn];
+    UIButton *allpay = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    allpay.frame = CGRectMake(0, 0, allPayView.width, allPayView.height);
+    [allpay addTarget:self action:@selector(payBtnClickEvent:) forControlEvents:UIControlEventTouchUpInside];
+    allpay.tag = 20001;
+    [allPayView addSubview:allpay];
     
     self.payDetailView.hidden = YES;
 
@@ -320,7 +326,7 @@
     }];
     if (bol == YES) {
         self.payDetailView.hidden = NO;
-        self.orderBackScrollView.contentOffset = CGPointMake(0, 120);
+        self.orderBackScrollView.contentOffset = CGPointMake(0, 140);
     }else{
         self.payDetailView.hidden = YES;
         self.orderBackScrollView.contentOffset = CGPointMake(0, 0);

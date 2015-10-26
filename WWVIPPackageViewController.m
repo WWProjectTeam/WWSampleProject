@@ -8,7 +8,7 @@
 
 #import "WWVIPPackageViewController.h"
 #import "HTTPClient+Other.h"
-
+#import "WWVIPProtocolViewController.h"
 @interface WWVIPPackageViewController ()<UIPickerViewDataSource,UIPickerViewDelegate>{
     WWPublicNavtionBar *navTionBarView;
 }
@@ -54,7 +54,7 @@
         });
     }];
     // 选择view
-    self.pickBackView = [[UIView alloc]initWithFrame:CGRectMake(35, MainView_Height, MainView_Width-70, 250)];
+    self.pickBackView = [[UIView alloc]initWithFrame:CGRectMake(0, MainView_Height, MainView_Width, 250)];
     self.pickBackView.layer.cornerRadius = 5.0f;
     self.pickBackView.layer.masksToBounds = YES;
     self.pickBackView.backgroundColor = [UIColor whiteColor];
@@ -97,10 +97,10 @@
     arrowImage.image = [UIImage imageNamed:@"check--details"];
     [VIPBackView addSubview:arrowImage];
     // 上下线条
-    UILabel *upLine = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, VIPBackView.width, 1)];
+    UILabel *upLine = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, VIPBackView.width, 0.5f)];
     upLine.backgroundColor = WWPageLineColor;
     [VIPBackView addSubview:upLine];
-    UILabel *downLine = [[UILabel alloc]initWithFrame:CGRectMake(0, VIPBackView.height-1, VIPBackView.width, 1)];
+    UILabel *downLine = [[UILabel alloc]initWithFrame:CGRectMake(0, VIPBackView.height-0.5f, VIPBackView.width, 0.5f)];
     downLine.backgroundColor = WWPageLineColor;
     [VIPBackView addSubview:downLine];
     // 点击事件
@@ -122,10 +122,10 @@
     openTimeArrowImage.image = [UIImage imageNamed:@"check--details"];
     [openTimeView addSubview:openTimeArrowImage];
     // 上下线条
-    UILabel *openTimeUpLine = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, openTimeView.width, 1)];
+    UILabel *openTimeUpLine = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, openTimeView.width, 0.5f)];
     openTimeUpLine.backgroundColor = WWPageLineColor;
     [openTimeView addSubview:openTimeUpLine];
-    UILabel *openTimeDownLine = [[UILabel alloc]initWithFrame:CGRectMake(0, openTimeView.height-1, openTimeView.width, 1)];
+    UILabel *openTimeDownLine = [[UILabel alloc]initWithFrame:CGRectMake(0, openTimeView.height-0.5f, openTimeView.width, 0.5f)];
     openTimeDownLine.backgroundColor = WWPageLineColor;
     [openTimeView addSubview:openTimeDownLine];
     //openTimeLabel
@@ -160,10 +160,10 @@
     self.payArrowImage.image = [UIImage imageNamed:@"check--details1"];
     [self.payBackView addSubview:self.payArrowImage];
     // 上下线条
-    UILabel *payUpLine = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.payBackView.width, 1)];
+    UILabel *payUpLine = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.payBackView.width, 0.5f)];
     payUpLine.backgroundColor = WWPageLineColor;
     [self.payBackView addSubview:payUpLine];
-    UILabel *payDownLine = [[UILabel alloc]initWithFrame:CGRectMake(0, self.payBackView.height-1, self.payBackView.width, 1)];
+    UILabel *payDownLine = [[UILabel alloc]initWithFrame:CGRectMake(0, self.payBackView.height-0.5f, self.payBackView.width, 0.5f)];
     payDownLine.backgroundColor = WWPageLineColor;
     [self.payBackView addSubview:payDownLine];
     //payLabel
@@ -187,7 +187,7 @@
     [self.payBackView addSubview:payClickBtn];
     
 #pragma mark --- 支付选择
-    self.payDetailView = [[UIView alloc]initWithFrame:CGRectMake(0, self.payBackView.bottom, MainView_Width, 60*kPercenX)];
+    self.payDetailView = [[UIView alloc]initWithFrame:CGRectMake(0, self.payBackView.bottom, MainView_Width, 80*kPercenX)];
     self.payDetailView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.payDetailView];
     // 微信
@@ -209,9 +209,12 @@
     self.weChatBtn.frame = CGRectMake(weChatView.width-8-14*kPercenX, (weChatView.height-14*kPercenX)/2, iphone_size_scale(14), iphone_size_scale(14));
     [self.weChatBtn setImage:[UIImage imageNamed:@"btn_zf_n@3x"] forState:UIControlStateNormal];
     [self.weChatBtn setImage:[UIImage imageNamed:@"btn_zf_c@3x"] forState:UIControlStateSelected];
-    [self.weChatBtn addTarget:self action:@selector(payBtnClickEvent:) forControlEvents:UIControlEventTouchUpInside];
-    self.weChatBtn.tag = 20000;
     [weChatView addSubview:self.weChatBtn];
+    UIButton *weChat = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    weChat.frame = CGRectMake(0, 0, weChatView.width, weChatView.height);
+    [weChat addTarget:self action:@selector(payBtnClickEvent:) forControlEvents:UIControlEventTouchUpInside];
+    weChat.tag = 20000;
+    [weChatView addSubview:weChat];
     
     // 支付宝
     UIView *allPayView = [[UIView alloc]initWithFrame:CGRectMake(0, weChatView.bottom, MainView_Width, self.payDetailView.height/2)];
@@ -222,14 +225,14 @@
     allPayIconImage.image = [UIImage imageNamed:@"支付宝"];
     [allPayView addSubview:allPayIconImage];
     // 支付宝上下线条
-    UILabel *allPayUpLine = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, allPayView.width, 1)];
+    UILabel *allPayUpLine = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, allPayView.width, 0.5f)];
     allPayUpLine.backgroundColor = WWPageLineColor;
     [allPayView addSubview:allPayUpLine];
-    UILabel *allPayDownLine = [[UILabel alloc]initWithFrame:CGRectMake(0, allPayView.height-1, allPayView.width, 1)];
+    UILabel *allPayDownLine = [[UILabel alloc]initWithFrame:CGRectMake(0, allPayView.height-0.5f, allPayView.width, 0.5f)];
     allPayDownLine.backgroundColor = WWPageLineColor;
     [allPayView addSubview:allPayDownLine];
     // 文字
-    UILabel *allPayLab = [[UILabel alloc]initWithFrame:CGRectMake(allPayIconImage.right+5, (allPayView.height-13*kPercenX)/2, 50, iphone_size_scale(13))];
+    UILabel *allPayLab = [[UILabel alloc]initWithFrame:CGRectMake(allPayIconImage.right, (allPayView.height-13*kPercenX)/2, 50, iphone_size_scale(13))];
     allPayLab.textAlignment = NSTextAlignmentCenter;
     allPayLab.text = @"支付宝";
     allPayLab.textColor = WWContentTextColor;
@@ -241,9 +244,12 @@
     [self.allPayBtn setImage:[UIImage imageNamed:@"btn_zf_n@3x"] forState:UIControlStateNormal];
     [self.allPayBtn setImage:[UIImage imageNamed:@"btn_zf_c@3x"] forState:UIControlStateSelected];
     self.allPayBtn.selected = YES;
-    [self.allPayBtn addTarget:self action:@selector(payBtnClickEvent:) forControlEvents:UIControlEventTouchUpInside];
-    self.allPayBtn.tag = 20001;
     [allPayView addSubview:self.allPayBtn];
+    UIButton *allpay = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    allpay.frame = CGRectMake(0, 0, allPayView.width, allPayView.height);
+    [allpay addTarget:self action:@selector(payBtnClickEvent:) forControlEvents:UIControlEventTouchUpInside];
+    allpay.tag = 20001;
+    [allPayView addSubview:allpay];
     
     self.payDetailView.hidden = YES;
     
@@ -296,10 +302,11 @@
 // 触发点击事件
 - (void)buttonClickEvent:(UIButton *)sender{
     if (sender.tag == 10000) {
-        
+        WWVIPProtocolViewController *vipProtocolVC = [[WWVIPProtocolViewController alloc]init];
+        [self.navigationController pushViewController:vipProtocolVC animated:YES];
     }else if(sender.tag == 10001){
         [UIView animateWithDuration:0.3 animations:^{
-            self.pickBackView.frame = CGRectMake(35, MainView_Height-250, MainView_Width-70, 250);
+            self.pickBackView.frame = CGRectMake(0, MainView_Height-250, MainView_Width, 250);
         }];
         self.pickView.dataSource = self;
         self.pickView.delegate = self;
@@ -326,13 +333,13 @@
 - (void)pickerViewBtnClick:(UIButton *)sender{
     
     [UIView animateWithDuration:0.3 animations:^{
-        self.pickBackView.frame = CGRectMake(35, MainView_Height, MainView_Width-70, 250);
+        self.pickBackView.frame = CGRectMake(0, MainView_Height, MainView_Width, 250);
     }];
 }
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [UIView animateWithDuration:0.3 animations:^{
-        self.pickBackView.frame = CGRectMake(35, MainView_Height, MainView_Width-70, 250);
+        self.pickBackView.frame = CGRectMake(0, MainView_Height, MainView_Width, 250);
     }];
 }
 

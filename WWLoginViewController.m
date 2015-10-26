@@ -8,6 +8,7 @@
 
 #import "WWLoginViewController.h"
 #import "HTTPClient+Other.h"
+#import "WWYiYouVProtocolViewController.h"
 
 @interface WWLoginViewController (){
     WWPublicNavtionBar *navtionBarView;
@@ -32,7 +33,7 @@
     [super viewDidLoad];
     self.view.backgroundColor = WW_BASE_COLOR;
     
-    navtionBarView = [[WWPublicNavtionBar alloc]initWithLeftBtn:YES withTitle:@"登陆" withRightBtn:NO withRightBtnPicName:@"" withRightBtnSize:CGSizeZero];
+    navtionBarView = [[WWPublicNavtionBar alloc]initWithLeftBtn:YES withTitle:@"登录" withRightBtn:NO withRightBtnPicName:@"" withRightBtnSize:CGSizeZero];
     __weak __typeof(&*self)weakSelf = self;
     navtionBarView.TapLeftButton = ^{
         AppDelegate * appdelegate = (AppDelegate * )[UIApplication sharedApplication].delegate;
@@ -57,10 +58,10 @@
         backView;
     });
     // 上下线条
-    UILabel *upLine = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.phoneBackView.width, 1)];
+    UILabel *upLine = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.phoneBackView.width, 0.5f)];
     upLine.backgroundColor = WWPageLineColor;
     [self.phoneBackView addSubview:upLine];
-    UILabel *downLine = [[UILabel alloc]initWithFrame:CGRectMake(0, self.phoneBackView.height-1, self.phoneBackView.width, 1)];
+    UILabel *downLine = [[UILabel alloc]initWithFrame:CGRectMake(0, self.phoneBackView.height-0.5f, self.phoneBackView.width, 0.5f)];
     downLine.backgroundColor = WWPageLineColor;
     [self.phoneBackView addSubview:downLine];
     
@@ -75,6 +76,7 @@
         phoneTextField.font = [UIFont systemFontOfSize:14.0f*kPercenX];
         phoneTextField.textColor = RGBCOLOR(128, 128, 128);
         [self.phoneBackView addSubview:phoneTextField];
+        [phoneTextField becomeFirstResponder];
         phoneTextField;
     });
     
@@ -86,10 +88,10 @@
         backView;
     });
     // 上下线条
-    UILabel *passwordUpLine = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.passwordBackView.width, 1)];
+    UILabel *passwordUpLine = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.passwordBackView.width, 0.5f)];
     passwordUpLine.backgroundColor = WWPageLineColor;
     [self.passwordBackView addSubview:passwordUpLine];
-    UILabel *passwordDownLine = [[UILabel alloc]initWithFrame:CGRectMake(0, self.passwordBackView.height-1, self.passwordBackView.width, 1)];
+    UILabel *passwordDownLine = [[UILabel alloc]initWithFrame:CGRectMake(0, self.passwordBackView.height-1, self.passwordBackView.width, 0.5f)];
     passwordDownLine.backgroundColor = WWPageLineColor;
     [self.passwordBackView addSubview:passwordDownLine];
     //icon
@@ -130,6 +132,7 @@
     [protocolBtn setTitle:@"《衣优V租衣协议》" forState:UIControlStateNormal];
     [protocolBtn setTitleColor:RGBCOLOR(55, 94, 208) forState:UIControlStateNormal];
     protocolBtn.titleLabel.font = [UIFont systemFontOfSize:12.0f];
+    [protocolBtn addTarget:self action:@selector(protocolBtnClickEvent:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:protocolBtn];
     
     self.loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -215,11 +218,7 @@
     }];
 }
 
-
-
-
-
-//倒计时方法验证码实现倒计时60秒，60秒后按钮变换开始的样子
+//倒计时方法验证码实现倒计时90秒，90秒后按钮变换开始的样子
 -(void)timerFireMethod:(NSTimer *)theTimer {
     if (seconds == 1) {
         [theTimer invalidate];
@@ -228,7 +227,7 @@
     }else{
         seconds--;
         NSString *title = [NSString stringWithFormat:@"%ds后重新获取",seconds];
-        [self.getPasswordBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
+        [self.getPasswordBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [self.getPasswordBtn setEnabled:NO];
         [self.getPasswordBtn setTitle:title forState:UIControlStateNormal];
     }
@@ -245,7 +244,11 @@
     }
 }
 
-
+// 衣优v协议
+- (void)protocolBtnClickEvent:(UIButton *)sender{
+    WWYiYouVProtocolViewController *yiyouVC = [[WWYiYouVProtocolViewController alloc] init];
+    [self presentViewController:yiyouVC animated:YES completion:nil];
+}
 
 - (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event
 {

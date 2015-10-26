@@ -115,10 +115,11 @@
 
 //modityUserInformation
 - (AFHTTPRequestOperation *)PostRequestModityUserInformationParmae:(NSDictionary *)parmae WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
-    NSDictionary *parameDic = @{@"json" : [parmae JSONString]};
+    // 拼接json---上个问题就是在这里一直崩溃
+   // NSDictionary *parameDic = @{@"json" : [parmae JSONString]};
     
     return [self postPath:KModifyUserInformationURL
-               parameters:parameDic
+               parameters:parmae
                completion:completionBlock];
 }
 

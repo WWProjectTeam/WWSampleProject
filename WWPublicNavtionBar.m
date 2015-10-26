@@ -45,7 +45,7 @@
         UILabel * labelTitle = [[UILabel alloc]init];
         [labelTitle setText:strTitle];
         [labelTitle setFrame:CGRectMake(0, IOS7_Y, MainView_Width, 44)];
-        [labelTitle setTextColor:[UIColor blackColor]];
+        [labelTitle setTextColor:RGBCOLOR(20, 20, 20)];
         [labelTitle setBackgroundColor:[UIColor clearColor]];
         [labelTitle setTextAlignment:NSTextAlignmentCenter];
         [labelTitle setFont:font_navtionTitle];

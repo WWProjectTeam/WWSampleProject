@@ -13,7 +13,6 @@
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "filename" : "Default-568h@2x.png",
       "subtype" : "retina4",
       "scale" : "2x"
     },
@@ -26,7 +25,6 @@
     {
       "orientation" : "portrait",
       "idiom" : "iphone",
-      "filename" : "Default-568h@2x.png",
       "minimum-system-version" : "7.0",
       "subtype" : "retina4",
       "scale" : "2x"

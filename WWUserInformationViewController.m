@@ -16,6 +16,9 @@
     WWPublicNavtionBar *viewNavBarView;
     UIImagePickerController *_pickerImage;
     NSString * uploadTheImagePath;
+    // AFN的客户端，使用基本地址初始化，同时会实例化一个操作队列，以便于后续的多线程处理
+     AFHTTPClient    *_httpClient;
+     NSOperationQueue *_queue;
 }
 
 @property (nonatomic,strong)UIView              *headView;      // 头像背静view
@@ -38,6 +41,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = WW_BASE_COLOR;
+    
+    NSURL *url = [NSURL URLWithString:[NSString stringWithFormat:@"%@",URL_MAIN_HOST]];
+    _httpClient = [[AFHTTPClient alloc] initWithBaseURL:url];
+    _queue = [[NSOperationQueue alloc] init];
     
     viewNavBarView = [[WWPublicNavtionBar alloc]initWithLeftBtn:YES withTitle:@"基本信息" withRightBtn:NO withRightBtnPicName:@"" withRightBtnSize:CGSizeZero];
     __weak __typeof(&*self)weakSelf = self;
@@ -261,26 +268,73 @@
 }
 
 - (void)leftBackBtn{
-    if (uploadTheImagePath == NULL) {
-        uploadTheImagePath = @"";
-    }
-    if (self.userNameStr == NULL) {
-        self.userNameStr = self.nameText.text;
-    }
-    
-    NSDictionary * parme = @{@"id":[WWUtilityClass getNSUserDefaults:UserID],
-                             @"faceUrl":uploadTheImagePath,
-                             @"userName":self.userNameStr};
-    
-    [FMHTTPClient PostRequestModityUserInformationParmae:parme WithCompletion:^(WebAPIResponse *response) {
-        dispatch_async(dispatch_get_main_queue(), ^{
-            if (response.code == WebAPIResponseCodeSuccess) {
-                // 通知--刷新个人信息
-                [[NSNotificationCenter defaultCenter] postNotificationName:WWRefreshUserInformation object:nil];
-            }
-            [self.navigationController popViewControllerAnimated:YES];
-        });
+//    if (uploadTheImagePath == NULL) {
+//        uploadTheImagePath = @"";
+//    }
+//    if (self.userNameStr == NULL) {
+//        self.userNameStr = self.nameText.text;
+//    }
+//    // 图片转换data
+//    NSData *data;
+//    
+//    if (UIImagePNGRepresentation(self.headImage.image) == nil) {
+//        
+//        data = UIImageJPEGRepresentation(self.headImage.image, 1);
+//        
+//    } else {
+//        
+//        data = UIImagePNGRepresentation(self.headImage.image);
+//        
+//    }
+//    // 参数
+//    NSDictionary * parme = @{@"id":[WWUtilityClass getNSUserDefaults:UserID],
+//                             @"faceUrl":data,
+//                             @"userName":self.userNameStr};
+//    
+//    [FMHTTPClient PostRequestModityUserInformationParmae:parme WithCompletion:^(WebAPIResponse *response) {
+//        dispatch_async(dispatch_get_main_queue(), ^{
+//            if (response.code == WebAPIResponseCodeSuccess) {
+//                // 通知--刷新个人信息
+//                [[NSNotificationCenter defaultCenter] postNotificationName:WWRefreshUserInformation object:nil];
+//            }
+//            [self.navigationController popViewControllerAnimated:YES];
+//        });
+//    }];
+    [self uploadImage];
+}
+
+- (void)uploadImage{
+    // 参数
+//    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"id",[WWUtilityClass getNSUserDefaults:UserID],@"userName",self.userNameStr, nil];
+    NSDictionary* dic=@{@"id":[WWUtilityClass getNSUserDefaults:UserID],
+                        @"userName":@""};
+    // 2. 上传请求POST
+    NSURLRequest *request = [_httpClient multipartFormRequestWithMethod:@"POST" path:KModifyUserInformationURL parameters:dic constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        // 在此位置生成一个要上传的数据体
+        // form对应的是html文件中的表单
+        NSData *data = UIImagePNGRepresentation(self.headImage.image);
+        /*
+         此方法参数
+         1. 要上传的[二进制数据]
+         2. 对应网站上[upload.php中]处理文件的[字段"file"]
+         3. 要保存在服务器上的[文件名]
+         4. 上传文件的[mimeType]
+        */
+        
+        [formData appendPartWithFileData:data name:@"faceUrl" fileName:@"faceUrl" mimeType:@"image/png"];
     }];
+
+   // 3. operation包装的urlconnetion
+   AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+
+    [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+         NSLog(@"上传完成");
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+         NSLog(@"上传失败->%@", error);
+     }];
+    
+     //执行
+     [_httpClient.operationQueue addOperation:op];
 }
 
 - (void)didReceiveMemoryWarning {

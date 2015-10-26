@@ -26,16 +26,16 @@
         
         ////////产品图片
         self.clothesImage = [[UIImageView alloc]init];
-        [self.clothesImage setFrame:CGRectMake(0, 0, viewt.width, iphone_size_scale(145-22))];
+        [self.clothesImage setFrame:CGRectMake(0, 0, viewt.width, iphone_size_scale(145))];
         [self.clothesImage setContentMode:UIViewContentModeScaleAspectFill];
         self.clothesImage.clipsToBounds = YES;
         [viewt addSubview:self.clothesImage];
         
         
-        UIView *clothesNameView = [[UIView alloc]initWithFrame:CGRectMake(0, self.clothesImage.bottom, viewt.width, viewt.height-self.clothesImage.height)];
+        UIView *clothesNameView = [[UIView alloc]initWithFrame:CGRectMake(0, self.clothesImage.height-22, viewt.width, 22)];
         clothesNameView.backgroundColor = [UIColor blackColor];
         clothesNameView.alpha = 0.5f;
-        [viewt addSubview:clothesNameView];
+        [self.clothesImage addSubview:clothesNameView];
         
         //////产品名称
         self.clothesNameLab = [[UILabel alloc]init];

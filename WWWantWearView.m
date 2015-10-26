@@ -113,17 +113,17 @@
 }
 
 - (void)settlementClickEvent:(UIButton *)sender{
-//    if (self.clothesArray.count != 3) {
-//        [SVProgressHUD showInfoWithStatus:@"衣柜必够3件衣服才可以配送哦~"];
-//        return;
-//    }else{
-//        if ([[WWUtilityClass getNSUserDefaults:UserVipID] intValue] != 1) {
-//            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"需要购买会员服务才可以完成后继操作" delegate:self cancelButtonTitle:@"咨询客服" otherButtonTitles:@"购买会员", nil];
-//            alert.delegate = self;
-//            [alert show];
-//            return;
-//        }
-//    }
+    if (self.clothesArray.count != 3) {
+        [SVProgressHUD showInfoWithStatus:@"衣柜必够3件衣服才可以配送哦~"];
+        return;
+    }else{
+        if ([[WWUtilityClass getNSUserDefaults:UserVipID] intValue] != 1) {
+            UIAlertView *alert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"需要购买会员服务才可以完成后继操作" delegate:self cancelButtonTitle:@"咨询客服" otherButtonTitles:@"购买会员", nil];
+            alert.delegate = self;
+            [alert show];
+            return;
+        }
+    }
     self.settlementBtnClickBlock(clothesRequestDataDic);
     
 }

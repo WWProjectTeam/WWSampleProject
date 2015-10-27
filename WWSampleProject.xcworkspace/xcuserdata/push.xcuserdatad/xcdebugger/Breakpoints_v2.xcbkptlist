@@ -9,13 +9,29 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "WWUserInformationViewController.m"
-            timestampString = "467548283.140362"
+            filePath = "AppDelegate.mm"
+            timestampString = "467646889.661335"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "309"
-            endingLineNumber = "309"
-            landmarkName = "-uploadImage"
+            startingLineNumber = "133"
+            endingLineNumber = "133"
+            landmarkName = "-startSdkWith:appKey:appSecret:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "AppDelegate.mm"
+            timestampString = "467646889.661335"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "303"
+            endingLineNumber = "303"
+            landmarkName = "-localNotificationMessage:number:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>

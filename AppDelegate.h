@@ -35,6 +35,8 @@ extern NSString * g_UserHeadImage;
 
 //////////////////isAuthentication
 +(BOOL)isAuthentication;
+//////////////////注销本地通知
++(void)dismissLocalNotification;
 
 @property (nonatomic ,copy) void (^UserLoginStatuUpdate)();
 

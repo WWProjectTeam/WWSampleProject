@@ -303,4 +303,14 @@
               completion:completionBlock];
 }
 
+//Getui--clickId
+- (AFHTTPRequestOperation *)GetGeTuiUserId:(NSString *)userid ClientId:(NSString *)clientId WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
+    
+    NSString *getuiUrl = [NSString stringWithFormat:KGetuiClientIdURL,userid,clientId];
+    
+    return [self getPath:getuiUrl
+              parameters:nil
+              completion:completionBlock];
+}
+
 @end

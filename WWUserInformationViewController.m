@@ -131,7 +131,7 @@
     });
     self.nameText = ({
         // 内容
-        UILabel *subContentLab = [[UILabel alloc]initWithFrame:CGRectMake(self.nameArrow.left-100, (self.nameView.height-13*kPercenX)/2, 100, 13*kPercenX)];
+        UILabel *subContentLab = [[UILabel alloc]initWithFrame:CGRectMake(self.nameArrow.left-150, (self.nameView.height-13*kPercenX)/2, 150, 13*kPercenX)];
         subContentLab.textAlignment = NSTextAlignmentRight;
         subContentLab.text = self.userName;
         subContentLab.textColor = WWSubTitleTextColor;
@@ -220,25 +220,6 @@
 - (void)cropImage:(UIImage*)cropImage forOriginalImage:(UIImage*)originalImage
 {
     self.headImage.image = [self imageWithImageSimple:cropImage scaledToSize:CGSizeMake(100, 100)];
-    // 上传图片
-    [self userHeadPhotoSendOSS];
-}
-
-- (void)userHeadPhotoSendOSS{
-    
-//    if (self.headImage.image) {
-//        OSSsendPicture *sendPic = [OSSsendPicture sharedInstance];
-//        sendPic.bucketKey = kBucketKeyFormAS;
-//        sendPic.cnameKey = kCnameKeyFormCN_HZ;
-//        if ([sendPic OSSJudgeImageSizeFormImage:self.headImage.image]) {
-//            return;
-//        }
-//        uploadTheImagePath = [sendPic OSSsendImageToOSSFormImageData:self.headImage.image imageContentOfRoute:@"face"];
-//        if (IsStringEmptyOrNull(uploadTheImagePath)) {
-//            [SVProgressHUD showErrorWithStatus:@"图片上传失败，请重新选择"];
-//            uploadTheImagePath = @"";
-//        }
-//    }
 }
 
 //压缩图片
@@ -268,6 +249,47 @@
 }
 
 - (void)leftBackBtn{
+    [SVProgressHUD show];
+    if (self.userNameStr == NULL) {
+        self.userNameStr = self.nameText.text;
+    }
+    // 参数
+    NSDictionary* dic=@{@"id":[WWUtilityClass getNSUserDefaults:UserID],
+                        @"userName":self.userNameStr};
+    // 2. 上传请求POST
+    NSURLRequest *request = [_httpClient multipartFormRequestWithMethod:@"POST" path:KModifyUserInformationURL parameters:dic constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
+        // 在此位置生成一个要上传的数据体
+        // form对应的是html文件中的表单
+        NSData *data = UIImagePNGRepresentation(self.headImage.image);
+        NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+        // 设置时间格式
+        formatter.dateFormat = @"yyyyMMddHHmmss";
+        NSString *str = [formatter stringFromDate:[NSDate date]];
+        NSString *fileName = [NSString stringWithFormat:@"%@.png", str];
+        
+        [formData appendPartWithFileData:data name:@"faceUrl" fileName:fileName mimeType:@"image/png"];
+    }];
+    
+    // 3. operation包装的urlconnetion
+    AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:request];
+    
+    [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
+        NSLog(@"上传完成");
+        // 通知--刷新个人信息
+        [[NSNotificationCenter defaultCenter] postNotificationName:WWRefreshUserInformation object:nil];
+        [self.navigationController popViewControllerAnimated:YES];
+
+        [SVProgressHUD dismiss];
+    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
+        NSLog(@"上传失败->%@", error);
+        [SVProgressHUD dismiss];
+        [SVProgressHUD showErrorWithStatus:@"修改信息失败"];
+        [self.navigationController popViewControllerAnimated:YES];
+    }];
+    
+    //执行
+    [_httpClient.operationQueue addOperation:op];
+    
 //    if (uploadTheImagePath == NULL) {
 //        uploadTheImagePath = @"";
 //    }
@@ -300,41 +322,10 @@
 //            [self.navigationController popViewControllerAnimated:YES];
 //        });
 //    }];
-    [self uploadImage];
 }
 
 - (void)uploadImage{
-    // 参数
-//    NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:@"id",[WWUtilityClass getNSUserDefaults:UserID],@"userName",self.userNameStr, nil];
-    NSDictionary* dic=@{@"id":[WWUtilityClass getNSUserDefaults:UserID],
-                        @"userName":@""};
-    // 2. 上传请求POST
-    NSURLRequest *request = [_httpClient multipartFormRequestWithMethod:@"POST" path:KModifyUserInformationURL parameters:dic constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
-        // 在此位置生成一个要上传的数据体
-        // form对应的是html文件中的表单
-        NSData *data = UIImagePNGRepresentation(self.headImage.image);
-        /*
-         此方法参数
-         1. 要上传的[二进制数据]
-         2. 对应网站上[upload.php中]处理文件的[字段"file"]
-         3. 要保存在服务器上的[文件名]
-         4. 上传文件的[mimeType]
-        */
-        
-        [formData appendPartWithFileData:data name:@"faceUrl" fileName:@"faceUrl" mimeType:@"image/png"];
-    }];
-
-   // 3. operation包装的urlconnetion
-   AFHTTPRequestOperation *op = [[AFHTTPRequestOperation alloc] initWithRequest:request];
-
-    [op setCompletionBlockWithSuccess:^(AFHTTPRequestOperation *operation, id responseObject) {
-         NSLog(@"上传完成");
-    } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
-         NSLog(@"上传失败->%@", error);
-     }];
     
-     //执行
-     [_httpClient.operationQueue addOperation:op];
 }
 
 - (void)didReceiveMemoryWarning {

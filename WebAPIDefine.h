@@ -139,6 +139,9 @@
 #define KSaveUserAddressURL         @"yiyouv/address/save"
 
 //删除用户收获地址
-#define KdeleteUserAddressURL     @"yiyouv/address/del?id=%@"
+#define KdeleteUserAddressURL       @"yiyouv/address/del?id=%@"
+
+//保存用户个推所需参数
+#define KGetuiClientIdURL           @"yiyouv/user/saveClientid?userId=%@&clientid=%@&origin=ios"
 
 #endif

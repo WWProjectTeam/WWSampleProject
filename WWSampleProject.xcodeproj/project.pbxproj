@@ -105,6 +105,7 @@
 		46E880681BD0ED7C002481CB /* MyCollectionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E880671BD0ED7C002481CB /* MyCollectionCollectionViewCell.m */; };
 		46E8806B1BD0F5FE002481CB /* DataPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E8806A1BD0F5FE002481CB /* DataPage.m */; };
 		46EA99541BDCC64A00D23B00 /* libGeTuiSdk-1.2.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EA99531BDCC64A00D23B00 /* libGeTuiSdk-1.2.1.a */; };
+		46F69E751BDF1C1000216D5E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F69E741BDF1C1000216D5E /* AudioToolbox.framework */; };
 		4A27AAEF1BCE00EA006CFC15 /* WWProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A27AAEE1BCE00EA006CFC15 /* WWProductDetailViewController.m */; };
 		4A27AAF21BCE0731006CFC15 /* ProductDetialView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A27AAF11BCE0731006CFC15 /* ProductDetialView.m */; };
 		4A27AB431BCE2FB0006CFC15 /* -avatars@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 4A27AB291BCE2FB0006CFC15 /* -avatars@2x.png */; };
@@ -502,6 +503,7 @@
 		46EA99511BDCC64A00D23B00 /* GeTuiSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeTuiSdk.h; sourceTree = "<group>"; };
 		46EA99521BDCC64A00D23B00 /* GeTuiSdkError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeTuiSdkError.h; sourceTree = "<group>"; };
 		46EA99531BDCC64A00D23B00 /* libGeTuiSdk-1.2.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libGeTuiSdk-1.2.1.a"; sourceTree = "<group>"; };
+		46F69E741BDF1C1000216D5E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		4A27AAED1BCE00EA006CFC15 /* WWProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWProductDetailViewController.h; sourceTree = SOURCE_ROOT; };
 		4A27AAEE1BCE00EA006CFC15 /* WWProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWProductDetailViewController.m; sourceTree = SOURCE_ROOT; };
 		4A27AAF01BCE0731006CFC15 /* ProductDetialView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ProductDetialView.h; sourceTree = SOURCE_ROOT; };
@@ -793,6 +795,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46F69E751BDF1C1000216D5E /* AudioToolbox.framework in Frameworks */,
 				460BB8E01BD9335500211903 /* libssl.a in Frameworks */,
 				460BB8741BD9312200211903 /* Foundation.framework in Frameworks */,
 				460BB8721BD9310800211903 /* UIKit.framework in Frameworks */,
@@ -1939,6 +1942,7 @@
 		A7DEF0AA4559BAEC0D704C30 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				46F69E741BDF1C1000216D5E /* AudioToolbox.framework */,
 				460BB8731BD9312200211903 /* Foundation.framework */,
 				460BB8711BD9310800211903 /* UIKit.framework */,
 				460BB86F1BD930FF00211903 /* CoreGraphics.framework */,

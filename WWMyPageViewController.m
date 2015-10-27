@@ -174,7 +174,7 @@
         contentLab.font = [UIFont systemFontOfSize:13.0f*kPercenX];
         [listView addSubview:contentLab];
         // 内容
-        UILabel *subContentLab = [[UILabel alloc]initWithFrame:CGRectMake(arrowImage.left-105, (listView.height-13*kPercenX)/2, 100, 13*kPercenX)];
+        UILabel *subContentLab = [[UILabel alloc]initWithFrame:CGRectMake(arrowImage.left-155, (listView.height-13*kPercenX)/2, 150, 13*kPercenX)];
         subContentLab.textAlignment = NSTextAlignmentRight;
         subContentLab.text = subContentArr[i];
         subContentLab.textColor = WWSubTitleTextColor;

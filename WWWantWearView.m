@@ -203,12 +203,13 @@
         viewt.layer.borderWidth = 0.5f;
         [viewt setUserInteractionEnabled:YES];
         [cell.contentView addSubview:viewt];
+        UIImageView *imageView = [[UIImageView alloc]initWithFrame:CGRectMake(0, 0, viewt.width, viewt.height)];
+        imageView.image = [UIImage imageNamed:@"add-clos"];
+        [viewt addSubview:imageView];
         // 添加按钮
         UIButton *addClothesBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-        addClothesBtn.backgroundColor = [UIColor clearColor];
         addClothesBtn.frame = CGRectMake(0, 0, viewt.width, viewt.height);
-        [addClothesBtn setImage:[UIImage imageNamed:@"add-clos"] forState:UIControlStateNormal];
-        [addClothesBtn setImage:[WWUtilityClass imageWithColor:WWBtnStateHighlightedColor] forState:UIControlStateHighlighted];
+        [addClothesBtn setBackgroundImage:[WWUtilityClass imageWithColor:WWBtnStateHighlightedColor] forState:UIControlStateHighlighted];
         [addClothesBtn addTarget:self action:@selector(addBtnClickEvent:) forControlEvents:UIControlEventTouchUpInside];
         [viewt addSubview:addClothesBtn];
         

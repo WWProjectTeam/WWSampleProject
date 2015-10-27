@@ -122,7 +122,7 @@
     // 登陆即代表同意
     UILabel *agreeLab = [[UILabel alloc]initWithFrame:CGRectMake(10.0f, self.passwordBackView.bottom+15.0f, 84, 12)];
     agreeLab.textColor = RGBCOLOR(128, 128, 128);
-    agreeLab.text = @"登陆即代表同意";
+    agreeLab.text = @"登录即代表同意";
     agreeLab.font = [UIFont systemFontOfSize:12.0f];
     [self.view addSubview:agreeLab];
     
@@ -137,7 +137,7 @@
     
     self.loginBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     self.loginBtn.frame = CGRectMake(0, protocolBtn.bottom+30, MainView_Width, 44);
-    [self.loginBtn setTitle:@"发送" forState:UIControlStateNormal];
+    [self.loginBtn setTitle:@"登录" forState:UIControlStateNormal];
     self.loginBtn.backgroundColor = WWBtnYellowColor;
     [self.loginBtn setBackgroundImage:[WWUtilityClass imageWithColor:RGBCOLOR(211, 120, 23)] forState:UIControlStateHighlighted];
     [self.loginBtn addTarget:self action:@selector(sendLoginRequest) forControlEvents:UIControlEventTouchUpInside];
@@ -198,7 +198,7 @@
                 if ([[vipDic objectForKey:@"state"] intValue] == 1) {
                     [WWUtilityClass saveNSUserDefaults:UserVipEndTime value:[vipDic objectForKey:@"endTime"]];
                 }
-                [SVProgressHUD showErrorWithStatus:@"登陆成功"];
+                [SVProgressHUD showErrorWithStatus:@"登录成功"];
                 //如果登陆成功，停止验证码的倒数，
                 [self releaseTImer];
                 // 通知--刷新个人信息
@@ -211,7 +211,7 @@
                 }];
             }else{
                 sleep(60);
-                [SVProgressHUD showErrorWithStatus:@"登陆失败"];
+                [SVProgressHUD showErrorWithStatus:@"登录失败"];
                 [SVProgressHUD dismiss];
             }
         });

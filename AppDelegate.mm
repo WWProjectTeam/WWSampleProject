@@ -25,6 +25,7 @@
 #import <QuartzCore/QuartzCore.h>
 ////////////////////
 #import <AlipaySDK/AlipaySDK.h>
+#import "WWMessageCenterViewController.h"
 
 ///////个推
 #import "GeTuiSdk.h"
@@ -237,6 +238,8 @@ NSString * g_UserHeadImage;
 // App将要从后台返回
 - (void)applicationWillEnterForeground:(UIApplication *)application
 {
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    [UIApplication sharedApplication].applicationIconBadgeNumber --;
 //    [[EaseMob sharedInstance] applicationWillEnterForeground:application];
 }
 
@@ -247,7 +250,11 @@ NSString * g_UserHeadImage;
     NSLog(@"deviceToken:%@", _deviceToken);
     
     // [3]:向个推服务器注册deviceToken
-    [GeTuiSdk registerDeviceToken:_deviceToken];}
+    [GeTuiSdk registerDeviceToken:_deviceToken];
+    if (!g_UserId) {
+        [self getuiRequestClientId:_deviceToken];
+    }
+}
 
 -(void)application:(UIApplication * )application didRegisterUserNotificationSettings:(nonnull UIUserNotificationSettings *)notificationSettings{
 
@@ -276,7 +283,6 @@ NSString * g_UserHeadImage;
         
         [GeTuiSdk registerDeviceToken:_deviceToken];
     }
-    [self getuiRequestClientId:_deviceToken];
 }
 
 - (void)GeTuiSdkDidReceivePayload:(NSString *)payloadId andTaskId:(NSString *)taskId andMessageId:(NSString *)aMsgId fromApplication:(NSString *)appId
@@ -293,68 +299,40 @@ NSString * g_UserHeadImage;
                                             encoding:NSUTF8StringEncoding];
     }
     
-//    [self localNotificationMessage:@"" number:0];
     
     NSLog(@"task id : %@, messageId:%@", taskId, aMsgId);
 }
 
-#pragma mark -     第一步：创建本地推送
-- (void)localNotificationMessage:(NSString *)message number:(NSInteger)number{
-
-    // 创建一个本地推送
-    UILocalNotification *notification = [[UILocalNotification alloc] init];
+//TODO: 接收通知
+#pragma mark - 接收通知
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo{
     
-    //设置10秒之后
-    NSDate *pushDate = [NSDate dateWithTimeIntervalSinceNow:10];
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    [UIApplication sharedApplication].applicationIconBadgeNumber --;
     
-    if (notification != nil) {
-        
-        // 设置推送时间
-        notification.fireDate = pushDate;
-        
-        // 设置时区
-        notification.timeZone = [NSTimeZone defaultTimeZone];
-        
-        // 设置重复间隔
-        notification.repeatInterval = kCFCalendarUnitDay;
-        
-        // 推送声音
-        notification.soundName = UILocalNotificationDefaultSoundName;
-        
-        // 推送内容
-        notification.alertBody = message;
-        
-        //显示在icon上的红色圈中的数子
-        notification.applicationIconBadgeNumber = number;
-        
-        //设置userinfo 方便在之后需要撤销的时候使用
-        NSDictionary *info = [NSDictionary dictionaryWithObject:@"name" forKey:@"key"];
-        
-        notification.userInfo = info;
-        
-        //添加推送到UIApplication
-        UIApplication *app = [UIApplication sharedApplication];  
-        
-        [app scheduleLocalNotification:notification];
-    }
+    [self asBeginWithDidReceiveRemoteNotification:userInfo];
+}
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler{
+    
+    [[UIApplication sharedApplication] cancelAllLocalNotifications];
+    [UIApplication sharedApplication].applicationIconBadgeNumber --;
+    
+    [self asBeginWithDidReceiveRemoteNotification:userInfo];
+    
+    completionHandler(UIBackgroundFetchResultNewData);
 }
 
-#pragma mark -  第二步：接收本地推送
-
-- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification*)notification{
-    
-    [self asBeginWithDidReceiveRemoteNotification:nil];
-    
-    // 图标上的数字减1
-    
-    application.applicationIconBadgeNumber --;
-    
-}
-
+#pragma mark -
 #pragma mark - 运行时获取到推送后，进行的操作处理 (app在运行时)
 - (void)asBeginWithDidReceiveRemoteNotification:(NSDictionary *)userInfo{
     
     AudioServicesPlaySystemSound(kSystemSoundID_Vibrate);//震动
+    NSDictionary *payload = [[userInfo objectForKey:@"payload"] objectFromJSONString];
+    
+    if ([[payload objectForKey:@"type"] intValue] == 1) {
+        WWMessageCenterViewController *messageVC = [[WWMessageCenterViewController alloc]init];
+        [self.navtionViewControl pushViewController:messageVC animated:YES];
+    }
 }
 
 - (void)GeTuiSdkDidSendMessage:(NSString *)messageId result:(int)result {
@@ -522,60 +500,6 @@ NSString * g_UserHeadImage;
         }
     };
     return NO;
-}
-
-+(void)dismissLocalNotification{
-
-    // 获得 UIApplication
-    UIApplication *app = [UIApplication sharedApplication];
-    
-    //获取本地推送数组
-    
-    NSArray *localArray = [app scheduledLocalNotifications];
-    
-    //声明本地通知对象
-    
-    UILocalNotification *localNotification;
-    
-    if (localArray) {
-        
-        for (UILocalNotification *noti in localArray) {
-            
-            NSDictionary *dict = noti.userInfo;
-            
-            if (dict) {
-                
-                NSString *inKey = [dict objectForKey:@"key"];
-                
-                if ([inKey isEqualToString:@"对应的key值"]) {
-                    
-                    if (localNotification){
-                        
-                        localNotification = nil;
-                        
-                    }
-                    
-                    localNotification = noti;
-                    
-                    break;
-                }
-            }
-        }
-        
-        //判断是否找到已经存在的相同key的推送
-        if (!localNotification) {
-            //不存在初始化
-            localNotification = [[UILocalNotification alloc] init];
-        }
-        
-        if (localNotification) {
-            //不推送 取消推送
-            [app cancelLocalNotification:localNotification];
-            
-            return;
-        }
-    }
-    return;
 }
 
 - (void)getuiRequestClientId:(NSString *)clientId{

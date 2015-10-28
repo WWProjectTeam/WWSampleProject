@@ -390,9 +390,9 @@
     /*============================================================================*/
     /*=======================需要填写商户app申请的===================================*/
     /*============================================================================*/
-    NSString *partner = @"2088801915702210";    //合作身份者ID,以 2088 开头由 16 位纯数字组成的字符串。请参考“7.1 如何获得PID与 密钥”
-    NSString *seller = @"chpcao@hotmail.com";     //支付宝收款账号,手机号码或邮箱格式
-    NSString *privateKey = @"dxmmjh89d5s4z0zyeqi4vq5lcie65162";     //商户方的私钥,pkcs8 格式。
+    NSString *partner = alipay_partner;    //合作身份者ID,以 2088 开头由 16 位纯数字组成的字符串。请参考“7.1 如何获得PID与 密钥”
+    NSString *seller = alipay_seller;     //支付宝收款账号,手机号码或邮箱格式
+    NSString *privateKey = alipay_privateKey     //商户方的私钥,pkcs8 格式。
     /*============================================================================*/
     /*============================================================================*/
     /*============================================================================*/
@@ -418,10 +418,10 @@
     Order *order = [[Order alloc] init];
     order.partner = partner;
     order.seller = seller;
-    order.tradeNO = @"1234567"; //订单ID（由商家自行制定）
+    order.tradeNO = [self generateTradeNO]; //订单ID（由商家自行制定）
     order.productName = @"衣优v"; //商品标题
     order.productDescription = @"VIP套餐"; //商品描述
-    order.amount = [NSString stringWithFormat:@"%@",@"299"]; //商品价格
+    order.amount = [NSString stringWithFormat:@"%@",@"0.1"]; //商品价格
     order.notifyURL =  @"http://www.xxx.com"; //回调URL
     
     order.service = @"mobile.securitypay.pay";
@@ -448,7 +448,11 @@
                        orderSpec, signedString, @"RSA"];
         
         [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
-            NSLog(@"reslut = %@",resultDic);
+            if ([[resultDic objectForKey:@"resultStatus"] intValue] == 6001) {
+                [SVProgressHUD showInfoWithStatus:@"取消支付"];
+            }else if ([[resultDic objectForKey:@"resultStatus"] intValue] == 9000){
+                [SVProgressHUD showSuccessWithStatus:@"支付成功"];
+            }
         }];
         
     }

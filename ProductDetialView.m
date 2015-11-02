@@ -107,9 +107,6 @@
         
         UIButton * btnSer = [[UIButton alloc]init];
         [btnSer setFrame:CGRectMake(0, MainView_Height-49, iphone_size_scale(58), 49)];
-        [btnSer.layer setMasksToBounds:YES];
-        [btnSer.layer setBorderWidth:1.0];   //边框宽度
-        [btnSer.layer setBorderColor:RGBCOLOR(235, 235, 235).CGColor];//边框颜色
         [btnSer setImage:[UIImage imageNamed:@"default-of-the-service"] forState:UIControlStateNormal];
         [btnSer setImage:[UIImage imageNamed:@"click-on--service"] forState:UIControlStateHighlighted];
         [btnSer setImageEdgeInsets:UIEdgeInsetsMake(7, iphone_size_scale(19), 19, iphone_size_scale(19))];
@@ -123,15 +120,17 @@
         
         [btnSer addTarget:self action:@selector(supportTel) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:btnSer];
+        UILabel *serLine = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, btnSer.width, 1)];
+        serLine.backgroundColor = RGBCOLOR(235, 235, 235);
+        [btnSer addSubview:serLine];
+        UILabel *rightLine = [[UILabel alloc]initWithFrame:CGRectMake(btnSer.width-1, 0, 1, btnSer.height)];
+        rightLine.backgroundColor =RGBCOLOR(235, 235, 235);
+        [btnSer addSubview:rightLine];
         
-
         //收藏
         btnFav = ({
             UIButton * btnTemp = [[UIButton alloc]init];
             [btnTemp setFrame:CGRectMake(iphone_size_scale(57), MainView_Height-49, iphone_size_scale(58), 49)];
-            [btnTemp.layer setMasksToBounds:YES];
-            [btnTemp.layer setBorderWidth:1.0];   //边框宽度
-            [btnTemp.layer setBorderColor:RGBCOLOR(235, 235, 235).CGColor];//边框颜色
             [btnTemp setImage:[UIImage imageNamed:@"collect--default"] forState:UIControlStateNormal];
             [btnTemp setImageEdgeInsets:UIEdgeInsetsMake(7, iphone_size_scale(19), 19, iphone_size_scale(19))];
             
@@ -148,19 +147,21 @@
         });
 
         [self addSubview:btnFav];
-        
+        UILabel *favLine = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, btnFav.width, 1)];
+        favLine.backgroundColor = RGBCOLOR(235, 235, 235);
+        [btnFav addSubview:favLine];
+        UILabel *favrightLine = [[UILabel alloc]initWithFrame:CGRectMake(btnFav.width-1, 0, 1, btnFav.height)];
+        favrightLine.backgroundColor =RGBCOLOR(235, 235, 235);
+        [btnFav addSubview:favrightLine];
         
         btnClo = ({
             UIButton * btnTemp = [[UIButton alloc]init];
             [btnTemp setFrame:CGRectMake(iphone_size_scale(114), MainView_Height-49, iphone_size_scale(58), 49)];
-            [btnTemp.layer setMasksToBounds:YES];
-            [btnTemp.layer setBorderWidth:1.0];   //边框宽度
-            [btnTemp.layer setBorderColor:RGBCOLOR(235, 235, 235).CGColor];//边框颜色
             [btnTemp setImage:[UIImage imageNamed:@"default-chest"] forState:UIControlStateNormal];
             [btnTemp setImage:[UIImage imageNamed:@"click-on--chest"] forState:UIControlStateHighlighted];
             [btnTemp setImageEdgeInsets:UIEdgeInsetsMake(7, iphone_size_scale(19), 19, iphone_size_scale(19))];
             
-            [btnTemp setTitle:@"衣柜" forState:UIControlStateNormal];
+            [btnTemp setTitle:@"租衣" forState:UIControlStateNormal];
             [btnTemp.titleLabel setTextAlignment:NSTextAlignmentCenter];
             [btnTemp setTitleEdgeInsets:UIEdgeInsetsMake(27, -btnSer.titleLabel.bounds.size.width-20, 0,0)];
             [btnTemp setTitleColor:RGBCOLOR(157, 157, 157) forState:UIControlStateNormal];
@@ -181,12 +182,12 @@
             btnTemp;
         });
         [self addSubview:btnClo];
+        UILabel *cloLine = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, btnClo.width, 1)];
+        cloLine.backgroundColor = RGBCOLOR(235, 235, 235);
+        [btnClo addSubview:cloLine];
 
         UIButton * btnBuy = [[UIButton alloc]init];
         [btnBuy setFrame:CGRectMake(iphone_size_scale(170), MainView_Height-49, iphone_size_scale(150), 49)];
-        [btnBuy.layer setMasksToBounds:YES];
-        [btnBuy.layer setBorderWidth:1.0];   //边框宽度
-        [btnBuy.layer setBorderColor:RGBCOLOR(235, 235, 235).CGColor];//边框颜色
         [btnBuy setBackgroundColor:RGBCOLOR(234, 162, 0)];
         [btnBuy setTitle:@"放入衣柜" forState:UIControlStateNormal];
         [btnBuy setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
@@ -194,6 +195,10 @@
         [btnBuy addTarget:self action:@selector(addCart) forControlEvents:UIControlEventTouchUpInside];
         
         [self addSubview:btnBuy];
+        
+        UILabel *buyLine = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, btnBuy.width, 1)];
+        buyLine.backgroundColor = RGBCOLOR(235, 235, 235);
+        [btnBuy addSubview:buyLine];
     }
     return self;
 }

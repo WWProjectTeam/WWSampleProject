@@ -951,13 +951,13 @@
 		462500E51BD5DDD000D3CC20 /* view */ = {
 			isa = PBXGroup;
 			children = (
-				462500ED1BD636EB00D3CC20 /* 使用中 */,
-				462500EC1BD636D900D3CC20 /* 想穿 */,
+				462500ED1BD636EB00D3CC20 /* 以租赁 */,
+				462500EC1BD636D900D3CC20 /* 想租 */,
 			);
 			name = view;
 			sourceTree = "<group>";
 		};
-		462500EC1BD636D900D3CC20 /* 想穿 */ = {
+		462500EC1BD636D900D3CC20 /* 想租 */ = {
 			isa = PBXGroup;
 			children = (
 				462500E61BD5DE1200D3CC20 /* WWWantWearView.h */,
@@ -965,10 +965,10 @@
 				462500E91BD5E7A400D3CC20 /* WWWantWearCollectionViewCell.h */,
 				462500EA1BD5E7A400D3CC20 /* WWWantWearCollectionViewCell.m */,
 			);
-			name = "想穿";
+			name = "想租";
 			sourceTree = "<group>";
 		};
-		462500ED1BD636EB00D3CC20 /* 使用中 */ = {
+		462500ED1BD636EB00D3CC20 /* 以租赁 */ = {
 			isa = PBXGroup;
 			children = (
 				462500EE1BD6373200D3CC20 /* WWClothesInTheUseView.h */,
@@ -978,7 +978,7 @@
 				462500F41BD6850E00D3CC20 /* WWClothesUseModel.h */,
 				462500F51BD6850E00D3CC20 /* WWClothesUseModel.m */,
 			);
-			name = "使用中";
+			name = "以租赁";
 			sourceTree = "<group>";
 		};
 		4626E4E71BCDFBED00D902B4 /* 基本信息 */ = {

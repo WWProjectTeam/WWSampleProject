@@ -13,6 +13,8 @@
 #import "Order.h"
 #import "DataSigner.h"
 #import <AlipaySDK/AlipaySDK.h>
+//APP端签名相关头文件
+#import "payRequsestHandler.h"
 @interface WWVIPPackageViewController ()<UIPickerViewDataSource,UIPickerViewDelegate>{
     WWPublicNavtionBar *navTionBarView;
 }
@@ -349,8 +351,12 @@
 
 #pragma mark -- 开通VIP，请求网络
 - (void)openTimeSenderSever:(UIButton *)sender{
+
+    // 微信支付
+    [self sendPay_demo];
     
-    [self alipay];
+//    // 支付宝支付
+//    [self alipay];
     
 //    [FMHTTPClient PostBuyVipUserId:[WWUtilityClass getNSUserDefaults:UserID] andPackageId:@"" andMoney:@"" andMethod:@"" WithCompletion:^(WebAPIResponse *response) {
 //        dispatch_async(dispatch_get_main_queue(), ^{
@@ -363,7 +369,6 @@
 
 #pragma mark -
 #pragma mark   ==============产生随机订单号==============
-
 
 - (NSString *)generateTradeNO
 {
@@ -457,6 +462,59 @@
         
     }
     
+}
+
+// 微信支付
+- (void)sendPay_demo
+{
+    //{{{
+    //本实例只是演示签名过程， 请将该过程在商户服务器上实现
+    
+    //创建支付签名对象
+    payRequsestHandler *req = [payRequsestHandler alloc];
+    //初始化支付签名对象
+    [req init:APP_ID mch_id:MCH_ID];
+    //设置密钥
+    [req setKey:PARTNER_ID];
+    
+    //}}}
+    
+    //获取到实际调起微信支付的参数后，在app端调起支付
+    NSMutableDictionary *dict = [req sendPay_demo];
+    
+    if(dict == nil){
+        //错误提示
+        NSString *debug = [req getDebugifo];
+        
+        [self alert:@"提示信息" msg:debug];
+        
+        NSLog(@"%@\n\n",debug);
+    }else{
+        NSLog(@"%@\n\n",[req getDebugifo]);
+        //[self alert:@"确认" msg:@"下单成功，点击OK后调起支付！"];
+        
+        NSMutableString *stamp  = [dict objectForKey:@"timestamp"];
+        
+        //调起微信支付
+        PayReq* req             = [[PayReq alloc] init];
+        req.openID              = [dict objectForKey:@"appid"];
+        req.partnerId           = [dict objectForKey:@"partnerid"];
+        req.prepayId            = [dict objectForKey:@"prepayid"];
+        req.nonceStr            = [dict objectForKey:@"noncestr"];
+        req.timeStamp           = stamp.intValue;
+        req.package             = [dict objectForKey:@"package"];
+        req.sign                = [dict objectForKey:@"sign"];
+        
+        [WXApi sendReq:req];
+    }
+}
+
+//客户端提示信息
+- (void)alert:(NSString *)title msg:(NSString *)msg
+{
+    UIAlertView *alter = [[UIAlertView alloc] initWithTitle:title message:msg delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    
+    [alter show];
 }
 
 - (void)didReceiveMemoryWarning {

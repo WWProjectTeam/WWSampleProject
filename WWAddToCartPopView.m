@@ -49,16 +49,22 @@
         
         labelColthSpressNum = [[UILabel alloc]init];
         [labelColthSpressNum setText:@"衣柜:共有3件衣服"];
-        [labelColthSpressNum setTextColor:WWSubTitleTextColor];
-        [labelColthSpressNum setFrame:CGRectMake(CGRectGetMaxX(imgProduct.frame)+10, iphone_size_scale(30), iphone_size_scale(200), 30)];
-        [labelColthSpressNum setFont:font_size(13)];
+        [labelColthSpressNum setTextColor:WWContentTextColor];
+        [labelColthSpressNum setFrame:CGRectMake(CGRectGetMaxX(imgProduct.frame)+10, iphone_size_scale(25), iphone_size_scale(50), 30)];
+        [labelColthSpressNum setFont:font_size(20)];
         
         [viewBG addSubview:labelColthSpressNum];
         
+        UILabel *clotheSubSpressNum = [[UILabel alloc]initWithFrame:CGRectMake(labelColthSpressNum.right+5, labelColthSpressNum.bottom-12*kPercenX, 60, iphone_size_scale(12))];
+        clotheSubSpressNum.text = @"租赁30天";
+        clotheSubSpressNum.textColor = WWContentTextColor;
+        clotheSubSpressNum.font = font_size(12);
+        [viewBG addSubview:clotheSubSpressNum];
         
         labelDesc = [[UILabel alloc]init];
-        [labelDesc setText:@"衣柜满三件才能达到借穿条件"];
-        [labelDesc setTextColor:WWSubTitleTextColor];
+        [labelDesc setText:@"提示:租凭每件衣服收取押金100元"];
+        [labelDesc setTextColor:RGBCOLOR(255, 51, 51)];
+        labelDesc.adjustsFontSizeToFitWidth = YES;
         [labelDesc setFrame:CGRectMake(CGRectGetMaxX(imgProduct.frame)+10, iphone_size_scale(50), iphone_size_scale(200), 30)];
         [labelDesc setFont:font_size(13)];
 
@@ -105,7 +111,7 @@
     
     [imgProduct sd_setImageWithURL:[NSURL URLWithString:dict[@"imgurl"]] placeholderImage:[UIImage imageNamed:@"bg_yfxq"]];
     
-    [labelColthSpressNum setText:[NSString stringWithFormat:@"衣柜:共有%@件衣服",dict[@"wardrobe"]]];
+    [labelColthSpressNum setText:[NSString stringWithFormat:@"￥%@",dict[@"leaseCost"]]];
     
     
     UILabel * labelSize = [[UILabel alloc]init];

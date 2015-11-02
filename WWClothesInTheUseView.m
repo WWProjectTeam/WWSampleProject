@@ -54,7 +54,7 @@
         self.clothesUseTableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
             [self.clothesUseArray removeAllObjects];
             //
-            [FMHTTPClient GetWardrobeIsGoodsUserId:[WWUtilityClass getNSUserDefaults:UserID] WithCompletion:^(WebAPIResponse *response) {
+            [FMHTTPClient GetWardrobeIsGoodsUserId:@"1000" WithCompletion:^(WebAPIResponse *response) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if (response.code == WebAPIResponseCodeSuccess) {
                         NSDictionary *resultDic = [response.responseObject objectForKey:@"result"];

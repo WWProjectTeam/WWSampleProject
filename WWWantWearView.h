@@ -10,14 +10,10 @@
 
 @interface WWWantWearView : UIView
 
-// 购买会员
-@property (nonatomic,copy)void (^wantWearBtnClickBlock)();
-// 删除商品
-@property (nonatomic,copy)void (^collectionCellDelegateBlock)(NSString *);
-// 点击详情
-@property (nonatomic,copy)void (^collectionDidSelectItemBlock)(NSString *);
-// 立即拥有
-@property (nonatomic,copy)void (^settlementBtnClickBlock)(NSDictionary *);
+@property (nonatomic,strong)NSDictionary                *clothesDic;
+@property (nonatomic,strong)UITableView                 *clothesTabelView;
+@property (nonatomic,strong)NSMutableArray              *clothesArray;
+
 
 - (id)initWithFrame:(CGRect)frame;
 

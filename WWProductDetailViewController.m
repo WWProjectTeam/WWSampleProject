@@ -142,9 +142,9 @@
             
         }
 #pragma mark - 添加到衣柜
-        weakself.addCartPopView.AddToCart = ^(NSString * strColor,NSString * strSize){
+        weakself.addCartPopView.AddToCart = ^(NSString * strColor,NSString * strSize,int strNum){
             [SVProgressHUD show];
-            [[HTTPClient sharedHTTPClient]PostAddToCartWithProductId:weakself.strProductId WithColor:strColor WithSize:strSize WithCompletion:^(WebAPIResponse *operation) {
+            [[HTTPClient sharedHTTPClient]PostAddToCartWithProductId:weakself.strProductId WithColor:strColor WithSize:strSize WithNum:strNum WithCompletion:^(WebAPIResponse *operation) {
                 NSDictionary * dict = operation.responseObject;
                 
                 if ([[NSString stringWithFormat:@"%@",dict[@"code"]]isEqualToString:WWAppSuccessCode]) {

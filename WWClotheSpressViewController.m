@@ -36,9 +36,9 @@
     self.view.backgroundColor = WW_BASE_COLOR;
     
     if (self.IsHomePush == YES) {
-        navtionBarView = [[WWPublicNavtionBar alloc] initWithLeftBtn:YES withTitle:@"衣柜" withRightBtn:NO withRightBtnPicName:nil withRightBtnSize:CGSizeZero];
+        navtionBarView = [[WWPublicNavtionBar alloc] initWithLeftBtn:YES withTitle:@"租衣" withRightBtn:NO withRightBtnPicName:nil withRightBtnSize:CGSizeZero];
     }else{
-        navtionBarView = [[WWPublicNavtionBar alloc] initWithLeftBtn:NO withTitle:@"衣柜" withRightBtn:NO withRightBtnPicName:nil withRightBtnSize:CGSizeZero];
+        navtionBarView = [[WWPublicNavtionBar alloc] initWithLeftBtn:NO withTitle:@"租衣" withRightBtn:NO withRightBtnPicName:nil withRightBtnSize:CGSizeZero];
     }
     [self.view addSubview:navtionBarView];
     
@@ -67,9 +67,9 @@
     self.clockDynamicButton = ({
         UIButton *buttton = [UIButton buttonWithType:UIButtonTypeCustom];
         buttton.frame = CGRectMake(0, 0, self.clockbakcGroupView.width/2, self.clockbakcGroupView.height);
-        [buttton setTitle:@"想穿" forState:UIControlStateNormal];
-        [buttton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [buttton setTitleColor:RGBCOLOR(128, 128, 128) forState:UIControlStateSelected];
+        [buttton setTitle:@"想租" forState:UIControlStateNormal];
+        [buttton setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
+        [buttton setTitleColor:RGBCOLOR(128, 128, 128) forState:UIControlStateNormal];
         buttton.titleLabel.font = [UIFont systemFontOfSize:13*kPercenX];
         [buttton addTarget:self action:@selector(clockJumpToDynamic) forControlEvents:UIControlEventTouchUpInside];
         [self.clockbakcGroupView addSubview:buttton];
@@ -80,9 +80,9 @@
     self.clockNumberButton = ({
         UIButton *buttton = [UIButton buttonWithType:UIButtonTypeCustom];
         buttton.frame = CGRectMake(self.clockbakcGroupView.width/2, 0, self.clockbakcGroupView.width/2, self.clockbakcGroupView.height);
-        [buttton setTitle:@"使用中" forState:UIControlStateNormal];
-        [buttton setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
-        [buttton setTitleColor:RGBCOLOR(128, 128, 128) forState:UIControlStateSelected];
+        [buttton setTitle:@"已租凭" forState:UIControlStateNormal];
+        [buttton setTitleColor:[UIColor blackColor] forState:UIControlStateSelected];
+        [buttton setTitleColor:RGBCOLOR(128, 128, 128) forState:UIControlStateNormal];
         buttton.titleLabel.font = [UIFont systemFontOfSize:13*kPercenX];
         [buttton addTarget:self action:@selector(clockJumpToNumber) forControlEvents:UIControlEventTouchUpInside];
         [self.clockbakcGroupView addSubview:buttton];
@@ -119,43 +119,10 @@
     recogizerLeft.direction=UISwipeGestureRecognizerDirectionLeft;
     [self.clothesScrollView addGestureRecognizer:recogizerLeft];
 #pragma mark ---- 想穿
-    __weak __typeof(&*self)weakSelf = self;
     WWWantWearView *wantVC = [[WWWantWearView alloc]initWithFrame:CGRectMake(0, 0, MainView_Width, self.clothesScrollView.height)];
-    // 立即拥有
-    wantVC.settlementBtnClickBlock = ^(NSDictionary *orderDic){
-        WWOrderViewController *orderVC = [[WWOrderViewController alloc]init];
-        orderVC.orderDataDic = orderDic;
-        [self.navigationController pushViewController:orderVC animated:YES];
-    };
-    // 购买VIP
-    wantVC.wantWearBtnClickBlock = ^{
-        WWVIPPackageViewController *vipVC = [[WWVIPPackageViewController alloc]init];
-        [weakSelf.navigationController pushViewController:vipVC animated:YES];
-    };
-    // 删除按钮
-    wantVC.collectionCellDelegateBlock = ^(NSString *clothesCode){
-        [FMHTTPClient GetDelegateWardrobeGoodsUserId:[WWUtilityClass getNSUserDefaults:UserID] andCode:clothesCode WithCompletion:^(WebAPIResponse *response) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if (response.code == WebAPIResponseCodeSuccess) {
-                    [[NSNotificationCenter defaultCenter] postNotificationName:WWDelegateWantWearGoods object:nil];
-                }
-            });
-        }];
-    };
-    // 点击item
-    wantVC.collectionDidSelectItemBlock = ^(NSString *clothes_id){
-        if ([clothes_id isEqualToString:@""]) {
-            WWHomePageViewController *homeVC = [[WWHomePageViewController alloc]init];
-            homeVC.IsClothesSpressPush = YES;
-            [weakSelf.navigationController pushViewController:homeVC animated:YES];
-        }else{
-            WWProductDetailViewController *productDetailVC = [[WWProductDetailViewController alloc]init];
-            productDetailVC.strProductId = clothes_id;
-            [weakSelf.navigationController pushViewController:productDetailVC animated:YES];
-        }
-    };
-    [self.clothesScrollView addSubview:wantVC];
+   [self.clothesScrollView addSubview:wantVC];
 #pragma mark ---- 使用中
+    __weak __typeof(&*self)weakSelf = self;
     useVC = [[WWClothesInTheUseView alloc]initWithFrame:CGRectMake(MainView_Width, 0, MainView_Width, self.clothesScrollView.height)];
     // 点击item
     useVC.clothesInTheUseDidSelectItemBlock = ^(NSString *clothesId){

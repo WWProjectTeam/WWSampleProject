@@ -138,15 +138,10 @@
     // 图标数组
     NSArray *iconArr = @[@"icon_dd",@"icon_sc",@"icon_yjfk",@"icon_dh"];
     // 内容
-    NSArray *contentArr = @[@"VIP套餐",@"我的收藏",@"意见反馈",@"客服电话"];
-    NSString *VipTime;
-    if ([[WWUtilityClass getNSUserDefaults:UserVipID] intValue] == 1) {
-        VipTime = [WWUtilityClass getNSUserDefaults:UserVipEndTime];
-    }else {
-        VipTime = @"立即购买";
-    }
+    NSArray *contentArr = @[@"我的订单",@"我的收藏",@"意见反馈",@"客服电话"];
+   
     // 附表题内容
-    NSArray *subContentArr = @[VipTime,@"",@"",WWSupportTel];
+    NSArray *subContentArr = @[@"",@"",@"",WWSupportTel];
     for (int i = 0; i <= 3; i++) {
         UIView *listView = [[UIView alloc]initWithFrame:CGRectMake(0, maxWidth+5, MainView_Width, 44*kPercenX)];
         listView.backgroundColor = [UIColor whiteColor];

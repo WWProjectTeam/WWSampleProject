@@ -28,10 +28,15 @@
 		460BB8E71BD9335500211903 /* openssl_wrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BB8D71BD9335500211903 /* openssl_wrapper.m */; };
 		460BB8E81BD9335500211903 /* RSADataSigner.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BB8D91BD9335500211903 /* RSADataSigner.m */; };
 		460BB8E91BD9335500211903 /* RSADataVerifier.m in Sources */ = {isa = PBXBuildFile; fileRef = 460BB8DB1BD9335500211903 /* RSADataVerifier.m */; };
+		461E4F2C1BE707D7008E57BC /* WWWantRentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 461E4F2B1BE707D7008E57BC /* WWWantRentTableViewCell.m */; };
+		461E4F2F1BE73703008E57BC /* WWWantRantModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 461E4F2E1BE73703008E57BC /* WWWantRantModel.m */; };
+		461E4F341BE74E5C008E57BC /* btn_jia_n@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 461E4F301BE74E5C008E57BC /* btn_jia_n@2x.png */; };
+		461E4F351BE74E5C008E57BC /* btn_jia_n@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 461E4F311BE74E5C008E57BC /* btn_jia_n@3x.png */; };
+		461E4F361BE74E5C008E57BC /* btn_jian_n@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 461E4F321BE74E5C008E57BC /* btn_jian_n@2x.png */; };
+		461E4F371BE74E5C008E57BC /* btn_jian_n@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 461E4F331BE74E5C008E57BC /* btn_jian_n@3x.png */; };
 		4624D6261BDDC67C002EB7D6 /* WWYiYouVProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4624D6251BDDC67C002EB7D6 /* WWYiYouVProtocolViewController.m */; };
 		4624D6301BDDDEC7002EB7D6 /* WWVIPProtocolViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4624D62F1BDDDEC7002EB7D6 /* WWVIPProtocolViewController.m */; };
 		462500E81BD5DE1200D3CC20 /* WWWantWearView.m in Sources */ = {isa = PBXBuildFile; fileRef = 462500E71BD5DE1200D3CC20 /* WWWantWearView.m */; };
-		462500EB1BD5E7A400D3CC20 /* WWWantWearCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 462500EA1BD5E7A400D3CC20 /* WWWantWearCollectionViewCell.m */; };
 		462500F01BD6373200D3CC20 /* WWClothesInTheUseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 462500EF1BD6373200D3CC20 /* WWClothesInTheUseView.m */; };
 		462500F31BD638E300D3CC20 /* WWClothesUseTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 462500F21BD638E300D3CC20 /* WWClothesUseTableViewCell.m */; };
 		462500F61BD6850E00D3CC20 /* WWClothesUseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 462500F51BD6850E00D3CC20 /* WWClothesUseModel.m */; };
@@ -383,14 +388,20 @@
 		460BB8D91BD9335500211903 /* RSADataSigner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataSigner.m; sourceTree = "<group>"; };
 		460BB8DA1BD9335500211903 /* RSADataVerifier.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RSADataVerifier.h; sourceTree = "<group>"; };
 		460BB8DB1BD9335500211903 /* RSADataVerifier.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RSADataVerifier.m; sourceTree = "<group>"; };
+		461E4F2A1BE707D7008E57BC /* WWWantRentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWWantRentTableViewCell.h; sourceTree = SOURCE_ROOT; };
+		461E4F2B1BE707D7008E57BC /* WWWantRentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWWantRentTableViewCell.m; sourceTree = SOURCE_ROOT; };
+		461E4F2D1BE73703008E57BC /* WWWantRantModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWWantRantModel.h; sourceTree = SOURCE_ROOT; };
+		461E4F2E1BE73703008E57BC /* WWWantRantModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWWantRantModel.m; sourceTree = SOURCE_ROOT; };
+		461E4F301BE74E5C008E57BC /* btn_jia_n@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_jia_n@2x.png"; sourceTree = SOURCE_ROOT; };
+		461E4F311BE74E5C008E57BC /* btn_jia_n@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_jia_n@3x.png"; sourceTree = SOURCE_ROOT; };
+		461E4F321BE74E5C008E57BC /* btn_jian_n@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_jian_n@2x.png"; sourceTree = SOURCE_ROOT; };
+		461E4F331BE74E5C008E57BC /* btn_jian_n@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_jian_n@3x.png"; sourceTree = SOURCE_ROOT; };
 		4624D6241BDDC67C002EB7D6 /* WWYiYouVProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWYiYouVProtocolViewController.h; sourceTree = SOURCE_ROOT; };
 		4624D6251BDDC67C002EB7D6 /* WWYiYouVProtocolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWYiYouVProtocolViewController.m; sourceTree = SOURCE_ROOT; };
 		4624D62E1BDDDEC7002EB7D6 /* WWVIPProtocolViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWVIPProtocolViewController.h; sourceTree = SOURCE_ROOT; };
 		4624D62F1BDDDEC7002EB7D6 /* WWVIPProtocolViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWVIPProtocolViewController.m; sourceTree = SOURCE_ROOT; };
 		462500E61BD5DE1200D3CC20 /* WWWantWearView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWWantWearView.h; sourceTree = SOURCE_ROOT; };
 		462500E71BD5DE1200D3CC20 /* WWWantWearView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWWantWearView.m; sourceTree = SOURCE_ROOT; };
-		462500E91BD5E7A400D3CC20 /* WWWantWearCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWWantWearCollectionViewCell.h; sourceTree = SOURCE_ROOT; };
-		462500EA1BD5E7A400D3CC20 /* WWWantWearCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWWantWearCollectionViewCell.m; sourceTree = SOURCE_ROOT; };
 		462500EE1BD6373200D3CC20 /* WWClothesInTheUseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWClothesInTheUseView.h; sourceTree = SOURCE_ROOT; };
 		462500EF1BD6373200D3CC20 /* WWClothesInTheUseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWClothesInTheUseView.m; sourceTree = SOURCE_ROOT; };
 		462500F11BD638E300D3CC20 /* WWClothesUseTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWClothesUseTableViewCell.h; sourceTree = SOURCE_ROOT; };
@@ -962,8 +973,10 @@
 			children = (
 				462500E61BD5DE1200D3CC20 /* WWWantWearView.h */,
 				462500E71BD5DE1200D3CC20 /* WWWantWearView.m */,
-				462500E91BD5E7A400D3CC20 /* WWWantWearCollectionViewCell.h */,
-				462500EA1BD5E7A400D3CC20 /* WWWantWearCollectionViewCell.m */,
+				461E4F2A1BE707D7008E57BC /* WWWantRentTableViewCell.h */,
+				461E4F2B1BE707D7008E57BC /* WWWantRentTableViewCell.m */,
+				461E4F2D1BE73703008E57BC /* WWWantRantModel.h */,
+				461E4F2E1BE73703008E57BC /* WWWantRantModel.m */,
 			);
 			name = "想租";
 			sourceTree = "<group>";
@@ -1778,6 +1791,10 @@
 		4AD21ADE1BA01C8B00B4BDDC /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				461E4F301BE74E5C008E57BC /* btn_jia_n@2x.png */,
+				461E4F311BE74E5C008E57BC /* btn_jia_n@3x.png */,
+				461E4F321BE74E5C008E57BC /* btn_jian_n@2x.png */,
+				461E4F331BE74E5C008E57BC /* btn_jian_n@3x.png */,
 				4A402C621BD8CF6C00575E49 /* popChat.png */,
 				4A4BC1471BD476F10077EED0 /* font */,
 				462B5C401BD48BAF002DA506 /* 10_10切图 */,
@@ -2103,6 +2120,7 @@
 				4A27AB541BCE2FB0006CFC15 /* default-head-figure@3x.png in Resources */,
 				4A40E0811BCCFDB300E12DD9 /* 下衣默认@2x.png in Resources */,
 				4A27AB461BCE2FB0006CFC15 /* -default-point@3x.png in Resources */,
+				461E4F341BE74E5C008E57BC /* btn_jia_n@2x.png in Resources */,
 				4A4294CC1BCF943100381272 /* MBProgressHUD.bundle in Resources */,
 				4A27AB561BCE2FB0006CFC15 /* default-of-the-service@3x.png in Resources */,
 				462B5C4E1BD48BAF002DA506 /* icon_gjzj@3x.png in Resources */,
@@ -2123,8 +2141,10 @@
 				4A3CD1EB1BBE311C004DD167 /* read_me.txt in Resources */,
 				4A40E09B1BCCFDB300E12DD9 /* 首页收藏@2x.png in Resources */,
 				4A27AB591BCE2FB0006CFC15 /* shut-down@2x.png in Resources */,
+				461E4F361BE74E5C008E57BC /* btn_jian_n@2x.png in Resources */,
 				4A40E0831BCCFDB300E12DD9 /* 全部选中@2x.png in Resources */,
 				4A4BC14F1BD4D66C0077EED0 /* icon_xxd@2x.png in Resources */,
+				461E4F371BE74E5C008E57BC /* btn_jian_n@3x.png in Resources */,
 				4A40E08D1BCCFDB300E12DD9 /* 衣服样品@2x.png in Resources */,
 				4A40E0881BCCFDB300E12DD9 /* 我的选中@3x.png in Resources */,
 				4A40E07D1BCCFDB300E12DD9 /* 上衣选中@2x.png in Resources */,
@@ -2167,6 +2187,7 @@
 				4A27AB5B1BCE2FB0006CFC15 /* write-reviews@2x.png in Resources */,
 				4648E72F1BCD4CC200A54035 /* 微信@3x.png in Resources */,
 				4A402C631BD8CF6C00575E49 /* popChat.png in Resources */,
+				461E4F351BE74E5C008E57BC /* btn_jia_n@3x.png in Resources */,
 				4648E7351BCD4CC200A54035 /* check--details@3x.png in Resources */,
 				4A27AB481BCE2FB0006CFC15 /* click-on--chest@3x.png in Resources */,
 				462B5C4F1BD48BAF002DA506 /* icon_ksqq@2x.png in Resources */,
@@ -2319,7 +2340,6 @@
 				46D3FF7A1BCC03DB0091AF67 /* AFHTTPRequestOperation.m in Sources */,
 				460BB8E21BD9335500211903 /* base64.m in Sources */,
 				4648E7451BCD548900A54035 /* WWSettingViewController.m in Sources */,
-				462500EB1BD5E7A400D3CC20 /* WWWantWearCollectionViewCell.m in Sources */,
 				4A9A92671BD7725E007E9474 /* RadioButton.m in Sources */,
 				46D3FF671BCBFCAC0091AF67 /* FMFunctions.m in Sources */,
 				4AD21B101BA0355000B4BDDC /* WWBaseNavigationViewController.m in Sources */,
@@ -2327,6 +2347,7 @@
 				4A3CD1F51BBE33A2004DD167 /* WXUtil.mm in Sources */,
 				4A40E04D1BCCF56A00E12DD9 /* WWPageControl.m in Sources */,
 				4AC79E1E1BD8DCDF00851DC7 /* KZLinkLabel.m in Sources */,
+				461E4F2C1BE707D7008E57BC /* WWWantRentTableViewCell.m in Sources */,
 				4A27AAEF1BCE00EA006CFC15 /* WWProductDetailViewController.m in Sources */,
 				4A4294D31BCF943100381272 /* MJPhotoToolbar.m in Sources */,
 				460BB8DE1BD9335500211903 /* APAuthV2Info.m in Sources */,
@@ -2340,6 +2361,7 @@
 				4A4294D41BCF943100381272 /* MJPhotoView.m in Sources */,
 				462500E81BD5DE1200D3CC20 /* WWWantWearView.m in Sources */,
 				4AD21AFC1BA028B700B4BDDC /* AppDelegate.mm in Sources */,
+				461E4F2F1BE73703008E57BC /* WWWantRantModel.m in Sources */,
 				4A40DDEC1BCA86F100E12DD9 /* WWPublicNavtionBar.m in Sources */,
 				46283CBF1BD7D1CC002848CE /* WWAddShippingAddressViewController.m in Sources */,
 				4A4294D01BCF943100381272 /* MJPhotoBrowser.m in Sources */,

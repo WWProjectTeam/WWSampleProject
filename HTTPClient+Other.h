@@ -75,7 +75,7 @@
 - (AFHTTPRequestOperation *)GetUserAddRessListUserId:(NSString *)userId WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
 
 //PD-addToCartSubmit
-- (AFHTTPRequestOperation *)PostAddToCartWithProductId:(NSString *)productId WithColor:(NSString*)color WithSize:(NSString*)size WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
+- (AFHTTPRequestOperation *)PostAddToCartWithProductId:(NSString *)productId WithColor:(NSString*)color WithSize:(NSString*)size WithNum:(int)num WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
 
 //HP-MSGList
 - (AFHTTPRequestOperation *)GetUserMsgList:(NSString *)maxID WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;

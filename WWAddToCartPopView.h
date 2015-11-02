@@ -18,6 +18,6 @@
 
 
 ////加入衣柜
-@property (nonatomic , copy) void (^AddToCart)(NSString * strColor,NSString * strSize);
+@property (nonatomic , copy) void (^AddToCart)(NSString * strColor,NSString * strSize,int strNum);
 
 @end

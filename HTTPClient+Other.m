@@ -239,13 +239,14 @@
 
 
 //PD-addToCartSubmit
-- (AFHTTPRequestOperation *)PostAddToCartWithProductId:(NSString *)productId WithColor:(NSString*)color WithSize:(NSString*)size WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
+- (AFHTTPRequestOperation *)PostAddToCartWithProductId:(NSString *)productId WithColor:(NSString*)color WithSize:(NSString*)size WithNum:(int)num WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
     NSDictionary * dicParam;
     dicParam = @{
                  @"id":productId,
                  @"userId":g_UserId,
                  @"color":color,
-                 @"size":size
+                 @"size":size,
+                 @"count":[NSNumber numberWithInt:num]
                  };
     NSDictionary *parame = @{@"json":[dicParam JSONString]};
     

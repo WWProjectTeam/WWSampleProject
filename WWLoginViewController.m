@@ -210,7 +210,6 @@
                     }
                 }];
             }else{
-                sleep(60);
                 [SVProgressHUD showErrorWithStatus:@"登录失败"];
                 [SVProgressHUD dismiss];
             }

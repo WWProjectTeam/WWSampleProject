@@ -144,4 +144,16 @@
 //保存用户个推所需参数
 #define KGetuiClientIdURL           @"yiyouv/user/saveClientid?userId=%@&clientid=%@&origin=ios"
 
+//生成订单
+#define KOrderSaveURL               @"yiyouv/order/save"
+
+//获取订单列表
+#define KOrderListURL               @"yiyouv/order/orders?userId=%@&type=%@"
+
+//支付成功
+#define KOrderPayURL                @"yiyouv/order/info?id=%@"
+
+//获取订单详情
+#define KOrderDetilURL              @"yiyouv/order/info?id=%@"
+
 #endif

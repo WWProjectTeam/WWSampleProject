@@ -76,6 +76,6 @@
 //提交预支付
 -(NSString *)sendPrepay:(NSMutableDictionary *)prePayParams;
 //签名实例测试
-- ( NSMutableDictionary *)sendPay_demo;
+- ( NSMutableDictionary *)sendPay:(NSString *)payMoney;
 
 @end

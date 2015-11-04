@@ -26,12 +26,14 @@
 ////////////////////
 #import <AlipaySDK/AlipaySDK.h>
 #import "WWMessageCenterViewController.h"
+#import "WWMyOrderViewController.h"
 
 ///////个推
 #import "GeTuiSdk.h"
 NSString * g_UserId;
 NSString * g_UserName;
 NSString * g_UserHeadImage;
+NSString * g_orderId;
 @interface AppDelegate ()<UITabBarControllerDelegate>
 
 @end
@@ -56,7 +58,7 @@ NSString * g_UserHeadImage;
     myPageVC.tabBarItem.title = @"我的";
     
     WWClotheSpressViewController * clotheVC = [[WWClotheSpressViewController alloc]init];
-    clotheVC.tabBarItem.title = @"衣柜";
+    clotheVC.tabBarItem.title = @"租衣";
 
     //视图数组
     NSArray* controllerArray = [[NSArray alloc]initWithObjects:homePageVC,clotheVC,myPageVC,nil];
@@ -208,20 +210,33 @@ NSString * g_UserHeadImage;
         //支付返回结果，实际支付结果需要去微信服务器端查询
         strTitle = [NSString stringWithFormat:@"支付结果"];
         
-        switch (resp.errCode) {
-            case WXSuccess:
-                strMsg = @"支付结果：成功！";
-                NSLog(@"支付成功－PaySuccess，retcode = %d", resp.errCode);
-                break;
-                
-            default:
-                strMsg = [NSString stringWithFormat:@"支付结果：失败！retcode = %d, retstr = %@", resp.errCode,resp.errStr];
-                NSLog(@"错误，retcode = %d, retstr = %@", resp.errCode,resp.errStr);
-                break;
+        if (resp.errCode == WXSuccess){
+//            [SVProgressHUD showSuccessWithStatus:@"支付成功"];
+            [self orderPaySuccess];
+            // 通知--刷新信息
+            [[NSNotificationCenter defaultCenter] postNotificationName:WWRefreshUserInformation object:nil];
+            WWMyOrderViewController *myorderVC = [[WWMyOrderViewController alloc]init];
+            [self.navtionViewControl pushViewController:myorderVC animated:YES];
+        }else{
+            [SVProgressHUD showErrorWithStatus:@"支付失败，请去我的订单中进行支付"];
+            // 通知--刷新信息
+            [[NSNotificationCenter defaultCenter] postNotificationName:WWRefreshUserInformation object:nil];
         }
+        
+//        switch (resp.errCode) {
+//            case WXSuccess:
+//                strMsg = @"支付结果：成功！";
+//                NSLog(@"支付成功－PaySuccess，retcode = %d", resp.errCode);
+//                break;
+//                
+//            default:
+//                strMsg = [NSString stringWithFormat:@"支付结果：失败！retcode = %d, retstr = %@", resp.errCode,resp.errStr];
+//                
+//                break;
+//        }
     }
-    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
-    [alert show];
+//    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:strTitle message:strMsg delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil, nil];
+//    [alert show];
 }
 
 
@@ -393,6 +408,16 @@ NSString * g_UserHeadImage;
                 NSLog(@"上传个推返回clientId失败");
             }
         });
+    }];
+}
+
+-(void)orderPaySuccess{
+    [FMHTTPClient GetOrderPaySuccess:g_orderId WithCompletion:^(WebAPIResponse *response) {
+        if (response.code == WebAPIResponseCodeSuccess) {
+            [SVProgressHUD showSuccessWithStatus:@"支付成功"];
+        }else{
+            
+        }
     }];
 }
 

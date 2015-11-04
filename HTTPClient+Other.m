@@ -314,4 +314,55 @@
               completion:completionBlock];
 }
 
+//orderSave
+- (AFHTTPRequestOperation *)PostOrderSaveUserId:(NSString *)userId WithwardrobeId:(NSString *)wardrobeId WithaddressId:(NSString *)addressId WithleaseCost:(NSString *)leaseCost WithDeposit:(NSString *)deposit WithPayMethod:(int)payMethod WithisInvoice:(int )isInvoice WithinvoiceTitle:(NSString *)invoiceTitle WithinvoiceType:(int)invoiceType WithDays:(int)days WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
+    
+    NSDictionary *dic = @{@"userId":userId,
+                          @"wardrobeId":wardrobeId,
+                          @"addressId":addressId,
+                          @"leaseCost":leaseCost,
+                          @"deposit":deposit,
+                          @"payMethod":[NSNumber numberWithInt:payMethod],
+                          @"isInvoice":[NSNumber numberWithInt:isInvoice],
+                          @"invoiceTitle":invoiceTitle,
+                          @"invoiceType":[NSNumber numberWithInt:invoiceType],
+                          @"days":[NSNumber numberWithInt:days]};
+    
+    NSDictionary *paramet = @{@"json":[dic JSONString]};
+    
+    return [self postPath:KOrderSaveURL
+               parameters:paramet
+               completion:completionBlock];
+}
+
+//GetOrderList
+- (AFHTTPRequestOperation *)GetuserOrderListUserId:(NSString *)userid orderId:(NSString *)orderId WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
+    
+    NSString *listUrl = [NSString stringWithFormat:KOrderListURL,userid,orderId];
+    
+    return [self getPath:listUrl
+              parameters:nil
+              completion:completionBlock];
+    
+}
+
+//GetOrderDetail
+- (AFHTTPRequestOperation *)GetOrderDetail:(NSString *)orderId WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
+    
+    NSString *detailUrl = [NSString stringWithFormat:KOrderDetilURL,orderId];
+    
+    return [self getPath:detailUrl
+              parameters:nil
+              completion:completionBlock];
+}
+
+//GetOrderPaySuccess
+- (AFHTTPRequestOperation *)GetOrderPaySuccess:(NSString *)orderId WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
+    NSString *paySuccessUrl = [NSString stringWithFormat:KOrderPayURL,orderId];
+    
+    return [self getPath:paySuccessUrl
+              parameters:nil
+              completion:completionBlock];
+}
+
 @end

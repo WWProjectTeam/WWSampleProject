@@ -8,16 +8,18 @@
 
 #import "WWClotheSpressViewController.h"
 #import "WWWantWearView.h"
-#import "WWVIPPackageViewController.h"
 #import "WWClothesInTheUseView.h"
 #import "HTTPClient+Other.h"
 #import "WWHomePageViewController.h"
-#import "WWProductDetailViewController.h"
+#import "WWMyOrderDetailViewController.h"
 #import "WWOrderViewController.h"
+#import "WWWantRantModel.h"
+#import "WWProductDetailViewController.h"
 
 @interface WWClotheSpressViewController ()<UIScrollViewDelegate>{
     WWPublicNavtionBar *navtionBarView;
     WWClothesInTheUseView *useVC;
+    WWWantWearView *wantVC;
 }
 
 @property (nonatomic,strong)        UIView              *clockbakcGroupView;
@@ -43,6 +45,15 @@
     [self.view addSubview:navtionBarView];
     
     [self clothesViewLayout];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(refreshWantWearClothesNum:)
+                                                 name:WWRefreshUserInformation
+                                               object:nil];
+}
+
+- (void)refreshWantWearClothesNum:(NSNotification *)notification{
+    [wantVC.clothesTabelView.header beginRefreshing];
 }
 
 - (void)clothesViewLayout{
@@ -119,22 +130,71 @@
     recogizerLeft.direction=UISwipeGestureRecognizerDirectionLeft;
     [self.clothesScrollView addGestureRecognizer:recogizerLeft];
 #pragma mark ---- 想穿
-    WWWantWearView *wantVC = [[WWWantWearView alloc]initWithFrame:CGRectMake(0, 0, MainView_Width, self.clothesScrollView.height)];
+    __weak __typeof(&*self)weakSelf = self;
+    wantVC = [[WWWantWearView alloc]initWithFrame:CGRectMake(0, 0, MainView_Width, self.clothesScrollView.height)];
+    wantVC.wantWearOrderBtnClickBlock = ^(NSDictionary *dic,int days){
+        WWOrderViewController *order = [[WWOrderViewController alloc]init];
+        order.orderDataDic = dic;
+        order.days = days;
+        [weakSelf.navigationController pushViewController:order animated:YES];
+    };
+    wantVC.chooseClothesBtnBlock = ^{
+        WWHomePageViewController *homeVC = [[WWHomePageViewController alloc]init];
+        homeVC.IsClothesSpressPush = YES;
+        [weakSelf.navigationController pushViewController:homeVC animated:YES];
+    };
+    wantVC.wantRantTableCellSelectBlock = ^(NSString *id_s){
+        WWProductDetailViewController *productVC = [[WWProductDetailViewController alloc]init];
+        productVC.strProductId = id_s;
+        [weakSelf.navigationController pushViewController:productVC animated:YES];
+    };
    [self.clothesScrollView addSubview:wantVC];
 #pragma mark ---- 使用中
-    __weak __typeof(&*self)weakSelf = self;
+    
     useVC = [[WWClothesInTheUseView alloc]initWithFrame:CGRectMake(MainView_Width, 0, MainView_Width, self.clothesScrollView.height)];
     // 点击item
     useVC.clothesInTheUseDidSelectItemBlock = ^(NSString *clothesId){
-        WWProductDetailViewController *productDetailVC = [[WWProductDetailViewController alloc]init];
-        productDetailVC.strProductId = clothesId;
-        [weakSelf.navigationController pushViewController:productDetailVC animated:YES];
+        WWMyOrderDetailViewController *orderDetailVC = [[WWMyOrderDetailViewController alloc]init];
+        orderDetailVC.orderId = clothesId;
+        [weakSelf.navigationController pushViewController:orderDetailVC animated:YES];
     };
     [self.clothesScrollView addSubview:useVC];
+    
+    __weak UITableView *tableView = wantVC.clothesTabelView;
+    
+    // 添加下拉刷新控件
+    tableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
+        [wantVC.clothesArray removeAllObjects];
+        //
+        [FMHTTPClient GetWardrobeGoodsUserId:[WWUtilityClass getNSUserDefaults:UserID] WithCompletion:^(WebAPIResponse *response) {
+            dispatch_async(dispatch_get_main_queue(), ^{
+                if (response.code == WebAPIResponseCodeSuccess) {
+                    
+                    wantVC.clothesDic = [response.responseObject objectForKey:@"result"];
+                    
+                    wantVC.otherContentLab.text = [NSString stringWithFormat:@"押金:￥%@.00",[wantVC.clothesDic objectForKey:@"deposit"]];
+                    wantVC.rantMoneyLab.text = [NSString stringWithFormat:@"租金￥%@.00从押金扣除",[wantVC.clothesDic objectForKey:@"leaseCost"]];
+                    
+                    NSArray *clientWardrobes = [wantVC.clothesDic objectForKey:@"clientWardrobes"];
+                    for (NSDictionary *dic in clientWardrobes) {
+                        WWWantRantModel *model = [WWWantRantModel initWithClothesRequestData:dic];
+                        [wantVC.clothesArray addObject:model];
+                    }
+                    [wantVC.settlementBtn setTitle:[NSString stringWithFormat:@"结算（%d）",wantVC.clothesArray.count] forState:UIControlStateNormal];
+                    [wantVC refreshView];
+                    [wantVC.clothesTabelView reloadData];
+                    [wantVC.clothesTabelView.header endRefreshing];
+                }
+            });
+        }];
+    }];
+    
+    [wantVC.clothesTabelView.header beginRefreshing];
     
 }
 
 - (void)viewWillAppear:(BOOL)animated{
+    [wantVC.clothesTabelView reloadData];
     [useVC.clothesUseTableView reloadData];
 }
 

@@ -18,6 +18,7 @@
 extern NSString * g_UserId;
 extern NSString * g_UserName;
 extern NSString * g_UserHeadImage;
+extern NSString * g_orderId;
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate,WXApiDelegate,UITabBarDelegate,GeTuiSdkDelegate>{
     NSString *_deviceToken;
@@ -40,7 +41,7 @@ extern NSString * g_UserHeadImage;
 
 @property (nonatomic ,copy) void (^UserLoginStatuUpdate)();
 
-
+-(void)orderPaySuccess;
 
 @end
 

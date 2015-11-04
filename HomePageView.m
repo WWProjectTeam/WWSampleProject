@@ -37,12 +37,12 @@
     {
         
         //轮播图创建
-        scrollBanner = [[CycleScrollView alloc] initWithFrame:CGRectMake(0, 0, iphone_size_scale(320), iphone_size_scale(200)) animationDuration:4];
+        scrollBanner = [[CycleScrollView alloc] initWithFrame:CGRectMake(0, 0, iphone_size_scale(320), iphone_size_scale(144)) animationDuration:4];
         scrollBanner.backgroundColor = [[UIColor purpleColor] colorWithAlphaComponent:0.1];
        // [self.homePageScrollView addSubview:scrollBanner];
         
         //定义pageControl
-        pageControl = [[WWPageControl alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(scrollBanner.frame)-14, 320, 6)];
+        pageControl = [[WWPageControl alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(scrollBanner.frame)-14, MainView_Width, 6)];
         [pageControl setBackgroundColor:[UIColor clearColor]];
         [pageControl setImagePageStateHighlighted:[UIImage imageNamed:@"click-on--point"]];
         [pageControl setImagePageStateNormal:[UIImage imageNamed:@"-default-point"]];
@@ -78,12 +78,12 @@
         
         
         //轮播图创建
-        scrollBanner = [[CycleScrollView alloc] initWithFrame:CGRectMake(0, 0, iphone_size_scale(320), iphone_size_scale(200)) animationDuration:4];
+        scrollBanner = [[CycleScrollView alloc] initWithFrame:CGRectMake(0, 0, iphone_size_scale(320), iphone_size_scale(144)) animationDuration:4];
         scrollBanner.backgroundColor = [[UIColor purpleColor] colorWithAlphaComponent:0.1];
         // [self.homePageScrollView addSubview:scrollBanner];
         
         //定义pageControl
-        pageControl = [[WWPageControl alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(scrollBanner.frame)-14, 320, 6)];
+        pageControl = [[WWPageControl alloc] initWithFrame:CGRectMake(0, CGRectGetMaxY(scrollBanner.frame)-14, MainView_Width, 6)];
         [pageControl setBackgroundColor:[UIColor clearColor]];
         [pageControl setImagePageStateHighlighted:[UIImage imageNamed:@"click-on--point"]];
         [pageControl setImagePageStateNormal:[UIImage imageNamed:@"-default-point"]];
@@ -157,7 +157,7 @@
 //定义每个UICollectionView 的大小
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(MainView_Width/2, iphone_size_scale(280));
+    return CGSizeMake(MainView_Width/2, iphone_size_scale(270));
 }
 
 
@@ -200,7 +200,7 @@
 
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section{
-    CGSize size = {MainView_Width,iphone_size_scale(200)};
+    CGSize size = {MainView_Width,iphone_size_scale(144)};
     return size;
 }
 
@@ -229,7 +229,7 @@
         
         [imageTemp sd_setImageWithURL:[NSURL URLWithString:strImageUrl] placeholderImage:[UIImage imageNamed:@"bg_grzx@3x"]];
         
-        [imageTemp setFrame:CGRectMake(0,0, iphone_size_scale(320), iphone_size_scale(200))];
+        [imageTemp setFrame:CGRectMake(0,0, iphone_size_scale(320), iphone_size_scale(144))];
         
         [viewsArray addObject:imageTemp];
     }

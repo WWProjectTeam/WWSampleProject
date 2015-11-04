@@ -34,7 +34,7 @@
     [self.view addSubview:navTionBarView];
     
     UIButton *navRightBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
-    navRightBtn.frame = CGRectMake(MainView_Width-30-10, IOS7_Y+(44-20)/2, 30,20);
+    navRightBtn.frame = CGRectMake(MainView_Width-40-10, IOS7_Y+(44-20)/2, 40,20);
     [navRightBtn setTitle:@"添加" forState:UIControlStateNormal];
     [navRightBtn setTitleColor:RGBCOLOR(20, 20, 20) forState:UIControlStateNormal];
     navRightBtn.titleLabel.font = font_size(14);
@@ -67,6 +67,10 @@
                     for (NSDictionary *dic in resultArr) {
                         WWAddRessModel *model = [WWAddRessModel initWithUserAddRessModel:dic];
                         [self.addRessArray addObject:model];
+                    }
+                    if (self.addRessArray.count == 0) {
+                        WWAddShippingAddressViewController *addVC = [[WWAddShippingAddressViewController alloc]init];
+                        [self.navigationController pushViewController:addVC animated:YES];
                     }
                     [self.addRessTableView reloadData];
                     [self.addRessTableView.header endRefreshing];
@@ -103,7 +107,7 @@
     RadioButton *radio = [[RadioButton alloc]init];
     [radio setBackgroundImage:[WWUtilityClass imageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
     [radio setBackgroundImage:[WWUtilityClass imageWithColor:RGBCOLOR(5, 178, 15)] forState:UIControlStateSelected];
-    radio.layer.cornerRadius = 14*kPercenX/2;
+    radio.layer.cornerRadius = 20*kPercenX/2;
     radio.layer.borderColor = RGBCOLOR(128, 128, 128).CGColor;
     radio.layer.borderWidth = 1;
     radio.layer.masksToBounds = YES;
@@ -111,15 +115,15 @@
     [radio addTarget:self action:@selector(selectBtnClickEvent:) forControlEvents:UIControlEventTouchUpInside];
     [arrSelectBtn addObject:radio];
     //设置默认
-//    if (indexPath.row==0) {
-//        [radio setSelected:YES];
-//    }
+    if (indexPath.row==0) {
+        [radio setSelected:YES];
+    }
     //设置单选组
     if (indexPath.row==arrSelectBtn.count-1) {
         radio.groupButtons = arrSelectBtn;
     }
     
-    radio.frame = CGRectMake(cell.backView.width-14*kPercenX-24, (cell.backView.height-14*kPercenX)/2, iphone_size_scale(14), iphone_size_scale(14));
+    radio.frame = CGRectMake(cell.backView.width-16*kPercenX-24, (cell.backView.height-20*kPercenX)/2, iphone_size_scale(20), iphone_size_scale(20));
     [cell.backView addSubview:radio];
 
     
@@ -166,6 +170,7 @@
     if (sender.tag < self.addRessArray.count) {
         WWAddRessModel *model = [self.addRessArray objectAtIndex:sender.tag];
         self.userOrderAddressBlock(model);
+        [self.navigationController popViewControllerAnimated:YES];
     }
 }
 

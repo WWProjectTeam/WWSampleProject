@@ -26,12 +26,9 @@
 - (id)initWithFrame:(CGRect)frame{
     self = [super initWithFrame:frame];
     if (self) {
-     //   self.clothesUseTableView = [UITableView alloc]initWithFrame:CGRectMake(0, 0, <#CGFloat width#>, <#CGFloat height#>) style:<#(UITableViewStyle)#>
         self.backgroundColor = WW_BASE_COLOR;
         self.clothesUseArray = [NSMutableArray new];
-//        if ([[WWUtilityClass getNSUserDefaults:UserVipID] intValue] != 1) {
-//            return self;
-//        }
+
         self.clothesUseTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, frame.size.width, frame.size.height) style:UITableViewStylePlain];
         self.clothesUseTableView.delegate = self;
         self.clothesUseTableView.dataSource = self;
@@ -40,27 +37,21 @@
         self.clothesUseTableView.showsVerticalScrollIndicator = NO;
         [self addSubview:self.clothesUseTableView];
         
-        self.clothesHeaderView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, MainView_Width, 44*kPercenX)];
-        self.clothesHeaderView.backgroundColor = [UIColor clearColor];
-        self.clothesUseTableView.tableHeaderView = self.clothesHeaderView;
-        
-        UILabel *endTimeLab = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, self.clothesHeaderView.width-20, self.clothesHeaderView.height)];
-        endTimeLab.font = font_size(12);
-        endTimeLab.textColor = WWContentTextColor;
-        [self.clothesHeaderView addSubview:endTimeLab];
-        
         // 添加下拉刷新控件
-        
+        NSString *orderId = @"1";
+        if (self.myOrder == NO) {
+            orderId = @"0";
+        }else{
+            orderId = @"1";
+        }
         self.clothesUseTableView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
             [self.clothesUseArray removeAllObjects];
             //
-            [FMHTTPClient GetWardrobeIsGoodsUserId:@"1000" WithCompletion:^(WebAPIResponse *response) {
+            [FMHTTPClient GetuserOrderListUserId:[WWUtilityClass getNSUserDefaults:UserID] orderId:orderId WithCompletion:^(WebAPIResponse *response) {
                 dispatch_async(dispatch_get_main_queue(), ^{
                     if (response.code == WebAPIResponseCodeSuccess) {
-                        NSDictionary *resultDic = [response.responseObject objectForKey:@"result"];
-                        endTimeLab.text = [resultDic objectForKey:@"endTime"];
-                        NSArray *clientWardrobesArr = [resultDic objectForKey:@"clientWardrobes"];
-                        for (NSDictionary *dic in clientWardrobesArr) {
+                        NSArray *resultArr = [response.responseObject objectForKey:@"result"];
+                        for (NSDictionary *dic in resultArr) {
                             WWClothesUseModel *model = [WWClothesUseModel initWithClothesModel:dic];
                             [self.clothesUseArray addObject:model];
                         }
@@ -98,7 +89,7 @@
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 75*kPercenX;
+    return 100*kPercenX;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{

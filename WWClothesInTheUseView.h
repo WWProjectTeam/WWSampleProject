@@ -13,5 +13,6 @@
 @property (nonatomic,copy)void (^clothesInTheUseDidSelectItemBlock)(NSString *);
 
 @property (nonatomic,strong)UITableView         *clothesUseTableView;
+@property (nonatomic,assign)BOOL                myOrder;
 
 @end

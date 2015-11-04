@@ -18,11 +18,7 @@
     int num;
 }
 
-@property (nonatomic,strong)UIView                      *clothesBackView;
-
-@property (nonatomic,strong)UILabel                     *otherContentLab;
-@property (nonatomic,strong)UILabel                     *rantMoneyLab;
-@property (nonatomic,strong)UIButton                    *settlementBtn;
+@property (nonatomic,strong)UIView  *chooseView;
 
 @end
 
@@ -34,24 +30,25 @@
         self.backgroundColor = WW_BASE_COLOR;
         self.clothesArray = [NSMutableArray new];
         num = 1;
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(refreshWantWearClothesNum:)
-                                                     name:WWDelegateWantWearGoods
-                                                   object:nil];
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(refreshWantWearClothesNum:)
-                                                     name:WWRefreshUserInformation
-                                                   object:nil];
         
         [self clotheNumLayout:frame];
+        
+        
         
     }
     return self;
 }
 
-// 衣柜为空的时候
-- (void)clothesNotNum{
-    
+- (void)refreshView{
+    if (self.clothesArray.count == 0) {
+        self.clothesBackView.hidden = YES;
+        [self clothesNotNum:CGRectMake(0, 0, MainView_Width, self.size.height)];
+        self.chooseView.hidden = NO;
+        return;
+    }else{
+        self.clothesBackView.hidden = NO;
+        self.chooseView.hidden = YES;
+    }
 }
 
 // 衣柜有衣服的时候
@@ -61,7 +58,7 @@
     [self addSubview:self.clothesBackView];
     // 添加数量
     UIView *view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.clothesBackView.width, 46)];
-    [self addSubview:view];
+    [self.clothesBackView addSubview:view];
     UILabel *upLine = [[UILabel alloc]initWithFrame:CGRectMake(0, view.height-0.5f, view.width, 0.5f)];
     upLine.backgroundColor = WWPageLineColor;
     [view addSubview:upLine];
@@ -97,7 +94,7 @@
     clothesNum.font = font_size(13);
     [numView addSubview:clothesNum];
     
-    self.clothesTabelView = [[UITableView alloc]initWithFrame:CGRectMake(0, view.bottom, MainView_Width, self.clothesBackView.height-44-46) style:UITableViewStylePlain];
+    self.clothesTabelView = [[UITableView alloc]initWithFrame:CGRectMake(0, view.bottom, MainView_Width, self.clothesBackView.height-45-50) style:UITableViewStylePlain];
     self.clothesTabelView.delegate = self;
     self.clothesTabelView.dataSource = self;
     self.clothesTabelView.separatorStyle = UITableViewCellSeparatorStyleNone;
@@ -125,37 +122,37 @@
     self.settlementBtn.titleLabel.font = font_size(14);
     self.settlementBtn.backgroundColor = WWBtnYellowColor;
     [self.settlementBtn setBackgroundImage:[WWUtilityClass imageWithColor:RGBCOLOR(211, 120, 23)] forState:UIControlStateHighlighted];
-//    [self.settlementBtn addTarget:self action:@selector(settlementClickEvent:) forControlEvents:UIControlEventTouchUpInside];
+    [self.settlementBtn addTarget:self action:@selector(settlementClickEvent:) forControlEvents:UIControlEventTouchUpInside];
     [bottonView addSubview:self.settlementBtn];
-    
-    // 添加下拉刷新控件
-    self.clothesTabelView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
-        [self.clothesArray removeAllObjects];
-        //
-        [FMHTTPClient GetWardrobeGoodsUserId:[WWUtilityClass getNSUserDefaults:UserID] WithCompletion:^(WebAPIResponse *response) {
-            dispatch_async(dispatch_get_main_queue(), ^{
-                if (response.code == WebAPIResponseCodeSuccess) {
-                    
-                    self.clothesDic = [response.responseObject objectForKey:@"result"];
-                    
-                    self.otherContentLab.text = [NSString stringWithFormat:@"押金：￥%@.00",[self.clothesDic objectForKey:@"deposit"]];
-                    self.rantMoneyLab.text = [NSString stringWithFormat:@"租金￥%@.00从押金扣除",[self.clothesDic objectForKey:@"leaseCost"]];
-                    
-                    NSArray *clientWardrobes = [self.clothesDic objectForKey:@"clientWardrobes"];
-                    for (NSDictionary *dic in clientWardrobes) {
-                        WWWantRantModel *model = [WWWantRantModel initWithClothesRequestData:dic];
-                        [self.clothesArray addObject:model];
-                    }
-                    [self.settlementBtn setTitle:[NSString stringWithFormat:@"结算（%d）",self.clothesArray.count] forState:UIControlStateNormal];
-                    [self.clothesTabelView reloadData];
-                    [self.clothesTabelView.header endRefreshing];
-                }
-            });
-        }];
-    }];
-    
-    [self.clothesTabelView.header beginRefreshing];
 
+}
+
+// 衣柜为空的时候
+- (void)clothesNotNum:(CGRect)frame{
+    self.chooseView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, MainView_Width, frame.size.height)];
+    self.chooseView.backgroundColor = [UIColor clearColor];
+    [self addSubview:self.chooseView];
+    UILabel *prompt = [[UILabel alloc]initWithFrame:CGRectMake((self.chooseView.width-170)/2, 145, 170, 13)];
+    prompt.text = @"现在还没有想租的衣服哦";
+    prompt.textColor = WWContentTextColor;
+    prompt.font = font_size(13);
+    [self.chooseView addSubview:prompt];
+    UIButton *button = [UIButton buttonWithType:UIButtonTypeRoundedRect];
+    button.frame = CGRectMake((self.chooseView.width-100)/2, prompt.bottom+15, 100, 44);
+    [button setTitle:@"挑选衣服" forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    button.backgroundColor = WWBtnYellowColor;
+    [button setBackgroundImage:[WWUtilityClass imageWithColor:RGBCOLOR(211, 120, 23)] forState:UIControlStateHighlighted];
+    button.layer.cornerRadius = 4;
+    button.layer.masksToBounds = YES;
+    [button addTarget:self action:@selector(chooseClothesClick:) forControlEvents:UIControlEventTouchUpInside];
+    [self.chooseView addSubview:button];
+}
+
+- (void)chooseClothesClick:(UIButton *)sender{
+    if (self.chooseClothesBtnBlock) {
+        self.chooseClothesBtnBlock();
+    }
 }
 
 #pragma mark - UITableViewDataSource
@@ -175,13 +172,47 @@
     
     return cell;
 }
+#pragma mark 提交编辑操作时会调用这个方法(删除，添加)
+- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
+    // 删除操作
+    if (editingStyle == UITableViewCellEditingStyleDelete) {
+        WWWantRantModel *model = [self.clothesArray objectAtIndex:indexPath.row];
+        [FMHTTPClient GetDelegateWardrobeGoodsUserId:[WWUtilityClass getNSUserDefaults:UserID] andCode:model.code WithCompletion:^(WebAPIResponse *response) {
+            if (response.code == WebAPIResponseCodeSuccess) {
+                NSLog(@"删除成功");
+                if (self.clothesArray.count == 0) {
+                    [self.clothesTabelView.header beginRefreshing];
+                }
+            }
+        }];
+        
+        // 1.删除数据
+        [self.clothesArray removeObjectAtIndex:indexPath.row];
+        
+        // 2.更新UITableView UI界面
+        // [tableView reloadData];
+        [tableView deleteRowsAtIndexPaths:[NSArray arrayWithObject:indexPath] withRowAnimation:UITableViewRowAnimationAutomatic];
+        
+    }
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row < self.clothesArray.count) {
+        WWWantRantModel *model = [self.clothesArray objectAtIndex:indexPath.row];
+        self.wantRantTableCellSelectBlock(model.id_s);
+    }
+
+}
+
+#pragma mark 只有实现这个方法，编辑模式中才允许移动Cell
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath {
+    // 更换数据的顺序
+    [self.clothesArray exchangeObjectAtIndex:sourceIndexPath.row withObjectAtIndex:destinationIndexPath.row];
+}
+
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 70*kPercenX;
-}
-
-- (void)refreshWantWearClothesNum:(NSNotification *)notification{
-    [self.clothesTabelView.header beginRefreshing];
 }
 
 - (void)clothesNumBtnClickEvent:(UIButton *)sender{
@@ -202,5 +233,10 @@
     self.rantMoneyLab.text = [NSString stringWithFormat:@"租金￥%d.00从押金扣除",money*num];
 }
 
+- (void)settlementClickEvent:(UIButton *)sender{
+    if (self.wantWearOrderBtnClickBlock) {
+        self.wantWearOrderBtnClickBlock(self.clothesDic,num);
+    }
+}
 
 @end

@@ -18,7 +18,7 @@
     UILabel * labelDesc;
     UILabel *otherContentLab;
     UILabel *clothesNum;
-    
+    UILabel *day;
     UIScrollView * scrollView;
     NSDictionary * clothesDetailDic;
     
@@ -38,13 +38,13 @@
         
         UIView * viewBG = [[UIView alloc]init];
         [viewBG setBackgroundColor:[UIColor whiteColor]];
-        [viewBG setFrame:CGRectMake(0, MainView_Height-iphone_size_scale(340), MainView_Width,iphone_size_scale(340))];
+        [viewBG setFrame:CGRectMake(0, MainView_Height-iphone_size_scale(360), MainView_Width,iphone_size_scale(360))];
         
         [self addSubview:viewBG];
         
         
         imgProduct = [[UIImageView alloc]init];
-        [imgProduct setFrame:CGRectMake(10,MainView_Height-iphone_size_scale(360), iphone_size_scale(100), iphone_size_scale(100))];
+        [imgProduct setFrame:CGRectMake(10,MainView_Height-iphone_size_scale(380), iphone_size_scale(100), iphone_size_scale(100))];
         
         imgProduct.layer.cornerRadius = 5;
         imgProduct.layer.masksToBounds = YES;
@@ -54,14 +54,19 @@
 
         
         labelColthSpressNum = [[UILabel alloc]init];
-        [labelColthSpressNum setText:@"￥30/天"];
+        [labelColthSpressNum setText:@"￥30"];
         [labelColthSpressNum setTextColor:WWContentTextColor];
         [labelColthSpressNum setFrame:CGRectMake(CGRectGetMaxX(imgProduct.frame)+10, iphone_size_scale(23), iphone_size_scale(100), 20*kPercenX)];
         [labelColthSpressNum setFont:font_size(20)];
-        
         [viewBG addSubview:labelColthSpressNum];
         
-        clotheSubSpressNum = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(imgProduct.frame)+10, labelColthSpressNum.bottom+5, 100, iphone_size_scale(11))];
+        day = [[UILabel alloc]initWithFrame:CGRectMake(labelColthSpressNum.right, labelColthSpressNum.bottom-12*kPercenX, 30, 12)];
+        day.text = @"/天";
+        day.textColor = WWContentTextColor;
+        day.font = [UIFont systemFontOfSize:12];
+        [viewBG addSubview:day];
+        
+        clotheSubSpressNum = [[UILabel alloc]initWithFrame:CGRectMake(CGRectGetMaxX(imgProduct.frame)+10, labelColthSpressNum.bottom+8, 100, iphone_size_scale(11))];
         clotheSubSpressNum.text = @"押金：￥380/件";
         clotheSubSpressNum.textColor = WWContentTextColor;
         clotheSubSpressNum.font = font_size(11);
@@ -72,7 +77,7 @@
         [labelDesc setTextColor:RGBCOLOR(255, 51, 51)];
         labelDesc.adjustsFontSizeToFitWidth = YES;
         [labelDesc setFrame:CGRectMake(CGRectGetMaxX(imgProduct.frame)+10, clotheSubSpressNum.bottom+5, iphone_size_scale(200), 30)];
-        [labelDesc setFont:font_size(13)];
+        [labelDesc setFont:font_size(11)];
 
         [viewBG addSubview:labelDesc];
         
@@ -112,12 +117,13 @@
         ///////////单位和颜色
         
         scrollView = [[UIScrollView alloc]init];
-        [scrollView setFrame:CGRectMake(0, CGRectGetMaxY(imgLine.frame), MainView_Width, iphone_size_scale(155))];
+        [scrollView setFrame:CGRectMake(0, CGRectGetMaxY(imgLine.frame), MainView_Width, iphone_size_scale(150))];
         scrollView.backgroundColor = [UIColor whiteColor];
         [viewBG addSubview:scrollView];
         
         // 添加数量
-        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(10, scrollView.bottom, viewBG.width-20, 44)];
+        UIView *view = [[UIView alloc]initWithFrame:CGRectMake(10, bottonView.top-44-15, viewBG.width-20, 44)];
+        view.backgroundColor = [UIColor whiteColor];
         [viewBG addSubview:view];
         UILabel *topLine = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, view.width, 1)];
         topLine.backgroundColor = WWPageLineColor;
@@ -184,7 +190,12 @@
     clothesDetailDic = dict;
     [imgProduct sd_setImageWithURL:[NSURL URLWithString:dict[@"imgurl"]] placeholderImage:[UIImage imageNamed:@"bg_yfxq"]];
     
-    [labelColthSpressNum setText:[NSString stringWithFormat:@"￥%@/天",dict[@"leaseCost"]]];
+    [labelColthSpressNum setText:[NSString stringWithFormat:@"￥%@",dict[@"leaseCost"]]];
+    CGSize typeSize = CGSizeMake(300, 20000.0f);
+    typeSize = [labelColthSpressNum.text sizeWithFont:labelColthSpressNum.font constrainedToSize:typeSize lineBreakMode:NSLineBreakByCharWrapping];
+    [labelColthSpressNum setFrame:CGRectMake(CGRectGetMaxX(imgProduct.frame)+10, iphone_size_scale(23), typeSize.width,typeSize.height)];
+    
+    day.frame = CGRectMake(labelColthSpressNum.right, labelColthSpressNum.bottom-14*kPercenX, 30, 12);
     
     clotheSubSpressNum.text = [NSString stringWithFormat:@"押金：￥%@/件",dict[@"deposit"]];
     

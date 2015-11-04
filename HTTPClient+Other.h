@@ -92,4 +92,17 @@
 
 //Getui--clickId
 - (AFHTTPRequestOperation *)GetGeTuiUserId:(NSString *)userid ClientId:(NSString *)clientId WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
+
+//orderSave
+- (AFHTTPRequestOperation *)PostOrderSaveUserId:(NSString *)userId WithwardrobeId:(NSString *)wardrobeId WithaddressId:(NSString *)addressId WithleaseCost:(NSString *)leaseCost WithDeposit:(NSString *)deposit WithPayMethod:(int)payMethod WithisInvoice:(int)isInvoice WithinvoiceTitle:(NSString *)invoiceTitle WithinvoiceType:(int)invoiceType WithDays:(int)days WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
+
+//GetOrderList
+- (AFHTTPRequestOperation *)GetuserOrderListUserId:(NSString *)userid orderId:(NSString *)orderId WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
+
+//GetOrderDetail
+- (AFHTTPRequestOperation *)GetOrderDetail:(NSString *)orderId WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
+
+//GetOrderPaySuccess
+- (AFHTTPRequestOperation *)GetOrderPaySuccess:(NSString *)orderId WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
 @end
+

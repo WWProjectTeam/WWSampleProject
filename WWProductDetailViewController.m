@@ -57,6 +57,9 @@
 #pragma mark - 导航条
     WWPublicNavtionBar * navtionBar = [[WWPublicNavtionBar alloc]initWithLeftBtn:YES withTitle:@"详情" withRightBtn:NO withRightBtnPicName:nil withRightBtnSize:CGSizeZero];
     [navtionBar setAlpha:0];
+    UILabel *line = [[UILabel alloc]initWithFrame:CGRectMake(0, navtionBar.height-0.5f, MainView_Width, 0.5f)];
+    line.backgroundColor = WWPageLineColor;
+    [navtionBar addSubview:line];
     
     [self.view addSubview:navtionBar];
     
@@ -146,11 +149,11 @@
             [SVProgressHUD show];
             [[HTTPClient sharedHTTPClient]PostAddToCartWithProductId:weakself.strProductId WithColor:strColor WithSize:strSize WithNum:strNum WithCompletion:^(WebAPIResponse *operation) {
                 NSDictionary * dict = operation.responseObject;
-                
+
                 if ([[NSString stringWithFormat:@"%@",dict[@"code"]]isEqualToString:WWAppSuccessCode]) {
                     [SVProgressHUD showSuccessWithStatus:@"添加成功!"];
                     [weakself.addCartPopView setHidden:YES];
-                    // 通知--刷新衣柜信息
+                    // 通知--刷新衣柜信息3
                     [[NSNotificationCenter defaultCenter] postNotificationName:WWRefreshUserInformation object:nil];
                     
                 }

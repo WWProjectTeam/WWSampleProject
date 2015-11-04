@@ -146,13 +146,13 @@
 // 更新时间：2015年3月3日
 // 负责人：李启波（marcyli）
 //============================================================
-- ( NSMutableDictionary *)sendPay_demo
+- ( NSMutableDictionary *)sendPay:(NSString *)payMoney
 {
-
+//    NSString *money = [NSString stringWithFormat:@"%@.00",payMoney];
     //订单标题，展示给用户
-    NSString *order_name    = @"V3支付测试";
+    NSString *order_name    = @"衣优V";
     //订单金额,单位（分）
-    NSString *order_price   = @"1";//1分钱测试
+    NSString *order_price   = payMoney;
 
 
     //================================

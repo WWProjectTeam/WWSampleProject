@@ -17,13 +17,31 @@
         return model;
     }
     
-    [model setClothes_code:StringForKeyInUnserializedJSONDic(dicInfor, @"code")];
-    [model setClothes_color:StringForKeyInUnserializedJSONDic(dicInfor, @"color")];
+    [model setClothes_count:StringForKeyInUnserializedJSONDic(dicInfor, @"count")];
+    [model setClothes_deposit:StringForKeyInUnserializedJSONDic(dicInfor, @"deposit")];
     [model setClothes_id:StringForKeyInUnserializedJSONDic(dicInfor, @"id")];
-    [model setClothes_image:StringForKeyInUnserializedJSONDic(dicInfor, @"imgurl")];
-    [model setClothes_size:StringForKeyInUnserializedJSONDic(dicInfor, @"size")];
-    [model setClothes_title:StringForKeyInUnserializedJSONDic(dicInfor, @"title")];
+    [model setClothes_endTime:StringForKeyInUnserializedJSONDic(dicInfor, @"endTime")];
+    [model setClothes_ordernumber:StringForKeyInUnserializedJSONDic(dicInfor, @"orderNumber")];
+    [model setClothes_state:StringForKeyInUnserializedJSONDic(dicInfor, @"state")];
+    [model setClothes_types:StringForKeyInUnserializedJSONDic(dicInfor, @"types")];
     
+    NSString *imageURLs = StringForKeyInUnserializedJSONDic(dicInfor, @"imgurl");
+    ///字符串不为空
+    if (!IsStringEmptyOrNull(imageURLs)) {
+        
+        NSArray *imageData = [imageURLs componentsSeparatedByString:@","];
+        
+        NSMutableArray* imageArray = [[NSMutableArray alloc] init];
+        
+        if ([imageData isKindOfClass:[NSArray class]]) {
+            for (NSString* imageURL in imageData) {
+                
+                [imageArray addObject:imageURL];
+            }
+        }
+        [model setClothes_IagesArray:[NSArray arrayWithArray:imageArray]];
+    }
+
     return model;
 }
 

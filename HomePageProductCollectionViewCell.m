@@ -30,7 +30,7 @@
         
         
         //////遮罩View
-        UIView * viewt = [[UIView alloc]initWithFrame:CGRectMake(3, CGRectGetMaxY(self.imgProduct.frame),self.frame.size.width-7, iphone_size_scale(55))];
+        UIView * viewt = [[UIView alloc]initWithFrame:CGRectMake(3, CGRectGetMaxY(self.imgProduct.frame),self.frame.size.width-7, iphone_size_scale(45))];
         [viewt setBackgroundColor:[UIColor whiteColor]];
         [viewt setUserInteractionEnabled:YES];
         [self addSubview:viewt];
@@ -40,7 +40,7 @@
         //////产品名称
         self.labelProductName = [[UILabel alloc]init];
         [self.labelProductName setFrame:CGRectMake(5, 1, CGRectGetWidth(viewt.frame)-10, 30)];
-        [self.labelProductName setFont:font_size(13)];
+        [self.labelProductName setFont:font_size(11)];
         [self.labelProductName setTextColor:RGBCOLOR(128, 128, 128)];
 
         [viewt addSubview:self.labelProductName];

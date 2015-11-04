@@ -59,6 +59,12 @@
 		462B5C581BD48BAF002DA506 /* iocn_vipd@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 462B5C4C1BD48BAF002DA506 /* iocn_vipd@3x.png */; };
 		462B5C5B1BD4BA96002DA506 /* btn_zf_c@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 462B5C591BD4BA96002DA506 /* btn_zf_c@3x.png */; };
 		462B5C5C1BD4BA96002DA506 /* btn_zf_n@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 462B5C5A1BD4BA96002DA506 /* btn_zf_n@3x.png */; };
+		462B72B31BE99DBE00EFB2B0 /* WWMyOrderDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 462B72B21BE99DBE00EFB2B0 /* WWMyOrderDetailViewController.m */; };
+		462DF8011BE9264C0027B04C /* img_wfk@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 462DF7FB1BE9264C0027B04C /* img_wfk@2x.png */; };
+		462DF8021BE9264C0027B04C /* img_wfk@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 462DF7FC1BE9264C0027B04C /* img_wfk@3x.png */; };
+		462DF8031BE9264C0027B04C /* img_yzl@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 462DF7FD1BE9264C0027B04C /* img_yzl@2x.png */; };
+		462DF8041BE9264C0027B04C /* img_yzl@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 462DF7FE1BE9264C0027B04C /* img_yzl@3x.png */; };
+		462DF8081BE927660027B04C /* WWMyOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 462DF8071BE927660027B04C /* WWMyOrderViewController.m */; };
 		4631B7241BD75B8700D94373 /* WWOrderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4631B7231BD75B8700D94373 /* WWOrderViewController.m */; };
 		4631B7281BD7798100D94373 /* WWOrderAddressViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4631B7271BD7798100D94373 /* WWOrderAddressViewController.m */; };
 		4631B72B1BD77B3800D94373 /* WWAddRessTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4631B72A1BD77B3800D94373 /* WWAddRessTableViewCell.m */; };
@@ -432,6 +438,14 @@
 		462B5C4C1BD48BAF002DA506 /* iocn_vipd@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "iocn_vipd@3x.png"; sourceTree = "<group>"; };
 		462B5C591BD4BA96002DA506 /* btn_zf_c@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_zf_c@3x.png"; sourceTree = "<group>"; };
 		462B5C5A1BD4BA96002DA506 /* btn_zf_n@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "btn_zf_n@3x.png"; sourceTree = "<group>"; };
+		462B72B11BE99DBE00EFB2B0 /* WWMyOrderDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWMyOrderDetailViewController.h; sourceTree = SOURCE_ROOT; };
+		462B72B21BE99DBE00EFB2B0 /* WWMyOrderDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWMyOrderDetailViewController.m; sourceTree = SOURCE_ROOT; };
+		462DF7FB1BE9264C0027B04C /* img_wfk@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_wfk@2x.png"; sourceTree = SOURCE_ROOT; };
+		462DF7FC1BE9264C0027B04C /* img_wfk@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_wfk@3x.png"; sourceTree = SOURCE_ROOT; };
+		462DF7FD1BE9264C0027B04C /* img_yzl@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_yzl@2x.png"; sourceTree = SOURCE_ROOT; };
+		462DF7FE1BE9264C0027B04C /* img_yzl@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_yzl@3x.png"; sourceTree = SOURCE_ROOT; };
+		462DF8061BE927660027B04C /* WWMyOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWMyOrderViewController.h; sourceTree = SOURCE_ROOT; };
+		462DF8071BE927660027B04C /* WWMyOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWMyOrderViewController.m; sourceTree = SOURCE_ROOT; };
 		4631B7221BD75B8700D94373 /* WWOrderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOrderViewController.h; sourceTree = SOURCE_ROOT; };
 		4631B7231BD75B8700D94373 /* WWOrderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWOrderViewController.m; sourceTree = SOURCE_ROOT; };
 		4631B7261BD7798100D94373 /* WWOrderAddressViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWOrderAddressViewController.h; sourceTree = SOURCE_ROOT; };
@@ -1068,6 +1082,17 @@
 			path = "10_10切图";
 			sourceTree = SOURCE_ROOT;
 		};
+		462DF8051BE927380027B04C /* 我的订单 */ = {
+			isa = PBXGroup;
+			children = (
+				462DF8061BE927660027B04C /* WWMyOrderViewController.h */,
+				462DF8071BE927660027B04C /* WWMyOrderViewController.m */,
+				462B72B11BE99DBE00EFB2B0 /* WWMyOrderDetailViewController.h */,
+				462B72B21BE99DBE00EFB2B0 /* WWMyOrderDetailViewController.m */,
+			);
+			name = "我的订单";
+			sourceTree = "<group>";
+		};
 		4631B7211BD758DD00D94373 /* 下订单 */ = {
 			isa = PBXGroup;
 			children = (
@@ -1098,6 +1123,7 @@
 			children = (
 				4648E70E1BCCEF5600A54035 /* WWMyPageViewController.h */,
 				4648E70F1BCCEF5600A54035 /* WWMyPageViewController.m */,
+				462DF8051BE927380027B04C /* 我的订单 */,
 				4626E4F01BCE49B100D902B4 /* VIP套餐 */,
 				4626E4E91BCDFC0700D902B4 /* 意见反馈 */,
 				4626E4E81BCDFBF700D902B4 /* 我的收藏 */,
@@ -1791,6 +1817,10 @@
 		4AD21ADE1BA01C8B00B4BDDC /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				462DF7FB1BE9264C0027B04C /* img_wfk@2x.png */,
+				462DF7FC1BE9264C0027B04C /* img_wfk@3x.png */,
+				462DF7FD1BE9264C0027B04C /* img_yzl@2x.png */,
+				462DF7FE1BE9264C0027B04C /* img_yzl@3x.png */,
 				461E4F301BE74E5C008E57BC /* btn_jia_n@2x.png */,
 				461E4F311BE74E5C008E57BC /* btn_jia_n@3x.png */,
 				461E4F321BE74E5C008E57BC /* btn_jian_n@2x.png */,
@@ -2116,6 +2146,7 @@
 				4A40DE501BCA8C4200E12DD9 /* btn_zksq@2x.png in Resources */,
 				4A27AB521BCE2FB0006CFC15 /* default-chest@3x.png in Resources */,
 				4A4293991BCF42C500381272 /* bg_yfxq@3x.png in Resources */,
+				462DF8011BE9264C0027B04C /* img_wfk@2x.png in Resources */,
 				4A40E0961BCCFDB300E12DD9 /* 轮播图默认@3x.png in Resources */,
 				4A27AB541BCE2FB0006CFC15 /* default-head-figure@3x.png in Resources */,
 				4A40E0811BCCFDB300E12DD9 /* 下衣默认@2x.png in Resources */,
@@ -2133,6 +2164,7 @@
 				4A40E0991BCCFDB300E12DD9 /* 连衣裙默认@2x.png in Resources */,
 				462B5C541BD48BAF002DA506 /* icon_ruhz@3x.png in Resources */,
 				4A40DE201BCA895C00E12DD9 /* bg_grzx@2x.png in Resources */,
+				462DF8021BE9264C0027B04C /* img_wfk@3x.png in Resources */,
 				4A40E0781BCCFDB300E12DD9 /* banner@3x.png in Resources */,
 				4A40E0771BCCFDB300E12DD9 /* banner@2x.png in Resources */,
 				4A4293981BCF42C500381272 /* bg_yfxq@2x.png in Resources */,
@@ -2147,6 +2179,7 @@
 				461E4F371BE74E5C008E57BC /* btn_jian_n@3x.png in Resources */,
 				4A40E08D1BCCFDB300E12DD9 /* 衣服样品@2x.png in Resources */,
 				4A40E0881BCCFDB300E12DD9 /* 我的选中@3x.png in Resources */,
+				462DF8041BE9264C0027B04C /* img_yzl@3x.png in Resources */,
 				4A40E07D1BCCFDB300E12DD9 /* 上衣选中@2x.png in Resources */,
 				4A40E07C1BCCFDB300E12DD9 /* v@3x.png in Resources */,
 				4A40DE371BCA895C00E12DD9 /* img_tx@3x.png in Resources */,
@@ -2157,6 +2190,7 @@
 				4A40DE2B1BCA895C00E12DD9 /* icon_logo@3x.png in Resources */,
 				4A40DE211BCA895C00E12DD9 /* bg_grzx@3x.png in Resources */,
 				4A40DE291BCA895C00E12DD9 /* icon_dh@3x.png in Resources */,
+				462DF8031BE9264C0027B04C /* img_yzl@2x.png in Resources */,
 				4A40DE251BCA895C00E12DD9 /* btn_sz_n@3x.png in Resources */,
 				462B5C501BD48BAF002DA506 /* icon_ksqq@3x.png in Resources */,
 				4A40E0471BCCA52300E12DD9 /* PBMsg@3x.png in Resources */,
@@ -2294,6 +2328,7 @@
 				460BB8E61BD9335500211903 /* NSDataEx.m in Sources */,
 				460BB8E31BD9335500211903 /* DataSigner.m in Sources */,
 				46E880681BD0ED7C002481CB /* MyCollectionCollectionViewCell.m in Sources */,
+				462DF8081BE927660027B04C /* WWMyOrderViewController.m in Sources */,
 				4A4BC16D1BD5CF6C0077EED0 /* WWProductReplyListTableViewCell.m in Sources */,
 				4A40E0A51BCD07AB00E12DD9 /* HomePageProductCollectionViewCell.m in Sources */,
 				46D3FF631BCBFB750091AF67 /* JSONKit.m in Sources */,
@@ -2343,6 +2378,7 @@
 				4A9A92671BD7725E007E9474 /* RadioButton.m in Sources */,
 				46D3FF671BCBFCAC0091AF67 /* FMFunctions.m in Sources */,
 				4AD21B101BA0355000B4BDDC /* WWBaseNavigationViewController.m in Sources */,
+				462B72B31BE99DBE00EFB2B0 /* WWMyOrderDetailViewController.m in Sources */,
 				4648E7141BCD0F3500A54035 /* UIView+Tool.m in Sources */,
 				4A3CD1F51BBE33A2004DD167 /* WXUtil.mm in Sources */,
 				4A40E04D1BCCF56A00E12DD9 /* WWPageControl.m in Sources */,
@@ -2424,8 +2460,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Pengyun Pei (HRS7CNH4E7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Pengyun Pei (HRS7CNH4E7)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Pengyun Pei (2DF2UNPL4C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Pengyun Pei (2DF2UNPL4C)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
@@ -2449,7 +2485,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "afbb9a97-a182-494c-aea3-8f4c886d526f";
+				PROVISIONING_PROFILE = "3ff833c0-53d1-4dd6-828c-721f6df067ff";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2472,8 +2508,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Pengyun Pei (HRS7CNH4E7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Pengyun Pei (HRS7CNH4E7)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Pengyun Pei (2DF2UNPL4C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Pengyun Pei (2DF2UNPL4C)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
@@ -2489,7 +2525,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "afbb9a97-a182-494c-aea3-8f4c886d526f";
+				PROVISIONING_PROFILE = "3ff833c0-53d1-4dd6-828c-721f6df067ff";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
@@ -2503,8 +2539,8 @@
 				ARCHS = armv7s;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Pengyun Pei (HRS7CNH4E7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Pengyun Pei (HRS7CNH4E7)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Pengyun Pei (2DF2UNPL4C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Pengyun Pei (2DF2UNPL4C)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/alipay",
@@ -2556,7 +2592,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "3ff833c0-53d1-4dd6-828c-721f6df067ff";
 				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = armv7s;
+				VALID_ARCHS = "arm64 armv7s armv7";
 			};
 			name = Debug;
 		};
@@ -2564,11 +2600,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BD267E1E565205A652CB897F /* Pods.release.xcconfig */;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD)";
+				ARCHS = armv7s;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Pengyun Pei (HRS7CNH4E7)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Pengyun Pei (HRS7CNH4E7)";
+				CODE_SIGN_IDENTITY = "iPhone Developer: Pengyun Pei (2DF2UNPL4C)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Pengyun Pei (2DF2UNPL4C)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/alipay",
@@ -2595,7 +2631,7 @@
 					"$(PROJECT_DIR)/alipay",
 					"$(PROJECT_DIR)/dist",
 				);
-				ONLY_ACTIVE_ARCH = YES;
+				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-ObjC",
@@ -2620,6 +2656,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "3ff833c0-53d1-4dd6-828c-721f6df067ff";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "arm64 armv7s armv7";
 			};
 			name = Release;
 		};

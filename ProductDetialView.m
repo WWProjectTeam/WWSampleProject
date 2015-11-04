@@ -189,7 +189,7 @@
         UIButton * btnBuy = [[UIButton alloc]init];
         [btnBuy setFrame:CGRectMake(iphone_size_scale(170), MainView_Height-49, iphone_size_scale(150), 49)];
         [btnBuy setBackgroundColor:RGBCOLOR(234, 162, 0)];
-        [btnBuy setTitle:@"放入衣柜" forState:UIControlStateNormal];
+        [btnBuy setTitle:@"加入租衣列表" forState:UIControlStateNormal];
         [btnBuy setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [btnBuy.titleLabel setFont:font_bold_size(15)];
         [btnBuy addTarget:self action:@selector(addCart) forControlEvents:UIControlEventTouchUpInside];

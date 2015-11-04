@@ -99,4 +99,13 @@
 + (void)saveNSUserDefaults:(NSString *)key value:(NSString *)value;
 
 + (NSString *)getNSUserDefaults:(NSString *)key;
+
+
+// 支付--暂不用
++ (NSString *)generateTradeNO;
+
++ (void)alipay:(NSString *)clothesPrice;
+
+
+
 @end

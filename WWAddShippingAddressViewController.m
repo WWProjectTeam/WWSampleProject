@@ -45,21 +45,7 @@
     [backView addSubview:self.nameTextFiled];
     
     // 收货人手机号
-    UIView *phoneView = [[UIView alloc]initWithFrame:CGRectMake(0, backView.bottom, MainView_Width, iphone_size_scale(40))];
-    phoneView.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:phoneView];
-    
-    UILabel *phoneLine = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, MainView_Width, 0.5f)];
-    phoneLine.backgroundColor = WWPageLineColor;
-    [phoneView addSubview:phoneLine];
-    self.phoneLab = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, MainView_Width-20, phoneView.height)];
-    self.phoneLab.text = [WWUtilityClass getNSUserDefaults:UserPhone];
-    self.phoneLab.font = font_size(14);
-    self.phoneLab.textColor = WWContentTextColor;
-    [phoneView addSubview:self.phoneLab];
-    
-    // 省、市、县
-    UIView *regionView = [[UIView alloc]initWithFrame:CGRectMake(0, phoneView.bottom, MainView_Width, iphone_size_scale(40))];
+    UIView *regionView = [[UIView alloc]initWithFrame:CGRectMake(0, backView.bottom, MainView_Width, iphone_size_scale(40))];
     regionView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:regionView];
     
@@ -68,13 +54,28 @@
     [regionView addSubview:regionLine];
     
     self.regionTextFiled = [[UITextField alloc]initWithFrame:CGRectMake(10, 0, MainView_Width-20, 40*kPercenX)];
-    self.regionTextFiled.placeholder = @"省、市、区（县）";
+        self.regionTextFiled.placeholder = @"手机号码";
+    self.regionTextFiled.text = [WWUtilityClass getNSUserDefaults:UserPhone];
     self.regionTextFiled.font = font_size(14);
-    self.regionTextFiled.textColor = WWSubTitleTextColor;
+    self.regionTextFiled.textColor = WWContentTextColor;
     [regionView addSubview:self.regionTextFiled];
     
+    // 省、市、县
+    UIView *phoneView = [[UIView alloc]initWithFrame:CGRectMake(0, regionView.bottom, MainView_Width, iphone_size_scale(40))];
+    phoneView.backgroundColor = [UIColor whiteColor];
+    [self.view addSubview:phoneView];
+    
+    UILabel *phoneLine = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, MainView_Width, 0.5f)];
+    phoneLine.backgroundColor = WWPageLineColor;
+    [phoneView addSubview:phoneLine];
+    self.phoneLab = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, MainView_Width-20, phoneView.height)];
+    self.phoneLab.text = @"北京市 （目前只服务北京市区域）";
+    self.phoneLab.font = font_size(14);
+    self.phoneLab.textColor = RGBCOLOR(224, 162, 28);
+    [phoneView addSubview:self.phoneLab];
+    
     // 详情地址
-    UIView *detailView = [[UIView alloc]initWithFrame:CGRectMake(0, regionView.bottom, MainView_Width, iphone_size_scale(135))];
+    UIView *detailView = [[UIView alloc]initWithFrame:CGRectMake(0, phoneView.bottom, MainView_Width, iphone_size_scale(135))];
     detailView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:detailView];
     
@@ -113,14 +114,17 @@
         return;
     }
     if ([self.regionTextFiled.text isEqualToString:@""]) {
-        [SVProgressHUD showInfoWithStatus:@"请输入收货地区"];
+        [SVProgressHUD showInfoWithStatus:@"请输入手机号"];
         return;
     }
     if ([self.detailAddressTextView.text isEqualToString:@""]) {
         [SVProgressHUD showInfoWithStatus:@"请输入详细地址"];
         return;
     }
-    
+    if (![WWUtilityClass validateMobile:self.regionTextFiled.text]) {
+        [SVProgressHUD showInfoWithStatus:@"请输入正确的手机号"];
+        return;
+    }
     [FMHTTPClient PostSaveUserAddressWithUserId:[WWUtilityClass getNSUserDefaults:UserID] WithName:self.nameTextFiled.text WithMobile:self.phoneLab.text WithCity:self.regionTextFiled.text WContent:self.detailAddressTextView.text WithCompletion:^(WebAPIResponse *response) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (response.code == WebAPIResponseCodeSuccess) {

@@ -10,13 +10,15 @@
 
 @interface WWClothesUseModel : NSObject
 
+@property (nonatomic,strong)NSString        *clothes_count;
 @property (nonatomic,strong)NSString        *clothes_id;
-@property (nonatomic,strong)NSString        *clothes_image;
-@property (nonatomic,strong)NSString        *clothes_color;
-@property (nonatomic,strong)NSString        *clothes_size;
-@property (nonatomic,strong)NSString        *clothes_code;
-@property (nonatomic,strong)NSString        *clothes_title;
+@property (nonatomic,strong)NSString        *clothes_deposit;
+@property (nonatomic,strong)NSString        *clothes_endTime;
+@property (nonatomic,strong)NSString        *clothes_ordernumber;
+@property (nonatomic,strong)NSString        *clothes_state;
+@property (nonatomic,strong)NSString        *clothes_types;
 
+@property (nonatomic , copy) NSArray        *clothes_IagesArray;
 
 +(id)initWithClothesModel:(NSDictionary *)dicInfor;
 

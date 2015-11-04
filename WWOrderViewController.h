@@ -10,6 +10,7 @@
 
 @interface WWOrderViewController : UIViewController
 
-@property (nonatomic,strong)NSDictionary        *orderDataDic;
+@property (nonatomic,strong)NSDictionary        *orderDataDic;      // 数据源
+@property (nonatomic,assign)int                 days;       // 天数
 
 @end

@@ -95,7 +95,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     if (indexPath.row < self.clothesUseArray.count) {
         WWClothesUseModel *model = [self.clothesUseArray objectAtIndex:indexPath.row];
-        self.clothesInTheUseDidSelectItemBlock(model.clothes_id);
+        if ([model.clothes_state isEqualToString:@"9"]) {
+            self.clothesSelectPayBlock(model.clothes_payMethod);
+        }else{
+            self.clothesInTheUseDidSelectItemBlock(model.clothes_id);
+        }
     }
 }
 

@@ -87,6 +87,7 @@
     self.detailAddressTextView.font = font_size(14);
     self.detailAddressTextView.textColor = WWSubTitleTextColor;
     self.detailAddressTextView.delegate = self;
+    self.detailAddressTextView.returnKeyType = UIReturnKeyDone;
     [detailView addSubview:self.detailAddressTextView];
 
     self.placeholder = [[UILabel alloc]initWithFrame:CGRectMake(4, 10, 100, 14*kPercenX)];
@@ -104,8 +105,9 @@
     [self.view addSubview:saveBtn];
     
     ////////手势
-    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hideKeyboard)];
-    [self.view addGestureRecognizer:tapGestureRecognizer];
+//    UITapGestureRecognizer *tapGestureRecognizer = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(hideKeyboard)];
+//    [self.detailAddressTextView addGestureRecognizer:tapGestureRecognizer];
+    
 }
 
 - (void)saveBtnClickEvent:(UIButton *)sender{
@@ -138,6 +140,15 @@
 #pragma mark -- UITextViewDelegate
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
     int number = (textView.text.length-range.length+text.length) > 0 ? (int)(textView.text.length-range.length+text.length):0;
+    if ([text isEqualToString:@"\n"]) {
+        if (number-1 > 0) {
+            self.placeholder.hidden = YES;
+        }else{
+            self.placeholder.hidden = NO;
+        }
+        [textView resignFirstResponder];
+        return NO;
+    }
     if (number == 0) {
         self.placeholder.hidden = NO;
     }else{
@@ -146,9 +157,6 @@
     return YES;
 }
 
--(void)hideKeyboard{
-    [WWUtilityClass hidderKeyboard];
-}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

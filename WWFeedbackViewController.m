@@ -42,10 +42,10 @@
     self.backView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.backView];
     // 上下线条
-    UILabel *upLine = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.backView.width, 1)];
+    UILabel *upLine = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.backView.width, 0.5f)];
     upLine.backgroundColor = WWPageLineColor;
     [self.backView addSubview:upLine];
-    UILabel *downLine = [[UILabel alloc]initWithFrame:CGRectMake(0, self.backView.height-1, self.backView.width, 1)];
+    UILabel *downLine = [[UILabel alloc]initWithFrame:CGRectMake(0, self.backView.height-0.5f, self.backView.width, 0.5f)];
     downLine.backgroundColor = WWPageLineColor;
     [self.backView addSubview:downLine];
     
@@ -54,6 +54,7 @@
     self.textView.textColor = WWSubTitleTextColor;
     self.textView.font = [UIFont systemFontOfSize:14.0f];
     self.textView.delegate = self;
+    self.textView.returnKeyType = UIReturnKeyDone;
     [self.backView addSubview:self.textView];
     
     self.placeholder = [[UILabel alloc]initWithFrame:CGRectMake(5, 9, self.textView.width, 12)];
@@ -84,8 +85,7 @@
     [self.feedbackBtn setBackgroundImage:[WWUtilityClass imageWithColor:RGBCOLOR(211, 120, 23)] forState:UIControlStateHighlighted];
     [self.feedbackBtn addTarget:self action:@selector(submitFeedBack) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:self.feedbackBtn];
-    
-    
+
 }
 
 -(BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
@@ -95,6 +95,15 @@
     if (textView.text.length-range.length+text.length >= 500) {
         [SVProgressHUD showInfoWithStatus:@"不能超过500字哦！"];
         
+        return NO;
+    }
+    if ([text isEqualToString:@"\n"]) {
+        if ([self.textNum.text intValue]-1 > 0) {
+            self.placeholder.hidden = YES;
+        }else{
+            self.placeholder.hidden = NO;
+        }
+        [textView resignFirstResponder];
         return NO;
     }
     if (![self.textNum.text isEqualToString:@"0"]) {
@@ -128,7 +137,6 @@
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event{
     [self.view endEditing:YES];
 }
-
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

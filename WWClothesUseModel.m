@@ -24,6 +24,7 @@
     [model setClothes_ordernumber:StringForKeyInUnserializedJSONDic(dicInfor, @"orderNumber")];
     [model setClothes_state:StringForKeyInUnserializedJSONDic(dicInfor, @"state")];
     [model setClothes_types:StringForKeyInUnserializedJSONDic(dicInfor, @"types")];
+    [model setClothes_payMethod:StringForKeyInUnserializedJSONDic(dicInfor, @"payMethod")];
     
     NSString *imageURLs = StringForKeyInUnserializedJSONDic(dicInfor, @"imgurl");
     ///字符串不为空

@@ -50,7 +50,9 @@
     
     [self.view addSubview:viewNavtionBar];
     
-    
+    UILabel *navLine = [[UILabel alloc]initWithFrame:CGRectMake(0, viewNavtionBar.height-0.5f, MainView_Width, 0.5f)];
+    navLine.backgroundColor = WW_BASE_COLOR;
+    [viewNavtionBar addSubview:navLine];
     
     if (self.IsClothesSpressPush == YES) {
         viewHomePage = [[HomePageView alloc]initHomePageViewWithFrame:CGRectMake(0, IOS7_Y+44, MainView_Width, MainView_Height-IOS7_Y-44)];

@@ -116,6 +116,8 @@
 		46E880681BD0ED7C002481CB /* MyCollectionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E880671BD0ED7C002481CB /* MyCollectionCollectionViewCell.m */; };
 		46E8806B1BD0F5FE002481CB /* DataPage.m in Sources */ = {isa = PBXBuildFile; fileRef = 46E8806A1BD0F5FE002481CB /* DataPage.m */; };
 		46EA99541BDCC64A00D23B00 /* libGeTuiSdk-1.2.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EA99531BDCC64A00D23B00 /* libGeTuiSdk-1.2.1.a */; };
+		46F0BB631BEB3BD90046B36D /* img_psz@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46F0BB611BEB3BD90046B36D /* img_psz@3x.png */; };
+		46F0BB641BEB3BD90046B36D /* img_psz@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46F0BB621BEB3BD90046B36D /* img_psz@2x.png */; };
 		46F69E751BDF1C1000216D5E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F69E741BDF1C1000216D5E /* AudioToolbox.framework */; };
 		4A27AAEF1BCE00EA006CFC15 /* WWProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A27AAEE1BCE00EA006CFC15 /* WWProductDetailViewController.m */; };
 		4A27AAF21BCE0731006CFC15 /* ProductDetialView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A27AAF11BCE0731006CFC15 /* ProductDetialView.m */; };
@@ -528,6 +530,8 @@
 		46EA99511BDCC64A00D23B00 /* GeTuiSdk.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeTuiSdk.h; sourceTree = "<group>"; };
 		46EA99521BDCC64A00D23B00 /* GeTuiSdkError.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GeTuiSdkError.h; sourceTree = "<group>"; };
 		46EA99531BDCC64A00D23B00 /* libGeTuiSdk-1.2.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libGeTuiSdk-1.2.1.a"; sourceTree = "<group>"; };
+		46F0BB611BEB3BD90046B36D /* img_psz@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_psz@3x.png"; sourceTree = SOURCE_ROOT; };
+		46F0BB621BEB3BD90046B36D /* img_psz@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_psz@2x.png"; sourceTree = SOURCE_ROOT; };
 		46F69E741BDF1C1000216D5E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		4A27AAED1BCE00EA006CFC15 /* WWProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWProductDetailViewController.h; sourceTree = SOURCE_ROOT; };
 		4A27AAEE1BCE00EA006CFC15 /* WWProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWProductDetailViewController.m; sourceTree = SOURCE_ROOT; };
@@ -1817,6 +1821,8 @@
 		4AD21ADE1BA01C8B00B4BDDC /* Resource */ = {
 			isa = PBXGroup;
 			children = (
+				46F0BB611BEB3BD90046B36D /* img_psz@3x.png */,
+				46F0BB621BEB3BD90046B36D /* img_psz@2x.png */,
 				462DF7FB1BE9264C0027B04C /* img_wfk@2x.png */,
 				462DF7FC1BE9264C0027B04C /* img_wfk@3x.png */,
 				462DF7FD1BE9264C0027B04C /* img_yzl@2x.png */,
@@ -2150,6 +2156,7 @@
 				4A40E0961BCCFDB300E12DD9 /* 轮播图默认@3x.png in Resources */,
 				4A27AB541BCE2FB0006CFC15 /* default-head-figure@3x.png in Resources */,
 				4A40E0811BCCFDB300E12DD9 /* 下衣默认@2x.png in Resources */,
+				46F0BB641BEB3BD90046B36D /* img_psz@2x.png in Resources */,
 				4A27AB461BCE2FB0006CFC15 /* -default-point@3x.png in Resources */,
 				461E4F341BE74E5C008E57BC /* btn_jia_n@2x.png in Resources */,
 				4A4294CC1BCF943100381272 /* MBProgressHUD.bundle in Resources */,
@@ -2232,6 +2239,7 @@
 				4A4BC14E1BD4D66C0077EED0 /* icon_xx@3x.png in Resources */,
 				4A40E0891BCCFDB300E12DD9 /* 我的默认@2x.png in Resources */,
 				4A27AB441BCE2FB0006CFC15 /* -avatars@3x.png in Resources */,
+				46F0BB631BEB3BD90046B36D /* img_psz@3x.png in Resources */,
 				4648E73E1BCD4CC200A54035 /* mobile-telephone@2x.png in Resources */,
 				4A40DE511BCA8C4200E12DD9 /* btn_zksq@3x.png in Resources */,
 				4A40E07B1BCCFDB300E12DD9 /* v@2x.png in Resources */,

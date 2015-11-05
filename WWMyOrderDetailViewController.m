@@ -42,6 +42,10 @@
     navtionBarView = [[WWPublicNavtionBar alloc]initWithLeftBtn:YES withTitle:@"订单详情" withRightBtn:NO withRightBtnPicName:nil withRightBtnSize:CGSizeZero];
     [self.view addSubview:navtionBarView];
     
+    UILabel *navLine = [[UILabel alloc]initWithFrame:CGRectMake(0, navtionBarView.height-0.5f, MainView_Width, 0.5f)];
+    navLine.backgroundColor = WW_BASE_COLOR;
+    [navtionBarView addSubview:navLine];
+    
     self.orderBackScorllView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, IOS7_Y+44, MainView_Width, MainView_Height-IOS7_Y-44)];
     self.orderBackScorllView.delegate = self;
     self.orderBackScorllView.showsHorizontalScrollIndicator = NO;
@@ -164,7 +168,7 @@
     [self.orderMoneyView addSubview:orderMoneyUpLine];
     
     self.orderPayMoney = [[UILabel alloc]initWithFrame:CGRectMake(10, 0, self.orderMoneyView.width-20, 40)];
-    self.orderPayMoney.text = [NSString stringWithFormat:@"实付款：￥%@.00",[dicInfor objectForKey:@"deposit"]];
+    self.orderPayMoney.text = [NSString stringWithFormat:@"实付款：￥%@",[dicInfor objectForKey:@"deposit"]];
     self.orderPayMoney.textColor = WWContentTextColor;
     self.orderPayMoney.font = font_size(12);
     [self.orderMoneyView addSubview:self.orderPayMoney];
@@ -175,8 +179,8 @@
     // 押金、租金、清洁费、运费
     NSInteger maxHeight = moneyLine.bottom;
     NSArray *title = @[@"服装押金",@"租凭费用",@"服装清洁费",@"运费"];
-    NSString *deposit = [NSString stringWithFormat:@"￥%@.00",[dicInfor objectForKey:@"deposit"]];
-    NSString *leaseCost = [NSString stringWithFormat:@"￥%@.00(归还后从押金扣除)",[dicInfor objectForKey:@"leaseCost"]];
+    NSString *deposit = [NSString stringWithFormat:@"￥%@",[dicInfor objectForKey:@"deposit"]];
+    NSString *leaseCost = [NSString stringWithFormat:@"￥%@(归还后从押金扣除)",[dicInfor objectForKey:@"leaseCost"]];
     NSArray *content = @[deposit,leaseCost,@"￥0.00",@"￥0.00"];
     for (int i = 0; i<4; i++) {
         UILabel *moneyTitle = [[UILabel alloc]initWithFrame:CGRectMake(10, maxHeight+10, 100, iphone_size_scale(12))];

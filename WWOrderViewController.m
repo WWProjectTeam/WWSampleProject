@@ -85,6 +85,10 @@
     navTionBarView = [[WWPublicNavtionBar alloc]initWithLeftBtn:YES withTitle:@"确认订单" withRightBtn:NO withRightBtnPicName:nil withRightBtnSize:CGSizeZero];
     [self.view addSubview:navTionBarView];
     
+    UILabel *navLine = [[UILabel alloc]initWithFrame:CGRectMake(0, navTionBarView.height-0.5f, MainView_Width, 0.5f)];
+    navLine.backgroundColor = WW_BASE_COLOR;
+    [navTionBarView addSubview:navLine];
+    
     //背景view
     self.orderBackScrollView = [[UIScrollView alloc]initWithFrame:CGRectMake(0, IOS7_Y+44, MainView_Width, MainView_Height-IOS7_Y-44)];
 //    self.orderBackScrollView.bounces = NO;
@@ -195,8 +199,8 @@
     allMoneyUpLine.backgroundColor = WWPageLineColor;
     [self.allMoneyView addSubview:allMoneyUpLine];       // 线条颜色
     NSInteger maxHeight = 0;
-    NSString *deposit = [NSString stringWithFormat:@"￥%@.00",[self.orderDataDic objectForKey:@"deposit"]];
-    NSString *leaseCost = [NSString stringWithFormat:@"￥%@.00(归还后从押金扣除)",[self.orderDataDic objectForKey:@"leaseCost"]];
+    NSString *deposit = [NSString stringWithFormat:@"￥%@",[self.orderDataDic objectForKey:@"deposit"]];
+    NSString *leaseCost = [NSString stringWithFormat:@"￥%@(归还后从押金扣除)",[self.orderDataDic objectForKey:@"leaseCost"]];
     NSArray *title = @[@"服装押金",@"租凭费用",@"服装清洁费",@"运费"];
     NSArray *content = @[deposit,leaseCost,@"￥0.00",@"￥0.00"];
     for (int i = 0; i<4; i++) {
@@ -267,7 +271,7 @@
     [bottonView addSubview:bottonUpLine];
     // 运费+次数
     self.orderOtherContentLab = [[UILabel alloc]initWithFrame:CGRectMake(5, 0, bottonView.width-125*kPercenX-10, bottonView.height)];
-    self.orderOtherContentLab.text = [NSString stringWithFormat:@"押金:￥%@.00",[self.orderDataDic objectForKey:@"deposit"]];
+    self.orderOtherContentLab.text = [NSString stringWithFormat:@"押金:￥%@",[self.orderDataDic objectForKey:@"deposit"]];
     self.orderOtherContentLab.font = font_size(12);
     self.orderOtherContentLab.textColor = [UIColor whiteColor];
     [bottonView addSubview:self.orderOtherContentLab];
@@ -312,6 +316,7 @@
     self.receiptTextView.textColor = WWSubTitleTextColor;
     self.receiptTextView.font = font_size(11);
     self.receiptTextView.delegate = self;
+    self.receiptTextView.returnKeyType = UIReturnKeyDone;
     [self.receiptDetailView addSubview:self.receiptTextView];
     
     self.receiptTextViewPlacth = [[UILabel alloc]initWithFrame:CGRectMake(5, 9, self.receiptTextView.width, 11)];
@@ -639,7 +644,7 @@
 
 #pragma mark - 代理协议
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView{
-    self.orderBackScrollView.contentOffset = CGPointMake(0, 600);
+    self.orderBackScrollView.contentOffset = CGPointMake(0, 252);
     return YES;
 }
 
@@ -651,6 +656,15 @@
         self.receiptTextViewPlacth.hidden = YES;
     }else{
         self.receiptTextViewPlacth.hidden = NO;
+    }
+    if ([text isEqualToString:@"\n"]) {
+        if (number-1 > 0) {
+            self.receiptTextViewPlacth.hidden = YES;
+        }else{
+            self.receiptTextViewPlacth.hidden = NO;
+        }
+        [textView resignFirstResponder];
+        return NO;
     }
     
     return YES;

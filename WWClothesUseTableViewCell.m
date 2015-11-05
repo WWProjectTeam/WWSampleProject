@@ -101,6 +101,8 @@
         self.rentImage.image = [UIImage imageNamed:@"img_wfk"];         // 未付款
     }else if ([dicInfor.clothes_state isEqualToString:@"2"]){
         self.rentImage.image = [UIImage imageNamed:@"img_yzl"];        // 已租赁
+    }else if ([dicInfor.clothes_state isEqualToString:@"3"]){
+        self.rentImage.image = [UIImage imageNamed:@"img_psz"];        // 配送中
     }
     
     [self layoutSubviews];

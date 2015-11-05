@@ -17,6 +17,7 @@
 @property (nonatomic,strong)NSString        *clothes_ordernumber;
 @property (nonatomic,strong)NSString        *clothes_state;
 @property (nonatomic,strong)NSString        *clothes_types;
+@property (nonatomic,strong)NSString        *clothes_payMethod;
 
 @property (nonatomic , copy) NSArray        *clothes_IagesArray;
 

@@ -33,6 +33,10 @@
     navTionBarView = [[WWPublicNavtionBar alloc]initWithLeftBtn:YES withTitle:@"选择收货地址" withRightBtn:NO withRightBtnPicName:nil withRightBtnSize:CGSizeZero];
     [self.view addSubview:navTionBarView];
     
+    UILabel *navLine = [[UILabel alloc]initWithFrame:CGRectMake(0, navTionBarView.height-0.5f, MainView_Width, 0.5f)];
+    navLine.backgroundColor = WW_BASE_COLOR;
+    [navTionBarView addSubview:navLine];
+    
     UIButton *navRightBtn = [UIButton buttonWithType:UIButtonTypeRoundedRect];
     navRightBtn.frame = CGRectMake(MainView_Width-40-10, IOS7_Y+(44-20)/2, 40,20);
     [navRightBtn setTitle:@"添加" forState:UIControlStateNormal];

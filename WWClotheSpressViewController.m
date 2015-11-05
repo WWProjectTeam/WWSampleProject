@@ -172,8 +172,8 @@
                     
                     wantVC.clothesDic = [response.responseObject objectForKey:@"result"];
                     
-                    wantVC.otherContentLab.text = [NSString stringWithFormat:@"押金:￥%@.00",[wantVC.clothesDic objectForKey:@"deposit"]];
-                    wantVC.rantMoneyLab.text = [NSString stringWithFormat:@"租金￥%@.00从押金扣除",[wantVC.clothesDic objectForKey:@"leaseCost"]];
+                    wantVC.otherContentLab.text = [NSString stringWithFormat:@"押金:￥%@",[wantVC.clothesDic objectForKey:@"deposit"]];
+                    wantVC.rantMoneyLab.text = [NSString stringWithFormat:@"租金￥%@从押金扣除",[wantVC.clothesDic objectForKey:@"leaseCost"]];
                     
                     NSArray *clientWardrobes = [wantVC.clothesDic objectForKey:@"clientWardrobes"];
                     for (NSDictionary *dic in clientWardrobes) {

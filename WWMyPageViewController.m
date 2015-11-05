@@ -148,10 +148,10 @@
         [self.view addSubview:listView];
         maxWidth = CGRectGetMaxY(listView.frame);
         // 上下线条
-        UILabel *upLine = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, listView.width, 1)];
+        UILabel *upLine = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, listView.width, 0.5f)];
         upLine.backgroundColor = WWPageLineColor;
         [listView addSubview:upLine];
-        UILabel *downLine = [[UILabel alloc]initWithFrame:CGRectMake(0, listView.height-1, listView.width, 1)];
+        UILabel *downLine = [[UILabel alloc]initWithFrame:CGRectMake(0, listView.height-0.5f, listView.width, 0.5f)];
         downLine.backgroundColor = WWPageLineColor;
         [listView addSubview:downLine];
         // 图标

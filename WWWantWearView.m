@@ -222,7 +222,7 @@
         if (num<=1) {
             clothesNum.text = @"1";
             num = 1;
-            self.rantMoneyLab.text = [NSString stringWithFormat:@"租金￥%@.00从押金扣除",[self.clothesDic objectForKey:@"leaseCost"]];
+            self.rantMoneyLab.text = [NSString stringWithFormat:@"租金￥%@从押金扣除",[self.clothesDic objectForKey:@"leaseCost"]];
             return;
         }
     }else{
@@ -230,7 +230,7 @@
     }
     clothesNum.text = [NSString stringWithFormat:@"%d",num];
     int money = [[self.clothesDic objectForKey:@"leaseCost"] intValue];
-    self.rantMoneyLab.text = [NSString stringWithFormat:@"租金￥%d.00从押金扣除",money*num];
+    self.rantMoneyLab.text = [NSString stringWithFormat:@"租金￥%d从押金扣除",money*num];
 }
 
 - (void)settlementClickEvent:(UIButton *)sender{

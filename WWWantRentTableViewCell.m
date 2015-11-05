@@ -77,7 +77,7 @@
     [self.clothesImageView sd_setImageWithURL:[NSURL URLWithString:model.imageurl] placeholderImage:[UIImage imageNamed:@"默认衣服图片"]];
     self.clothesName.text = [NSString stringWithFormat:@"%@",model.title];
     self.clothesDetail.text = [NSString stringWithFormat:@"颜色：%@  尺码：%@",model.color,model.size];
-    self.clothesPrice.text = [NSString stringWithFormat:@"￥%@.00",model.leaseCost];
+    self.clothesPrice.text = [NSString stringWithFormat:@"￥%@",model.leaseCost];
     self.clothesNum.text = [NSString stringWithFormat:@"x%@件",model.count];
     
     

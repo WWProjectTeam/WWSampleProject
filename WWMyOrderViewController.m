@@ -10,7 +10,7 @@
 #import "WWClothesInTheUseView.h"
 #import "WWMyOrderDetailViewController.h"
 
-@interface WWMyOrderViewController (){
+@interface WWMyOrderViewController ()<UIAlertViewDelegate>{
     WWPublicNavtionBar *navtionBarView;
     WWClothesInTheUseView *useVC;
 }
@@ -30,6 +30,10 @@
     };
     [self.view addSubview:navtionBarView];
     
+    UILabel *navLine = [[UILabel alloc]initWithFrame:CGRectMake(0, navtionBarView.height-0.5f, MainView_Width, 0.5f)];
+    navLine.backgroundColor = WW_BASE_COLOR;
+    [navtionBarView addSubview:navLine];
+    
 #pragma mark ---- 使用中
     
     useVC = [[WWClothesInTheUseView alloc]initWithFrame:CGRectMake(0, IOS7_Y+44, MainView_Width, MainView_Height-IOS7_Y-44)];
@@ -40,8 +44,18 @@
         orderDetailVC.orderId = clothesId;
         [weakSelf.navigationController pushViewController:orderDetailVC animated:YES];
     };
+    useVC.clothesSelectPayBlock = ^(NSString *payMothed){
+        UIAlertView *aliert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"确定支付" delegate:weakSelf cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
+        aliert.delegate = weakSelf;
+        [aliert show];
+    };
     useVC.myOrder = NO;
     [self.view addSubview:useVC];
+}
+
+#pragma mark - UIAlertViewDelegate
+- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated{

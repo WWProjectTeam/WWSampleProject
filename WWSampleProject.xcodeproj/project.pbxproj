@@ -118,6 +118,8 @@
 		46EA99541BDCC64A00D23B00 /* libGeTuiSdk-1.2.1.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46EA99531BDCC64A00D23B00 /* libGeTuiSdk-1.2.1.a */; };
 		46F0BB631BEB3BD90046B36D /* img_psz@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46F0BB611BEB3BD90046B36D /* img_psz@3x.png */; };
 		46F0BB641BEB3BD90046B36D /* img_psz@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 46F0BB621BEB3BD90046B36D /* img_psz@2x.png */; };
+		46F0BB661BEB5BF40046B36D /* libMJRefresh.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F0BB651BEB5BF40046B36D /* libMJRefresh.a */; };
+		46F0BB681BEB5CC90046B36D /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F0BB671BEB5CC90046B36D /* libPods.a */; };
 		46F69E751BDF1C1000216D5E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 46F69E741BDF1C1000216D5E /* AudioToolbox.framework */; };
 		4A27AAEF1BCE00EA006CFC15 /* WWProductDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A27AAEE1BCE00EA006CFC15 /* WWProductDetailViewController.m */; };
 		4A27AAF21BCE0731006CFC15 /* ProductDetialView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4A27AAF11BCE0731006CFC15 /* ProductDetialView.m */; };
@@ -274,7 +276,6 @@
 		4AD21B101BA0355000B4BDDC /* WWBaseNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21B0F1BA0355000B4BDDC /* WWBaseNavigationViewController.m */; };
 		4AD21B131BA0358400B4BDDC /* WWBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21B121BA0358400B4BDDC /* WWBaseViewController.m */; };
 		4AD21B1C1BA0396000B4BDDC /* UIViewController+AOP.m in Sources */ = {isa = PBXBuildFile; fileRef = 4AD21B1B1BA0396000B4BDDC /* UIViewController+AOP.m */; };
-		F21A682048EBFAF8CA07CAD4 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 16AE9000BDCE5CAC294783BF /* libPods.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -532,6 +533,8 @@
 		46EA99531BDCC64A00D23B00 /* libGeTuiSdk-1.2.1.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libGeTuiSdk-1.2.1.a"; sourceTree = "<group>"; };
 		46F0BB611BEB3BD90046B36D /* img_psz@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_psz@3x.png"; sourceTree = SOURCE_ROOT; };
 		46F0BB621BEB3BD90046B36D /* img_psz@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "img_psz@2x.png"; sourceTree = SOURCE_ROOT; };
+		46F0BB651BEB5BF40046B36D /* libMJRefresh.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libMJRefresh.a; path = "Pods/../build/Release-iphoneos/libMJRefresh.a"; sourceTree = "<group>"; };
+		46F0BB671BEB5CC90046B36D /* libPods.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libPods.a; path = "Pods/../build/Release-iphoneos/libPods.a"; sourceTree = "<group>"; };
 		46F69E741BDF1C1000216D5E /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		4A27AAED1BCE00EA006CFC15 /* WWProductDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WWProductDetailViewController.h; sourceTree = SOURCE_ROOT; };
 		4A27AAEE1BCE00EA006CFC15 /* WWProductDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WWProductDetailViewController.m; sourceTree = SOURCE_ROOT; };
@@ -824,6 +827,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				46F0BB681BEB5CC90046B36D /* libPods.a in Frameworks */,
+				46F0BB661BEB5BF40046B36D /* libMJRefresh.a in Frameworks */,
 				46F69E751BDF1C1000216D5E /* AudioToolbox.framework in Frameworks */,
 				460BB8E01BD9335500211903 /* libssl.a in Frameworks */,
 				460BB8741BD9312200211903 /* Foundation.framework in Frameworks */,
@@ -840,7 +845,6 @@
 				4A40E0431BCCA10400E12DD9 /* libsqlite3.tbd in Frameworks */,
 				460BB8DF1BD9335500211903 /* libcrypto.a in Frameworks */,
 				4A40DDE81BCA64B200E12DD9 /* CoreTelephony.framework in Frameworks */,
-				F21A682048EBFAF8CA07CAD4 /* libPods.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1995,6 +1999,8 @@
 		A7DEF0AA4559BAEC0D704C30 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				46F0BB671BEB5CC90046B36D /* libPods.a */,
+				46F0BB651BEB5BF40046B36D /* libMJRefresh.a */,
 				46F69E741BDF1C1000216D5E /* AudioToolbox.framework */,
 				460BB8731BD9312200211903 /* Foundation.framework */,
 				460BB8711BD9310800211903 /* UIKit.framework */,
@@ -2468,8 +2474,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Pengyun Pei (2DF2UNPL4C)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Pengyun Pei (2DF2UNPL4C)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Pengyun Pei (HRS7CNH4E7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Pengyun Pei (HRS7CNH4E7)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
@@ -2493,7 +2499,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "3ff833c0-53d1-4dd6-828c-721f6df067ff";
+				PROVISIONING_PROFILE = "7aa0bb26-e801-4420-85e0-16417b0b56d0";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -2503,6 +2509,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD)";
+				"ARCHS[sdk=*]" = "$(ARCHS_STANDARD)";
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
@@ -2516,8 +2524,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Pengyun Pei (2DF2UNPL4C)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Pengyun Pei (2DF2UNPL4C)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Pengyun Pei (HRS7CNH4E7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Pengyun Pei (HRS7CNH4E7)";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_BITCODE = NO;
@@ -2533,10 +2541,11 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "3ff833c0-53d1-4dd6-828c-721f6df067ff";
+				PROVISIONING_PROFILE = "7aa0bb26-e801-4420-85e0-16417b0b56d0";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				"VALID_ARCHS[sdk=*]" = "arm64 armv7 armv7s";
 			};
 			name = Release;
 		};
@@ -2544,11 +2553,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = A6C987F689ADBC2139F30DDD /* Pods.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = armv7s;
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Pengyun Pei (2DF2UNPL4C)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Pengyun Pei (2DF2UNPL4C)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Pengyun Pei (HRS7CNH4E7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Pengyun Pei (HRS7CNH4E7)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/alipay",
@@ -2565,7 +2574,7 @@
 					"$(SRCROOT)/alipay",
 				);
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2574,6 +2583,7 @@
 					"$(PROJECT_DIR)/OSS",
 					"$(PROJECT_DIR)/alipay",
 					"$(PROJECT_DIR)/dist",
+					"$(PROJECT_DIR)/build/Release-iphoneos",
 				);
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
@@ -2598,8 +2608,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yiyouv.push;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3ff833c0-53d1-4dd6-828c-721f6df067ff";
-				TARGETED_DEVICE_FAMILY = "1,2";
+				PROVISIONING_PROFILE = "7aa0bb26-e801-4420-85e0-16417b0b56d0";
+				TARGETED_DEVICE_FAMILY = 1;
 				VALID_ARCHS = "arm64 armv7s armv7";
 			};
 			name = Debug;
@@ -2608,11 +2618,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = BD267E1E565205A652CB897F /* Pods.release.xcconfig */;
 			buildSettings = {
-				ARCHS = armv7s;
+				ARCHS = "$(ARCHS_STANDARD)";
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer: Pengyun Pei (2DF2UNPL4C)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: Pengyun Pei (2DF2UNPL4C)";
+				CODE_SIGN_IDENTITY = "iPhone Distribution: Pengyun Pei (HRS7CNH4E7)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Pengyun Pei (HRS7CNH4E7)";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/alipay",
@@ -2629,7 +2639,7 @@
 					"$(SRCROOT)/alipay",
 				);
 				INFOPLIST_FILE = Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2638,6 +2648,7 @@
 					"$(PROJECT_DIR)/OSS",
 					"$(PROJECT_DIR)/alipay",
 					"$(PROJECT_DIR)/dist",
+					"$(PROJECT_DIR)/build/Release-iphoneos",
 				);
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = (
@@ -2662,9 +2673,9 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yiyouv.push;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "3ff833c0-53d1-4dd6-828c-721f6df067ff";
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALID_ARCHS = "arm64 armv7s armv7";
+				PROVISIONING_PROFILE = "7aa0bb26-e801-4420-85e0-16417b0b56d0";
+				TARGETED_DEVICE_FAMILY = 1;
+				VALID_ARCHS = "armv7s armv7 arm64";
 			};
 			name = Release;
 		};

@@ -743,7 +743,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 4E762F23EC34ED4A6FF3312D84E33A40 /* Pods.debug.xcconfig */;
 			buildSettings = {
-				ARCHS = armv7s;
+				ARCHS = "$(ARCHS_STANDARD)";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				MACH_O_TYPE = staticlib;
@@ -761,7 +761,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1ACD95F498DE58F61F904A355265AEE4 /* MJRefresh.xcconfig */;
 			buildSettings = {
-				ARCHS = armv7s;
+				ARCHS = "$(ARCHS_STANDARD)";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/MJRefresh/MJRefresh-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
@@ -780,7 +780,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 10EE6EE77266A3C3A8B26F5CCC166A51 /* SDWebImage.xcconfig */;
 			buildSettings = {
-				ARCHS = armv7s;
+				ARCHS = "$(ARCHS_STANDARD)";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/SDWebImage/SDWebImage-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
@@ -799,7 +799,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 98C98CDFB3F20F2925F6CD1F141BB14F /* Pods.release.xcconfig */;
 			buildSettings = {
-				ARCHS = armv7s;
+				ARCHS = "$(ARCHS_STANDARD)";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
 				MACH_O_TYPE = staticlib;
@@ -817,7 +817,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DDE8F0B54EDB5BEF0D114484F0763902 /* SVProgressHUD.xcconfig */;
 			buildSettings = {
-				ARCHS = armv7s;
+				ARCHS = "$(ARCHS_STANDARD)";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/SVProgressHUD/SVProgressHUD-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
@@ -875,7 +875,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 10EE6EE77266A3C3A8B26F5CCC166A51 /* SDWebImage.xcconfig */;
 			buildSettings = {
-				ARCHS = armv7s;
+				ARCHS = "$(ARCHS_STANDARD)";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/SDWebImage/SDWebImage-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
@@ -894,7 +894,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 1ACD95F498DE58F61F904A355265AEE4 /* MJRefresh.xcconfig */;
 			buildSettings = {
-				ARCHS = armv7s;
+				ARCHS = "$(ARCHS_STANDARD)";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/MJRefresh/MJRefresh-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;
@@ -947,7 +947,7 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = DDE8F0B54EDB5BEF0D114484F0763902 /* SVProgressHUD.xcconfig */;
 			buildSettings = {
-				ARCHS = armv7s;
+				ARCHS = "$(ARCHS_STANDARD)";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/SVProgressHUD/SVProgressHUD-prefix.pch";
 				IPHONEOS_DEPLOYMENT_TARGET = 6.1;

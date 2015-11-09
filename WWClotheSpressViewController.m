@@ -15,8 +15,11 @@
 #import "WWOrderViewController.h"
 #import "WWWantRantModel.h"
 #import "WWProductDetailViewController.h"
+////MSGCENTER
+#import "WWMessageCenterViewController.h"
 
-@interface WWClotheSpressViewController ()<UIScrollViewDelegate>{
+
+@interface WWClotheSpressViewController ()<UIScrollViewDelegate,HomePageNavtionDelegate>{
     WWPublicNavtionBar *navtionBarView;
     WWClothesInTheUseView *useVC;
     WWWantWearView *wantVC;
@@ -37,14 +40,17 @@
     // Do any additional setup after loading the view.
     self.view.backgroundColor = WW_BASE_COLOR;
     
+    navtionBarView = [[WWPublicNavtionBar alloc]initHomePageNavtion:@"租衣" flay:NO];
+    [navtionBarView setHomePageNavtionDelegate:self];
     if (self.IsHomePush == YES) {
         navtionBarView = [[WWPublicNavtionBar alloc] initWithLeftBtn:YES withTitle:@"租衣" withRightBtn:NO withRightBtnPicName:nil withRightBtnSize:CGSizeZero];
-    }else{
-        navtionBarView = [[WWPublicNavtionBar alloc] initWithLeftBtn:NO withTitle:@"租衣" withRightBtn:NO withRightBtnPicName:nil withRightBtnSize:CGSizeZero];
     }
     [self.view addSubview:navtionBarView];
     
     [self clothesViewLayout];
+    
+    // 推送通知消息
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refrshNotification:) name:WWRefreshInformationNum object:nil];
     
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(refreshWantWearClothesNum:)
@@ -158,6 +164,9 @@
         orderDetailVC.orderId = clothesId;
         [weakSelf.navigationController pushViewController:orderDetailVC animated:YES];
     };
+    useVC.clothesSelectPayBlock = ^(NSString *id_s){
+        [SVProgressHUD showInfoWithStatus:@"服务器又返回错误"];
+    };
     [self.clothesScrollView addSubview:useVC];
     
     __weak UITableView *tableView = wantVC.clothesTabelView;
@@ -241,6 +250,20 @@
             self.clockNumberButton.selected = YES;
             self.clockChooseLabel.frame = CGRectMake(self.clockbakcGroupView.width/2, self.clockbakcGroupView.height-2, self.clockbakcGroupView.width/2, 2);
         }];
+    }
+}
+
+
+// 刷新铃铛数
+- (void)refrshNotification:(NSNotification*)notification{
+    [navtionBarView HomePageSetMsgNum:1];
+}
+//点击消息
+-(void)rightBtnSelect{
+    if ([AppDelegate isAuthentication]) {
+        [navtionBarView HomePageSetMsgNum:0];
+        WWMessageCenterViewController * MsgVc = [[WWMessageCenterViewController alloc]init];
+        [self.navigationController pushViewController:MsgVc animated:YES];
     }
 }
 

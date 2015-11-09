@@ -108,7 +108,7 @@
         
         UIButton * btnCancle = [[UIButton alloc]init];
         [btnCancle setBackgroundImage:[UIImage imageNamed:@"shut-down"] forState:UIControlStateNormal];
-        [btnCancle setFrame:CGRectMake(iphone_size_scale(290), 9, 20, 20)];
+        [btnCancle setFrame:CGRectMake(iphone_size_scale(270), 9, 40, 40)];
         [btnCancle addTarget:self action:@selector(Cancle) forControlEvents:UIControlEventTouchUpInside];
         [viewBG addSubview:btnCancle];
         

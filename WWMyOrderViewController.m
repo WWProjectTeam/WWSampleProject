@@ -55,7 +55,7 @@
 
 #pragma mark - UIAlertViewDelegate
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    
+    [useVC.clothesUseTableView reloadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

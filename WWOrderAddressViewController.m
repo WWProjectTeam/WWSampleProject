@@ -143,6 +143,14 @@
     return 76*kPercenX;
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    if (indexPath.row < self.addRessArray.count) {
+        WWAddRessModel *model = [self.addRessArray objectAtIndex:indexPath.row];
+        self.userOrderAddressBlock(model);
+        [self.navigationController popViewControllerAnimated:YES];
+    }
+}
+
 #pragma mark 提交编辑操作时会调用这个方法(删除，添加)
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     // 删除操作

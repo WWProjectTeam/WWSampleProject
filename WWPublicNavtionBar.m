@@ -91,7 +91,7 @@
 
 
 #pragma mark - 首页特殊导航条创建
--(id)initHomePageNavtion{
+-(id)initHomePageNavtion:(NSString *)title flay:(BOOL)flay{
     self = [super initWithFrame:CGRectMake(0, 0, MainView_Width, 44+IOS7_Y)];
     
     if (self)
@@ -102,18 +102,18 @@
         
         btnTitle = [[UIButton alloc]init];
         [btnTitle setFrame:CGRectMake(iphone_size_scale(70), IOS7_Y, iphone_size_scale(180), 44)];
-        [btnTitle setTitle:@"全部" forState:UIControlStateNormal];
-        [btnTitle setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [btnTitle setTitle:title forState:UIControlStateNormal];
+        [btnTitle setTitleColor:RGBCOLOR(20, 20, 20) forState:UIControlStateNormal];
         [btnTitle.titleLabel setFont:font_navtionTitle];
         [btnTitle addTarget:self action:@selector(selectTitle) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:btnTitle];
         
-        imageFlag = [[UIImageView alloc]init];
-        [imageFlag setFrame:CGRectMake(iphone_size_scale(180), IOS7_Y+12, 20, 20)];
-        [imageFlag setImage:[UIImage imageNamed:@"btn_zksq"]];
-        [self addSubview:imageFlag];
-        
-        
+        if (flay == YES) {
+            imageFlag = [[UIImageView alloc]init];
+            [imageFlag setFrame:CGRectMake(iphone_size_scale(180), IOS7_Y+12, 20, 20)];
+            [imageFlag setImage:[UIImage imageNamed:@"btn_zksq"]];
+            [self addSubview:imageFlag];
+        }
       
         
         UIButton * btnUserMsg;

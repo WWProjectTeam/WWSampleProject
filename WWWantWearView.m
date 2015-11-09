@@ -180,9 +180,9 @@
         [FMHTTPClient GetDelegateWardrobeGoodsUserId:[WWUtilityClass getNSUserDefaults:UserID] andCode:model.code WithCompletion:^(WebAPIResponse *response) {
             if (response.code == WebAPIResponseCodeSuccess) {
                 NSLog(@"删除成功");
-                if (self.clothesArray.count == 0) {
+//                if (self.clothesArray.count == 0) {
                     [self.clothesTabelView.header beginRefreshing];
-                }
+//                }
             }
         }];
         

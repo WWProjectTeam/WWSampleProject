@@ -38,6 +38,7 @@
 #define WWDelegateWantWearGoods                 @"DelegateWantWearGoods"
 // 保存收货地址
 #define WWSaveUserAddress                       @"SaveUserAddress"
-
+// 刷新铃铛红点
+#define WWRefreshInformationNum                 @"refreshInfromation"
 
 #endif

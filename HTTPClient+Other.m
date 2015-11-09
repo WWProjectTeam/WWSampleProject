@@ -18,7 +18,10 @@
     NSDictionary *paramDic = @{@"index":[NSNumber numberWithInteger:index],
                                @"type":[NSNumber numberWithInteger:type]};
     
-    NSDictionary *param = @{@"json" : [paramDic JSONString] };
+    NSString * stringJson = [[NSString alloc]initWithData:[NSJSONSerialization dataWithJSONObject:paramDic options:0 error:nil] encoding:NSUTF8StringEncoding];
+
+    
+    NSDictionary *param = @{@"json" : stringJson };
     ///POST请求
     return [self postPath:KClothesListURL
                parameters:param
@@ -78,7 +81,9 @@
 - (AFHTTPRequestOperation *)PostFeedBackToServerContent:(NSString *)feedContent WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
     NSDictionary *feedDic = @{@"content":feedContent};
     
-    NSDictionary *param = @{@"json" : [feedDic JSONString]};
+    NSString * stringJson = [[NSString alloc]initWithData:[NSJSONSerialization dataWithJSONObject:feedDic options:0 error:nil] encoding:NSUTF8StringEncoding];
+
+    NSDictionary *param = @{@"json" : stringJson};
     
     return [self postPath:KFeedBackURL
                parameters:param
@@ -107,7 +112,9 @@
 {
     NSDictionary *LoginDic = @{@"mobile":phoneStr,
                                @"code":password};
-    NSDictionary *parame = @{@"json" : [LoginDic JSONString]};
+    NSString * stringJson = [[NSString alloc]initWithData:[NSJSONSerialization dataWithJSONObject:LoginDic options:0 error:nil] encoding:NSUTF8StringEncoding];
+
+    NSDictionary *parame = @{@"json" : stringJson};
     return [self postPath:KLoginURL
                parameters:parame
                completion:completionBlock];
@@ -146,7 +153,10 @@
                                 @"packageId":packageId,
                                 @"money":money,
                                 @"method":method};
-    NSDictionary *parame = @{@"json":[parameDic JSONString]};
+    
+    NSString * stringJson = [[NSString alloc]initWithData:[NSJSONSerialization dataWithJSONObject:parameDic options:0 error:nil] encoding:NSUTF8StringEncoding];
+
+    NSDictionary *parame = @{@"json":stringJson};
     
     return [self postPath:KBuyVipURL
                parameters:parame
@@ -220,7 +230,10 @@
                  @"content":content,
                  @"userId":g_UserId
                  };
-    NSDictionary *parame = @{@"json":[dicParam JSONString]};
+    
+    NSString * stringJson = [[NSString alloc]initWithData:[NSJSONSerialization dataWithJSONObject:dicParam options:0 error:nil] encoding:NSUTF8StringEncoding];
+
+    NSDictionary *parame = @{@"json":stringJson};
 
     return [self postPath:KproductAddReply
                parameters:parame
@@ -242,13 +255,16 @@
 - (AFHTTPRequestOperation *)PostAddToCartWithProductId:(NSString *)productId WithColor:(NSString*)color WithSize:(NSString*)size WithNum:(int)num WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
     NSDictionary * dicParam;
     dicParam = @{
-                 @"id":productId,
-                 @"userId":g_UserId,
-                 @"color":color,
-                 @"size":size,
-                 @"count":[NSNumber numberWithInt:num]
+                 @"id":StringAppend(productId),
+                 @"userId":StringAppend(g_UserId),
+                 @"color":StringAppend(color),
+                 @"size":StringAppend(size),
+                 @"count":[NSString stringWithFormat:@"%d",num]
                  };
-    NSDictionary *parame = @{@"json":[dicParam JSONString]};
+
+    NSString * stringJson = [[NSString alloc]initWithData:[NSJSONSerialization dataWithJSONObject:dicParam options:0 error:nil] encoding:NSUTF8StringEncoding];
+    
+    NSDictionary *parame = @{@"json":stringJson};
     
     return [self postPath:KaddToCart
                parameters:parame
@@ -282,11 +298,13 @@
 - (AFHTTPRequestOperation *)PostSaveUserAddressWithUserId:(NSString *)userId WithName:(NSString*)name WithMobile:(NSString*)mobile WithCity:(NSString *)city WContent:(NSString *)content WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
     NSDictionary * dicParam = @{@"userId":userId,
                                 @"name":name,
-                                @"mobile":mobile,
-                                @"city":city,
+                                @"mobile":city,
+                                @"city":mobile,
                                 @"content":content};
+    NSString * stringJson = [[NSString alloc]initWithData:[NSJSONSerialization dataWithJSONObject:dicParam options:0 error:nil] encoding:NSUTF8StringEncoding];
+
     
-    NSDictionary *parame = @{@"json":[dicParam JSONString]};
+    NSDictionary *parame = @{@"json":stringJson};
     
     return [self postPath:KSaveUserAddressURL
                parameters:parame
@@ -328,7 +346,9 @@
                           @"invoiceType":[NSNumber numberWithInt:invoiceType],
                           @"days":[NSNumber numberWithInt:days]};
     
-    NSDictionary *paramet = @{@"json":[dic JSONString]};
+    NSString * stringJson = [[NSString alloc]initWithData:[NSJSONSerialization dataWithJSONObject:dic options:0 error:nil] encoding:NSUTF8StringEncoding];
+
+    NSDictionary *paramet = @{@"json":stringJson};
     
     return [self postPath:KOrderSaveURL
                parameters:paramet

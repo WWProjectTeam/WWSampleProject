@@ -42,7 +42,7 @@
     withRightBtnSize:(CGSize)picSize;
 
 #pragma mark - 首页特殊导航条创建
--(id)initHomePageNavtion;
+-(id)initHomePageNavtion:(NSString *)title flay:(BOOL)flay;
 
 //首页设置小红点数
 -(void)HomePageSetMsgNum:(NSInteger)Num;

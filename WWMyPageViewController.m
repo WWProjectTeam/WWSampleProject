@@ -13,8 +13,11 @@
 #import "WWFeedbackViewController.h"
 #import "WWMyCollectionViewController.h"
 #import "WWMyOrderViewController.h"
+////MSGCENTER
+#import "WWMessageCenterViewController.h"
 
-@interface WWMyPageViewController ()<UIAlertViewDelegate>
+
+@interface WWMyPageViewController ()<UIAlertViewDelegate,HomePageNavtionDelegate>
 {
     WWPublicNavtionBar * viewNavtionBar;
 }
@@ -34,12 +37,15 @@
     self.view.backgroundColor = WW_BASE_COLOR;
     
     // 导航
-    viewNavtionBar = [[WWPublicNavtionBar alloc]initWithLeftBtn:NO withTitle:@"我的" withRightBtn:NO withRightBtnPicName:nil withRightBtnSize:CGSizeZero];
+    viewNavtionBar = [[WWPublicNavtionBar alloc]initHomePageNavtion:@"租衣" flay:NO];
+    [viewNavtionBar setHomePageNavtionDelegate:self];
     [self.view addSubview:viewNavtionBar];
     
     [self layoutMyPageView];
     [self getUserInformationWebRequest];
     
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refrshNotification:) name:WWRefreshInformationNum object:nil];
     // 消息通知刷新个人信息
     [[NSNotificationCenter defaultCenter] addObserver:self
                                              selector:@selector(NotificationRefreshUserInformation:)
@@ -222,6 +228,19 @@
     userVC.userFaceUrl = [WWUtilityClass getNSUserDefaults:UserImageURL];
     userVC.userName = [WWUtilityClass getNSUserDefaults:UserName];
     [self.navigationController pushViewController:userVC animated:YES];
+}
+
+// 刷新铃铛数
+- (void)refrshNotification:(NSNotification*)notification{
+    [viewNavtionBar HomePageSetMsgNum:1];
+}
+//点击消息
+-(void)rightBtnSelect{
+    if ([AppDelegate isAuthentication]) {
+        [viewNavtionBar HomePageSetMsgNum:0];
+        WWMessageCenterViewController * MsgVc = [[WWMessageCenterViewController alloc]init];
+        [self.navigationController pushViewController:MsgVc animated:YES];
+    }
 }
 
 - (void)didReceiveMemoryWarning {

@@ -127,7 +127,7 @@
         [SVProgressHUD showInfoWithStatus:@"请输入正确的手机号"];
         return;
     }
-    [FMHTTPClient PostSaveUserAddressWithUserId:[WWUtilityClass getNSUserDefaults:UserID] WithName:self.nameTextFiled.text WithMobile:self.phoneLab.text WithCity:self.regionTextFiled.text WContent:self.detailAddressTextView.text WithCompletion:^(WebAPIResponse *response) {
+    [FMHTTPClient PostSaveUserAddressWithUserId:[WWUtilityClass getNSUserDefaults:UserID] WithName:self.nameTextFiled.text WithMobile:@"北京市" WithCity:self.regionTextFiled.text WContent:self.detailAddressTextView.text WithCompletion:^(WebAPIResponse *response) {
         dispatch_async(dispatch_get_main_queue(), ^{
             if (response.code == WebAPIResponseCodeSuccess) {
                 [[NSNotificationCenter defaultCenter] postNotificationName:WWSaveUserAddress object:nil];

@@ -155,11 +155,11 @@
                     [weakself.addCartPopView setHidden:YES];
                     // 通知--刷新衣柜信息3
                     [[NSNotificationCenter defaultCenter] postNotificationName:WWRefreshUserInformation object:nil];
-                    
+                    [weakself productDetialUpdate];
                 }
                 else
                 {
-                    [SVProgressHUD showErrorWithStatus:dict[@"result"]];
+                    [SVProgressHUD showErrorWithStatus:@"这件衣服已经租出去了，看看别的吧~"];
                 }
             }];
             
@@ -226,15 +226,8 @@
                 break;
         }
         
-        
-        
     };
-    
-    
-    
-
 }
-
 
 #pragma mark - update
 -(void)CollectionStatuUpdate{
@@ -308,7 +301,7 @@
             
             
             //////////////////////setObj
-            [productView setClotheSpressNum:[dicData[@"favoriterCount"] integerValue]];
+            [productView setClotheSpressNum:[dicData[@"wardrobe"] integerValue]];
             if ([[NSString stringWithFormat:@"%@",dicData[@"isFavoriter"]]isEqualToString:@"0"]) {
                 [productView setCollectionStatu:NO];
                 CollectionStatu = NO;

@@ -16,6 +16,9 @@
 # define WWLog(...);
 #endif
 
+#define StringAppend(value)     [NSString stringWithFormat:@"%@",value]
+
+
 //设备屏幕高度
 #ifndef MainView_Height
 #define MainView_Height    [UIScreen mainScreen].bounds.size.height

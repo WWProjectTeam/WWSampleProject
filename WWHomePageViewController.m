@@ -42,7 +42,7 @@
     strProductId = @"0";
     
     
-    viewNavtionBar = [[WWPublicNavtionBar alloc]initHomePageNavtion];
+    viewNavtionBar = [[WWPublicNavtionBar alloc]initHomePageNavtion:@"全部" flay:YES];
     [viewNavtionBar setHomePageNavtionDelegate:self];
     if (self.IsClothesSpressPush == YES) {
         viewNavtionBar = [[WWPublicNavtionBar alloc]initWithLeftBtn:YES withTitle:@"首页" withRightBtn:NO withRightBtnPicName:nil withRightBtnSize:CGSizeZero];
@@ -50,8 +50,12 @@
     
     [self.view addSubview:viewNavtionBar];
     
+    // 推送设置消息
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(refrshNotification:) name:WWRefreshInformationNum object:nil];
+    
+    // 线条
     UILabel *navLine = [[UILabel alloc]initWithFrame:CGRectMake(0, viewNavtionBar.height-0.5f, MainView_Width, 0.5f)];
-    navLine.backgroundColor = WW_BASE_COLOR;
+    navLine.backgroundColor = WWPageLineColor;
     [viewNavtionBar addSubview:navLine];
     
     if (self.IsClothesSpressPush == YES) {
@@ -184,6 +188,11 @@
         [self getUnreadMsg];
     };
 
+}
+
+// 刷新铃铛数
+- (void)refrshNotification:(NSNotification*)notification{
+    [viewNavtionBar HomePageSetMsgNum:1];
 }
 
 - (void)didReceiveMemoryWarning {

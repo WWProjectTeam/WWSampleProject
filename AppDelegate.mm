@@ -316,7 +316,6 @@ NSString * g_orderId;
                                             encoding:NSUTF8StringEncoding];
     }
     
-    
     NSLog(@"task id : %@, messageId:%@", taskId, aMsgId);
 }
 
@@ -335,7 +334,7 @@ NSString * g_orderId;
     [UIApplication sharedApplication].applicationIconBadgeNumber --;
     
     [self asBeginWithDidReceiveRemoteNotification:userInfo];
-    
+    [[NSNotificationCenter defaultCenter] postNotificationName:WWRefreshInformationNum object:nil];
     completionHandler(UIBackgroundFetchResultNewData);
 }
 

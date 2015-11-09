@@ -229,8 +229,8 @@
         num++;
     }
     clothesNum.text = [NSString stringWithFormat:@"%d",num];
-    int money = [[self.clothesDic objectForKey:@"leaseCost"] intValue];
-    self.rantMoneyLab.text = [NSString stringWithFormat:@"租金￥%d从押金扣除",money*num];
+    double money = [[self.clothesDic objectForKey:@"leaseCost"] doubleValue]*num;
+    self.rantMoneyLab.text = [NSString stringWithFormat:@"租金￥%.2f从押金扣除",money];
 }
 
 - (void)settlementClickEvent:(UIButton *)sender{

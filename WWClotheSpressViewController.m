@@ -145,9 +145,11 @@
         [weakSelf.navigationController pushViewController:order animated:YES];
     };
     wantVC.chooseClothesBtnBlock = ^{
-        WWHomePageViewController *homeVC = [[WWHomePageViewController alloc]init];
-        homeVC.IsClothesSpressPush = YES;
-        [weakSelf.navigationController pushViewController:homeVC animated:YES];
+        AppDelegate * appdelegate = (AppDelegate * )[UIApplication sharedApplication].delegate;
+        [appdelegate.tabBarController setSelectedIndex:0];
+//        WWHomePageViewController *homeVC = [[WWHomePageViewController alloc]init];
+//        homeVC.IsClothesSpressPush = YES;
+//        [weakSelf.navigationController pushViewController:homeVC animated:YES];
     };
     wantVC.wantRantTableCellSelectBlock = ^(NSString *id_s){
         WWProductDetailViewController *productVC = [[WWProductDetailViewController alloc]init];
@@ -181,8 +183,10 @@
                     
                     wantVC.clothesDic = [response.responseObject objectForKey:@"result"];
                     
-                    wantVC.otherContentLab.text = [NSString stringWithFormat:@"押金:￥%@",[wantVC.clothesDic objectForKey:@"deposit"]];
-                    wantVC.rantMoneyLab.text = [NSString stringWithFormat:@"租金￥%@从押金扣除",[wantVC.clothesDic objectForKey:@"leaseCost"]];
+                    double otherContentDouble = [[wantVC.clothesDic objectForKey:@"deposit"] doubleValue];
+                    wantVC.otherContentLab.text = [NSString stringWithFormat:@"押金:￥%.2f",otherContentDouble];
+                    double rantMoneyDouble = [[wantVC.clothesDic objectForKey:@"leaseCost"] doubleValue];
+                    wantVC.rantMoneyLab.text = [NSString stringWithFormat:@"租金￥%.2f从押金扣除",rantMoneyDouble];
                     
                     NSArray *clientWardrobes = [wantVC.clothesDic objectForKey:@"clientWardrobes"];
                     for (NSDictionary *dic in clientWardrobes) {

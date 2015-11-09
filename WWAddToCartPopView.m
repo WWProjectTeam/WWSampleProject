@@ -181,8 +181,8 @@
         num++;
     }
     clothesNum.text = [NSString stringWithFormat:@"%d",num];
-    int deposit = [clothesDetailDic[@"deposit"] intValue];
-    otherContentLab.text = [NSString stringWithFormat:@"押金：￥%d",deposit*num];
+    double deposit = [clothesDetailDic[@"deposit"] doubleValue]*num;
+    otherContentLab.text = [NSString stringWithFormat:@"押金：￥%.2f",deposit];
 }
 
 -(void)showWithProductMsg:(NSDictionary *)dict{
@@ -199,7 +199,8 @@
     
     clotheSubSpressNum.text = [NSString stringWithFormat:@"押金：￥%@/件",dict[@"deposit"]];
     
-    otherContentLab.text = [NSString stringWithFormat:@"押金：￥%@",dict[@"deposit"]];
+    double depositDouble = [dict[@"deposit"] doubleValue];
+    otherContentLab.text = [NSString stringWithFormat:@"押金：￥%.2f",depositDouble];
     
     UILabel * labelSize = [[UILabel alloc]init];
     [labelSize setText:@"尺寸"];

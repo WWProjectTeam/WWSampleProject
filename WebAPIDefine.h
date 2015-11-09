@@ -153,6 +153,9 @@
 //支付成功
 #define KOrderPayURL                @"yiyouv/order/info?id=%@"
 
+//支付失败
+#define KOrderPayDel                @"yiyouv/order/del?id=%@"
+
 //获取订单详情
 #define KOrderDetilURL              @"yiyouv/order/info?id=%@"
 

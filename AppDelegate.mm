@@ -218,7 +218,7 @@ NSString * g_orderId;
             WWMyOrderViewController *myorderVC = [[WWMyOrderViewController alloc]init];
             [self.navtionViewControl pushViewController:myorderVC animated:YES];
         }else{
-            [SVProgressHUD showErrorWithStatus:@"支付失败，请去我的订单中进行支付"];
+            [self orderPayFaile];
             // 通知--刷新信息
             [[NSNotificationCenter defaultCenter] postNotificationName:WWRefreshUserInformation object:nil];
         }
@@ -415,9 +415,18 @@ NSString * g_orderId;
         if (response.code == WebAPIResponseCodeSuccess) {
             [SVProgressHUD showSuccessWithStatus:@"支付成功"];
         }else{
-            
+            [self orderPayFaile];
         }
     }];
 }
+
+-(void)orderPayFaile{
+    [FMHTTPClient GetOrderPayFaile:g_orderId WithCompletion:^(WebAPIResponse *response) {
+        if (response.code == WebAPIResponseCodeSuccess) {
+            [SVProgressHUD showSuccessWithStatus:@"支付失败"];
+        }
+    }];
+}
+
 
 @end

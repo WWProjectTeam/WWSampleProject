@@ -104,5 +104,8 @@
 
 //GetOrderPaySuccess
 - (AFHTTPRequestOperation *)GetOrderPaySuccess:(NSString *)orderId WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
+
+//GetOrderPayfaile
+- (AFHTTPRequestOperation *)GetOrderPayFaile:(NSString *)orderId WithCompletion:(WebAPIRequestCompletionBlock)completionBlock;
 @end
 

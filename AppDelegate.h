@@ -43,5 +43,7 @@ extern NSString * g_orderId;
 
 -(void)orderPaySuccess;
 
+-(void)orderPayFaile;
+
 @end
 

@@ -385,4 +385,13 @@
               completion:completionBlock];
 }
 
+//GetOrderPayfaile
+- (AFHTTPRequestOperation *)GetOrderPayFaile:(NSString *)orderId WithCompletion:(WebAPIRequestCompletionBlock)completionBlock{
+    NSString *payFaileUrl = [NSString stringWithFormat:KOrderPayDel,orderId];
+    
+    return [self getPath:payFaileUrl
+              parameters:nil
+              completion:completionBlock];
+}
+
 @end

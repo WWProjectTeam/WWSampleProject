@@ -199,10 +199,12 @@
     allMoneyUpLine.backgroundColor = WWPageLineColor;
     [self.allMoneyView addSubview:allMoneyUpLine];       // 线条颜色
     NSInteger maxHeight = 0;
-    NSString *deposit = [NSString stringWithFormat:@"￥%@",[self.orderDataDic objectForKey:@"deposit"]];
-    NSString *leaseCost = [NSString stringWithFormat:@"￥%@(归还后从押金扣除)",[self.orderDataDic objectForKey:@"leaseCost"]];
+    double deposit = [[self.orderDataDic objectForKey:@"deposit"] doubleValue];
+    NSString *depositStr = [NSString stringWithFormat:@"￥%.2f",deposit];
+    double leaseCost = [[self.orderDataDic objectForKey:@"leaseCost"] doubleValue]*self.days;
+    NSString *leaseCostStr = [NSString stringWithFormat:@"￥%.2f(归还后从押金扣除)",leaseCost];
     NSArray *title = @[@"服装押金",@"租凭费用",@"服装清洁费",@"运费"];
-    NSArray *content = @[deposit,leaseCost,@"￥0.00",@"￥0.00"];
+    NSArray *content = @[depositStr,leaseCostStr,@"￥0.00",@"￥0.00"];
     for (int i = 0; i<4; i++) {
         UILabel *moneyTitle = [[UILabel alloc]initWithFrame:CGRectMake(10, maxHeight+10, 100, iphone_size_scale(12))];
         moneyTitle.text = title[i];
@@ -621,7 +623,8 @@
     NSString *wardrobeid = [self.orderDataDic objectForKey:@"wardrobeId"];
     NSString *leaseCost = [self.orderDataDic objectForKey:@"leaseCost"];
     NSString *deposit = [self.orderDataDic objectForKey:@"deposit"];
-    NSString *money = [NSString stringWithFormat:@"%d",[deposit intValue]*100];
+    double moneyInt = [deposit doubleValue]*100;
+    NSString *money = [NSString stringWithFormat:@"%.0f",moneyInt];
     [SVProgressHUD show];
     [FMHTTPClient PostOrderSaveUserId:[WWUtilityClass getNSUserDefaults:UserID] WithwardrobeId:wardrobeid WithaddressId:orderId WithleaseCost:leaseCost WithDeposit:deposit WithPayMethod:payId WithisInvoice:invoice WithinvoiceTitle:self.receiptTextView.text WithinvoiceType:invoiceType WithDays:self.days WithCompletion:^(WebAPIResponse *response) {
         dispatch_async(dispatch_get_main_queue(), ^{
@@ -636,7 +639,7 @@
                 
             }else {
                 [SVProgressHUD dismiss];
-                [SVProgressHUD showErrorWithStatus:@"提交订单失败,请去我的订单付款"];
+                [SVProgressHUD showErrorWithStatus:@"提交订单失败,请重新提交"];
             }
         });
     }];
@@ -751,14 +754,15 @@
         
         [[AlipaySDK defaultService] payOrder:orderString fromScheme:appScheme callback:^(NSDictionary *resultDic) {
             if ([[resultDic objectForKey:@"resultStatus"] intValue] == 6001) {
-                [SVProgressHUD showInfoWithStatus:@"取消支付，请去我的订单中支付"];
+                AppDelegate * appdelegate = (AppDelegate * )[UIApplication sharedApplication].delegate;
+                [appdelegate orderPayFaile];
+                
                 // 通知--刷新信息
                 [[NSNotificationCenter defaultCenter] postNotificationName:WWRefreshUserInformation object:nil];
             }else if ([[resultDic objectForKey:@"resultStatus"] intValue] == 9000){
                 
                 AppDelegate * appdelegate = (AppDelegate * )[UIApplication sharedApplication].delegate;
                 [appdelegate orderPaySuccess];
-//                [SVProgressHUD showSuccessWithStatus:@"支付成功"];
                 // 通知--刷新信息
                 [[NSNotificationCenter defaultCenter] postNotificationName:WWRefreshUserInformation object:nil];
                 WWMyOrderViewController *myorderVC = [[WWMyOrderViewController alloc]init];
@@ -766,8 +770,10 @@
             }
         }];
         
+    }else{
+        AppDelegate * appdelegate = (AppDelegate * )[UIApplication sharedApplication].delegate;
+        [appdelegate orderPayFaile];
     }
-    
 }
 
 // 微信支付
@@ -788,6 +794,8 @@
     if(dict == nil){
         //错误提示
         [self alert:@"提示信息" msg:@"支付失败"];
+        AppDelegate * appdelegate = (AppDelegate * )[UIApplication sharedApplication].delegate;
+        [appdelegate orderPayFaile];
         
     }else{
         NSLog(@"%@\n\n",[req getDebugifo]);

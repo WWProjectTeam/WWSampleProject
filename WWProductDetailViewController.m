@@ -170,9 +170,12 @@
     ///////打开衣柜
     productView.TapClotheSpress = ^(){
         if ([AppDelegate isAuthentication]) {
-            WWClotheSpressViewController * clotheVC = [[WWClotheSpressViewController alloc]init];
-            clotheVC.IsHomePush = YES;
-            [weakself.navigationController pushViewController:clotheVC animated:YES];
+            [weakself.navigationController popViewControllerAnimated:YES];
+            AppDelegate * appdelegate = (AppDelegate * )[UIApplication sharedApplication].delegate;
+            [appdelegate.tabBarController setSelectedIndex:1];
+//            WWClotheSpressViewController * clotheVC = [[WWClotheSpressViewController alloc]init];
+//            clotheVC.IsHomePush = YES;
+//            [weakself.navigationController pushViewController:clotheVC animated:YES];
         }
     };
     

@@ -9,8 +9,11 @@
 #ifndef WWSampleProject_WWUrlConfig_h
 #define WWSampleProject_WWUrlConfig_h
 
-//host
-#define URL_MAIN_HOST @"http://apitest.aishou.com:8080/"
+//host      --  测试环境
+//#define URL_MAIN_HOST   @"http://apitest.aishou.com:8080/"
+
+//host      --  正式环境
+#define URL_MAIN_HOST   @"http://yiyouv.aishou.com/"
 
 
 // 保存本地key

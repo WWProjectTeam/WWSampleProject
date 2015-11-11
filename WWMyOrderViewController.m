@@ -44,18 +44,9 @@
         orderDetailVC.orderId = clothesId;
         [weakSelf.navigationController pushViewController:orderDetailVC animated:YES];
     };
-    useVC.clothesSelectPayBlock = ^(NSString *payMothed){
-        UIAlertView *aliert = [[UIAlertView alloc]initWithTitle:@"提示" message:@"确定支付" delegate:weakSelf cancelButtonTitle:@"取消" otherButtonTitles:@"确定", nil];
-        aliert.delegate = weakSelf;
-        [aliert show];
-    };
+    
     useVC.myOrder = NO;
     [self.view addSubview:useVC];
-}
-
-#pragma mark - UIAlertViewDelegate
-- (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex {
-    [useVC.clothesUseTableView reloadData];
 }
 
 - (void)viewWillAppear:(BOOL)animated{

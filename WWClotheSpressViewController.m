@@ -166,9 +166,6 @@
         orderDetailVC.orderId = clothesId;
         [weakSelf.navigationController pushViewController:orderDetailVC animated:YES];
     };
-    useVC.clothesSelectPayBlock = ^(NSString *id_s){
-        [SVProgressHUD showInfoWithStatus:@"服务器又返回错误"];
-    };
     [self.clothesScrollView addSubview:useVC];
     
     __weak UITableView *tableView = wantVC.clothesTabelView;

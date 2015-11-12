@@ -37,7 +37,7 @@
     self.view.backgroundColor = WW_BASE_COLOR;
     
     // 导航
-    viewNavtionBar = [[WWPublicNavtionBar alloc]initHomePageNavtion:@"租衣" flay:NO];
+    viewNavtionBar = [[WWPublicNavtionBar alloc]initHomePageNavtion:@"我的" flay:NO];
     [viewNavtionBar setHomePageNavtionDelegate:self];
     [self.view addSubview:viewNavtionBar];
     

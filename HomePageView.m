@@ -79,7 +79,7 @@
         
         //轮播图创建
         scrollBanner = [[CycleScrollView alloc] initWithFrame:CGRectMake(0, 0, iphone_size_scale(320), iphone_size_scale(144)) animationDuration:4];
-        scrollBanner.backgroundColor = [[UIColor purpleColor] colorWithAlphaComponent:0.1];
+        scrollBanner.backgroundColor = [[UIColor clearColor] colorWithAlphaComponent:0.1];
         // [self.homePageScrollView addSubview:scrollBanner];
         
         //定义pageControl
@@ -214,15 +214,19 @@
     WWHeaderCollectionReusableView *headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headView" forIndexPath:indexPath];
         
     [headerView addSubview:scrollBanner];
+    
+         if (self.arrBannerData.count == 1){
+            NSDictionary * dicTemp = self.arrBannerData[0];
+            [self.arrBannerData addObject:dicTemp];
+             [self.arrBannerData addObject:dicTemp];
 
-
-    //轮播图数据源准备
+         }
+     //轮播图数据源准备
     NSMutableArray *viewsArray = [@[] mutableCopy];
     
     for (int i = 0; i<self.arrBannerData.count; i++) {
         
         NSDictionary * dicTemp = self.arrBannerData[i];
-        
         NSString * strImageUrl = dicTemp[@"img"];
         UIImageView * imageTemp = [[UIImageView alloc]init];
         

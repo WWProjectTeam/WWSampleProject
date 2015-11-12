@@ -88,8 +88,8 @@
         
         
         NSDictionary * dict = operation.responseObject[@"result"];
-        
-        viewHomePage.arrBannerData = dict[@"focus"];
+
+        viewHomePage.arrBannerData = [NSMutableArray arrayWithArray:dict[@"focus"]];
         viewHomePage.arrProductItem = dict[@"list"];
         
         NSString * strIndex = [NSString stringWithFormat:@"%@",dict[@"next"]];

@@ -67,96 +67,96 @@
 
 /*--------------衣优V----------------*/
 
-#define KClothesListURL             @"yiyouv/clothes/search"
+#define KClothesListURL             @"clothes/search"
 
 //getUserUnreadMsg
-#define KUnreadMsgNumURL            @"yiyouv/message/userNews"
+#define KUnreadMsgNumURL            @"message/userNews"
 
 //getProductType
-#define KProductType                @"yiyouv/clothes/types"
+#define KProductType                @"clothes/types"
 
 //getProductDetial
-#define KProductDetial              @"yiyouv/clothes/info"
+#define KProductDetial              @"clothes/info"
 //反馈信息
-#define KFeedBackURL                @"yiyouv/user/saveSuggestion"
+#define KFeedBackURL                @"user/saveSuggestion"
 
 //userInformation
-#define KUserInformationURL         @"yiyouv/user/info?id=%@"
+#define KUserInformationURL         @"user/info?id=%@"
 
 //动态密码
-#define KDynamicPasswordURL         @"yiyouv/user/validateMobile?mobile=%@"
+#define KDynamicPasswordURL         @"user/validateMobile?mobile=%@"
 
 //登陆
-#define KLoginURL                   @"yiyouv/user/login"
+#define KLoginURL                   @"user/login"
 
 //修改用户资料
-#define KModifyUserInformationURL   @"yiyouv/user/update"
+#define KModifyUserInformationURL   @"user/update"
 
 //我的收藏
-#define KMyCollectionURL            @"yiyouv/clothes/favoriters?index=%@&userId=%@"
+#define KMyCollectionURL            @"clothes/favoriters?index=%@&userId=%@"
 
 //收藏商品
-#define KAddToCollectionURL         @"yiyouv/clothes/favoriter"
+#define KAddToCollectionURL         @"clothes/favoriter"
 //获取VIP价格表
-#define KVIPPriceListURL            @"yiyouv/vip/getVIPPackage"
+#define KVIPPriceListURL            @"vip/getVIPPackage"
 
 //购买VIP
-#define KBuyVipURL                  @"yiyouv/vip/buy"
+#define KBuyVipURL                  @"vip/buy"
 
 //获得商品图文
-#define KproductPictureDetial       @"yiyouv/clothes/details?id=%@"
+#define KproductPictureDetial       @"clothes/details?id=%@"
 
 //获得商品参数
-#define KproductParameters          @"yiyouv/clothes/parameter"
+#define KproductParameters          @"clothes/parameter?id=%@"
 
 //获得商品评论列表
-#define KproductReplyList           @"yiyouv/reply/list"
+#define KproductReplyList           @"reply/list"
 
 //获取衣柜中的商品
-#define KWardrobeGoodsURL           @"yiyouv/wardrobe/now?userId=%@"
+#define KWardrobeGoodsURL           @"wardrobe/now?userId=%@"
 
 //获取衣柜中真在租赁的商品
-#define KWardrobeIsGoodsURL         @"yiyouv/wardrobe/leaseing?userId=%@"
+#define KWardrobeIsGoodsURL         @"wardrobe/leaseing?userId=%@"
 
 //删除商品
-#define KDelegateWardRodeGoodsURL   @"yiyouv/wardrobe/del?userId=%@&code=%@"
+#define KDelegateWardRodeGoodsURL   @"wardrobe/del?userId=%@&code=%@"
 
 //新增评论
-#define KproductAddReply            @"yiyouv/reply/save"
+#define KproductAddReply            @"reply/save"
 
 //获取收货地址列表
-#define KAddRessListURL             @"yiyouv/address/search?userId=%@"
+#define KAddRessListURL             @"address/search?userId=%@"
 
 //添加到衣柜
-#define KaddToCart                  @"yiyouv/wardrobe/save"
+#define KaddToCart                  @"wardrobe/save"
 
 //获得消息列表
-#define KMsgListURL                 @"yiyouv/message/messages"
+#define KMsgListURL                 @"message/messages"
 
 //获得用户第一条消息
-#define KFirstMsgUrl                @"/yiyouv/message/first"
+#define KFirstMsgUrl                @"message/first"
 //保存用户收获地址
-#define KSaveUserAddressURL         @"yiyouv/address/save"
+#define KSaveUserAddressURL         @"address/save"
 
 //删除用户收获地址
-#define KdeleteUserAddressURL       @"yiyouv/address/del?id=%@"
+#define KdeleteUserAddressURL       @"address/del?id=%@"
 
 //保存用户个推所需参数
-#define KGetuiClientIdURL           @"yiyouv/user/saveClientid?userId=%@&clientid=%@&origin=ios"
+#define KGetuiClientIdURL           @"user/saveClientid?userId=%@&clientid=%@&origin=ios"
 
 //生成订单
-#define KOrderSaveURL               @"yiyouv/order/save"
+#define KOrderSaveURL               @"order/save"
 
 //获取订单列表
-#define KOrderListURL               @"yiyouv/order/orders?userId=%@&type=%@"
+#define KOrderListURL               @"order/orders?userId=%@&type=%@"
 
 //支付成功
-#define KOrderPayURL                @"yiyouv/order/info?id=%@"
+#define KOrderPayURL                @"order/info?id=%@"
 
 //支付失败
-#define KOrderPayDel                @"yiyouv/order/del?id=%@"
+#define KOrderPayDel                @"order/del?id=%@"
 
 //获取订单详情
-#define KOrderDetilURL              @"yiyouv/order/info?id=%@"
+#define KOrderDetilURL              @"order/info?id=%@"
 
 #endif

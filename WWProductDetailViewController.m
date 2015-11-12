@@ -341,7 +341,8 @@
     [productView.webSection1 setFrame:CGRectMake(0,CGRectGetMaxY(productView.control.frame)+10,MainView_Width, 0)];
     [productView.webSection1 setDelegate:self];
     
-    NSString * strUrl = [NSString stringWithFormat:@"http://apitest.aishou.com:8080/yiyouv/clothes/details?id=%@",self.strProductId];
+    NSString *Url = [NSString stringWithFormat:KproductPictureDetial,self.strProductId];
+    NSString *strUrl = [NSString stringWithFormat:@"%@%@",URL_MAIN_HOST,Url];
     NSURL *url=[NSURL URLWithString:strUrl];
     NSURLRequest *request=[NSURLRequest requestWithURL:url];
     [productView.webSection1 loadRequest:request];
@@ -355,7 +356,8 @@
     [productView.webSection2 setFrame:CGRectMake(0,CGRectGetMaxY(productView.control.frame)+10,MainView_Width, 0)];
     [productView.webSection2 setDelegate:self];
     
-    NSString * strUrl = [NSString stringWithFormat:@"http://apitest.aishou.com:8080/yiyouv/clothes/parameter?id=%@",self.strProductId];
+    NSString * Url = [NSString stringWithFormat:KproductParameters,self.strProductId];
+    NSString *strUrl = [NSString stringWithFormat:@"%@%@",URL_MAIN_HOST,Url];
     NSURL *url=[NSURL URLWithString:strUrl];
     NSURLRequest *request=[NSURLRequest requestWithURL:url];
     [productView.webSection2 loadRequest:request];
